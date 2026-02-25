@@ -13,14 +13,16 @@
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "12.6.12",
-		"@astrojs/mdx": "4.3.12",
-		"@astrojs/rss": "4.0.14",
-		"@astrojs/sitemap": "3.6.0",
-		"astro": "5.16.2",
+		"@astrojs/mdx": "4.3.13",
+		"@astrojs/rss": "4.0.15",
+		"@astrojs/sitemap": "3.7.0",
+		"@tailwindcss/vite": "^4.2.1",
+		"astro": "5.18.0",
+		"tailwindcss": "^4.2.1",
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
-		"wrangler": "4.56.0"
+		"wrangler": "4.68.1"
 	},
 	"private": true,
 	"scripts": {

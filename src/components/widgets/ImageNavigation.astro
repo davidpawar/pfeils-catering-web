@@ -1,0 +1,130 @@
+---
+interface NavigationCard {
+  /*
+   * Relative URL for the destination page of the card.
+   */
+  href: string;
+  /*
+   * Accessible alt text for the card image.
+   */
+  imageAlt: string;
+  /*
+   * Source URL for the card background image.
+   */
+  imageSrc: string;
+  /*
+   * Supporting description shown under the card title.
+   */
+  text: string;
+  /*
+   * Main heading displayed on the card.
+   */
+  title: string;
+}
+
+interface Props {
+  /*
+   * Three cards rendered in the navigation grid.
+   */
+  cards: [NavigationCard, NavigationCard, NavigationCard];
+  /*
+   * Introductory badge text above the section heading.
+   */
+  sectionBadge: string;
+  /*
+   * Supporting paragraph under the section heading.
+   */
+  sectionDescription: string;
+  /*
+   * Main section heading for the navigation block.
+   */
+  sectionTitle: string;
+}
+
+const { cards, sectionBadge, sectionDescription, sectionTitle } = Astro.props;
+---
+
+<section class="bg-white">
+  <div class="mx-auto max-w-7xl px-16 py-28">
+    <div class="fade-in-section mb-8 max-w-4xl">
+      <div
+        class="mb-6 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1"
+      >
+        <h3
+          class="font-outfit text-base uppercase tracking-wider text-white leading-[1.3]"
+        >
+          {sectionBadge}
+        </h3>
+      </div>
+
+      <h2 class="mb-1 font-anton text-5xl leading-[1.2] text-dark">
+        {sectionTitle}
+      </h2>
+
+      <p class="text-lg font-light leading-relaxed text-dark/70">
+        {sectionDescription}
+      </p>
+    </div>
+
+    <div
+      class="fade-in-section delay-200 grid grid-cols-1 gap-6 md:h-[42rem] md:grid-cols-2"
+    >
+      {
+        cards.map((card, index) => {
+          const isFeatured = index === 0;
+
+          return (
+            <a
+              href={card.href}
+              class:list={[
+                "group relative overflow-hidden rounded-br-4xl",
+                isFeatured && "row-span-2",
+              ]}
+            >
+              <img
+                src={card.imageSrc}
+                alt={card.imageAlt}
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+              <div
+                class:list={[
+                  "absolute bottom-0 left-0 right-0",
+                  isFeatured ? "p-12" : "p-10",
+                ]}
+              >
+                <div class={isFeatured ? "mb-6" : "mb-4"}>
+                  <h3
+                    class:list={[
+                      "font-anton text-white leading-tight",
+                      isFeatured ? "mb-3 text-5xl" : "mb-2 text-4xl",
+                    ]}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    class:list={[
+                      "text-white/90 leading-relaxed",
+                      isFeatured ? "text-lg" : "text-base",
+                    ]}
+                  >
+                    {card.text}
+                  </p>
+                </div>
+                <span
+                  class:list={[
+                    "inline-flex items-center border-b-2 border-white/50 pb-1 text-white font-medium uppercase tracking-wider transition-all duration-300 group-hover:border-white",
+                    isFeatured ? "text-base" : "text-sm",
+                  ]}
+                >
+                  weitere details →
+                </span>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
