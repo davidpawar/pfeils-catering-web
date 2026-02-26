@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseHead from "../../components/base/BaseHead.astro";
 import Footer from "../../components/base/Footer.astro";
-import Header from "../../components/base/Header.astro";
+import Navigation from "../../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
 const posts = (await getCollection("blog")).sort(
@@ -85,8 +85,9 @@ const posts = (await getCollection("blog")).sort(
     </style>
   </head>
   <body>
-    <Header />
-    <main>
+    <div class="relative">
+      <Navigation />
+      <main>
       <section>
         <ul>
           {
@@ -108,5 +109,6 @@ const posts = (await getCollection("blog")).sort(
       </section>
     </main>
     <Footer />
+    </div>
   </body>
 </html>

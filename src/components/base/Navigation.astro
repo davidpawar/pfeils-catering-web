@@ -1,0 +1,168 @@
+---
+const navLinks = [
+  { label: "Startseite", href: "/" },
+  { label: "Firmenfeier", href: "/firmenfeier/" },
+  { label: "Hochzeitsfeier", href: "/hochzeitsfeier/" },
+  { label: "Messe Catering", href: "/messe-catering/" },
+  { label: "Mobile Cocktailbar", href: "/mobile-cocktailbar/" },
+  { label: "Jetzt anfragen", href: "/anfrage/" },
+];
+---
+
+<header class="absolute left-0 right-0 top-0 z-50">
+  <nav
+    class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12 lg:py-5 lg:px-16"
+    aria-label="Hauptnavigation"
+  >
+    <!-- Desktop: Logo links -->
+    <a
+      href="/"
+      class="hidden items-center md:flex"
+      aria-label="Pfeil's Catering - Startseite"
+    >
+      <img
+        src="https://pfeils-catering.de/wp-content/uploads/2024/08/Logo-Alt-weiss.png"
+        alt="Pfeil's Catering Logo"
+        class="h-12 w-auto"
+      />
+    </a>
+
+    <!-- Mobile: Burger links -->
+    <button
+      id="nav-burger"
+      type="button"
+      class="flex h-10 w-10 items-center justify-center text-white md:hidden"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Mobile: Logo zentral (absolute für echte Mitte) -->
+    <a
+      href="/"
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden"
+      aria-label="Pfeil's Catering - Startseite"
+    >
+      <img
+        src="https://pfeils-catering.de/wp-content/uploads/2024/08/Logo-Alt-weiss.png"
+        alt="Pfeil's Catering Logo"
+        class="h-10 w-auto"
+      />
+    </a>
+
+    <!-- Desktop: Menu rechts -->
+    <div class="hidden md:flex md:items-center md:gap-8">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="font-outfit text-base text-white/90 transition-colors hover:text-white"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Mobile: unsichtbarer Platzhalter für symmetrisches Layout (Burger links, Logo mitte) -->
+    <div class="h-10 w-10 md:hidden" aria-hidden="true"></div>
+  </nav>
+</header>
+
+<!-- Mobile Overlay (fährt von links rein) -->
+<div
+  id="nav-overlay"
+  class="fixed inset-y-0 left-0 z-50 w-full max-w-sm -translate-x-full bg-dark-bg/98 shadow-xl backdrop-blur-sm transition-transform duration-500 ease-in-out md:hidden"
+  aria-hidden="true"
+>
+  <div class="flex flex-col p-6">
+    <button
+      id="nav-close"
+      type="button"
+      class="ml-auto flex h-10 w-10 items-center justify-center text-white"
+      aria-label="Menü schließen"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <nav class="mt-12 flex flex-col gap-6" aria-label="Mobile Navigation">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="nav-overlay-link font-outfit text-xl text-white/90 transition-colors hover:text-white"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</div>
+
+<!-- Backdrop beim geöffneten Overlay -->
+<div
+  id="nav-backdrop"
+  class="fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-500 ease-linear md:hidden pointer-events-none"
+  aria-hidden="true"
+>
+</div>
+
+<script>
+  const burger = document.getElementById("nav-burger");
+  const overlay = document.getElementById("nav-overlay");
+  const closeBtn = document.getElementById("nav-close");
+  const backdrop = document.getElementById("nav-backdrop");
+
+  function openMenu() {
+    overlay?.classList.remove("-translate-x-full");
+    overlay?.classList.add("translate-x-0");
+    backdrop?.classList.remove("opacity-0", "pointer-events-none");
+    backdrop?.classList.add("opacity-100", "pointer-events-auto");
+    overlay?.setAttribute("aria-hidden", "false");
+    burger?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    overlay?.classList.remove("translate-x-0");
+    overlay?.classList.add("-translate-x-full");
+    backdrop?.classList.add("opacity-0", "pointer-events-none");
+    backdrop?.classList.remove("opacity-100", "pointer-events-auto");
+    overlay?.setAttribute("aria-hidden", "true");
+    burger?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  burger?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
+
+  // Schließen bei Klick auf Link (für SPA-Navigation oder direkte Sprünge)
+  document.querySelectorAll(".nav-overlay-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
