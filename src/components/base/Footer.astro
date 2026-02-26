@@ -26,10 +26,10 @@ const quickLinks = [
 ---
 
 <footer class="bg-dark-bg text-white">
-  <div class="fade-in-section max-w-[1300px] mx-auto px-[60px] py-[80px]">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-[60px]">
+  <div class="fade-in-section mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12 lg:gap-16">
       <!-- Column 1: Company Info -->
-      <div class="space-y-6">
+      <div class="space-y-4 md:space-y-6">
         <div class="flex items-center gap-3">
           <div
             class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary-light flex items-center justify-center"
@@ -48,9 +48,9 @@ const quickLinks = [
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <span class="font-anton text-[28px]">Pfeil's Catering</span>
+          <span class="font-anton text-2xl md:text-3xl">Pfeil's Catering</span>
         </div>
-        <p class="text-white/70 text-[17px] leading-[1.7]">
+        <p class="text-base leading-relaxed text-white/70 md:text-lg">
           Mit Herz gemixt, für dich und deine Gäste. Professionelles
           Cocktail-Catering für unvergessliche Events seit 2008.
         </p>
@@ -82,13 +82,13 @@ const quickLinks = [
 
       <!-- Column 2: Quick Links -->
       <div>
-        <h3 class="font-anton text-[22px] mb-6">Schnellzugriff</h3>
-        <nav class="space-y-4">
+        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">Schnellzugriff</h3>
+        <nav class="space-y-3 md:space-y-4">
           {
             quickLinks.map((link) => (
               <a
                 href={link.href}
-                class="block text-white/70 text-[17px] transition-colors duration-300 hover:text-primary"
+                class="block text-base text-white/70 transition-colors duration-300 hover:text-primary md:text-lg"
               >
                 {link.label}
               </a>
@@ -99,8 +99,8 @@ const quickLinks = [
 
       <!-- Column 3: Contact Info -->
       <div>
-        <h3 class="font-anton text-[22px] mb-6">Kontakt</h3>
-        <div class="space-y-5">
+        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">Kontakt</h3>
+        <div class="space-y-4 md:space-y-5">
           <a
             href="tel:01784988521"
             class="flex items-center gap-4 text-white/70 transition-colors duration-300 hover:text-primary group"
@@ -122,7 +122,7 @@ const quickLinks = [
                   stroke-linejoin="round"></path>
               </svg>
             </div>
-            <span class="text-[17px]">0178 498 85 21</span>
+            <span class="text-base md:text-lg">0178 498 85 21</span>
           </a>
           <a
             href="mailto:info@pfeils-catering.de"
@@ -145,7 +145,7 @@ const quickLinks = [
                   stroke-linejoin="round"></path>
               </svg>
             </div>
-            <span class="text-[17px]">info@pfeils-catering.de</span>
+            <span class="text-base md:text-lg">info@pfeils-catering.de</span>
           </a>
           <div class="flex items-start gap-4 text-white/70">
             <div
@@ -171,7 +171,7 @@ const quickLinks = [
                   stroke-linejoin="round"></path>
               </svg>
             </div>
-            <span class="text-[17px]">
+            <span class="text-base md:text-lg">
               Oberbergischer Kreis
               <br />
               Nordrhein-Westfalen
@@ -184,9 +184,9 @@ const quickLinks = [
 
   <!-- Bottom Bar -->
   <div class="border-t border-white/10">
-    <div class="max-w-[1300px] mx-auto px-[60px] py-6">
+    <div class="mx-auto max-w-7xl px-6 py-6 md:px-12 lg:px-16">
       <div
-        class="flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-[15px]"
+        class="flex flex-col items-center justify-between gap-4 text-center text-sm text-white/50 md:flex-row md:text-left"
       >
         <p>
           © {currentYear} Pfeil's Cocktail Catering. Alle Rechte vorbehalten.
