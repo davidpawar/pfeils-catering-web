@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import { getImageAlt } from "../../provider/imageProvider";
+import { imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -20,26 +23,19 @@ const quickLinks = [
     <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12 lg:gap-16">
       <!-- Column 1: Company Info -->
       <div class="space-y-4 md:space-y-6">
-        <div class="flex items-center gap-3">
-          <div
-            class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary-light flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-white"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M5 4h14M8 4l4 5 4-5M12 9v9m-3 0h6"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <span class="font-anton text-2xl md:text-3xl">Pfeil's Catering</span>
-        </div>
+        <a
+          href={translatePath("/")}
+          class="flex items-center gap-3 transition-opacity duration-300 hover:opacity-90"
+          aria-label={`Pfeil's Catering – ${t("nav.home")}`}
+        >
+          <Image
+            src={imageProvider.logo.altWeiss.src as import("astro").ImageMetadata}
+            alt={getImageAlt(imageProvider.logo.altWeiss, lang)}
+            class="h-12 w-auto md:h-14"
+            width={180}
+            height={56}
+          />
+        </a>
         <p class="text-base leading-relaxed text-white/70 md:text-lg">
           {t("footer.tagline")}
         </p>
