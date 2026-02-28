@@ -4,6 +4,7 @@ import Footer from "../../components/base/Footer.astro";
 import HeroMain from "../../components/widgets/HeroMain.astro";
 import ImageNavigation from "../../components/widgets/ImageNavigation.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
+import LogoList from "../../components/widgets/LogoList.astro";
 import Navigation from "../../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { imageProvider } from "../../provider/imageProvider";
@@ -34,22 +35,6 @@ const translatePath = useTranslatedPath(lang);
           rightStatValue="100+"
           title="A team of experts with a passion for cocktails and great service."
         />
-        <ImageText
-          badgeText="Why book us"
-          checkItems={[
-            "Decades of experience",
-            "100% reliability",
-            "Cocktail expertise",
-            "Excellent service",
-            "Strong flexibility",
-            "Fresh ingredients",
-          ]}
-          description="Our cocktail catering stands for reliable planning, professional implementation and consistently high quality. Experienced bartenders ensure smooth operations and premium drinks. We create an elegant framework for your corporate event – efficient and service-oriented."
-          image={imageProvider.catering.cocktailService}
-          imagePosition="right"
-          title="From classic cocktails to creative signature drinks"
-          theme="dark"
-        />
         <ImageNavigation
           moreDetailsText="more details →"
           sectionBadge="Our Service"
@@ -76,6 +61,36 @@ const translatePath = useTranslatedPath(lang);
             },
           ]}
         />
+        <ImageText
+          badgeText="Why book us"
+          checkItems={[
+            "Decades of experience",
+            "100% reliability",
+            "Cocktail expertise",
+            "Excellent service",
+            "Strong flexibility",
+            "Fresh ingredients",
+          ]}
+          description="Our cocktail catering stands for reliable planning, professional implementation and consistently high quality. Experienced bartenders ensure smooth operations and premium drinks. We create an elegant framework for your corporate event – efficient and service-oriented."
+          image={imageProvider.catering.cocktailService}
+          imagePosition="right"
+          title="From classic cocktails to creative signature drinks"
+          theme="dark"
+        />
+        <LogoList
+          badge="References"
+          title="A selection of our references"
+          description="From regional SMEs to global players – we bring the bar where it's celebrated."
+          logos={[
+            { href: "https://www.vb-oberberg.de/startseite.html", image: imageProvider.partners.volksbank, title: "Volksbank Oberberg", description: "Cooperative bank for the region – membership, co-determination and shared success." },
+            { href: "https://www.ksk-koeln.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort/oberbergischen-kreis.html", image: imageProvider.partners.sparkasse, title: "Sparkasse KölnBonn", description: "Kreissparkasse Köln in the Oberberg district – personal advice and top regional bank in NRW." },
+            { href: "https://kaltenbach-gruppe.de/bmw/waldbroel", image: imageProvider.partners.bmwKaltenbach, title: "BMW Kaltenbach Waldbröl", description: "BMW dealer and MINI service – part of the Kaltenbach Group in the Oberberg region." },
+            { href: "https://www.schwalbe.com/", image: imageProvider.partners.schwalbe, title: "Schwalbe", description: "Leading manufacturer of bicycle and wheelchair tires – tires that get you where you want to go." },
+            { href: "https://www.oni.de/", image: imageProvider.partners.oni, title: "ONI", description: "Energy-efficient systems for industry and cooling technology – over 6,000 customers in 70 countries." },
+            { href: "https://www.elektrisola.com/de", image: imageProvider.partners.elektrisola, title: "Elektrisola", description: "World-leading manufacturer of enamelled wire and fine wire – 10 plants in 7 countries." },
+          ]}
+        />
+
         <Footer />
       </main>
     </div>

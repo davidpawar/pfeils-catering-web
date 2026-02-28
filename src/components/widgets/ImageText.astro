@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageAsset } from "../../provider/imageProvider";
+import { getImageAlt } from "../../provider/imageProvider";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 
 interface Props {
   /*
@@ -106,7 +110,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
       >
         <Image
           src={image.src as import("astro").ImageMetadata}
-          alt={image.alt}
+          alt={getImageAlt(image, lang)}
           class="h-full w-full object-cover"
           width={800}
           height={600}

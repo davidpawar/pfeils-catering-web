@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageAsset } from "../../provider/imageProvider";
+import { getImageAlt } from "../../provider/imageProvider";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 
 interface NavigationCard {
   /*
@@ -88,7 +92,7 @@ const { cards, moreDetailsText = "weitere details →", sectionBadge, sectionDes
             >
               <Image
                 src={card.image.src as import("astro").ImageMetadata}
-                alt={card.image.alt}
+                alt={getImageAlt(card.image, lang)}
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 width={768}
                 height={630}
