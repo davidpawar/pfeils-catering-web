@@ -48,11 +48,19 @@ interface Props {
   sectionTitle: string;
 }
 
-const { cards, moreDetailsText = "weitere details →", sectionBadge, sectionDescription, sectionTitle } = Astro.props;
+const {
+  cards,
+  moreDetailsText = "weitere details →",
+  sectionBadge,
+  sectionDescription,
+  sectionTitle,
+} = Astro.props;
 ---
 
-<section class="bg-white">
+<!-- ImageNavigation: Service navigation with image cards -->
+<section class="bg-slate-100">
   <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24">
+    <!-- Section header: badge, title, description -->
     <div class="fade-in-section mb-6 max-w-4xl md:mb-8">
       <div
         class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6"
@@ -75,6 +83,7 @@ const { cards, moreDetailsText = "weitere details →", sectionBadge, sectionDes
       </p>
     </div>
 
+    <!-- Navigation cards grid -->
     <div
       class="fade-in-section delay-200 grid grid-cols-1 gap-4 md:h-[42rem] md:grid-cols-2 md:gap-6"
     >
@@ -90,6 +99,7 @@ const { cards, moreDetailsText = "weitere details →", sectionBadge, sectionDes
                 isFeatured && "md:row-span-2",
               ]}
             >
+              <!-- Card image -->
               <Image
                 src={card.image.src as import("astro").ImageMetadata}
                 alt={getImageAlt(card.image, lang)}
@@ -97,8 +107,11 @@ const { cards, moreDetailsText = "weitere details →", sectionBadge, sectionDes
                 width={768}
                 height={630}
               />
+              <!-- Image overlays: dark tint + bottom gradient for text -->
+              <div class="absolute inset-0 bg-black/25" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
+              <!-- Card content: title, description, link -->
               <div
                 class:list={[
                   "absolute bottom-0 left-0 right-0",

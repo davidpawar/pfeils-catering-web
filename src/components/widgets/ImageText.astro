@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
 import type { ImageAsset } from "../../provider/imageProvider";
 import { getImageAlt } from "../../provider/imageProvider";
 import { getLangFromUrl } from "../../i18n/utils";
@@ -19,6 +20,10 @@ interface Props {
    * Supporting paragraph below the heading.
    */
   description: string;
+  /*
+   * Optional URL for the "Mehr erfahren" button. When set, a button is shown at the bottom.
+   */
+  link?: string;
   /*
    * Image with src and alt from central registry.
    */
@@ -63,6 +68,7 @@ const {
   checkItems = [],
   description,
   image,
+  link,
   imagePosition = "left",
   leftStatLabel,
   leftStatPrefix = "",
@@ -86,10 +92,10 @@ const flexOrderClasses = isImageRight
   ? "flex-col-reverse md:flex-row-reverse"
   : "flex-col md:flex-row";
 const titleClass = isDark ? "text-white" : "text-dark";
-const descriptionClass = isDark ? "text-white/80" : "text-dark/70";
+const descriptionClass = isDark ? "text-white/90" : "text-dark/70";
 const statValueClass = isDark ? "text-primary-light" : "text-primary";
-const statLabelClass = isDark ? "text-white/80" : "text-dark";
-const checkTextClass = isDark ? "text-white" : "text-dark";
+const statLabelClass = isDark ? "text-white/90" : "text-dark/70";
+const checkTextClass = isDark ? "text-white/90" : "text-dark/70";
 const checkIconClass = isDark ? "text-primary-light" : "text-primary";
 ---
 
@@ -243,6 +249,15 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
               </p>
             </div>
           </div>
+        )
+      }
+
+      <!-- Button (optional, bottommost) -->
+      {
+        link && (
+          <Button href={link} class="mt-6 md:mt-8">
+            Mehr erfahren
+          </Button>
         )
       }
     </div>

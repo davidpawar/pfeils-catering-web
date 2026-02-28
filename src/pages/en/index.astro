@@ -82,13 +82,66 @@ const translatePath = useTranslatedPath(lang);
           title="A selection of our references"
           description="From regional SMEs to global players – we bring the bar where it's celebrated."
           logos={[
-            { href: "https://www.vb-oberberg.de/startseite.html", image: imageProvider.partners.volksbank, title: "Volksbank Oberberg", description: "Cooperative bank for the region – membership, co-determination and shared success." },
-            { href: "https://www.ksk-koeln.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort/oberbergischen-kreis.html", image: imageProvider.partners.sparkasse, title: "Sparkasse KölnBonn", description: "Kreissparkasse Köln in the Oberberg district – personal advice and top regional bank in NRW." },
-            { href: "https://kaltenbach-gruppe.de/bmw/waldbroel", image: imageProvider.partners.bmwKaltenbach, title: "BMW Kaltenbach Waldbröl", description: "BMW dealer and MINI service – part of the Kaltenbach Group in the Oberberg region." },
-            { href: "https://www.schwalbe.com/", image: imageProvider.partners.schwalbe, title: "Schwalbe", description: "Leading manufacturer of bicycle and wheelchair tires – tires that get you where you want to go." },
-            { href: "https://www.oni.de/", image: imageProvider.partners.oni, title: "ONI", description: "Energy-efficient systems for industry and cooling technology – over 6,000 customers in 70 countries." },
-            { href: "https://www.elektrisola.com/de", image: imageProvider.partners.elektrisola, title: "Elektrisola", description: "World-leading manufacturer of enamelled wire and fine wire – 10 plants in 7 countries." },
+            {
+              href: "https://www.vb-oberberg.de/startseite.html",
+              image: imageProvider.partners.volksbank,
+              title: "Volksbank Oberberg",
+              description:
+                "Cooperative bank for the region – membership, co-determination and shared success.",
+            },
+            {
+              href: "https://www.ksk-koeln.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort/oberbergischen-kreis.html",
+              image: imageProvider.partners.sparkasse,
+              title: "Sparkasse KölnBonn",
+              description:
+                "Kreissparkasse Köln in the Oberberg district – personal advice and top regional bank in NRW.",
+            },
+            {
+              href: "https://kaltenbach-gruppe.de/bmw/waldbroel",
+              image: imageProvider.partners.bmwKaltenbach,
+              title: "BMW Kaltenbach Waldbröl",
+              description:
+                "BMW dealer and MINI service – part of the Kaltenbach Group in the Oberberg region.",
+            },
+            {
+              href: "https://www.schwalbe.com/",
+              image: imageProvider.partners.schwalbe,
+              title: "Schwalbe",
+              description:
+                "Leading manufacturer of bicycle and wheelchair tires – tires that get you where you want to go.",
+            },
+            {
+              href: "https://www.oni.de/",
+              image: imageProvider.partners.oni,
+              title: "ONI",
+              description:
+                "Energy-efficient systems for industry and cooling technology – over 6,000 customers in 70 countries.",
+            },
+            {
+              href: "https://www.elektrisola.com/de",
+              image: imageProvider.partners.elektrisola,
+              title: "Elektrisola",
+              description:
+                "World-leading manufacturer of enamelled wire and fine wire – 10 plants in 7 countries.",
+            },
           ]}
+        />
+
+        <ImageText
+          badgeText="Mobile Cocktail Bar"
+          checkItems={[
+            "Flexible location",
+            "Perfectly staged",
+            "Individually tailored",
+            "All-inclusive package",
+            "Reliable bar service",
+            "Attention to detail",
+          ]}
+          description="Mobile cocktail bar with style – the flexible solution for your event. We bring excellent cocktails and atmosphere directly to you, whether wedding, corporate celebration or festival. Quality equipment, experienced team and drinks from classics to individual creations."
+          image={imageProvider.catering.bambusbar}
+          imagePosition="right"
+          link={translatePath("/mobile-cocktailbar/")}
+          title="Our mobile cocktail bar"
         />
 
         <Footer />

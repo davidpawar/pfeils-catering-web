@@ -1,4 +1,5 @@
 ---
+import Button from "../ui/Button.astro";
 import { imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
 
@@ -33,12 +34,7 @@ const translatePath = useTranslatedPath(lang);
     </div>
 
     <div class="animate-fade-in-up">
-      <a
-        href={translatePath("/anfrage/")}
-        class="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-light px-6 py-3 font-outfit text-base text-white transition-all duration-300 hover:shadow-lg md:min-h-14 md:px-8 md:py-4 md:text-lg"
-      >
-        {t("hero.cta")}
-      </a>
+      <Button href={translatePath("/anfrage/")}>{t("hero.cta")}</Button>
     </div>
   </div>
 </section>
