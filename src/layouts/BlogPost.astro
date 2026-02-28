@@ -1,15 +1,17 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/base/BaseHead.astro";
+import { getLangFromUrl } from "../i18n/utils";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { lang?: string };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, lang: langProp } = Astro.props;
+const lang = langProp ?? getLangFromUrl(Astro.url);
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} lang={lang} />
   </head>
 
   <body> TEST </body>

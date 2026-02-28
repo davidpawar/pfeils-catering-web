@@ -1,27 +1,17 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 const currentYear = new Date().getFullYear();
 
 const quickLinks = [
-  {
-    label: "Firmenfeier",
-    href: "/firmenfeier/",
-  },
-  {
-    label: "Hochzeitsfeier",
-    href: "/hochzeitsfeier/",
-  },
-  {
-    label: "Messe Catering",
-    href: "/messe-catering/",
-  },
-  {
-    label: "Mobile Cocktailbar",
-    href: "/mobile-cocktailbar/",
-  },
-  {
-    label: "Jetzt anfragen",
-    href: "/anfrage/",
-  },
+  { label: t("nav.firmenfeier"), href: translatePath("/firmenfeier/") },
+  { label: t("nav.hochzeitsfeier"), href: translatePath("/hochzeitsfeier/") },
+  { label: t("nav.messeCatering"), href: translatePath("/messe-catering/") },
+  { label: t("nav.mobileCocktailbar"), href: translatePath("/mobile-cocktailbar/") },
+  { label: t("nav.anfrage"), href: translatePath("/anfrage/") },
 ];
 ---
 
@@ -51,8 +41,7 @@ const quickLinks = [
           <span class="font-anton text-2xl md:text-3xl">Pfeil's Catering</span>
         </div>
         <p class="text-base leading-relaxed text-white/70 md:text-lg">
-          Mit Herz gemixt, für dich und deine Gäste. Professionelles
-          Cocktail-Catering für unvergessliche Events seit 2008.
+          {t("footer.tagline")}
         </p>
         <div class="flex gap-4">
           <a
@@ -82,7 +71,7 @@ const quickLinks = [
 
       <!-- Column 2: Quick Links -->
       <div>
-        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">Schnellzugriff</h3>
+        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">{t("footer.quickLinks")}</h3>
         <nav class="space-y-3 md:space-y-4">
           {
             quickLinks.map((link) => (
@@ -99,7 +88,7 @@ const quickLinks = [
 
       <!-- Column 3: Contact Info -->
       <div>
-        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">Kontakt</h3>
+        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">{t("footer.contact")}</h3>
         <div class="space-y-4 md:space-y-5">
           <a
             href="tel:01784988521"
@@ -189,14 +178,14 @@ const quickLinks = [
         class="flex flex-col items-center justify-between gap-4 text-center text-sm text-white/50 md:flex-row md:text-left"
       >
         <p>
-          © {currentYear} Pfeil's Cocktail Catering. Alle Rechte vorbehalten.
+          © {currentYear} Pfeil's Cocktail Catering. {t("footer.copyright")}
         </p>
         <div class="flex gap-6">
-          <a href="/impressum/" class="transition-colors hover:text-primary">
-            Impressum
+          <a href={translatePath("/impressum/")} class="transition-colors hover:text-primary">
+            {t("nav.impressum")}
           </a>
-          <a href="/datenschutz/" class="transition-colors hover:text-primary">
-            Datenschutz
+          <a href={translatePath("/datenschutz/")} class="transition-colors hover:text-primary">
+            {t("nav.datenschutz")}
           </a>
         </div>
       </div>

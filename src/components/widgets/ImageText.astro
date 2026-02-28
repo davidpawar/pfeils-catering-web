@@ -1,72 +1,124 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageAsset } from "../../provider/imageProvider";
+
 interface Props {
   /*
    * Small badge headline shown above the main title.
    */
   badgeText: string;
   /*
+   * Optional list of check items shown below the description in a 2-column layout.
+   */
+  checkItems?: string[];
+  /*
    * Supporting paragraph below the heading.
    */
   description: string;
   /*
-   * Accessible alt text for the section image.
+   * Image with src and alt from central registry.
    */
-  imageAlt: string;
+  image: ImageAsset;
   /*
-   * Image source URL for the left visual block.
+   * Position of the image: "left" (default) or "right".
    */
-  imageSrc: string;
+  imagePosition?: "left" | "right";
   /*
    * Description text for the left statistic.
    */
-  leftStatLabel: string;
+  leftStatLabel?: string;
   /*
    * Prefix label for the left statistic, e.g. "seit".
    */
-  leftStatPrefix: string;
+  leftStatPrefix?: string;
   /*
    * Numeric/value part of the left statistic.
    */
-  leftStatValue: string;
+  leftStatValue?: string;
   /*
    * Description text for the right statistic.
    */
-  rightStatLabel: string;
+  rightStatLabel?: string;
   /*
    * Numeric/value part of the right statistic.
    */
-  rightStatValue: string;
+  rightStatValue?: string;
   /*
    * Main heading text of the content area.
    */
   title: string;
+  /*
+   * Visual theme: "light" (default) or "dark".
+   * Dark uses bg-dark-bg with white text.
+   */
+  theme?: "light" | "dark";
 }
 
 const {
   badgeText,
+  checkItems = [],
   description,
-  imageAlt,
-  imageSrc,
+  image,
+  imagePosition = "left",
   leftStatLabel,
-  leftStatPrefix,
+  leftStatPrefix = "",
   leftStatValue,
   rightStatLabel,
   rightStatValue,
   title,
+  theme = "light",
 } = Astro.props;
+
+const showStats =
+  leftStatLabel != null &&
+  leftStatValue != null &&
+  rightStatLabel != null &&
+  rightStatValue != null;
+
+const isDark = theme === "dark";
+const isImageRight = imagePosition === "right";
+
+const flexOrderClasses = isImageRight
+  ? "flex-col-reverse md:flex-row-reverse"
+  : "flex-col md:flex-row";
+const titleClass = isDark ? "text-white" : "text-dark";
+const descriptionClass = isDark ? "text-white/80" : "text-dark/70";
+const statValueClass = isDark ? "text-primary-light" : "text-primary";
+const statLabelClass = isDark ? "text-white/80" : "text-dark";
+const checkTextClass = isDark ? "text-white" : "text-dark";
+const checkIconClass = isDark ? "text-primary-light" : "text-primary";
 ---
 
-<section class="relative max-w-full">
-  <div class="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 md:flex-row md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28">
-    <div class="fade-in-section flex w-full justify-center md:w-1/2 md:justify-end">
-      <div class="aspect-[4/3] w-full overflow-hidden rounded-br-4xl md:aspect-square">
-        <img src={imageSrc} alt={imageAlt} class="h-full w-full object-cover" />
+<!-- ImageText Section -->
+<section class:list={["relative max-w-full", isDark && "bg-dark-bg"]}>
+  <div
+    class:list={[
+      "mx-auto flex max-w-7xl gap-8 px-6 py-12 md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28",
+      flexOrderClasses,
+    ]}
+  >
+    <!-- Image Block -->
+    <div
+      class="fade-in-section flex w-full justify-center md:w-1/2 md:justify-end"
+    >
+      <div
+        class="aspect-[4/3] w-full overflow-hidden rounded-br-4xl md:aspect-square"
+      >
+        <Image
+          src={image.src as import("astro").ImageMetadata}
+          alt={image.alt}
+          class="h-full w-full object-cover"
+          width={800}
+          height={600}
+        />
       </div>
     </div>
 
+    <!-- Content Block -->
     <div
       class="fade-in-section delay-200 flex flex-1 flex-col justify-center gap-4 md:gap-6"
     >
+      <!-- Badge -->
       <div>
         <div
           class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6"
@@ -79,42 +131,116 @@ const {
         </div>
       </div>
 
+      <!-- Title -->
       <div>
-        <p class="font-anton text-3xl leading-tight text-dark md:text-4xl lg:text-5xl">
+        <p
+          class:list={[
+            "font-anton text-3xl leading-tight md:text-4xl lg:text-5xl",
+            titleClass,
+          ]}
+        >
           {title}
         </p>
       </div>
 
+      <!-- Description -->
       <div>
-        <p class="text-base font-light leading-relaxed text-dark/70 md:text-lg">
+        <p
+          class:list={[
+            "text-base font-light leading-relaxed md:text-lg",
+            descriptionClass,
+          ]}
+        >
           {description}
         </p>
       </div>
 
-      <div class="mt-2 grid grid-cols-2 gap-6 md:gap-10">
-        <div class="flex flex-col gap-2 md:gap-3">
-          <div class="flex items-center gap-1">
-            <div class="font-outfit text-lg text-primary md:text-2xl">
-              {leftStatPrefix}
-            </div>
-            <div
-              class="font-outfit text-4xl font-semibold tracking-wide text-primary leading-none md:text-5xl lg:text-6xl"
-            >
-              {leftStatValue}
-            </div>
+      <!-- Check List (optional) -->
+      {
+        checkItems.length > 0 && (
+          <div class="grid grid-cols-2 gap-x-4 gap-y-2 sm:gap-x-6 sm:gap-y-3">
+            {checkItems.map((item) => (
+              <div class="flex items-center gap-2">
+                <svg
+                  class:list={["h-5 w-5 shrink-0", checkIconClass]}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                <span
+                  class:list={[
+                    "font-outfit text-sm md:text-base",
+                    checkTextClass,
+                  ]}
+                >
+                  {item}
+                </span>
+              </div>
+            ))}
           </div>
-          <p class="font-outfit text-base text-dark md:text-xl">{leftStatLabel}</p>
-        </div>
+        )
+      }
 
-        <div class="flex flex-col gap-2 md:gap-3">
-          <div
-            class="font-outfit text-4xl font-semibold tracking-wide text-primary leading-none md:text-5xl lg:text-6xl"
-          >
-            {rightStatValue}
+      <!-- Statistics (optional) -->
+      {
+        showStats && (
+          <div class="mt-2 grid grid-cols-2 gap-6 md:gap-10">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <div class="flex items-center gap-1">
+                <div
+                  class:list={[
+                    "font-outfit text-lg md:text-2xl",
+                    statValueClass,
+                  ]}
+                >
+                  {leftStatPrefix}
+                </div>
+                <div
+                  class:list={[
+                    "font-outfit text-4xl font-semibold tracking-wide leading-none md:text-5xl lg:text-6xl",
+                    statValueClass,
+                  ]}
+                >
+                  {leftStatValue}
+                </div>
+              </div>
+              <p
+                class:list={[
+                  "font-outfit text-base md:text-xl",
+                  statLabelClass,
+                ]}
+              >
+                {leftStatLabel}
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-2 md:gap-3">
+              <div
+                class:list={[
+                  "font-outfit text-4xl font-semibold tracking-wide leading-none md:text-5xl lg:text-6xl",
+                  statValueClass,
+                ]}
+              >
+                {rightStatValue}
+              </div>
+              <p
+                class:list={[
+                  "font-outfit text-base md:text-xl",
+                  statLabelClass,
+                ]}
+              >
+                {rightStatLabel}
+              </p>
+            </div>
           </div>
-          <p class="font-outfit text-base text-dark md:text-xl">{rightStatLabel}</p>
-        </div>
-      </div>
+        )
+      }
     </div>
   </div>
 </section>

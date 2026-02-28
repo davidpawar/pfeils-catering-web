@@ -1,0 +1,83 @@
+---
+import BaseHead from "../../components/base/BaseHead.astro";
+import Footer from "../../components/base/Footer.astro";
+import HeroMain from "../../components/widgets/HeroMain.astro";
+import ImageNavigation from "../../components/widgets/ImageNavigation.astro";
+import ImageText from "../../components/widgets/ImageText.astro";
+import Navigation from "../../components/base/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { imageProvider } from "../../provider/imageProvider";
+import { getLangFromUrl, useTranslatedPath } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        <HeroMain />
+        <ImageText
+          badgeText="Who we are"
+          description="Cocktail stations bring people together! Whether employees, customers or business partners - a well-made cocktail is the perfect icebreaker. You get talking, try new flavor combinations and interact playfully with colleagues. Professional cocktail catering creates exactly the right balance of business & enjoyment."
+          image={imageProvider.team.teamExperts}
+          leftStatLabel="15+ years of expertise"
+          leftStatPrefix="since"
+          leftStatValue="2008"
+          rightStatLabel="Satisfied customers"
+          rightStatValue="100+"
+          title="A team of experts with a passion for cocktails and great service."
+        />
+        <ImageText
+          badgeText="Why book us"
+          checkItems={[
+            "Decades of experience",
+            "100% reliability",
+            "Cocktail expertise",
+            "Excellent service",
+            "Strong flexibility",
+            "Fresh ingredients",
+          ]}
+          description="Our cocktail catering stands for reliable planning, professional implementation and consistently high quality. Experienced bartenders ensure smooth operations and premium drinks. We create an elegant framework for your corporate event – efficient and service-oriented."
+          image={imageProvider.catering.cocktailService}
+          imagePosition="right"
+          title="From classic cocktails to creative signature drinks"
+          theme="dark"
+        />
+        <ImageNavigation
+          moreDetailsText="more details →"
+          sectionBadge="Our Service"
+          sectionDescription="From corporate events to weddings - we bring the bar to you and create unforgettable moments."
+          sectionTitle="Stylish cocktails for every event"
+          cards={[
+            {
+              href: translatePath("/firmenfeier/"),
+              image: imageProvider.events.firmenfeier,
+              text: "Professional cocktail service for business events. Perfect for team building, anniversaries and customer events.",
+              title: "Corporate Events",
+            },
+            {
+              href: translatePath("/hochzeitsfeier/"),
+              image: imageProvider.events.hochzeit,
+              text: "Exclusive cocktails for the most beautiful day. Individually tailored to your wishes.",
+              title: "Wedding",
+            },
+            {
+              href: translatePath("/messe-catering/"),
+              image: imageProvider.events.messe,
+              text: "Mobile bar for trade fairs and large events. High capacity, professional service.",
+              title: "Exhibition & Events",
+            },
+          ]}
+        />
+        <Footer />
+      </main>
+    </div>
+  </body>
+</html>

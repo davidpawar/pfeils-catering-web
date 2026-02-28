@@ -1,11 +1,20 @@
 ---
+import { Image } from "astro:assets";
+import { imageProvider } from "../../provider/imageProvider";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
+import LanguagePicker from "./LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 const navLinks = [
-  { label: "Startseite", href: "/" },
-  { label: "Firmenfeier", href: "/firmenfeier/" },
-  { label: "Hochzeitsfeier", href: "/hochzeitsfeier/" },
-  { label: "Messe Catering", href: "/messe-catering/" },
-  { label: "Mobile Cocktailbar", href: "/mobile-cocktailbar/" },
-  { label: "Jetzt anfragen", href: "/anfrage/" },
+  { label: t("nav.home"), href: translatePath("/") },
+  { label: t("nav.firmenfeier"), href: translatePath("/firmenfeier/") },
+  { label: t("nav.hochzeitsfeier"), href: translatePath("/hochzeitsfeier/") },
+  { label: t("nav.messeCatering"), href: translatePath("/messe-catering/") },
+  { label: t("nav.mobileCocktailbar"), href: translatePath("/mobile-cocktailbar/") },
+  { label: t("nav.anfrage"), href: translatePath("/anfrage/") },
 ];
 ---
 
@@ -16,14 +25,16 @@ const navLinks = [
   >
     <!-- Desktop: Logo links -->
     <a
-      href="/"
+      href={translatePath("/")}
       class="hidden items-center md:flex"
       aria-label="Pfeil's Catering - Startseite"
     >
-      <img
-        src="https://pfeils-catering.de/wp-content/uploads/2024/08/Logo-Alt-weiss.png"
-        alt="Pfeil's Catering Logo"
+      <Image
+        src={imageProvider.logo.altWeiss.src}
+        alt={imageProvider.logo.altWeiss.alt}
         class="h-12 w-auto"
+        width={120}
+        height={48}
       />
     </a>
 
@@ -51,14 +62,16 @@ const navLinks = [
 
     <!-- Mobile: Logo zentral (absolute für echte Mitte) -->
     <a
-      href="/"
+      href={translatePath("/")}
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden"
       aria-label="Pfeil's Catering - Startseite"
     >
-      <img
-        src="https://pfeils-catering.de/wp-content/uploads/2024/08/Logo-Alt-weiss.png"
-        alt="Pfeil's Catering Logo"
+      <Image
+        src={imageProvider.logo.altWeiss.src}
+        alt={imageProvider.logo.altWeiss.alt}
         class="h-10 w-auto"
+        width={100}
+        height={40}
       />
     </a>
 
@@ -74,6 +87,7 @@ const navLinks = [
           </a>
         ))
       }
+      <LanguagePicker />
     </div>
 
     <!-- Mobile: unsichtbarer Platzhalter für symmetrisches Layout (Burger links, Logo mitte) -->
@@ -119,6 +133,9 @@ const navLinks = [
           </a>
         ))
       }
+      <div class="pt-4">
+        <LanguagePicker />
+      </div>
     </nav>
   </div>
 </div>

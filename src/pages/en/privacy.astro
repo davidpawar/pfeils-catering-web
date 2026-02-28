@@ -1,0 +1,26 @@
+---
+import BaseHead from "../../components/base/BaseHead.astro";
+import Footer from "../../components/base/Footer.astro";
+import Navigation from "../../components/base/Navigation.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main class="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-16">
+        <h1 class="font-anton text-4xl text-dark">Privacy</h1>
+        <p class="mt-4 text-dark/70">Content coming soon.</p>
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

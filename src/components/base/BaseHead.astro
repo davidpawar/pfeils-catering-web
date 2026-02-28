@@ -7,11 +7,12 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  lang?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const { title, description, image = "/blog-placeholder-1.jpg", lang } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -54,6 +55,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
+{lang && <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />}
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />

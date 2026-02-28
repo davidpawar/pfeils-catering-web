@@ -6,63 +6,78 @@ import ImageNavigation from "../components/widgets/ImageNavigation.astro";
 import ImageText from "../components/widgets/ImageText.astro";
 import Navigation from "../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { imageProvider } from "../provider/imageProvider";
+import { getLangFromUrl, useTranslatedPath } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
   </head>
   <body>
     <div class="relative">
       <Navigation />
       <main>
-      <HeroMain />
-      <ImageText
-        badgeText="Wer wir sind !!"
-        description="Cocktail-Stationen bringen Menschen zusammen! Ob Mitarbeiter, Kunden oder Geschaeftspartner - ein gut gemachter Cocktail ist der perfekte Eisbrecher. Man kommt ins Gespraech, probiert neue Geschmackskombinationen und interagiert spielerisch mit Kollegen. Ein professionelles Cocktail-Catering sorgt für genau die richtige Balance aus Business & Genuss."
-        imageAlt="Team"
-        imageSrc="https://pfeils-catering.de/wp-content/uploads/2025/03/ZThomas-lAchen-2.png"
-        leftStatLabel="15+ Jahre der Expertise"
-        leftStatPrefix="seit"
-        leftStatValue="2008"
-        rightStatLabel="Zufriedene Kunden"
-        rightStatValue="100+"
-        title="Ein Team aus Experten mit einer Leidenschaft für Cocktails und gutem Service."
-      />
-      <ImageNavigation
-        sectionBadge="Unser Service"
-        sectionDescription="Von der Firmenfeier bis zur Hochzeit - wir bringen die Bar zu Ihnen und sorgen fuer unvergessliche Momente."
-        sectionTitle="Stilvolle Cocktails fuer jedes Event"
-        cards={[
-          {
-            href: "/firmenfeier/",
-            imageAlt: "Firmenfeier",
-            imageSrc:
-              "https://pfeils-catering.de/wp-content/uploads/2025/04/Firmenfeier--scaled.jpg",
-            text: "Professioneller Cocktail-Service fuer geschaeftliche Events. Perfekt fuer Teambuilding, Jubilaeen und Kundenevents.",
-            title: "Firmenfeier",
-          },
-          {
-            href: "/hochzeitsfeier/",
-            imageAlt: "Hochzeitsfeier",
-            imageSrc:
-              "https://pfeils-catering.de/wp-content/uploads/2025/04/Hoichzeit-768x630.jpg",
-            text: "Exklusive Cocktails fuer den schoensten Tag. Individuell abgestimmt auf eure Wuensche.",
-            title: "Hochzeitsfeier",
-          },
-          {
-            href: "/messe-catering/",
-            imageAlt: "Messe",
-            imageSrc:
-              "https://pfeils-catering.de/wp-content/uploads/2025/04/Messe-2-1-768x1024.jpg",
-            text: "Mobile Bar fuer Messen und Grossveranstaltungen. Hohe Kapazitaet, professioneller Service.",
-            title: "Messe & Events",
-          },
-        ]}
-      />
-      <Footer />
-    </main>
+        <HeroMain />
+        <ImageText
+          badgeText="Wer wir sind !!"
+          description="Cocktail-Stationen bringen Menschen zusammen! Ob Mitarbeiter, Kunden oder Geschaeftspartner - ein gut gemachter Cocktail ist der perfekte Eisbrecher. Man kommt ins Gespraech, probiert neue Geschmackskombinationen und interagiert spielerisch mit Kollegen. Ein professionelles Cocktail-Catering sorgt für genau die richtige Balance aus Business & Genuss."
+          image={imageProvider.team.teamExperts}
+          leftStatLabel="15+ Jahre der Expertise"
+          leftStatPrefix="seit"
+          leftStatValue="2008"
+          rightStatLabel="Zufriedene Kunden"
+          rightStatValue="100+"
+          title="Ein Team aus Experten mit einer Leidenschaft für Cocktails und gutem Service."
+        />
+        <ImageText
+          badgeText="Warum sie uns buchen sollten"
+          checkItems={[
+            "Jahrzehntelange Erfahrung",
+            "100% Zuverlässigkeit",
+            "Expertise im Bereich Cocktails",
+            "Exzellenter Service",
+            "Starke Flexibilität",
+            "Frische Zutaten",
+          ]}
+          description="Unser Cocktail-Catering steht für zuverlässige Planung, professionelle Umsetzung und gleichbleibend hohe Qualität. Erfahrene Barkeeper sorgen für einen reibungslosen Ablauf und hochwertige Getränke. So schaffen wir einen stilvollen Rahmen für Ihr Firmenevent – effizient und serviceorientiert."
+          image={imageProvider.catering.cocktailService}
+          imagePosition="right"
+          title="Vom klassischen Cocktail bis zum kreativen Signature-Drink"
+          theme="dark"
+        />
+        <ImageNavigation
+          moreDetailsText="weitere details →"
+          sectionBadge="Unser Service"
+          sectionDescription="Von der Firmenfeier bis zur Hochzeit - wir bringen die Bar zu Ihnen und sorgen fuer unvergessliche Momente."
+          sectionTitle="Stilvolle Cocktails fuer jedes Event"
+          cards={[
+            {
+              href: translatePath("/firmenfeier/"),
+              image: imageProvider.events.firmenfeier,
+              text: "Professioneller Cocktail-Service fuer geschaeftliche Events. Perfekt fuer Teambuilding, Jubilaeen und Kundenevents.",
+              title: "Firmenfeier",
+            },
+            {
+              href: translatePath("/hochzeitsfeier/"),
+              image: imageProvider.events.hochzeit,
+              text: "Exklusive Cocktails fuer den schoensten Tag. Individuell abgestimmt auf eure Wuensche.",
+              title: "Hochzeitsfeier",
+            },
+            {
+              href: translatePath("/messe-catering/"),
+              image: imageProvider.events.messe,
+              text: "Mobile Bar fuer Messen und Grossveranstaltungen. Hohe Kapazitaet, professioneller Service.",
+              title: "Messe & Events",
+            },
+          ]}
+        />
+        <Footer />
+      </main>
     </div>
   </body>
 </html>
