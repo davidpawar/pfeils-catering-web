@@ -7,7 +7,7 @@ import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
 import coffeeTruck from "../assets/images/catering/coffee-truck.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
 import crepes from "../assets/images/catering/crepes.jpg";
-import eisCatering from "../assets/images/catering/eis-catering.jpg";
+import eisbecherDiverse from "../assets/images/catering/eisbecher-diverse.jpg";
 import flammkuchen from "../assets/images/catering/flammkuchen.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
@@ -77,10 +77,10 @@ export const imageProvider = {
       altEn: "Crêpes catering – freshly prepared crêpes on site",
       src: crepes,
     },
-    eisCatering: {
-      alt: "Eis-Catering von Pfeil's Catering bei einer Firmenfeier",
-      altEn: "Ice cream catering by Pfeil's Catering at a corporate event",
-      src: eisCatering,
+    eisbecherDiverse: {
+      alt: "Diverse Eisbecher mit Schoko, Karamell und Frucht – Eis-Catering von Pfeil's Catering",
+      altEn: "Diverse ice cream cups with chocolate, caramel and fruit – ice cream catering by Pfeil's Catering",
+      src: eisbecherDiverse,
     },
     flammkuchen: {
       alt: "Flammkuchen-Catering – knusprig aus dem Ofen",
