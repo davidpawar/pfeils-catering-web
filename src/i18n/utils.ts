@@ -46,6 +46,7 @@ export function useTranslations(lang: keyof typeof ui) {
  */
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, l: keyof typeof ui = lang) {
+    const trailingSlash = path.endsWith("/");
     const pathName = path.replaceAll("/", "");
     const routeForLang = routes[l as keyof typeof routes];
     // Check if this path has a translated slug for the target language
@@ -58,9 +59,10 @@ export function useTranslatedPath(lang: keyof typeof ui) {
       ? "/" + (routeForLang as Record<string, string>)[pathName]
       : path;
     // Default language: no prefix (showDefaultLang = false)
-    return !showDefaultLang && l === defaultLang
+    const result = !showDefaultLang && l === defaultLang
       ? translatedPath
       : `/${l}${translatedPath}`;
+    return trailingSlash && !result.endsWith("/") ? result + "/" : result;
   };
 }
 

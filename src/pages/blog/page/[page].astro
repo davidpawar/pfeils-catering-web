@@ -9,6 +9,20 @@ import { imageProvider } from "../../../provider/imageProvider";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../../i18n/utils";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
 
+export async function getStaticPaths() {
+  const postsPerPage = 6;
+  const allPosts = await getCollection("blogDe");
+  const totalPages = Math.max(1, Math.ceil(allPosts.length / postsPerPage));
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+  }));
+}
+
+const POSTS_PER_PAGE = 6;
+
+const { page } = Astro.params;
+const pageNum = parseInt(page ?? "2", 10);
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
@@ -18,19 +32,18 @@ const blogHeroUrl =
     ? imageProvider.hero.headerBackground.src.src
     : imageProvider.hero.headerBackground.src;
 
-const POSTS_PER_PAGE = 6;
-
-const allPosts = (await getCollection("blogEn")).sort(
+const allPosts = (await getCollection("blogDe")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
-const currentPage = 1;
-const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
+const currentPage = Math.min(Math.max(1, pageNum), totalPages);
+const start = (currentPage - 1) * POSTS_PER_PAGE;
+const posts = allPosts.slice(start, start + POSTS_PER_PAGE).map((p) => ({
   description: p.data.description,
   heroImage: p.data.heroImage,
   id: p.id,
   pubDate: p.data.pubDate,
-  slug: p.id.replace(/^en\//, ""),
+  slug: p.id.replace(/^de\//, ""),
   title: p.data.title,
 }));
 ---
@@ -52,7 +65,7 @@ const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
           badge={t("blog.badge")}
           currentPage={currentPage}
           description={t("blog.description")}
-          getPageHref={(page) => (page === 1 ? translatePath("/blog/") : translatePath(`/blog/page/${page}/`))}
+          getPageHref={(p) => (p === 1 ? translatePath("/blog/") : translatePath(`/blog/page/${p}/`))}
           getPostHref={(slug) => translatePath(`/blog/${slug}/`)}
           locale={lang === "en" ? "en-GB" : "de-DE"}
           paginationNextText={t("blog.paginationNext")}

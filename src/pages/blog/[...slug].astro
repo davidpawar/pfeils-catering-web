@@ -5,13 +5,13 @@ import { render } from "astro:content";
 import { getLangFromUrl } from "../../i18n/utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blogDe");
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: post.id.replace(/^de\//, "") },
     props: post,
   }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"blogDe">;
 
 const post = Astro.props;
 const lang = getLangFromUrl(Astro.url);

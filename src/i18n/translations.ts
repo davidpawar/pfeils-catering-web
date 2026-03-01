@@ -19,6 +19,18 @@ export const ui = {
     "hero.subtitle":
       "Pfeil's Cocktail Catering – mit Herz gemixt, für dich und deine Gäste.",
     "hero.cta": "Jetzt anfragen",
+    "hero.blog.title": "Blog – Tipps, Rezepte und Catering-News",
+    "blog.articleLabel": "Artikel",
+    "blog.defaultAuthor": "Thomas Pfeil",
+    "blog.backToBlog": "Zurück zum Blog",
+    "blog.badge": "Neueste Beiträge",
+    "blog.description":
+      "Tipps, Rezepte und Einblicke rund um Cocktail-Catering, Events und Genuss.",
+    "blog.page": "Seite",
+    "blog.paginationNext": "Weiter",
+    "blog.paginationPrev": "Zurück",
+    "blog.readMore": "Mehr erfahren",
+    "blog.title": "Tipps, Rezepte und Catering-News",
     "hero.firmenfeier.title":
       "Ihr exklusives Cocktail Catering für unvergessliche Firmenfeiern",
     "hero.firmenfeier.subtitle": "Cocktail Catering",
@@ -63,16 +75,19 @@ export const ui = {
     "firmenfeier.gallery.image4.description":
       "Bei Dunkelheit entfaltet sich die besondere Stimmung. Beleuchtete Bar, exzellente Cocktails und unser Team sorgen für unvergessliche Momente.",
     "firmenfeier.textList.badge": "6 gute Gründe",
-    "firmenfeier.textList.title": "Ihre nächste Firmenfeier – perfekt inszeniert",
+    "firmenfeier.textList.title":
+      "Ihre nächste Firmenfeier – perfekt inszeniert",
     "firmenfeier.textList.description":
       "Cocktails, Entertainment und professioneller Service – so wird Ihre Firmenfeier zu einem unvergesslichen Erlebnis. Hier sind die wichtigsten Gründe für unser Catering.",
     "firmenfeier.textList.item1.title": "Zusammenhalt stärken",
     "firmenfeier.textList.item1.description":
       "Cocktails lockern die Stimmung unter Arbeitskollegen auf. Man kommt sich näher und lernt sich besser kennen. Das führt zu stärkere Netzwerke und ein rundum gelungenes Event.",
-    "firmenfeier.textList.item2.title": "Ein unvergessliches Erlebnis für Gäste",
+    "firmenfeier.textList.item2.title":
+      "Ein unvergessliches Erlebnis für Gäste",
     "firmenfeier.textList.item2.description":
       "Cocktail-Catering ist mehr als nur Trinken – es ist Entertainment, Interaktion und Genuss in einem. Ihre Gäste erleben etwas Besonderes, das in Erinnerung bleibt.",
-    "firmenfeier.textList.item3.title": "Komplett stressfrei für den Veranstalter",
+    "firmenfeier.textList.item3.title":
+      "Komplett stressfrei für den Veranstalter",
     "firmenfeier.textList.item3.description":
       "Wir übernehmen alles – von der mobilen Bar über die Zutaten bis zum Personal. Sie können sich ganz auf Ihre Gäste konzentrieren, während wir für perfekten Service sorgen.",
     "firmenfeier.textList.item4.title": "Perfekte Instagram-Momente",
@@ -87,7 +102,8 @@ export const ui = {
     "firmenfeier.weihnachtsmarkt.badge": "Weihnachtsfeier",
     "firmenfeier.weihnachtsmarkt.description":
       "Geben Sie ihrer Firmenfeier einen besonderen Touch. Wir bieten zusätzlich noch einen mobilen Weihnachtsmarkt an, der perfekt für eine Weihnachtsfeier geeignet ist. Die Anzahl an Hütten sind individuell anpassbar.",
-    "firmenfeier.weihnachtsmarkt.title": "Wir bringen den Weihnachtsmarkt zu Ihnen!",
+    "firmenfeier.weihnachtsmarkt.title":
+      "Wir bringen den Weihnachtsmarkt zu Ihnen!",
     "firmenfeier.weihnachtsmarkt.check1": "Weihnachtliches Fingerfood",
     "firmenfeier.weihnachtsmarkt.check2": "Glühwein & Co.",
     "firmenfeier.weihnachtsmarkt.check3": "Sicheres & wohles Ambiente",
@@ -97,7 +113,8 @@ export const ui = {
     "firmenfeier.eiscatering.badge": "Kalte Speisen",
     "firmenfeier.eiscatering.description":
       "Verwöhnen Sie Ihr Team mit unserem Eis-Catering – ein Highlight für jede Firmenfeier. Ob klassisch oder kreativ, unsere Sorten treffen garantiert jeden Geschmack. So wird aus einem Arbeitstag ein echtes Genusserlebnis.",
-    "firmenfeier.eiscatering.title": "Genießen Sie leckeres Eis zu jeder Jahreszeit",
+    "firmenfeier.eiscatering.title":
+      "Genießen Sie leckeres Eis zu jeder Jahreszeit",
     "firmenfeier.eiscatering.check1": "Optischer Highlight",
     "firmenfeier.eiscatering.check2": "Kühle Erfrischung",
     "firmenfeier.eiscatering.check3": "Vielfalt für jeden",
@@ -105,7 +122,8 @@ export const ui = {
     "firmenfeier.eiscatering.check5": "Mobiler Eisgenuss überall",
     "firmenfeier.eiscatering.check6": "100% Sommerfeeling",
     "firmenfeier.testimonials.badge": "Kundenstimmen",
-    "firmenfeier.testimonials.description": "Was unsere Kunden über unsere Firmenfeiern sagen.",
+    "firmenfeier.testimonials.description":
+      "Was unsere Kunden über unsere Firmenfeiern sagen.",
     "firmenfeier.testimonials.title": "Stimmen von unseren Firmenfeiern",
     "firmenfeier.testimonials.item1.name": "Corinna L.",
     "firmenfeier.testimonials.item1.jobTitle": "Eventmanagerin",
@@ -140,10 +158,12 @@ export const ui = {
     "hochzeitsfeier.textList.item1.title": "Flexible Einsatzmöglichkeiten",
     "hochzeitsfeier.textList.item1.description":
       "Ob Sektempfang, Abendveranstaltung oder Mitternachtssnack – die mobile Bar passt sich jeder Phase des Events an. So ist immer für Drinks gesorgt, wenn sie gebraucht werden.",
-    "hochzeitsfeier.textList.item2.title": "Ein unvergessliches Erlebnis für Gäste",
+    "hochzeitsfeier.textList.item2.title":
+      "Ein unvergessliches Erlebnis für Gäste",
     "hochzeitsfeier.textList.item2.description":
       "Cocktail-Catering ist mehr als nur Trinken – es ist Entertainment, Interaktion und Genuss in einem. Ihre Gäste erleben etwas Besonderes, das in Erinnerung bleibt.",
-    "hochzeitsfeier.textList.item3.title": "Komplett stressfrei für den Veranstalter",
+    "hochzeitsfeier.textList.item3.title":
+      "Komplett stressfrei für den Veranstalter",
     "hochzeitsfeier.textList.item3.description":
       "Wir übernehmen alles – von der mobilen Bar über die Zutaten bis zum Personal. Sie können sich ganz auf Ihre Gäste konzentrieren, während wir für perfekten Service sorgen.",
     "hochzeitsfeier.textList.item4.title": "Perfekte Instagram-Momente",
@@ -193,7 +213,8 @@ export const ui = {
     "messe.gallery.description":
       "Einblicke in unsere Messe-Events – von der mobilen Bar bis zum professionellen Barservice am Stand.",
     "messe.textList.badge": "6 gute Gründe",
-    "messe.textList.title": "Warum Sie einen Cocktail Catering Service für Ihre Messe benötigen",
+    "messe.textList.title":
+      "Warum Sie einen Cocktail Catering Service für Ihre Messe benötigen",
     "messe.textList.description":
       "Cocktails, Entertainment und professioneller Service – so wird Ihr Messestand zu einem unvergesslichen Erlebnis. Hier sind die wichtigsten Gründe für unser Messe-Catering.",
     "messe.textList.item1.title": "Aufmerksamkeit am Messestand",
@@ -257,35 +278,46 @@ export const ui = {
     "individuell.services.description":
       "So entsteht ein rundum stimmiges Konzept, das perfekt zu Ihrem Anlass passt.",
     "individuell.service.eis.title": "Kalte Speisen",
-    "individuell.service.eis.subtitle": "Genießen Sie leckeres Eis zu jeder Jahreszeit",
+    "individuell.service.eis.subtitle":
+      "Genießen Sie leckeres Eis zu jeder Jahreszeit",
     "individuell.service.eis.description":
       "Verwöhnen Sie Ihr Team mit unserem Eis-Catering – ein Highlight für jede Firmenfeier. Ob klassisch oder kreativ, unsere Sorten treffen garantiert jeden Geschmack.",
-    "individuell.service.eis.bullets": "Optisches Highlight, Vielfalt für Jeden, Kühle Erfrischung, 100% Sommerfeeling, Mobiler Eisgenuss überall, Gute Laune garantiert",
+    "individuell.service.eis.bullets":
+      "Optisches Highlight, Vielfalt für Jeden, Kühle Erfrischung, 100% Sommerfeeling, Mobiler Eisgenuss überall, Gute Laune garantiert",
     "individuell.service.bratwurst.title": "Herzhaftes Catering",
-    "individuell.service.bratwurst.subtitle": "Bratwurst-Grill – Deftig, direkt, unkompliziert",
+    "individuell.service.bratwurst.subtitle":
+      "Bratwurst-Grill – Deftig, direkt, unkompliziert",
     "individuell.service.bratwurst.description":
       "Unser Bratwurst-Catering ist eine praktische und bewährte Lösung für Veranstaltungen jeder Art. Im Mittelpunkt steht die frische Zubereitung vor Ort oder eine zuverlässige Anlieferung. Wir bieten verschiedene Wurstsorten, darunter auch vegetarische Optionen.",
-    "individuell.service.bratwurst.bullets": "Grillstation vor Ort, Auswahl an klassischen und besonderen Wurstsorten, Vegetarische Alternativen auf Anfrage, Individuelle Menüabstimmung, Schneller Auf- und Abbau, Auf Wunsch mit Geschirr und Besteck",
+    "individuell.service.bratwurst.bullets":
+      "Grillstation vor Ort, Auswahl an klassischen und besonderen Wurstsorten, Vegetarische Alternativen auf Anfrage, Individuelle Menüabstimmung, Schneller Auf- und Abbau, Auf Wunsch mit Geschirr und Besteck",
     "individuell.service.crepes.title": "Crêpes-Catering",
-    "individuell.service.crepes.subtitle": "Crêpes-Catering für Veranstaltungen jeder Art",
+    "individuell.service.crepes.subtitle":
+      "Crêpes-Catering für Veranstaltungen jeder Art",
     "individuell.service.crepes.description":
       "Wir bieten frisch zubereitete Crêpes in süßen und herzhaften Varianten – direkt vor Ort und individuell anpassbar. Die Gäste wählen selbst aus einer Vielzahl möglicher Kombinationen.",
-    "individuell.service.crepes.bullets": "Frische Zubereitung vor Ort, Süße und herzhafte Varianten, Innen- und Außenbereiche, Schnelle Zubereitung, Veranstaltungen mit wechselndem Publikum",
+    "individuell.service.crepes.bullets":
+      "Frische Zubereitung vor Ort, Süße und herzhafte Varianten, Innen- und Außenbereiche, Schnelle Zubereitung, Veranstaltungen mit wechselndem Publikum",
     "individuell.service.coffee.title": "Coffee Truck",
     "individuell.service.coffee.subtitle": "Mobiler Kaffeegenuss mit Stil",
     "individuell.service.coffee.description":
       "Das Angebot umfasst eine sorgfältig zusammengestellte Auswahl an Kaffeespezialitäten – von Espresso über Cappuccino bis Latte Macchiato. Ergänzt durch Sirupsorten, Milchalternativen und auf Wunsch kleine süße Begleitungen.",
-    "individuell.service.coffee.bullets": "Perfekte Auszeit, Frisch gebrüht, Flexibler Einsatz, Premium Kaffeebohnen, Gästemagnet, Zugeschnitten auf Ihre Location",
+    "individuell.service.coffee.bullets":
+      "Perfekte Auszeit, Frisch gebrüht, Flexibler Einsatz, Premium Kaffeebohnen, Gästemagnet, Zugeschnitten auf Ihre Location",
     "individuell.service.flammkuchen.title": "Flammkuchen",
-    "individuell.service.flammkuchen.subtitle": "Frisch, knusprig, unwiderstehlich",
+    "individuell.service.flammkuchen.subtitle":
+      "Frisch, knusprig, unwiderstehlich",
     "individuell.service.flammkuchen.description":
       "Wie im Elsass – knuspriger Flammkuchen direkt aus dem heißen Ofen. Wir bringen Tradition, Handwerk und Geschmack zu deinem Fest. Ein herzhaftes Erlebnis, das alle Sinne anspricht.",
-    "individuell.service.flammkuchen.bullets": "Live-Cooking, Publikumsmagnet, Frische Zubereitung, Rustikaler Charme, Veggie-Optionen, Wohlfühlfaktor",
+    "individuell.service.flammkuchen.bullets":
+      "Live-Cooking, Publikumsmagnet, Frische Zubereitung, Rustikaler Charme, Veggie-Optionen, Wohlfühlfaktor",
     "individuell.service.weihnacht.title": "Weihnachtsfeier",
-    "individuell.service.weihnacht.subtitle": "Wir bringen den Weihnachtsmarkt zu Ihnen!",
+    "individuell.service.weihnacht.subtitle":
+      "Wir bringen den Weihnachtsmarkt zu Ihnen!",
     "individuell.service.weihnacht.description":
       "Geben Sie ihrer Firmenfeier einen besonderen Touch. Wir bieten zusätzlich noch einen mobilen Weihnachtsmarkt an, der perfekt für eine Weihnachtsfeier geeignet ist. Die Anzahl an Hütten sind individuell anpassbar.",
-    "individuell.service.weihnacht.bullets": "Weihnachtliches Fingerfood, Glühwein & Co., Sicheres & wohles Ambiente, Zugeschnitten auf Ihre Location, Festliche Stimmung, Überraschung pur!",
+    "individuell.service.weihnacht.bullets":
+      "Weihnachtliches Fingerfood, Glühwein & Co., Sicheres & wohles Ambiente, Zugeschnitten auf Ihre Location, Festliche Stimmung, Überraschung pur!",
     "individuell.cta.badge": "Mehr als nur ein Getränk",
     "individuell.cta.title": "Kommen Sie mit uns in Kontakt",
     "hero.mobileCocktailbar.title": "Mobile Cocktailbar für Ihre Veranstaltung",
@@ -422,6 +454,18 @@ export const ui = {
     "hero.subtitle":
       "Pfeil's Cocktail Catering – mixed with heart, for you and your guests.",
     "hero.cta": "Contact us",
+    "hero.blog.title": "Blog – Tips, Recipes and Catering News",
+    "blog.articleLabel": "Article",
+    "blog.defaultAuthor": "Thomas Pfeil",
+    "blog.backToBlog": "Back to Blog",
+    "blog.badge": "Latest Posts",
+    "blog.description":
+      "Tips, recipes and insights on cocktail catering, events and enjoyment.",
+    "blog.page": "Page",
+    "blog.paginationNext": "Next",
+    "blog.paginationPrev": "Previous",
+    "blog.readMore": "Learn more",
+    "blog.title": "Tips, Recipes and Catering News",
     "hero.firmenfeier.title":
       "Your exclusive cocktail catering for unforgettable corporate events",
     "hero.firmenfeier.subtitle": "Cocktail Catering",
@@ -466,16 +510,19 @@ export const ui = {
     "firmenfeier.gallery.image4.description":
       "In the evening, a special mood unfolds. Lit bar, excellent cocktails and our team create unforgettable moments.",
     "firmenfeier.textList.badge": "6 good reasons",
-    "firmenfeier.textList.title": "Your next corporate event – perfectly staged",
+    "firmenfeier.textList.title":
+      "Your next corporate event – perfectly staged",
     "firmenfeier.textList.description":
       "Cocktails, entertainment and professional service – turn your corporate event into an unforgettable experience. Here are the key reasons why our catering is the right choice.",
     "firmenfeier.textList.item1.title": "Strengthen team spirit",
     "firmenfeier.textList.item1.description":
       "Cocktails lighten the mood among colleagues. People get closer and get to know each other better. This leads to stronger networks and an all-round successful event.",
-    "firmenfeier.textList.item2.title": "An unforgettable experience for guests",
+    "firmenfeier.textList.item2.title":
+      "An unforgettable experience for guests",
     "firmenfeier.textList.item2.description":
       "Cocktail catering is more than just drinking – it's entertainment, interaction and enjoyment in one. Your guests experience something special that stays in their memory.",
-    "firmenfeier.textList.item3.title": "Completely stress-free for the organizer",
+    "firmenfeier.textList.item3.title":
+      "Completely stress-free for the organizer",
     "firmenfeier.textList.item3.description":
       "We take care of everything – from the mobile bar to the ingredients and staff. You can focus entirely on your guests while we ensure perfect service.",
     "firmenfeier.textList.item4.title": "Perfect Instagram moments",
@@ -490,7 +537,8 @@ export const ui = {
     "firmenfeier.weihnachtsmarkt.badge": "Christmas Party",
     "firmenfeier.weihnachtsmarkt.description":
       "Give your company party a special touch. We also offer a mobile Christmas market, perfect for a Christmas party. The number of huts can be individually adjusted.",
-    "firmenfeier.weihnachtsmarkt.title": "We bring the Christmas market to you!",
+    "firmenfeier.weihnachtsmarkt.title":
+      "We bring the Christmas market to you!",
     "firmenfeier.weihnachtsmarkt.check1": "Christmas Finger Food",
     "firmenfeier.weihnachtsmarkt.check2": "Mulled Wine & Co.",
     "firmenfeier.weihnachtsmarkt.check3": "Safe & Cozy Atmosphere",
@@ -500,7 +548,8 @@ export const ui = {
     "firmenfeier.eiscatering.badge": "Cold Dishes",
     "firmenfeier.eiscatering.description":
       "Treat your team to our ice cream catering – a highlight for any corporate event. Whether classic or creative, our flavours are guaranteed to please everyone. Turn a workday into a real culinary experience.",
-    "firmenfeier.eiscatering.title": "Enjoy delicious ice cream any time of year",
+    "firmenfeier.eiscatering.title":
+      "Enjoy delicious ice cream any time of year",
     "firmenfeier.eiscatering.check1": "Visual Highlight",
     "firmenfeier.eiscatering.check2": "Cool Refreshment",
     "firmenfeier.eiscatering.check3": "Variety for Everyone",
@@ -522,10 +571,12 @@ export const ui = {
     "hochzeitsfeier.textList.item1.title": "Flexible deployment options",
     "hochzeitsfeier.textList.item1.description":
       "Whether champagne reception, evening event or midnight snack – the mobile bar adapts to every phase of the event. Drinks are always available when needed.",
-    "hochzeitsfeier.textList.item2.title": "An unforgettable experience for guests",
+    "hochzeitsfeier.textList.item2.title":
+      "An unforgettable experience for guests",
     "hochzeitsfeier.textList.item2.description":
       "Cocktail catering is more than just drinking – it's entertainment, interaction and enjoyment in one. Your guests experience something special that stays in their memory.",
-    "hochzeitsfeier.textList.item3.title": "Completely stress-free for the organizer",
+    "hochzeitsfeier.textList.item3.title":
+      "Completely stress-free for the organizer",
     "hochzeitsfeier.textList.item3.description":
       "We take care of everything – from the mobile bar to the ingredients and staff. You can focus entirely on your guests while we ensure perfect service.",
     "hochzeitsfeier.textList.item4.title": "Perfect Instagram moments",
@@ -597,7 +648,8 @@ export const ui = {
     "messe.gallery.description":
       "Insights into our trade fair events – from the mobile bar to professional bar service at the stand.",
     "messe.textList.badge": "6 good reasons",
-    "messe.textList.title": "Why you need a cocktail catering service for your trade fair",
+    "messe.textList.title":
+      "Why you need a cocktail catering service for your trade fair",
     "messe.textList.description":
       "Cocktails, entertainment and professional service – turn your exhibition stand into an unforgettable experience. Here are the key reasons for our trade fair catering.",
     "messe.textList.item1.title": "Attention at the exhibition stand",
@@ -661,35 +713,45 @@ export const ui = {
     "individuell.services.description":
       "This creates a coherent concept that fits perfectly with your occasion.",
     "individuell.service.eis.title": "Cold dishes",
-    "individuell.service.eis.subtitle": "Enjoy delicious ice cream any time of year",
+    "individuell.service.eis.subtitle":
+      "Enjoy delicious ice cream any time of year",
     "individuell.service.eis.description":
       "Treat your team to our ice cream catering – a highlight for any corporate event. Whether classic or creative, our flavours are guaranteed to please everyone.",
-    "individuell.service.eis.bullets": "Visual highlight, Variety for everyone, Cool refreshment, 100% summer feeling, Mobile ice cream anywhere, Good mood guaranteed",
+    "individuell.service.eis.bullets":
+      "Visual highlight, Variety for everyone, Cool refreshment, 100% summer feeling, Mobile ice cream anywhere, Good mood guaranteed",
     "individuell.service.bratwurst.title": "Savory catering",
-    "individuell.service.bratwurst.subtitle": "Bratwurst grill – hearty, direct, uncomplicated",
+    "individuell.service.bratwurst.subtitle":
+      "Bratwurst grill – hearty, direct, uncomplicated",
     "individuell.service.bratwurst.description":
       "Our bratwurst catering is a practical and proven solution for events of all kinds. The focus is on fresh preparation on site or reliable delivery. We offer various sausage varieties, including vegetarian options.",
-    "individuell.service.bratwurst.bullets": "Grill station on site, Selection of classic and special sausages, Vegetarian alternatives on request, Individual menu coordination, Quick setup and dismantling, Optional with tableware",
+    "individuell.service.bratwurst.bullets":
+      "Grill station on site, Selection of classic and special sausages, Vegetarian alternatives on request, Individual menu coordination, Quick setup and dismantling, Optional with tableware",
     "individuell.service.crepes.title": "Crêpes catering",
-    "individuell.service.crepes.subtitle": "Crêpes catering for events of all kinds",
+    "individuell.service.crepes.subtitle":
+      "Crêpes catering for events of all kinds",
     "individuell.service.crepes.description":
       "We offer freshly prepared crêpes in sweet and savory varieties – directly on site and individually adaptable. Guests choose from a variety of possible combinations.",
-    "individuell.service.crepes.bullets": "Fresh preparation on site, Sweet and savory varieties, Indoor and outdoor areas, Quick preparation, Events with changing audience",
+    "individuell.service.crepes.bullets":
+      "Fresh preparation on site, Sweet and savory varieties, Indoor and outdoor areas, Quick preparation, Events with changing audience",
     "individuell.service.coffee.title": "Coffee Truck",
     "individuell.service.coffee.subtitle": "Mobile coffee enjoyment with style",
     "individuell.service.coffee.description":
       "The offer includes a carefully selected range of coffee specialities – from espresso to cappuccino to latte macchiato. Supplemented with syrup varieties, milk alternatives and optionally small sweet accompaniments.",
-    "individuell.service.coffee.bullets": "Perfect break, Freshly brewed, Flexible deployment, Premium coffee beans, Guest magnet, Tailored to your location",
+    "individuell.service.coffee.bullets":
+      "Perfect break, Freshly brewed, Flexible deployment, Premium coffee beans, Guest magnet, Tailored to your location",
     "individuell.service.flammkuchen.title": "Flammkuchen",
     "individuell.service.flammkuchen.subtitle": "Fresh, crispy, irresistible",
     "individuell.service.flammkuchen.description":
       "As in Alsace – crispy flammkuchen straight from the hot oven. We bring tradition, craftsmanship and taste to your celebration. A hearty experience that appeals to all the senses.",
-    "individuell.service.flammkuchen.bullets": "Live cooking, Crowd puller, Fresh preparation, Rustic charm, Veggie options, Feel-good factor",
+    "individuell.service.flammkuchen.bullets":
+      "Live cooking, Crowd puller, Fresh preparation, Rustic charm, Veggie options, Feel-good factor",
     "individuell.service.weihnacht.title": "Christmas party",
-    "individuell.service.weihnacht.subtitle": "We bring the Christmas market to you!",
+    "individuell.service.weihnacht.subtitle":
+      "We bring the Christmas market to you!",
     "individuell.service.weihnacht.description":
       "Give your corporate event a special touch. We also offer a mobile Christmas market that is perfect for a Christmas party. The number of huts can be individually adjusted.",
-    "individuell.service.weihnacht.bullets": "Christmas finger food, Mulled wine & Co., Safe & cozy atmosphere, Tailored to your location, Festive atmosphere, Pure surprise!",
+    "individuell.service.weihnacht.bullets":
+      "Christmas finger food, Mulled wine & Co., Safe & cozy atmosphere, Tailored to your location, Festive atmosphere, Pure surprise!",
     "individuell.cta.badge": "More than just a drink",
     "individuell.cta.title": "Get in touch with us",
     "hero.mobileCocktailbar.title": "Mobile cocktail bar for your event",
@@ -709,8 +771,7 @@ export const ui = {
       "Professional cocktails – anywhere and anytime",
     "mobileCocktailbar.textList.item1.description":
       "A mobile cocktail bar brings high-quality drinks directly to your desired location. Whether in the garden, on the rooftop terrace or in the event hall – the bartender comes to you.",
-    "mobileCocktailbar.textList.item2.title":
-      "No preparation for the host",
+    "mobileCocktailbar.textList.item2.title": "No preparation for the host",
     "mobileCocktailbar.textList.item2.description":
       "No shopping, no setup or dismantling – you book, we deliver. Celebrate stress-free without organizational hassle.",
     "mobileCocktailbar.textList.item3.title":
@@ -768,8 +829,7 @@ export const ui = {
     "mobileCocktailbar.cocktail.ipanema.bullets":
       "Popular with mixed audiences, Refreshing and versatile, The alcohol-free cocktail classic, Alcoholic variation available, Ideal addition for all events, Fruity-exotic with passion fruit",
     "mobileCocktailbar.testimonials.badge": "Customer voices",
-    "mobileCocktailbar.testimonials.title":
-      "Voices from our happy guests",
+    "mobileCocktailbar.testimonials.title": "Voices from our happy guests",
     "mobileCocktailbar.testimonials.description":
       "What our customers say about our mobile cocktail bar.",
     "mobileCocktailbar.testimonials.item1.name": "Dorothea E.",
