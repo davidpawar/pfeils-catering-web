@@ -55,11 +55,11 @@ const popoverId = `lang-picker-popover-${currentLang}-${Math.random().toString(3
 
   <!--
     Popover: language options.
-    Opens upward on mobile (bottom of overlay), downward on desktop.
+    Opens downward on all screen sizes.
   -->
   <div
     id={popoverId}
-    class="lang-picker-popover absolute right-0 bottom-full z-50 mb-1 min-w-[8rem] rounded-lg border border-white/20 bg-dark-bg/98 p-0 shadow-xl backdrop-blur-sm opacity-0 transition-opacity duration-200 data-[open]:opacity-100 pointer-events-none data-[open]:pointer-events-auto invisible data-[open]:visible md:bottom-auto md:mb-0 md:mt-1 md:top-full"
+    class="lang-picker-popover absolute right-0 top-full z-50 mt-1 min-w-[8rem] rounded-lg border border-white/20 bg-dark-bg/98 p-0 shadow-xl backdrop-blur-sm opacity-0 transition-opacity duration-200 data-[open]:opacity-100 pointer-events-none data-[open]:pointer-events-auto invisible data-[open]:visible"
     role="menu"
     aria-orientation="vertical"
   >

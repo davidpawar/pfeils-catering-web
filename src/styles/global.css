@@ -24,6 +24,11 @@
   --animate-fade-in-up: fadeInUp 1.25s ease-in-out;
 }
 
+/* Reserve scrollbar space to prevent layout shift when overlay opens */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Shared fade-in values (single source of truth) */
 :root {
   --fade-in-offset: 20px;
@@ -99,6 +104,18 @@
 
 .cta-shake {
   animation: ctaShake 3s ease-in-out infinite;
+}
+
+/* Navigation: shrink on scroll (desktop only) */
+@media (min-width: 768px) {
+  #nav-header[data-scrolled="true"] .nav-bar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #nav-header[data-scrolled="true"] .nav-logo {
+    height: 2rem;
+  }
 }
 
 /* Mouse scroll indicator: wheel moves up and down */

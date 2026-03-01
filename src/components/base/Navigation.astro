@@ -1,6 +1,6 @@
 ---
 /*
- * Imports for assets, image provider and i18n utilities.
+ * Imports for assets, image provider, i18n and Lucide icons.
  */
 import { Image } from "astro:assets";
 import { getImageAlt, imageProvider } from "../../provider/imageProvider";
@@ -10,6 +10,19 @@ import {
   useTranslatedPath,
 } from "../../i18n/utils";
 import LanguagePicker from "./LanguagePicker.astro";
+import Button from "../ui/Button.astro";
+import {
+  Building2,
+  Heart,
+  LayoutGrid,
+  Wine,
+  Sparkles,
+  FileText,
+  Newspaper,
+  Shield,
+  Menu,
+  X,
+} from "@lucide/astro";
 
 /*
  * Derive current language and translation helpers from the URL.
@@ -19,213 +32,340 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 /*
- * Main navigation links with translated labels and language-specific paths.
+ * Catering-Angebote: sub-pages with Lucide icon components.
+ * Each link has label, description, href and Icon for the overlay grid.
  */
-const navLinks = [
-  { label: t("nav.home"), href: translatePath("/") },
-  { label: t("nav.firmenfeier"), href: translatePath("/firmenfeier/") },
-  { label: t("nav.hochzeitsfeier"), href: translatePath("/hochzeitsfeier/") },
-  { label: t("nav.messeCatering"), href: translatePath("/messe-catering/") },
+const cateringLinks = [
+  {
+    label: t("nav.firmenfeier"),
+    description: t("nav.firmenfeier.description"),
+    href: translatePath("/firmenfeier/"),
+    Icon: Building2,
+  },
+  {
+    label: t("nav.hochzeitsfeier"),
+    description: t("nav.hochzeitsfeier.description"),
+    href: translatePath("/hochzeitsfeier/"),
+    Icon: Heart,
+  },
+  {
+    label: t("nav.messeCatering"),
+    description: t("nav.messeCatering.description"),
+    href: translatePath("/messe-catering/"),
+    Icon: LayoutGrid,
+  },
   {
     label: t("nav.mobileCocktailbar"),
+    description: t("nav.mobileCocktailbar.description"),
     href: translatePath("/mobile-cocktailbar/"),
+    Icon: Wine,
   },
-  { label: t("nav.anfrage"), href: translatePath("/anfrage/") },
+  {
+    label: t("nav.individuell"),
+    description: t("nav.individuell.description"),
+    href: translatePath("/individuelles-catering/"),
+    Icon: Sparkles,
+  },
 ];
+
+/* Inhalt: Blog link with icon and description */
+const inhaltLinks = [
+  {
+    label: t("nav.blog"),
+    description: t("nav.blog.description"),
+    href: translatePath("/blog/"),
+    Icon: Newspaper,
+  },
+];
+
+/* Rechtliches: Impressum and Datenschutz */
+const rechtlichesLinks = [
+  {
+    label: t("nav.impressum"),
+    description: t("nav.impressum.description"),
+    href: translatePath("/impressum/"),
+    Icon: FileText,
+  },
+  {
+    label: t("nav.datenschutz"),
+    description: t("nav.datenschutz.description"),
+    href: translatePath("/datenschutz/"),
+    Icon: Shield,
+  },
+];
+
+/* DOM IDs for overlay and close button (used by script and aria-controls) */
+const overlayId = "nav-overlay";
+const overlayCloseId = "nav-overlay-close";
 ---
 
 <!--
-  ========== Header & Main Navigation ==========
+  ========== Header ==========
+  Fixed top, backdrop blur. Logo left, Burger + Anfrage (desktop) + LanguagePicker right.
+  Shrinks on scroll (data-scrolled, see global.css).
 -->
 <header
-  class="absolute left-0 right-0 top-0 z-50 md:bg-black/40 md:backdrop-blur-sm"
+  id="nav-header"
+  class="fixed left-0 right-0 top-0 z-50 bg-black/40 backdrop-blur-sm transition-all duration-300 ease-out"
+  data-scrolled="false"
 >
   <nav
-    class="relative mx-auto flex max-w-9xl items-center justify-between px-6 py-4 md:px-12 lg:px-16 min-[1920px]:max-w-8xl"
+    class="nav-bar relative mx-auto flex max-w-9xl items-center justify-between gap-4 px-6 py-2.5 md:px-12 md:py-3 lg:px-16 min-[1920px]:max-w-8xl transition-all duration-300 ease-out"
     aria-label="Hauptnavigation"
   >
-    <!-- Desktop: Logo on the left -->
+    <!-- Logo: links to homepage, shrinks on scroll (see global.css) -->
     <a
       href={translatePath("/")}
-      class="hidden items-center md:flex"
+      class="flex items-center"
       aria-label="Pfeil's Catering - Startseite"
     >
       <Image
         src={imageProvider.logo.altWeiss.src}
         alt={getImageAlt(imageProvider.logo.altWeiss, lang)}
-        class="h-12 w-auto"
-        width={120}
-        height={48}
-      />
-    </a>
-
-    <!-- Mobile: Burger button on the left -->
-    <button
-      id="nav-burger"
-      type="button"
-      class="flex h-10 w-10 items-center justify-center text-white md:hidden"
-      aria-label="Menü öffnen"
-      aria-expanded="false"
-    >
-      <svg
-        class="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-
-    <!-- Mobile: Logo centered (absolute positioning for true center) -->
-    <a
-      href={translatePath("/")}
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden"
-      aria-label="Pfeil's Catering - Startseite"
-    >
-      <Image
-        src={imageProvider.logo.altWeiss.src}
-        alt={getImageAlt(imageProvider.logo.altWeiss, lang)}
-        class="h-10 w-auto"
+        class="nav-logo h-8 w-auto transition-all duration-300 md:h-10"
         width={100}
         height={40}
       />
     </a>
 
-    <!-- Desktop: Nav links centered -->
-    <div
-      class="hidden flex-1 md:flex md:items-center md:justify-center md:gap-8"
-    >
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="font-outfit text-base font-bold text-white/90 transition-colors hover:text-white"
-          >
-            {link.label}
-          </a>
-        ))
-      }
-    </div>
-
-    <!-- Desktop: LanguagePicker on the right -->
-    <div class="hidden md:flex md:items-center">
-      <LanguagePicker />
-    </div>
-
-    <!-- Mobile: LanguagePicker top right (balances burger left, logo center) -->
-    <div class="flex items-center justify-end md:hidden">
+    <!-- Right group: Anfrage CTA (desktop), Burger toggle, LanguagePicker -->
+    <div class="flex items-center gap-2 md:gap-4">
+      <span class="hidden md:inline-block">
+        <Button href={translatePath("/anfrage/")} size="sm">
+          {t("nav.anfrage")}
+        </Button>
+      </span>
+      <button
+        id="nav-burger"
+        type="button"
+        class="flex h-8 w-8 flex-shrink-0 cursor-pointer items-center justify-center text-white transition-opacity hover:opacity-80"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls={overlayId}
+      >
+        <Menu size={24} />
+      </button>
       <LanguagePicker />
     </div>
   </nav>
 </header>
 
 <!--
-  ========== Mobile Overlay Menu ==========
-  Slides in from the left, contains the same links as the desktop navigation.
+  ========== Overlay ==========
+  Dimmed backdrop with blur. Centered white container. Mobile: pt-20 so content doesn't overlap nav.
+  Opens on burger click, closes on X, backdrop click or nav link click.
 -->
 <div
-  id="nav-overlay"
-  class="fixed inset-y-0 left-0 z-50 w-full max-w-sm -translate-x-full bg-dark-bg/98 shadow-xl backdrop-blur-sm transition-transform duration-500 ease-in-out md:hidden"
+  id={overlayId}
+  class="nav-overlay-backdrop fixed inset-0 z-40 flex items-center justify-center bg-black/40 p-4 pt-20 pb-8 backdrop-blur-sm opacity-0 transition-opacity duration-200 pointer-events-none data-[open=true]:opacity-100 data-[open=true]:pointer-events-auto md:pt-4 md:pb-4"
+  data-open="false"
   aria-hidden="true"
 >
-  <div class="flex flex-col p-6">
+  <!-- White container: 3-column grid on desktop, stacked on mobile -->
+  <div
+    id="nav-overlay-content"
+    class="nav-overlay-container relative w-full max-w-5xl max-h-full overflow-y-auto rounded border border-dark-bg/10 bg-white p-6 shadow-2xl md:max-h-[90vh] md:p-12"
+  >
+    <!-- Close button: top-right, closes overlay -->
     <button
-      id="nav-close"
+      id={overlayCloseId}
       type="button"
-      class="ml-auto flex h-10 w-10 items-center justify-center text-white"
+      class="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-dark-bg/70 transition-colors hover:bg-dark-bg/10 hover:text-dark-bg md:right-6 md:top-6"
       aria-label="Menü schließen"
     >
-      <svg
-        class="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
+      <X size={24} />
     </button>
 
-    <nav class="mt-12 flex flex-col gap-6" aria-label="Mobile Navigation">
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="nav-overlay-link font-outfit text-xl text-white/90 transition-colors hover:text-white"
-          >
-            {link.label}
-          </a>
-        ))
-      }
-    </nav>
-  </div>
-</div>
+    {/* Three columns: Catering | Inhalt | Rechtliches */}
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+      <!-- Column 1: Catering-Angebote (5 links with icons) -->
+      <div>
+        <h3 class="mb-6 font-outfit text-lg font-semibold text-dark-bg">
+          {t("nav.cateringAngebote")}
+        </h3>
+        <ul class="flex flex-col gap-4">
+          {
+            cateringLinks.map((link) => {
+              const Icon = link.Icon;
+              return (
+                /* Each link: icon + label + description */
+                <li>
+                  <a
+                    href={link.href}
+                    class="nav-overlay-link group flex cursor-pointer items-start gap-3"
+                  >
+                    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center text-dark-bg/60 transition-colors group-hover:text-primary">
+                      <Icon size={20} stroke-width={2} />
+                    </span>
+                    <div>
+                      <span class="block font-outfit font-medium text-dark-bg group-hover:text-primary">
+                        {link.label}
+                      </span>
+                      <span class="mt-0.5 block font-outfit text-sm text-dark-bg/60">
+                        {link.description}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
 
-<!--
-  ========== Backdrop ==========
-  Dark overlay when menu is open; click closes the menu.
--->
-<div
-  id="nav-backdrop"
-  class="fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-500 ease-linear md:hidden pointer-events-none"
-  aria-hidden="true"
->
+      <!-- Column 2: Inhalt (Blog) -->
+      <div
+        class="border-t border-dark-bg/10 pt-8 md:border-t-0 md:border-l md:border-dark-bg/10 md:pt-0 md:pl-8"
+      >
+        <h3 class="mb-6 font-outfit text-lg font-semibold text-dark-bg">
+          {t("nav.inhalt")}
+        </h3>
+        <ul class="flex flex-col gap-4">
+          {
+            inhaltLinks.map((link) => {
+              const Icon = link.Icon;
+              return (
+                /* Icon + label + description */
+                <li>
+                  <a
+                    href={link.href}
+                    class="nav-overlay-link group flex cursor-pointer items-start gap-3"
+                  >
+                    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center text-dark-bg/60 transition-colors group-hover:text-primary">
+                      <Icon size={20} stroke-width={2} />
+                    </span>
+                    <div>
+                      <span class="block font-outfit font-medium text-dark-bg group-hover:text-primary">
+                        {link.label}
+                      </span>
+                      <span class="mt-0.5 block font-outfit text-sm text-dark-bg/60">
+                        {link.description}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+
+      <!-- Column 3: Rechtliches (Impressum, Datenschutz) -->
+      <div
+        class="border-t border-dark-bg/10 pt-8 md:border-t-0 md:border-l md:border-dark-bg/10 md:pt-0 md:pl-8"
+      >
+        <h3 class="mb-6 font-outfit text-lg font-semibold text-dark-bg">
+          {t("nav.rechtliches")}
+        </h3>
+        <ul class="flex flex-col gap-4">
+          {
+            rechtlichesLinks.map((link) => {
+              const Icon = link.Icon;
+              return (
+                /* Icon + label + description */
+                <li>
+                  <a
+                    href={link.href}
+                    class="nav-overlay-link group flex cursor-pointer items-start gap-3"
+                  >
+                    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center text-dark-bg/60 transition-colors group-hover:text-primary">
+                      <Icon size={20} stroke-width={2} />
+                    </span>
+                    <div>
+                      <span class="block font-outfit font-medium text-dark-bg group-hover:text-primary">
+                        {link.label}
+                      </span>
+                      <span class="mt-0.5 block font-outfit text-sm text-dark-bg/60">
+                        {link.description}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
   /*
-   * DOM elements for burger button, overlay, close button and backdrop.
+   * Navigation overlay logic.
+   * - Burger: toggle open/close
+   * - Close button, backdrop click, nav link click: close overlay
+   * - Scroll lock: html overflow hidden when open (scrollbar-gutter: stable in global.css prevents layout shift)
    */
   const burger = document.getElementById("nav-burger");
   const overlay = document.getElementById("nav-overlay");
-  const closeBtn = document.getElementById("nav-close");
-  const backdrop = document.getElementById("nav-backdrop");
+  const closeBtn = document.getElementById("nav-overlay-close");
+  const container = document.getElementById("nav-overlay-content");
+  const header = document.getElementById("nav-header");
 
   /**
-   * Show overlay: make visible, activate backdrop, lock body scroll.
+   * Opens overlay, locks scroll via html overflow
    */
-  function openMenu() {
-    overlay?.classList.remove("-translate-x-full");
-    overlay?.classList.add("translate-x-0");
-    backdrop?.classList.remove("opacity-0", "pointer-events-none");
-    backdrop?.classList.add("opacity-100", "pointer-events-auto");
+  function openOverlay() {
+    overlay?.setAttribute("data-open", "true");
     overlay?.setAttribute("aria-hidden", "false");
     burger?.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
   }
 
   /**
-   * Hide overlay: hide menu, deactivate backdrop, restore body scroll.
+   * Closes overlay, restores scroll
    */
-  function closeMenu() {
-    overlay?.classList.remove("translate-x-0");
-    overlay?.classList.add("-translate-x-full");
-    backdrop?.classList.add("opacity-0", "pointer-events-none");
-    backdrop?.classList.remove("opacity-100", "pointer-events-auto");
+  function closeOverlay() {
+    overlay?.setAttribute("data-open", "false");
     overlay?.setAttribute("aria-hidden", "true");
     burger?.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
   }
 
-  /*
-   * Event listeners: burger opens, close button and backdrop click close the menu.
+  /**
+   * Burger: toggle overlay (open/close)
    */
-  burger?.addEventListener("click", openMenu);
-  closeBtn?.addEventListener("click", closeMenu);
-  backdrop?.addEventListener("click", closeMenu);
+  burger?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = overlay?.getAttribute("data-open") === "true";
+    if (isOpen) closeOverlay();
+    else openOverlay();
+  });
 
-  /*
-   * Close menu when clicking a link (for SPA navigation or direct page jumps).
+  /**
+   * Close button: always closes overlay
+   */
+  closeBtn?.addEventListener("click", closeOverlay);
+
+  /**
+   * Backdrop click: close when clicking outside the white container
+   */
+  overlay?.addEventListener("click", (e) => {
+    if (e.target instanceof Node && !container?.contains(e.target))
+      closeOverlay();
+  });
+
+  /**
+   * Nav links: close overlay when navigating
    */
   document.querySelectorAll(".nav-overlay-link").forEach((link) => {
-    link.addEventListener("click", closeMenu);
+    link.addEventListener("click", closeOverlay);
   });
+
+  /*
+   * Scroll behavior: shrink header when scrolled (see global.css for data-scrolled styles)
+   */
+  const SCROLL_THRESHOLD = 50;
+
+  /**
+   * Updates the scroll state of the header
+   */
+  function updateScrollState() {
+    const scrolled = window.scrollY > SCROLL_THRESHOLD;
+    header?.setAttribute("data-scrolled", String(scrolled));
+  }
+
+  window.addEventListener("scroll", updateScrollState, { passive: true });
+  updateScrollState();
 </script>

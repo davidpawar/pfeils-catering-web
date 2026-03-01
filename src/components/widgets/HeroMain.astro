@@ -3,17 +3,11 @@
  * Hero section for homepage with background image, headline and CTA.
  * Uses i18n for translated content and paths.
  */
-import Button from "../ui/Button.astro";
 import { imageProvider } from "../../provider/imageProvider";
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 ---
 
 <!--
@@ -38,7 +32,7 @@ const translatePath = useTranslatedPath(lang);
     class="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-16 md:px-12 md:py-24 lg:px-16 lg:py-32 min-[1920px]:max-w-8xl"
   >
     <!-- Title: main heading -->
-    <div class="max-w-4xl animate-fade-in mb-6 md:mb-8">
+    <div class="max-w-4xl animate-fade-in mb-4 md:mb-6">
       <h1
         class="mb-0 font-anton text-4xl font-medium leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
       >
@@ -53,11 +47,6 @@ const translatePath = useTranslatedPath(lang);
       >
         {t("hero.subtitle")}
       </h4>
-    </div>
-
-    <!-- CTA button -->
-    <div class="animate-fade-in-up">
-      <Button href={translatePath("/anfrage/")}>{t("hero.cta")}</Button>
     </div>
   </div>
 
