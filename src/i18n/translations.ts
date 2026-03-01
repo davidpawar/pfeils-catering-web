@@ -46,6 +46,40 @@ export const ui = {
     "firmenfeier.gallery.image4.title": "Atmosphäre bei Abendveranstaltungen",
     "firmenfeier.gallery.image4.description":
       "Bei Dunkelheit entfaltet sich die besondere Stimmung. Beleuchtete Bar, exzellente Cocktails und unser Team sorgen für unvergessliche Momente.",
+    "firmenfeier.textList.badge": "6 gute Gründe",
+    "firmenfeier.textList.title": "Ihre nächste Firmenfeier – perfekt inszeniert",
+    "firmenfeier.textList.description":
+      "Cocktails, Entertainment und professioneller Service – so wird Ihre Firmenfeier zu einem unvergesslichen Erlebnis. Hier sind die wichtigsten Gründe für unser Catering.",
+    "firmenfeier.textList.item1.title": "Zusammenhalt stärken",
+    "firmenfeier.textList.item1.description":
+      "Cocktails lockern die Stimmung unter Arbeitskollegen auf. Man kommt sich näher und lernt sich besser kennen. Das führt zu stärkere Netzwerke und ein rundum gelungenes Event.",
+    "firmenfeier.textList.item2.title": "Ein unvergessliches Erlebnis für Gäste",
+    "firmenfeier.textList.item2.description":
+      "Cocktail-Catering ist mehr als nur Trinken – es ist Entertainment, Interaktion und Genuss in einem. Ihre Gäste erleben etwas Besonderes, das in Erinnerung bleibt.",
+    "firmenfeier.textList.item3.title": "Komplett stressfrei für den Veranstalter",
+    "firmenfeier.textList.item3.description":
+      "Wir übernehmen alles – von der mobilen Bar über die Zutaten bis zum Personal. Sie können sich ganz auf Ihre Gäste konzentrieren, während wir für perfekten Service sorgen.",
+    "firmenfeier.textList.item4.title": "Perfekte Instagram-Momente",
+    "firmenfeier.textList.item4.description":
+      "Schöne Drinks, eine stylische Bar und echte Showmomente liefern Fotomotive, die geteilt werden wollen. Damit bekommt Ihre Veranstaltung auch online die Aufmerksamkeit, die sie verdient.",
+    "firmenfeier.textList.item5.title": "Professionelles Auftreten",
+    "firmenfeier.textList.item5.description":
+      "Ein Cocktail-Catering zeigt, dass das Unternehmen Wert auf Qualität, Stil und moderne Eventkultur legt – das kommt bei Gästen gut an.",
+    "firmenfeier.textList.item6.title": "Exzellente Ergänzung",
+    "firmenfeier.textList.item6.description":
+      "Cocktails und Musik? Traumkombi! Die Bar ist oft der Treffpunkt, an dem sich die Gäste zwischen Programmpunkten locker austauschen.",
+    "firmenfeier.cta.badge": "Ihr nächster Schritt",
+    "firmenfeier.cta.title": "Bereit für Ihr perfektes Event?",
+    "firmenfeier.weihnachtsmarkt.badge": "Weihnachtsfeier",
+    "firmenfeier.weihnachtsmarkt.description":
+      "Geben Sie ihrer Firmenfeier einen besonderen Touch. Wir bieten zusätzlich noch einen mobilen Weihnachtsmarkt an, der perfekt für eine Weihnachtsfeier geeignet ist. Die Anzahl an Hütten sind individuell anpassbar.",
+    "firmenfeier.weihnachtsmarkt.title": "Wir bringen den Weihnachtsmarkt zu Ihnen!",
+    "firmenfeier.weihnachtsmarkt.check1": "Weihnachtliches Fingerfood",
+    "firmenfeier.weihnachtsmarkt.check2": "Glühwein & Co.",
+    "firmenfeier.weihnachtsmarkt.check3": "Sicheres & wohles Ambiente",
+    "firmenfeier.weihnachtsmarkt.check4": "Zugeschnitten auf Ihre Location",
+    "firmenfeier.weihnachtsmarkt.check5": "Festliche Stimmung",
+    "firmenfeier.weihnachtsmarkt.check6": "Überraschung pur!",
     "footer.quickLinks": "Schnellzugriff",
     "footer.contact": "Kontakt",
     "footer.tagline":
@@ -95,6 +129,40 @@ export const ui = {
     "firmenfeier.gallery.image4.title": "Atmosphere at evening events",
     "firmenfeier.gallery.image4.description":
       "In the evening, a special mood unfolds. Lit bar, excellent cocktails and our team create unforgettable moments.",
+    "firmenfeier.textList.badge": "6 good reasons",
+    "firmenfeier.textList.title": "Your next corporate event – perfectly staged",
+    "firmenfeier.textList.description":
+      "Cocktails, entertainment and professional service – turn your corporate event into an unforgettable experience. Here are the key reasons why our catering is the right choice.",
+    "firmenfeier.textList.item1.title": "Strengthen team spirit",
+    "firmenfeier.textList.item1.description":
+      "Cocktails lighten the mood among colleagues. People get closer and get to know each other better. This leads to stronger networks and an all-round successful event.",
+    "firmenfeier.textList.item2.title": "An unforgettable experience for guests",
+    "firmenfeier.textList.item2.description":
+      "Cocktail catering is more than just drinking – it's entertainment, interaction and enjoyment in one. Your guests experience something special that stays in their memory.",
+    "firmenfeier.textList.item3.title": "Completely stress-free for the organizer",
+    "firmenfeier.textList.item3.description":
+      "We take care of everything – from the mobile bar to the ingredients and staff. You can focus entirely on your guests while we ensure perfect service.",
+    "firmenfeier.textList.item4.title": "Perfect Instagram moments",
+    "firmenfeier.textList.item4.description":
+      "Beautiful drinks, a stylish bar and real show moments provide photo opportunities that people want to share. This gives your event the online attention it deserves.",
+    "firmenfeier.textList.item5.title": "Professional appearance",
+    "firmenfeier.textList.item5.description":
+      "A cocktail catering shows that the company values quality, style and modern event culture – guests appreciate that.",
+    "firmenfeier.textList.item6.title": "Excellent complement",
+    "firmenfeier.textList.item6.description":
+      "Cocktails and music? Dream combination! The bar is often the meeting point where guests casually mingle between program items.",
+    "firmenfeier.cta.badge": "Your next step",
+    "firmenfeier.cta.title": "Ready for your perfect event?",
+    "firmenfeier.weihnachtsmarkt.badge": "Christmas Party",
+    "firmenfeier.weihnachtsmarkt.description":
+      "Give your company party a special touch. We also offer a mobile Christmas market, perfect for a Christmas party. The number of huts can be individually adjusted.",
+    "firmenfeier.weihnachtsmarkt.title": "We bring the Christmas market to you!",
+    "firmenfeier.weihnachtsmarkt.check1": "Christmas Finger Food",
+    "firmenfeier.weihnachtsmarkt.check2": "Mulled Wine & Co.",
+    "firmenfeier.weihnachtsmarkt.check3": "Safe & Cozy Atmosphere",
+    "firmenfeier.weihnachtsmarkt.check4": "Tailored to Your Location",
+    "firmenfeier.weihnachtsmarkt.check5": "Festive Atmosphere",
+    "firmenfeier.weihnachtsmarkt.check6": "Pure Surprise!",
     "footer.quickLinks": "Quick Links",
     "footer.contact": "Contact",
     "footer.tagline":

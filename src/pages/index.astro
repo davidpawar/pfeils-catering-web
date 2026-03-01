@@ -4,7 +4,7 @@ import Footer from "../components/base/Footer.astro";
 import HeroMain from "../components/widgets/HeroMain.astro";
 import ImageNavigation from "../components/widgets/ImageNavigation.astro";
 import ImageText from "../components/widgets/ImageText.astro";
-import LogoList from "../components/widgets/LogoList.astro";
+import ItemList from "../components/widgets/ItemList.astro";
 import FAQ from "../components/widgets/FAQ.astro";
 import Testimonials from "../components/widgets/Testimonials.astro";
 import Navigation from "../components/base/Navigation.astro";
@@ -79,11 +79,11 @@ const translatePath = useTranslatedPath(lang);
           title="Vom klassischen Cocktail bis zum kreativen Signature-Drink"
           theme="dark"
         />
-        <LogoList
+        <ItemList
           badge="Referenzen"
           title="Ein Auszug unserer Referenzen"
           description="Vom regionalen Mittelstand bis zum Global Player – wir bringen die Bar dorthin, wo gefeiert wird."
-          logos={[
+          items={[
             {
               href: "https://www.vb-oberberg.de/startseite.html",
               image: imageProvider.partners.volksbank,
@@ -127,6 +127,7 @@ const translatePath = useTranslatedPath(lang);
                 "Weltweit führender Hersteller von Lackdraht und Feindraht – 10 Werke in 7 Ländern.",
             },
           ]}
+          columns={3}
         />
 
         <ImageText

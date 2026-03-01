@@ -4,7 +4,7 @@ import Footer from "../../components/base/Footer.astro";
 import HeroMain from "../../components/widgets/HeroMain.astro";
 import ImageNavigation from "../../components/widgets/ImageNavigation.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
-import LogoList from "../../components/widgets/LogoList.astro";
+import ItemList from "../../components/widgets/ItemList.astro";
 import FAQ from "../../components/widgets/FAQ.astro";
 import Testimonials from "../../components/widgets/Testimonials.astro";
 import Navigation from "../../components/base/Navigation.astro";
@@ -79,11 +79,11 @@ const translatePath = useTranslatedPath(lang);
           title="From classic cocktails to creative signature drinks"
           theme="dark"
         />
-        <LogoList
+        <ItemList
           badge="References"
           title="A selection of our references"
           description="From regional SMEs to global players – we bring the bar where it's celebrated."
-          logos={[
+          items={[
             {
               href: "https://www.vb-oberberg.de/startseite.html",
               image: imageProvider.partners.volksbank,
@@ -127,6 +127,7 @@ const translatePath = useTranslatedPath(lang);
                 "World-leading manufacturer of enamelled wire and fine wire – 10 plants in 7 countries.",
             },
           ]}
+          columns={3}
         />
 
         <ImageText

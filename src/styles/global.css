@@ -62,3 +62,30 @@
 .fade-in-section.delay-200.is-visible {
   transition-delay: 0.2s;
 }
+
+/* Subtle shake to draw attention to CTA */
+@keyframes ctaShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-3px);
+  }
+  30% {
+    transform: translateX(3px);
+  }
+  45% {
+    transform: translateX(-2px);
+  }
+  60% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
+.cta-shake {
+  animation: ctaShake 3s ease-in-out infinite;
+}

@@ -2,8 +2,10 @@
 import BaseHead from "../../components/base/BaseHead.astro";
 import Footer from "../../components/base/Footer.astro";
 import HeroMain from "../../components/widgets/HeroMain.astro";
+import CallToAction from "../../components/widgets/CallToAction.astro";
 import ImageGalleryMasonry from "../../components/widgets/ImageGalleryMasonry.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
+import ItemList from "../../components/widgets/ItemList.astro";
 import Navigation from "../../components/base/Navigation.astro";
 import { imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
@@ -19,12 +21,21 @@ const galleryItems = [
   { image: imageProvider.catering.bambusbar },
   { image: imageProvider.catering.bambusbarAbend },
 ];
+
+const textListItems = [
+  { title: t("firmenfeier.textList.item1.title"), description: t("firmenfeier.textList.item1.description") },
+  { title: t("firmenfeier.textList.item2.title"), description: t("firmenfeier.textList.item2.description") },
+  { title: t("firmenfeier.textList.item3.title"), description: t("firmenfeier.textList.item3.description") },
+  { title: t("firmenfeier.textList.item4.title"), description: t("firmenfeier.textList.item4.description") },
+  { title: t("firmenfeier.textList.item5.title"), description: t("firmenfeier.textList.item5.description") },
+  { title: t("firmenfeier.textList.item6.title"), description: t("firmenfeier.textList.item6.description") },
+];
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
   </head>
   <body>
     <div class="relative">
@@ -33,24 +44,56 @@ const galleryItems = [
         <HeroMain />
         <ImageText
           badgeText={t("hero.firmenfeier.subtitle")}
-          title={t("hero.firmenfeier.title")}
-          description={`${t("hero.firmenfeier.description")}. ${t("hero.firmenfeier.paragraph")}`}
+          buttonText={t("hero.cta")}
           checkItems={[
             t("hero.firmenfeier.bullet1"),
             t("hero.firmenfeier.bullet2"),
             t("hero.firmenfeier.bullet3"),
             t("hero.firmenfeier.bullet4"),
           ]}
+          description={`${t("hero.firmenfeier.description")}. ${t("hero.firmenfeier.paragraph")}`}
           image={imageProvider.events.firmenfeier}
           imagePosition="right"
           link={translatePath("/anfrage/")}
-          buttonText={t("hero.cta")}
+          theme="grey"
+          title={t("hero.firmenfeier.title")}
+        />
+        <ItemList
+          badge={t("firmenfeier.textList.badge")}
+          columns={2}
+          description={t("firmenfeier.textList.description")}
+          items={textListItems}
+          title={t("firmenfeier.textList.title")}
         />
         <ImageGalleryMasonry
-          items={galleryItems}
           badgeText={t("firmenfeier.gallery.badge")}
-          sectionTitle={t("firmenfeier.gallery.title")}
+          items={galleryItems}
           sectionDescription={t("firmenfeier.gallery.description")}
+          sectionTitle={t("firmenfeier.gallery.title")}
+        />
+        <CallToAction
+          badge={t("firmenfeier.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("firmenfeier.cta.title")}
+        />
+        <ImageText
+          badgeText={t("firmenfeier.weihnachtsmarkt.badge")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("firmenfeier.weihnachtsmarkt.check1"),
+            t("firmenfeier.weihnachtsmarkt.check2"),
+            t("firmenfeier.weihnachtsmarkt.check3"),
+            t("firmenfeier.weihnachtsmarkt.check4"),
+            t("firmenfeier.weihnachtsmarkt.check5"),
+            t("firmenfeier.weihnachtsmarkt.check6"),
+          ]}
+          description={t("firmenfeier.weihnachtsmarkt.description")}
+          image={imageProvider.events.weihnachtsfeier}
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          title={t("firmenfeier.weihnachtsmarkt.title")}
         />
       </main>
       <Footer />
