@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
+import Button from "../components/ui/Button.astro";
 import {
   getLangFromUrl,
   useTranslations,
@@ -84,16 +85,14 @@ function formatDate(date: Date, locale: string): string {
             <div class="w-full">
               {/* Meta: Zurück-Link, Titel, Autor, Datum */}
               <header class="border-b border-slate-300 pb-8">
-                <a
+                <Button
                   href={translatePath("/blog/")}
-                  class="group mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 font-outfit text-sm font-medium text-primary transition-all hover:border-primary hover:bg-primary hover:text-white"
+                  size="sm"
+                  class="mb-4 gap-2"
                 >
-                  <span
-                    class="transition-transform group-hover:-translate-x-0.5"
-                    aria-hidden="true">←</span
-                  >
+                  <span aria-hidden="true">←</span>
                   {t("blog.backToBlog")}
-                </a>
+                </Button>
                 <h1
                   class="font-anton text-2xl leading-tight text-dark md:text-3xl lg:text-4xl"
                 >
