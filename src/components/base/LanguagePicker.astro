@@ -1,23 +1,138 @@
 ---
+/*
+ * Language picker with flag icons and popover.
+ * Uses current URL to derive language and route for translation.
+ */
 import { languages } from "../../i18n/translations";
-import { getRouteFromUrl, useTranslatedPath } from "../../i18n/utils";
+import {
+  getLangFromUrl,
+  getRouteFromUrl,
+  useTranslatedPath,
+} from "../../i18n/utils";
 
+const currentLang = getLangFromUrl(Astro.url);
 const route = getRouteFromUrl(Astro.url);
+
+const flags: Record<keyof typeof languages, string> = {
+  de: "🇩🇪",
+  en: "🇬🇧",
+};
+
+const popoverId = `lang-picker-popover-${currentLang}-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<ul class="flex gap-4">
-  {Object.entries(languages).map(([lang, label]) => {
-    const translatePath = useTranslatedPath(lang as keyof typeof languages);
-    const href = translatePath(`/${route ? route : ""}`);
-    return (
-      <li>
-        <a
-          href={href}
-          class="font-outfit text-sm text-white/70 transition-colors hover:text-white"
-        >
-          {label}
-        </a>
-      </li>
-    );
-  })}
-</ul>
+<!--
+  ========== Language Picker ==========
+-->
+<div class="lang-picker relative">
+  <!--
+    Trigger button: shows active flag and chevron.
+    Opens popover on click.
+  -->
+  <button
+    type="button"
+    class="lang-picker-trigger flex cursor-pointer items-center gap-1 rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-xl text-white transition-colors hover:bg-white/10"
+    aria-label="Select language"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-controls={popoverId}
+  >
+    <span>{flags[currentLang as keyof typeof languages]}</span>
+    <svg
+      class="h-4 w-4 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!--
+    Popover: language options.
+    Opens upward on mobile (bottom of overlay), downward on desktop.
+  -->
+  <div
+    id={popoverId}
+    class="lang-picker-popover absolute right-0 bottom-full z-50 mb-1 min-w-[8rem] rounded-lg border border-white/20 bg-dark-bg/98 p-0 shadow-xl backdrop-blur-sm opacity-0 transition-opacity duration-200 data-[open]:opacity-100 pointer-events-none data-[open]:pointer-events-auto invisible data-[open]:visible md:bottom-auto md:mb-0 md:mt-1 md:top-full"
+    role="menu"
+    aria-orientation="vertical"
+  >
+    {
+      Object.entries(languages).map(([lang]) => {
+        const translatePath = useTranslatedPath(lang as keyof typeof languages);
+        const href = translatePath(`/${route ? route : ""}`);
+        const isActive = lang === currentLang;
+        return (
+          <a
+            href={href}
+            role="menuitem"
+            class={`flex cursor-pointer items-center gap-2 px-3 py-3 text-sm transition-colors md:py-2 ${
+              isActive
+                ? "bg-white/10 text-white"
+                : "text-white/80 hover:bg-white/10 hover:text-white"
+            }`}
+          >
+            <span class="text-lg">{flags[lang as keyof typeof languages]}</span>
+            <span>{languages[lang as keyof typeof languages]}</span>
+          </a>
+        );
+      })
+    }
+  </div>
+</div>
+
+<script>
+  /*
+   * Popover toggle logic.
+   * Supports multiple instances (desktop nav + mobile overlay).
+   */
+  document.querySelectorAll(".lang-picker").forEach((picker) => {
+    const trigger = picker.querySelector(".lang-picker-trigger");
+    const popover = picker.querySelector(".lang-picker-popover");
+
+    /**
+     * Open popover: show menu, update aria, rotate chevron.
+     */
+    function open() {
+      popover?.setAttribute("data-open", "");
+      trigger?.setAttribute("aria-expanded", "true");
+      trigger?.querySelector("svg")?.classList.add("rotate-180");
+    }
+
+    /**
+     * Close popover: hide menu, reset aria and chevron.
+     */
+    function close() {
+      popover?.removeAttribute("data-open");
+      trigger?.setAttribute("aria-expanded", "false");
+      trigger?.querySelector("svg")?.classList.remove("rotate-180");
+    }
+
+    /**
+     * Toggle popover: open if closed, close if open.
+     */
+    function toggle() {
+      const isOpen = trigger?.getAttribute("aria-expanded") === "true";
+      isOpen ? close() : open();
+    }
+
+    /*
+     * Event listeners: trigger toggles, document click closes, popover click
+     * does not propagate (prevents close when selecting a language).
+     */
+    trigger?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggle();
+    });
+
+    document.addEventListener("click", () => close());
+
+    popover?.addEventListener("click", (e) => e.stopPropagation());
+  });
+</script>

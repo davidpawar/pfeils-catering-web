@@ -1,4 +1,8 @@
 ---
+/*
+ * Hero section for homepage with background image, headline and CTA.
+ * Uses i18n for translated content and paths.
+ */
 import Button from "../ui/Button.astro";
 import { imageProvider } from "../../provider/imageProvider";
 import {
@@ -12,23 +16,28 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-{/* HeroMain: Full-width hero for homepage with background image */}
+<!--
+  ========== Hero Section ==========
+  Full-width, min-h-screen, background image with gradient overlay.
+-->
 <section
+  id="hero-main"
   class="relative flex min-h-screen flex-col justify-center bg-dark-bg bg-cover bg-center bg-no-repeat"
   style={{
     backgroundImage: `url('${typeof imageProvider.hero.headerBackground.src === "object" ? imageProvider.hero.headerBackground.src.src : imageProvider.hero.headerBackground.src}')`,
   }}
 >
+  <!-- Gradient overlay for better text readability -->
   <div
     class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75"
   >
   </div>
 
-  {/* Content container */}
+  <!-- Content container: title, subtitle, CTA -->
   <div
     class="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-16 md:px-12 md:py-24 lg:px-16 lg:py-32 min-[1920px]:max-w-8xl"
   >
-    {/* Title: main heading */}
+    <!-- Title: main heading -->
     <div class="max-w-4xl animate-fade-in mb-6 md:mb-8">
       <h1
         class="mb-0 font-anton text-4xl font-medium leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
@@ -37,7 +46,7 @@ const translatePath = useTranslatedPath(lang);
       </h1>
     </div>
 
-    {/* Subtitle: supporting text */}
+    <!-- Subtitle: supporting text -->
     <div class="animate-fade-in mb-8 md:mb-10">
       <h4
         class="font-outfit text-base font-light leading-relaxed text-white md:text-lg lg:text-xl"
@@ -46,9 +55,81 @@ const translatePath = useTranslatedPath(lang);
       </h4>
     </div>
 
-    {/* CTA button */}
+    <!-- CTA button -->
     <div class="animate-fade-in-up">
       <Button href={translatePath("/anfrage/")}>{t("hero.cta")}</Button>
     </div>
   </div>
+
+  <!--
+    Scroll indicator: mouse icon with animated wheel.
+    Click scrolls smoothly to the next section.
+  -->
+  <button
+    type="button"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex cursor-pointer flex-col items-center bg-transparent border-none p-0 text-white transition-opacity hover:opacity-80"
+    aria-label="Zum nächsten Abschnitt scrollen"
+    data-scroll-to-next
+  >
+    <svg
+      class="h-10 w-6 text-white"
+      viewBox="0 0 24 40"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <rect x="2" y="2" width="20" height="32" rx="10"></rect>
+      <rect
+        x="9"
+        y="12"
+        width="6"
+        height="8"
+        rx="1"
+        fill="white"
+        stroke="none"
+        class="animate-mouse-scroll"></rect>
+    </svg>
+  </button>
 </section>
+
+<script is:inline>
+  /*
+   * Scroll-to-next-section: When the user clicks the mouse indicator,
+   * we smoothly scroll to the next <section> on the page.
+   *
+   * is:inline = Astro leaves this script as-is (runs in page context, not bundled).
+   * DOMContentLoaded = Wait until the HTML is fully loaded before we attach listeners.
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollButton = document.querySelector("[data-scroll-to-next]");
+    if (!scrollButton) return;
+
+    scrollButton.addEventListener("click", () => {
+      /* 1. Find our hero section by its id */
+      const hero = document.getElementById("hero-main");
+      if (!hero) return;
+
+      /*
+       * 2. Find the next <section> sibling.
+       * nextElementSibling gives us the next element (skips text nodes).
+       * We loop because the next sibling might be a <div> or other element –
+       * we want the next actual <section> (e.g. ImageText, ImageNavigation).
+       */
+      let next = hero.nextElementSibling;
+      while (next && next.tagName !== "SECTION") {
+        next = next.nextElementSibling;
+      }
+
+      /*
+       * 3. Scroll the found section into view.
+       * behavior: "smooth" = animated scroll instead of instant jump.
+       * block: "start" = align the top of the section with the top of the viewport.
+       */
+      if (next) {
+        next.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+</script>

@@ -1,30 +1,50 @@
 ---
+/*
+ * Imports for assets, image provider and i18n utilities.
+ */
 import { Image } from "astro:assets";
 import { getImageAlt, imageProvider } from "../../provider/imageProvider";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
 import LanguagePicker from "./LanguagePicker.astro";
 
+/*
+ * Derive current language and translation helpers from the URL.
+ */
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
+/*
+ * Main navigation links with translated labels and language-specific paths.
+ */
 const navLinks = [
   { label: t("nav.home"), href: translatePath("/") },
   { label: t("nav.firmenfeier"), href: translatePath("/firmenfeier/") },
   { label: t("nav.hochzeitsfeier"), href: translatePath("/hochzeitsfeier/") },
-  { label: t("nav.individuell"), href: translatePath("/individuelles-catering/") },
   { label: t("nav.messeCatering"), href: translatePath("/messe-catering/") },
-  { label: t("nav.mobileCocktailbar"), href: translatePath("/mobile-cocktailbar/") },
+  {
+    label: t("nav.mobileCocktailbar"),
+    href: translatePath("/mobile-cocktailbar/"),
+  },
   { label: t("nav.anfrage"), href: translatePath("/anfrage/") },
 ];
 ---
 
-<header class="absolute left-0 right-0 top-0 z-50">
+<!--
+  ========== Header & Main Navigation ==========
+-->
+<header
+  class="absolute left-0 right-0 top-0 z-50 md:bg-black/40 md:backdrop-blur-sm"
+>
   <nav
-    class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12 lg:py-5 lg:px-16 min-[1920px]:max-w-8xl"
+    class="relative mx-auto flex max-w-9xl items-center justify-between px-6 py-4 md:px-12 lg:px-16 min-[1920px]:max-w-8xl"
     aria-label="Hauptnavigation"
   >
-    <!-- Desktop: Logo links -->
+    <!-- Desktop: Logo on the left -->
     <a
       href={translatePath("/")}
       class="hidden items-center md:flex"
@@ -39,7 +59,7 @@ const navLinks = [
       />
     </a>
 
-    <!-- Mobile: Burger links -->
+    <!-- Mobile: Burger button on the left -->
     <button
       id="nav-burger"
       type="button"
@@ -61,7 +81,7 @@ const navLinks = [
       </svg>
     </button>
 
-    <!-- Mobile: Logo zentral (absolute für echte Mitte) -->
+    <!-- Mobile: Logo centered (absolute positioning for true center) -->
     <a
       href={translatePath("/")}
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden"
@@ -76,27 +96,38 @@ const navLinks = [
       />
     </a>
 
-    <!-- Desktop: Menu rechts -->
-    <div class="hidden md:flex md:items-center md:gap-8">
+    <!-- Desktop: Nav links centered -->
+    <div
+      class="hidden flex-1 md:flex md:items-center md:justify-center md:gap-8"
+    >
       {
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="font-outfit text-base text-white/90 transition-colors hover:text-white"
+            class="font-outfit text-base font-bold text-white/90 transition-colors hover:text-white"
           >
             {link.label}
           </a>
         ))
       }
+    </div>
+
+    <!-- Desktop: LanguagePicker on the right -->
+    <div class="hidden md:flex md:items-center">
       <LanguagePicker />
     </div>
 
-    <!-- Mobile: unsichtbarer Platzhalter für symmetrisches Layout (Burger links, Logo mitte) -->
-    <div class="h-10 w-10 md:hidden" aria-hidden="true"></div>
+    <!-- Mobile: LanguagePicker top right (balances burger left, logo center) -->
+    <div class="flex items-center justify-end md:hidden">
+      <LanguagePicker />
+    </div>
   </nav>
 </header>
 
-<!-- Mobile Overlay (fährt von links rein) -->
+<!--
+  ========== Mobile Overlay Menu ==========
+  Slides in from the left, contains the same links as the desktop navigation.
+-->
 <div
   id="nav-overlay"
   class="fixed inset-y-0 left-0 z-50 w-full max-w-sm -translate-x-full bg-dark-bg/98 shadow-xl backdrop-blur-sm transition-transform duration-500 ease-in-out md:hidden"
@@ -134,14 +165,14 @@ const navLinks = [
           </a>
         ))
       }
-      <div class="pt-4">
-        <LanguagePicker />
-      </div>
     </nav>
   </div>
 </div>
 
-<!-- Backdrop beim geöffneten Overlay -->
+<!--
+  ========== Backdrop ==========
+  Dark overlay when menu is open; click closes the menu.
+-->
 <div
   id="nav-backdrop"
   class="fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-500 ease-linear md:hidden pointer-events-none"
@@ -150,11 +181,17 @@ const navLinks = [
 </div>
 
 <script>
+  /*
+   * DOM elements for burger button, overlay, close button and backdrop.
+   */
   const burger = document.getElementById("nav-burger");
   const overlay = document.getElementById("nav-overlay");
   const closeBtn = document.getElementById("nav-close");
   const backdrop = document.getElementById("nav-backdrop");
 
+  /**
+   * Show overlay: make visible, activate backdrop, lock body scroll.
+   */
   function openMenu() {
     overlay?.classList.remove("-translate-x-full");
     overlay?.classList.add("translate-x-0");
@@ -165,6 +202,9 @@ const navLinks = [
     document.body.style.overflow = "hidden";
   }
 
+  /**
+   * Hide overlay: hide menu, deactivate backdrop, restore body scroll.
+   */
   function closeMenu() {
     overlay?.classList.remove("translate-x-0");
     overlay?.classList.add("-translate-x-full");
@@ -175,11 +215,16 @@ const navLinks = [
     document.body.style.overflow = "";
   }
 
+  /*
+   * Event listeners: burger opens, close button and backdrop click close the menu.
+   */
   burger?.addEventListener("click", openMenu);
   closeBtn?.addEventListener("click", closeMenu);
   backdrop?.addEventListener("click", closeMenu);
 
-  // Schließen bei Klick auf Link (für SPA-Navigation oder direkte Sprünge)
+  /*
+   * Close menu when clicking a link (for SPA navigation or direct page jumps).
+   */
   document.querySelectorAll(".nav-overlay-link").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
