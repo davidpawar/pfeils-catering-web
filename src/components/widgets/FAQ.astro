@@ -125,7 +125,7 @@ const titleClass = isDark ? "text-white" : "text-dark";
             {items.map((item, i) => (
               <article
                 class:list={[
-                  "flex flex-col rounded-br-4xl p-6 transition-shadow hover:shadow-lg md:p-8",
+                  "faq-card flex flex-col rounded-br-4xl p-6 md:p-8",
                   itemBgClass,
                   i === 1 && "delay-200",
                   i === 2 && "delay-200",
@@ -159,3 +159,12 @@ const titleClass = isDark ? "text-white" : "text-dark";
     </>
   )
 }
+
+<style>
+  .faq-card {
+    transition: transform 0.3s ease-out;
+  }
+  .faq-card:hover {
+    transform: translateY(-4px);
+  }
+</style>
