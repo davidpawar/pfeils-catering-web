@@ -2,23 +2,142 @@
 import BaseHead from "../../components/base/BaseHead.astro";
 import Footer from "../../components/base/Footer.astro";
 import Navigation from "../../components/base/Navigation.astro";
-import { getLangFromUrl } from "../../i18n/utils";
+import CallToAction from "../../components/widgets/CallToAction.astro";
+import HeroSubpage from "../../components/widgets/HeroSubpage.astro";
+import ImageGalleryMasonry from "../../components/widgets/ImageGalleryMasonry.astro";
+import ImageText from "../../components/widgets/ImageText.astro";
+import ItemList from "../../components/widgets/ItemList.astro";
+import Testimonials from "../../components/widgets/Testimonials.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+import { imageProvider } from "../../provider/imageProvider";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const messeHeroUrl =
+  typeof imageProvider.hero.messeBackground.src === "object"
+    ? imageProvider.hero.messeBackground.src.src
+    : imageProvider.hero.messeBackground.src;
+
+const galleryItems = [
+  { image: imageProvider.events.messe },
+  { image: imageProvider.catering.cocktailService },
+  { image: imageProvider.catering.bambusbar },
+  { image: imageProvider.catering.bambusbarAbend },
+];
+
+const textListItems = [
+  {
+    title: t("messe.textList.item1.title"),
+    description: t("messe.textList.item1.description"),
+  },
+  {
+    title: t("messe.textList.item2.title"),
+    description: t("messe.textList.item2.description"),
+  },
+  {
+    title: t("messe.textList.item3.title"),
+    description: t("messe.textList.item3.description"),
+  },
+  {
+    title: t("messe.textList.item4.title"),
+    description: t("messe.textList.item4.description"),
+  },
+  {
+    title: t("messe.textList.item5.title"),
+    description: t("messe.textList.item5.description"),
+  },
+  {
+    title: t("messe.textList.item6.title"),
+    description: t("messe.textList.item6.description"),
+  },
+];
+
+const testimonialItems = [
+  {
+    jobTitle: t("messe.testimonials.item1.jobTitle"),
+    name: t("messe.testimonials.item1.name"),
+    text: t("messe.testimonials.item1.text"),
+  },
+  {
+    jobTitle: t("messe.testimonials.item2.jobTitle"),
+    name: t("messe.testimonials.item2.name"),
+    text: t("messe.testimonials.item2.text"),
+  },
+  {
+    jobTitle: t("messe.testimonials.item3.jobTitle"),
+    name: t("messe.testimonials.item3.name"),
+    text: t("messe.testimonials.item3.text"),
+  },
+  {
+    jobTitle: t("messe.testimonials.item4.jobTitle"),
+    name: t("messe.testimonials.item4.name"),
+    text: t("messe.testimonials.item4.text"),
+  },
+];
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
   </head>
   <body>
     <div class="relative">
       <Navigation />
-      <main class="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-16">
-        <h1 class="font-anton text-4xl text-dark">Exhibition</h1>
-        <p class="mt-4 text-dark/70">Content coming soon.</p>
+      <main>
+        <HeroSubpage
+          title={t("hero.messe.title")}
+          imageUrl={messeHeroUrl}
+        />
+        <ImageText
+          badgeText={t("hero.messe.subtitle")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("hero.messe.bullet1"),
+            t("hero.messe.bullet2"),
+            t("hero.messe.bullet3"),
+            t("hero.messe.bullet4"),
+          ]}
+          description={`${t("hero.messe.description")}. ${t("hero.messe.paragraph")}`}
+          image={imageProvider.events.messe}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("hero.messe.title")}
+        />
+        <ItemList
+          badge={t("messe.textList.badge")}
+          columns={2}
+          description={t("messe.textList.description")}
+          items={textListItems}
+          title={t("messe.textList.title")}
+        />
+        <ImageGalleryMasonry
+          badgeText={t("messe.gallery.badge")}
+          items={galleryItems}
+          sectionDescription={t("messe.gallery.description")}
+          sectionTitle={t("messe.gallery.title")}
+        />
+        <CallToAction
+          badge={t("messe.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("messe.cta.title")}
+        />
+        <Testimonials
+          badge={t("messe.testimonials.badge")}
+          description={t("messe.testimonials.description")}
+          testimonials={testimonialItems}
+          title={t("messe.testimonials.title")}
+        />
       </main>
       <Footer />
     </div>

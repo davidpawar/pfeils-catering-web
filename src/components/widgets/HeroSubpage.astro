@@ -4,10 +4,6 @@
  */
 interface Props {
   /**
-   * Optional supporting paragraph below the title.
-   */
-  description?: string;
-  /**
    * URL for the background image.
    */
   imageUrl: string;
@@ -17,7 +13,7 @@ interface Props {
   title: string;
 }
 
-const { description, imageUrl, title } = Astro.props;
+const { imageUrl, title } = Astro.props;
 ---
 
 {/* HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text */}
@@ -39,16 +35,10 @@ const { description, imageUrl, title } = Astro.props;
     <div class="max-w-3xl">
       {/* Title: main heading – smaller than HeroMain */}
       <h1
-        class="mb-3 font-anton text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl xl:text-5xl"
+        class="font-anton text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl xl:text-5xl"
       >
         {title}
       </h1>
-      {/* Description: optional supporting text */}
-      {description && (
-        <p class="font-outfit text-sm leading-relaxed text-white/90 md:text-base lg:text-lg">
-          {description}
-        </p>
-      )}
     </div>
   </div>
 </section>

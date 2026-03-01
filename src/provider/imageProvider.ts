@@ -8,6 +8,7 @@ import eisCatering from "../assets/images/catering/eis-catering.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
+import messeHero from "../assets/images/hero/messe-hero.jpg";
 import hochzeit from "../assets/images/events/hochzeit.jpg";
 import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
@@ -92,6 +93,11 @@ export const imageProvider = {
       alt: "",
       altEn: "",
       src: headerBg,
+    },
+    messeBackground: {
+      alt: "Cocktail-Bar auf einer Messe – professioneller Barservice am Messestand",
+      altEn: "Cocktail bar at a trade fair – professional bar service at the exhibition stand",
+      src: messeHero,
     },
     weddingBackground: {
       alt: "Hochzeitsfeier mit Cocktail-Catering – festliche Atmosphäre",

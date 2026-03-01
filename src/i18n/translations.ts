@@ -176,6 +176,65 @@ export const ui = {
     "hochzeitsfeier.testimonials.item4.jobTitle": "Bräutigam",
     "hochzeitsfeier.testimonials.item4.text":
       "Die Barkeeper waren super freundlich, die Drinks individuell auf uns abgestimmt und die Stimmung an der Bar einfach grandios!",
+    "hero.messe.subtitle": "Cocktail Catering",
+    "hero.messe.title":
+      "Ihr Cocktail Catering für einen eindrucksvollen Messestand",
+    "hero.messe.description":
+      "Ziehen Sie Messebesucher mit stilvoll gemixten Cocktails und professionellem Barservice an Ihren Stand. Unsere Barkeeper sorgen nicht nur für exzellenten Geschmack, sondern auch für ein echtes Show-Erlebnis. So bleibt Ihr Unternehmen garantiert in bester Erinnerung.",
+    "hero.messe.paragraph":
+      "Exklusive Cocktails live gemixt – der Messe-Hingucker schlechthin. Bewegung, Farbe und der Duft frisch gemixter Drinks ziehen Blicke auf sich und sorgen dafür, dass Ihr Stand sich von der Masse abhebt.",
+    "hero.messe.bullet1": "Showeffekt",
+    "hero.messe.bullet2": "Aufmerksamkeit garantieren",
+    "hero.messe.bullet3": "All-In-One Service",
+    "hero.messe.bullet4": "Kunden, die staunen",
+    "messe.gallery.badge": "Impressionen",
+    "messe.gallery.title": "Cocktail Catering auf Messen",
+    "messe.gallery.description":
+      "Einblicke in unsere Messe-Events – von der mobilen Bar bis zum professionellen Barservice am Stand.",
+    "messe.textList.badge": "6 gute Gründe",
+    "messe.textList.title": "Warum Sie einen Cocktail Catering Service für Ihre Messe benötigen",
+    "messe.textList.description":
+      "Cocktails, Entertainment und professioneller Service – so wird Ihr Messestand zu einem unvergesslichen Erlebnis. Hier sind die wichtigsten Gründe für unser Messe-Catering.",
+    "messe.textList.item1.title": "Aufmerksamkeit am Messestand",
+    "messe.textList.item1.description":
+      "Ein Cocktailstand ist ein echter Besuchermagnet auf jeder Messe. Bewegung, Farbe und der Duft frisch gemixter Drinks ziehen Blicke auf sich und sorgen dafür, dass Ihr Stand sich von der Masse abhebt.",
+    "messe.textList.item2.title": "Höhere Verweildauer",
+    "messe.textList.item2.description":
+      "Ein leckerer Drink lädt zum Verweilen ein. Je länger Besucher an Ihrem Stand bleiben, desto größer ist die Chance auf tiefere Gespräche und nachhaltige Kontakte.",
+    "messe.textList.item3.title": "Networking in entspannter Atmosphäre",
+    "messe.textList.item3.description":
+      "Ein lockerer Drink in der Hand schafft eine ungezwungene Gesprächsbasis. So entsteht Raum für ehrliches Interesse, Offenheit und wertvolle neue Geschäftskontakte.",
+    "messe.textList.item4.title": "Flexibel und anpassbar",
+    "messe.textList.item4.description":
+      "Egal ob kleiner Messestand oder große Eventfläche – unser Service passt sich räumlich und organisatorisch Ihren Anforderungen an. Sie bekommen maximale Wirkung bei minimalem Aufwand.",
+    "messe.textList.item5.title": "Unvergessliche Erlebnisse erschaffen",
+    "messe.textList.item5.description":
+      "Ein außergewöhnlicher Cocktail bleibt im Gedächtnis – oft viel länger als ein Gespräch allein. So verknüpfen Ihre Besucher die positive Erfahrung direkt mit Ihrem Unternehmen.",
+    "messe.textList.item6.title": "Volle Organisation – null Stress",
+    "messe.textList.item6.description":
+      "Sie müssen sich um nichts kümmern: Wir übernehmen Planung, Einkauf, Aufbau und Abbau. Sie genießen einen reibungslosen Ablauf und können sich ganz auf Ihre Kunden konzentrieren.",
+    "messe.cta.badge": "Mehr als nur ein Getränk",
+    "messe.cta.title": "Kommen Sie mit uns in Kontakt",
+    "messe.testimonials.badge": "Kundenstimmen",
+    "messe.testimonials.description":
+      "Was unsere Kunden über unser Cocktail-Catering auf Messen sagen.",
+    "messe.testimonials.title": "Stimmen von unseren Messe-Events",
+    "messe.testimonials.item1.name": "Julian K.",
+    "messe.testimonials.item1.jobTitle": "Eventkoordinator",
+    "messe.testimonials.item1.text":
+      "Wir wollten etwas Besonderes für unsere Messepräsenz – und der Cocktailservice hat genau das geliefert. Die Barkeeper waren professionell und freundlich.",
+    "messe.testimonials.item2.name": "Omar S.",
+    "messe.testimonials.item2.jobTitle": "Brandmanager",
+    "messe.testimonials.item2.text":
+      "Ein echtes Messe-Upgrade! Der Cocktailservice war professionell organisiert, die Getränke exzellent – und der Service reibungslos. So hebt man sich von der Masse ab.",
+    "messe.testimonials.item3.name": "Deborah T.",
+    "messe.testimonials.item3.jobTitle": "Eventmanagerin",
+    "messe.testimonials.item3.text":
+      "Die Barkeeper haben nicht nur fantastische Cocktails gezaubert, sondern auch für gute Stimmung gesorgt.",
+    "messe.testimonials.item4.name": "Corinna L.",
+    "messe.testimonials.item4.jobTitle": "Eventmanagerin",
+    "messe.testimonials.item4.text":
+      "Die Drinks waren nicht nur geschmacklich ein Highlight, sondern auch optisch ein echter Hingucker.",
     "footer.quickLinks": "Schnellzugriff",
     "footer.contact": "Kontakt",
     "footer.tagline":
@@ -356,6 +415,65 @@ export const ui = {
       "All-inclusive package with taste. I would book you again in a heartbeat. We're delighted!",
     "firmenfeier.cta.badge": "Your next step",
     "firmenfeier.cta.title": "Ready for your perfect event?",
+    "hero.messe.subtitle": "Cocktail Catering",
+    "hero.messe.title":
+      "Your cocktail catering for an impressive exhibition stand",
+    "hero.messe.description":
+      "Attract trade fair visitors with stylishly mixed cocktails and professional bar service at your stand. Our bartenders ensure not only excellent taste but also a real show experience. Your company is guaranteed to stay in the best memory.",
+    "hero.messe.paragraph":
+      "Exclusive cocktails mixed live – the ultimate trade fair eye-catcher. Movement, color and the scent of freshly mixed drinks draw attention and ensure your stand stands out from the crowd.",
+    "hero.messe.bullet1": "Show effect",
+    "hero.messe.bullet2": "Guaranteed attention",
+    "hero.messe.bullet3": "All-in-one service",
+    "hero.messe.bullet4": "Customers who are amazed",
+    "messe.gallery.badge": "Impressions",
+    "messe.gallery.title": "Cocktail catering at trade fairs",
+    "messe.gallery.description":
+      "Insights into our trade fair events – from the mobile bar to professional bar service at the stand.",
+    "messe.textList.badge": "6 good reasons",
+    "messe.textList.title": "Why you need a cocktail catering service for your trade fair",
+    "messe.textList.description":
+      "Cocktails, entertainment and professional service – turn your exhibition stand into an unforgettable experience. Here are the key reasons for our trade fair catering.",
+    "messe.textList.item1.title": "Attention at the exhibition stand",
+    "messe.textList.item1.description":
+      "A cocktail stand is a real visitor magnet at any trade fair. Movement, color and the scent of freshly mixed drinks draw attention and ensure your stand stands out from the crowd.",
+    "messe.textList.item2.title": "Higher dwell time",
+    "messe.textList.item2.description":
+      "A delicious drink invites visitors to stay longer. The longer visitors stay at your stand, the greater the chance of deeper conversations and lasting contacts.",
+    "messe.textList.item3.title": "Networking in a relaxed atmosphere",
+    "messe.textList.item3.description":
+      "A relaxed drink in hand creates an informal basis for conversation. This creates space for genuine interest, openness and valuable new business contacts.",
+    "messe.textList.item4.title": "Flexible and adaptable",
+    "messe.textList.item4.description":
+      "Whether small exhibition stand or large event floor – our service adapts spatially and organizationally to your requirements. You get maximum impact with minimal effort.",
+    "messe.textList.item5.title": "Create unforgettable experiences",
+    "messe.textList.item5.description":
+      "An extraordinary cocktail stays in the memory – often much longer than a conversation alone. This way your visitors connect the positive experience directly with your company.",
+    "messe.textList.item6.title": "Full organization – zero stress",
+    "messe.textList.item6.description":
+      "You don't have to worry about anything: We take care of planning, purchasing, setup and dismantling. You enjoy smooth operations and can focus entirely on your customers.",
+    "messe.cta.badge": "More than just a drink",
+    "messe.cta.title": "Get in touch with us",
+    "messe.testimonials.badge": "Customer voices",
+    "messe.testimonials.description":
+      "What our customers say about our cocktail catering at trade fairs.",
+    "messe.testimonials.title": "Voices from our trade fair events",
+    "messe.testimonials.item1.name": "Julian K.",
+    "messe.testimonials.item1.jobTitle": "Event coordinator",
+    "messe.testimonials.item1.text":
+      "We wanted something special for our trade fair presence – and the cocktail service delivered exactly that. The bartenders were professional and friendly.",
+    "messe.testimonials.item2.name": "Omar S.",
+    "messe.testimonials.item2.jobTitle": "Brand manager",
+    "messe.testimonials.item2.text":
+      "A real trade fair upgrade! The cocktail service was professionally organized, the drinks excellent – and the service smooth. That's how you stand out from the crowd.",
+    "messe.testimonials.item3.name": "Deborah T.",
+    "messe.testimonials.item3.jobTitle": "Event manager",
+    "messe.testimonials.item3.text":
+      "The bartenders not only conjured up fantastic cocktails but also created a great atmosphere.",
+    "messe.testimonials.item4.name": "Corinna L.",
+    "messe.testimonials.item4.jobTitle": "Event manager",
+    "messe.testimonials.item4.text":
+      "The drinks were not only a taste highlight but also a real eye-catcher visually.",
     "footer.quickLinks": "Quick Links",
     "footer.contact": "Contact",
     "footer.tagline":
