@@ -3,7 +3,7 @@ import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
 import CallToAction from "../components/widgets/CallToAction.astro";
-import HeroMain from "../components/widgets/HeroMain.astro";
+import HeroSubpage from "../components/widgets/HeroSubpage.astro";
 import ImageGalleryMasonry from "../components/widgets/ImageGalleryMasonry.astro";
 import ImageText from "../components/widgets/ImageText.astro";
 import ItemList from "../components/widgets/ItemList.astro";
@@ -19,6 +19,11 @@ import { imageProvider } from "../provider/imageProvider";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+const weddingHeroUrl =
+  typeof imageProvider.hero.weddingBackground.src === "object"
+    ? imageProvider.hero.weddingBackground.src.src
+    : imageProvider.hero.weddingBackground.src;
 
 const galleryItems = [
   { image: imageProvider.events.hochzeitWedding },
@@ -87,7 +92,11 @@ const testimonialItems = [
     <div class="relative">
       <Navigation />
       <main>
-        <HeroMain />
+        <HeroSubpage
+          title={t("hero.hochzeitsfeier.title")}
+          description={t("hero.hochzeitsfeier.description")}
+          imageUrl={weddingHeroUrl}
+        />
         <ImageText
           badgeText={t("hero.hochzeitsfeier.subtitle")}
           buttonText={t("hero.cta")}

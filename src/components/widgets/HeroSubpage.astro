@@ -1,11 +1,4 @@
 ---
-import Button from "../ui/Button.astro";
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from "../../i18n/utils";
-
 /**
  * HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text.
  */
@@ -19,25 +12,12 @@ interface Props {
    */
   imageUrl: string;
   /**
-   * When true, shows the CTA button linking to /anfrage/.
-   */
-  showCta?: boolean;
-  /**
-   * Small label above the title (badge).
-   */
-  subtitle: string;
-  /**
    * Main heading.
    */
   title: string;
 }
 
-const { description, imageUrl, showCta = false, subtitle, title } =
-  Astro.props;
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
+const { description, imageUrl, title } = Astro.props;
 ---
 
 {/* HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text */}
@@ -57,12 +37,6 @@ const translatePath = useTranslatedPath(lang);
     class="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20"
   >
     <div class="max-w-3xl">
-      {/* Badge: small label above title */}
-      <p
-        class="mb-2 font-outfit text-xs font-medium uppercase tracking-wider text-primary-light md:text-sm"
-      >
-        {subtitle}
-      </p>
       {/* Title: main heading – smaller than HeroMain */}
       <h1
         class="mb-3 font-anton text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl xl:text-5xl"
@@ -74,12 +48,6 @@ const translatePath = useTranslatedPath(lang);
         <p class="font-outfit text-sm leading-relaxed text-white/90 md:text-base lg:text-lg">
           {description}
         </p>
-      )}
-      {/* CTA button: optional */}
-      {showCta && (
-        <div class="mt-6">
-          <Button href={translatePath("/anfrage/")}>{t("hero.cta")}</Button>
-        </div>
       )}
     </div>
   </div>
