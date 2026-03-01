@@ -2,23 +2,239 @@
 import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
-import { getLangFromUrl } from "../i18n/utils";
+import CallToAction from "../components/widgets/CallToAction.astro";
+import HeroSubpage from "../components/widgets/HeroSubpage.astro";
+import ImageGalleryMasonry from "../components/widgets/ImageGalleryMasonry.astro";
+import ImageText from "../components/widgets/ImageText.astro";
+import ItemList from "../components/widgets/ItemList.astro";
+import Testimonials from "../components/widgets/Testimonials.astro";
+import TextBlock from "../components/widgets/TextBlock.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+import { imageProvider } from "../provider/imageProvider";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const mobileCocktailbarHeroUrl =
+  typeof imageProvider.hero.mobileCocktailbarBackground.src === "object"
+    ? imageProvider.hero.mobileCocktailbarBackground.src.src
+    : imageProvider.hero.mobileCocktailbarBackground.src;
+
+const textListItems = [
+  {
+    title: t("mobileCocktailbar.textList.item1.title"),
+    description: t("mobileCocktailbar.textList.item1.description"),
+  },
+  {
+    title: t("mobileCocktailbar.textList.item2.title"),
+    description: t("mobileCocktailbar.textList.item2.description"),
+  },
+  {
+    title: t("mobileCocktailbar.textList.item3.title"),
+    description: t("mobileCocktailbar.textList.item3.description"),
+  },
+  {
+    title: t("mobileCocktailbar.textList.item4.title"),
+    description: t("mobileCocktailbar.textList.item4.description"),
+  },
+  {
+    title: t("mobileCocktailbar.textList.item5.title"),
+    description: t("mobileCocktailbar.textList.item5.description"),
+  },
+  {
+    title: t("mobileCocktailbar.textList.item6.title"),
+    description: t("mobileCocktailbar.textList.item6.description"),
+  },
+];
+
+const testimonialItems = [
+  {
+    jobTitle: t("mobileCocktailbar.testimonials.item1.jobTitle"),
+    name: t("mobileCocktailbar.testimonials.item1.name"),
+    text: t("mobileCocktailbar.testimonials.item1.text"),
+  },
+  {
+    jobTitle: t("mobileCocktailbar.testimonials.item2.jobTitle"),
+    name: t("mobileCocktailbar.testimonials.item2.name"),
+    text: t("mobileCocktailbar.testimonials.item2.text"),
+  },
+  {
+    jobTitle: t("mobileCocktailbar.testimonials.item3.jobTitle"),
+    name: t("mobileCocktailbar.testimonials.item3.name"),
+    text: t("mobileCocktailbar.testimonials.item3.text"),
+  },
+  {
+    jobTitle: t("mobileCocktailbar.testimonials.item4.jobTitle"),
+    name: t("mobileCocktailbar.testimonials.item4.name"),
+    text: t("mobileCocktailbar.testimonials.item4.text"),
+  },
+];
+
+const aperolBullets = t("mobileCocktailbar.cocktail.aperol.bullets").split(
+  ", ",
+);
+const erdbeerMojitoBullets = t(
+  "mobileCocktailbar.cocktail.erdbeerMojito.bullets",
+).split(", ");
+const sexOnTheBeachBullets = t(
+  "mobileCocktailbar.cocktail.sexOnTheBeach.bullets",
+).split(", ");
+const ipanemaBullets = t("mobileCocktailbar.cocktail.ipanema.bullets").split(
+  ", ",
+);
+
+const galleryItems = [
+  { image: imageProvider.cocktails.aperolSpritz },
+  { image: imageProvider.cocktails.erdbeerMojito },
+  { image: imageProvider.cocktails.sexOnTheBeach },
+  { image: imageProvider.cocktails.ipanema },
+  { image: imageProvider.catering.salatCatering },
+];
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
   </head>
   <body>
     <div class="relative">
       <Navigation />
-      <main class="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-16">
-        <h1 class="font-anton text-4xl text-dark">Mobile Cocktailbar</h1>
-        <p class="mt-4 text-dark/70">Inhalt folgt.</p>
+      <main>
+        <HeroSubpage
+          title={t("hero.mobileCocktailbar.title")}
+          imageUrl={mobileCocktailbarHeroUrl}
+        />
+        <ImageText
+          badgeText={t("hero.mobileCocktailbar.subtitle")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("hero.mobileCocktailbar.bullet1"),
+            t("hero.mobileCocktailbar.bullet2"),
+            t("hero.mobileCocktailbar.bullet3"),
+          ]}
+          description={`${t("hero.mobileCocktailbar.description")}. ${t("hero.mobileCocktailbar.paragraph")}`}
+          image={imageProvider.hero.mobileCocktailbarBackground}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("hero.mobileCocktailbar.title")}
+        />
+        <ItemList
+          badge={t("mobileCocktailbar.textList.badge")}
+          columns={2}
+          description={t("mobileCocktailbar.textList.description")}
+          items={textListItems}
+          title={t("mobileCocktailbar.textList.title")}
+        />
+        <CallToAction
+          badge={t("mobileCocktailbar.cta1.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("mobileCocktailbar.cta1.title")}
+        />
+        <ImageGalleryMasonry
+          badgeText={t("mobileCocktailbar.gallery.badge")}
+          items={galleryItems}
+          sectionDescription={t("mobileCocktailbar.gallery.description")}
+          sectionTitle={t("mobileCocktailbar.gallery.title")}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbar.cocktail.aperol.title").split(
+            " – ",
+          )[0]}
+          checkItems={aperolBullets}
+          descriptionHtml={t(
+            "mobileCocktailbar.cocktail.aperol.descriptionHtml",
+          )}
+          image={imageProvider.cocktails.aperolSpritz}
+          imageAspect="original"
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          theme="light"
+          title={t("mobileCocktailbar.cocktail.aperol.title")}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbar.cocktail.erdbeerMojito.title").split(
+            " – ",
+          )[0]}
+          checkItems={erdbeerMojitoBullets}
+          descriptionHtml={t(
+            "mobileCocktailbar.cocktail.erdbeerMojito.descriptionHtml",
+          )}
+          image={imageProvider.cocktails.erdbeerMojito}
+          imageAspect="original"
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("mobileCocktailbar.cocktail.erdbeerMojito.title")}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbar.cocktail.sexOnTheBeach.title").split(
+            " – ",
+          )[0]}
+          checkItems={sexOnTheBeachBullets}
+          descriptionHtml={t(
+            "mobileCocktailbar.cocktail.sexOnTheBeach.descriptionHtml",
+          )}
+          image={imageProvider.cocktails.sexOnTheBeach}
+          imageAspect="original"
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          theme="light"
+          title={t("mobileCocktailbar.cocktail.sexOnTheBeach.title")}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbar.cocktail.ipanema.title").split(
+            " – ",
+          )[0]}
+          checkItems={ipanemaBullets}
+          descriptionHtml={t(
+            "mobileCocktailbar.cocktail.ipanema.descriptionHtml",
+          )}
+          image={imageProvider.cocktails.ipanema}
+          imageAspect="original"
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("mobileCocktailbar.cocktail.ipanema.title")}
+        />
+        <Testimonials
+          badge={t("mobileCocktailbar.testimonials.badge")}
+          description={t("mobileCocktailbar.testimonials.description")}
+          testimonials={testimonialItems}
+          title={t("mobileCocktailbar.testimonials.title")}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbar.foodBlock.badge")}
+          buttonText={t("mobileCocktailbar.foodBlock.linkText")}
+          descriptionHtml={t("mobileCocktailbar.foodBlock.descriptionHtml")}
+          image={imageProvider.catering.salatCatering}
+          imagePosition="left"
+          link={translatePath("/individuelles-catering/")}
+          theme="grey"
+          title={t("mobileCocktailbar.foodBlock.title")}
+        />
+        <CallToAction
+          badge={t("mobileCocktailbar.cta2.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("mobileCocktailbar.cta2.title")}
+        />
+        <TextBlock
+          badge={t("mobileCocktailbar.locationBlock.badge")}
+          content={t("mobileCocktailbar.locationBlock.body")}
+          theme="grey"
+          title={t("mobileCocktailbar.locationBlock.title")}
+        />
       </main>
       <Footer />
     </div>

@@ -288,6 +288,118 @@ export const ui = {
     "individuell.service.weihnacht.bullets": "Weihnachtliches Fingerfood, Glühwein & Co., Sicheres & wohles Ambiente, Zugeschnitten auf Ihre Location, Festliche Stimmung, Überraschung pur!",
     "individuell.cta.badge": "Mehr als nur ein Getränk",
     "individuell.cta.title": "Kommen Sie mit uns in Kontakt",
+    "hero.mobileCocktailbar.title": "Mobile Cocktailbar für Ihre Veranstaltung",
+    "hero.mobileCocktailbar.subtitle": "Mobile Cocktailbar",
+    "hero.mobileCocktailbar.description":
+      "Verleihen Sie Ihrem Event das gewisse Etwas mit unserer mobilen Cocktailbar. Ob drinnen oder draußen, wir mixen erfrischende Cocktails genau dort, wo gefeiert wird.",
+    "hero.mobileCocktailbar.paragraph":
+      "Unser erfahrenes Team bringt alles mit – von hochwertigen Zutaten bis zur professionellen Ausstattung. Sie feiern, wir shaken – zuverlässig, flexibel und mit viel Leidenschaft fürs Detail. Auf Wunsch gestalten wir auch eine individuelle Cocktailkarte, passend zu Ihrem Anlass. So wird Ihre Veranstaltung nicht nur besonders, sondern unvergesslich.",
+    "hero.mobileCocktailbar.bullet1": "Geschmackvolle Cocktails",
+    "hero.mobileCocktailbar.bullet2": "Rundum-sorglos-Paket",
+    "hero.mobileCocktailbar.bullet3": "Glückliche Kunden",
+    "mobileCocktailbar.textList.badge": "6 gute Gründe",
+    "mobileCocktailbar.textList.title": "Ihre nächste Firmenfeier",
+    "mobileCocktailbar.textList.description":
+      "Warum Sie eine mobile Cocktailbar für Ihre nächste Veranstaltung benötigen",
+    "mobileCocktailbar.textList.item1.title":
+      "Professionelle Cocktails – überall und jederzeit",
+    "mobileCocktailbar.textList.item1.description":
+      "Eine mobile Cocktailbar bringt hochwertige Drinks direkt zu Ihrer Wunschlocation. Ob im Garten, auf der Dachterrasse oder in der Eventhalle – der Barkeeper kommt mit.",
+    "mobileCocktailbar.textList.item2.title":
+      "Keine Vorbereitung für den Gastgeber",
+    "mobileCocktailbar.textList.item2.description":
+      "Kein Einkauf, kein Auf- oder Abbau – Sie buchen, wir liefern. Entspannt feiern ohne Organisationsstress.",
+    "mobileCocktailbar.textList.item3.title":
+      "Perfekt für Outdoor-Events und besondere Locations",
+    "mobileCocktailbar.textList.item3.description":
+      "Keine feste Bar vor Ort? Kein Problem. Die mobile Lösung ist unabhängig von Infrastruktur und wetterfest planbar.",
+    "mobileCocktailbar.textList.item4.title":
+      "Persönlicher Service mit Showfaktor",
+    "mobileCocktailbar.textList.item4.description":
+      "Erfahrene Barkeeper mixen nicht nur Cocktails, sie sorgen auch für Unterhaltung. Flair-Bartending, Fachwissen und Charme inklusive.",
+    "mobileCocktailbar.textList.item5.title":
+      "Ein Erlebnis, das in Erinnerung bleibt",
+    "mobileCocktailbar.textList.item5.description":
+      "Cocktails live gemixt, freundlicher Service und lockere Stimmung machen Eindruck. So wird Ihr Event zu etwas Besonderem – auch lange danach.",
+    "mobileCocktailbar.textList.item6.title":
+      "Hohe Qualität und frische Zutaten",
+    "mobileCocktailbar.textList.item6.description":
+      "Professionelle Ausstattung, saubere Arbeitsweise und hochwertige Produkte garantieren beste Ergebnisse. Ihre Gäste werden den Unterschied schmecken.",
+    "mobileCocktailbar.gallery.badge": "Bilder",
+    "mobileCocktailbar.gallery.title": "Unsere Cocktails im Bild",
+    "mobileCocktailbar.gallery.description":
+      "Cocktail-Klassiker und ergänzende Speisen – ein Eindruck unserer mobilen Cocktailbar.",
+    "mobileCocktailbar.cta1.badge": "Mehr als nur ein Getränk",
+    "mobileCocktailbar.cta1.title": "Sprechen Sie uns gerne an!",
+    "mobileCocktailbar.cocktail.aperol.title":
+      "Aperol Spritz – Der spritzige Klassiker mit Stil",
+    "mobileCocktailbar.cocktail.aperol.description":
+      "Der Aperol Spritz ist ein unverzichtbarer Sommerdrink und zählt zu den beliebtesten Aperitifs Europas. Seine Wurzeln liegen in Norditalien, doch längst hat er sich als stilvoller Begleiter auf unseren Veranstaltungen etabliert. Mit seiner leuchtend orangefarbenen Optik und dem erfrischend-herben Geschmack sorgt er für sommerliche Leichtigkeit und geselligen Genuss – ideal sowohl im Stehempfang als auch an der mobilen Bar beim Sommerfest. Zubereitet wird der Aperol Spritz klassisch aus Aperol, italienischem Schaumwein und einem Schuss Sodawasser. Das ausgewogene Verhältnis dieser Zutaten verleiht dem Drink eine angenehme Bitternote, gepaart mit fruchtiger Frische und einem moderaten Alkoholgehalt. Die Rezeptur macht ihn zu einem perfekten Auftakt für festliche Abende oder lockere Get-togethers im Freien.",
+    "mobileCocktailbar.cocktail.aperol.descriptionHtml":
+      "<p>Der <strong>Aperol Spritz</strong> ist ein unverzichtbarer <strong>Sommerdrink</strong> und zählt zu den beliebtesten <strong>Aperitifs</strong> Europas. Seine Wurzeln liegen in <strong>Norditalien</strong>, doch längst hat er sich als stilvoller Begleiter auf unseren Veranstaltungen etabliert. Mit seiner leuchtend <strong>orangefarbenen</strong> Optik und dem <strong>erfrischend-herben</strong> Geschmack sorgt er für sommerliche Leichtigkeit und geselligen Genuss – ideal sowohl im Stehempfang als auch an der mobilen Bar beim Sommerfest.</p><p>Zubereitet wird der Aperol Spritz klassisch aus <strong>Aperol</strong>, <strong>italienischem Schaumwein</strong> und einem <strong>Schuss Sodawasser</strong>. Das ausgewogene Verhältnis dieser Zutaten verleiht dem Drink eine angenehme Bitternote, gepaart mit fruchtiger Frische und einem moderaten Alkoholgehalt. Die Rezeptur macht ihn zu einem perfekten Auftakt für festliche Abende oder lockere Get-togethers im Freien.</p>",
+    "mobileCocktailbar.cocktail.aperol.bullets":
+      "Beliebt bei Firmenfeiern, Perfekt als Hochzeitsaperitif, Ideal für Sommer-Events, Klassiker an der Bar, Optisch ein Highlight, Leicht bitter, fruchtig frisch",
+    "mobileCocktailbar.cocktail.erdbeerMojito.title":
+      "Erdbeer Mojito – Frische trifft Frucht, perfekt kombiniert",
+    "mobileCocktailbar.cocktail.erdbeerMojito.description":
+      "Der Erdbeer Mojito ist eine fruchtige Variante des kubanischen Mojito und verbindet die Frische von Limette und Minze mit der Süße unseres Erdbeerpürees. Zusammen mit weißem Rum, Zucker und Crushed Ice entsteht ein lebendiger Sommerdrink mit ausgewogener Balance zwischen Frucht und Frische. Dieser Cocktail eignet sich besonders gut für Events in der warmen Jahreszeit und lässt sich individuell anpassen – etwa mit Himbeeren, Mango oder anderen saisonalen Früchten. Tipp: Für Gäste, die es klassisch mögen, bieten wir auch die traditionelle Mojito-Version ohne Fruchtzusatz an.",
+    "mobileCocktailbar.cocktail.erdbeerMojito.descriptionHtml":
+      "<p>Der <strong>Erdbeer Mojito</strong> ist eine fruchtige Variante des kubanischen Mojito und verbindet die Frische von <strong>Limette und Minze</strong> mit der Süße unseres <strong>Erdbeerpürees</strong>. Zusammen mit <strong>weißem Rum</strong>, <strong>Zucker</strong> und <strong>Crushed Ice</strong> entsteht ein lebendiger Sommerdrink mit ausgewogener Balance zwischen Frucht und Frische.</p><p>Dieser Cocktail eignet sich besonders gut für Events in der warmen Jahreszeit und lässt sich <strong>individuell</strong> <strong>anpassen</strong> – etwa mit <strong>Himbeeren</strong>, <strong>Mango</strong> oder anderen saisonalen Früchten.</p><p><strong>Tipp:</strong> Für Gäste, die es klassisch mögen, bieten wir auch die <strong>traditionelle</strong> Mojito-Version ohne Fruchtzusatz an.</p>",
+    "mobileCocktailbar.cocktail.erdbeerMojito.bullets":
+      "Beliebt bei jungem Publikum, Beliebt auf Gartenpartys, Fruchtig-frische Sommererfrischung, Auch als Variante erhältlich, Perfekt für Hochzeiten, Mit frischer Minze serviert",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.title":
+      "Sex on the Beach – Der farbenfrohe Evergreen unter den Party-Drinks",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.description":
+      "Sex on the Beach ist ein international bekannter Cocktail-Klassiker, der durch seine fruchtige Süße und auffällige Farbgebung überzeugt. Die klassische Rezeptur kombiniert Wodka, Pfirsich, Orangensaft, einen Hauch Zitronensaft und einen Schuss Grenadine, die dem Drink seine charakteristische rot-orangene Schichtung verleiht. Mit seinem ausgewogenen, leicht zugänglichen Geschmack kommt dieser Drink bei einem breit gefächerten Publikum gut an – ideal für Hochzeiten, Sommerfeste, Firmenfeiern oder lockere Abendveranstaltungen. Er bringt Barfeeling an jeden Veranstaltungsort und sorgt für ein optisches wie geschmackliches Highlight an jeder mobilen Cocktailbar.",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.descriptionHtml":
+      "<p><strong>Sex on the Beach</strong> ist ein international bekannter <strong>Cocktail-Klassiker</strong>, der durch seine <strong>fruchtige Süße</strong> und auffällige <strong>Farbgebung</strong> überzeugt. Die klassische Rezeptur kombiniert <strong>Wodka</strong>, <strong>Pfirsich</strong>, <strong>Orangensaft</strong>, einen Hauch <strong>Zitronensaft</strong> und einen Schuss <strong>Grenadine</strong>, die dem Drink seine charakteristische <strong>rot-orangene Schichtung</strong> verleiht.</p><p>Mit seinem ausgewogenen, leicht zugänglichen Geschmack kommt dieser Drink bei einem <strong>breit gefächerten Publikum</strong> gut an – ideal für <strong>Hochzeiten</strong>, <strong>Sommerfeste</strong>, <strong>Firmenfeiern</strong> oder <strong>lockere Abendveranstaltungen</strong>.</p><p>Er bringt <strong>Barfeeling</strong> an jeden Veranstaltungsort und sorgt für ein optisches wie geschmackliches Highlight an jeder mobilen Cocktailbar.</p>",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.bullets":
+      "Ideal für Geburtstagsfeiern, Klassiker für Firmenfeiern, Farbstarker Blickfang an der Bar, Erprobt. Beliebt. Vielfach gebucht., Fruchtig, süß – aber ausgewogen, Sommergefühl im Cocktailglas",
+    "mobileCocktailbar.cocktail.ipanema.title":
+      "Ipanema – Volles Aroma, ganz ohne Alkohol",
+    "mobileCocktailbar.cocktail.ipanema.description":
+      "Der Ipanema ist die alkoholfreie Interpretation des brasilianischen Caipirinha und überzeugt mit einem komplexen Aromaprofil – ganz ohne Alkohol. Frisch zerdrückte Limetten, brauner Rohrzucker und Eis bilden die Basis, ergänzt durch Maracujasaft, der dem Drink eine tropisch-fruchtige Tiefe verleiht. Der Ipanema ist nicht nur ein erfrischender Cocktail, sondern auch ideal für Gäste, die bewusst auf Alkohol verzichten möchten. Für eine alkoholische Variante bieten wir einen Caipiroschka an: Er basiert auf derselben fruchtigen Mischung – jedoch mit Wodka ergänzt. So bleibt das erfrischende Profil erhalten, bekommt aber eine deutlich kraftvollere Note.",
+    "mobileCocktailbar.cocktail.ipanema.descriptionHtml":
+      "<p>Der <strong>Ipanema</strong> ist die alkoholfreie Interpretation des brasilianischen <strong>Caipirinha</strong> und überzeugt mit einem komplexen <strong>Aromaprofil – ganz ohne Alkohol</strong>. Frisch zerdrückte <strong>Limetten</strong>, <strong>brauner Rohrzucker</strong> und <strong>Eis</strong> bilden die Basis, ergänzt durch <strong>Maracujasaft</strong>, der dem Drink eine tropisch-fruchtige Tiefe verleiht. Der Ipanema ist nicht nur ein <strong>erfrischender Cocktail</strong>, sondern auch ideal für Gäste, die bewusst auf Alkohol verzichten möchten.</p><p>Für eine alkoholische Variante bieten wir einen <strong>Caipiroschka</strong> an: Er basiert auf derselben fruchtigen Mischung – jedoch mit <strong>Wodka</strong> ergänzt. So bleibt das erfrischende Profil erhalten, bekommt aber eine deutlich kraftvollere Note.</p>",
+    "mobileCocktailbar.cocktail.ipanema.bullets":
+      "Beliebt bei gemischtem Publikum, Erfrischend und vielseitig einsetzbar, Der alkoholfreie Cocktail-Klassiker, Abwandlung mit Alkohol möglich, Ideale Ergänzung für alle Events, Fruchtig-exotisch mit Maracuja",
+    "mobileCocktailbar.testimonials.badge": "Kundenstimmen",
+    "mobileCocktailbar.testimonials.title":
+      "Stimmen von unseren glücklichen Gästen",
+    "mobileCocktailbar.testimonials.description":
+      "Was unsere Kunden über unsere mobile Cocktailbar sagen.",
+    "mobileCocktailbar.testimonials.item1.name": "Dorothea E.",
+    "mobileCocktailbar.testimonials.item1.jobTitle": "Eventplanerin",
+    "mobileCocktailbar.testimonials.item1.text":
+      "Die mobile Bar war das Highlight unserer Feier – stilvoll und lecker. Unsere Gäste waren begeistert vom Geschmack und der Präsentation!",
+    "mobileCocktailbar.testimonials.item2.name": "Thorsten R.",
+    "mobileCocktailbar.testimonials.item2.jobTitle": "Privatperson",
+    "mobileCocktailbar.testimonials.item2.text":
+      "Jeder Cocktail war ein kleines Kunstwerk. Die Barkeeper waren super sympathisch und haben genau unseren Geschmack getroffen.",
+    "mobileCocktailbar.testimonials.item3.name": "Jacqueline N.",
+    "mobileCocktailbar.testimonials.item3.jobTitle": "Braut",
+    "mobileCocktailbar.testimonials.item3.text":
+      "Die mobile Bar und das Essen haben unsere Hochzeit perfekt abgerundet. Stilvoll, professionell und mit viel Liebe zum Detail",
+    "mobileCocktailbar.testimonials.item4.name": "Niklas A.",
+    "mobileCocktailbar.testimonials.item4.jobTitle": "Eventmanager",
+    "mobileCocktailbar.testimonials.item4.text":
+      "Vielen Dank für das großartige Catering! Unsere Gäste sprechen heute noch vom Crêpe-Stand und den köstlichen Drinks.",
+    "mobileCocktailbar.foodBlock.badge": "Ergänzende Angebote",
+    "mobileCocktailbar.foodBlock.title":
+      "Mehr als Cocktails: Ergänzende Speiseangebote",
+    "mobileCocktailbar.foodBlock.description":
+      "Neben unserem Cocktail-Catering bieten wir auch verschiedene Speiselösungen an – von herzhaft bis süß, abgestimmt auf Anlass, Gästezahl und Ablauf. Ob kleine Begleitungen, vollwertige Mahlzeiten oder Live-Cooking-Stationen: Wir entwickeln gemeinsam mit Ihnen ein passendes Konzept. Sprechen Sie uns an – wir beraten Sie gern zu einem individuell zugeschnittenen Gesamtangebot.",
+    "mobileCocktailbar.foodBlock.descriptionHtml":
+      "<p>Neben unserem Cocktail-Catering bieten wir auch verschiedene <strong>Speiselösungen</strong> an – von herzhaft bis süß, abgestimmt auf Anlass, Gästezahl und Ablauf. Ob kleine Begleitungen, vollwertige Mahlzeiten oder Live-Cooking-Stationen: Wir entwickeln gemeinsam mit Ihnen ein <strong>passendes Konzept</strong>.</p><p>Sprechen Sie uns an – wir beraten Sie gern zu einem <strong>individuell zugeschnittenen Gesamtangebot</strong>.</p>",
+    "mobileCocktailbar.foodBlock.body":
+      "<p>Neben unserem Cocktail-Catering bieten wir auch verschiedene Speiselösungen an – von herzhaft bis süß, abgestimmt auf Anlass, Gästezahl und Ablauf. Ob kleine Begleitungen, vollwertige Mahlzeiten oder Live-Cooking-Stationen: Wir entwickeln gemeinsam mit Ihnen ein passendes Konzept.</p><p>Sprechen Sie uns an – wir beraten Sie gern zu einem individuell zugeschnittenen Gesamtangebot.</p>",
+    "mobileCocktailbar.foodBlock.linkText": "Mehr erfahren",
+    "mobileCocktailbar.locationBlock.badge": "Einsatzgebiet",
+    "mobileCocktailbar.locationBlock.title": "Wo wir für Sie im Einsatz sind",
+    "mobileCocktailbar.locationBlock.body":
+      "<p>Mit Sitz in <strong>Waldbröl</strong> sind wir mit unserer mobilen Cocktailbar in der gesamten Region schnell einsatzbereit. Veranstaltungen im <strong>Oberbergischen Kreis</strong>, in <strong>Gummersbach</strong>, dem <strong>Rhein-Sieg-Kreis</strong> sowie im Großraum <strong>Köln</strong>, <strong>Bonn</strong> und <strong>Düsseldorf</strong> betreuen wir zuverlässig und mit viel Erfahrung – inklusive frisch gemixter Cocktails, hochwertiger Zutaten und einem eingespielten Barteam.</p><p>Auch über die Region hinaus sind wir deutschlandweit im Einsatz. Dank mobiler Ausstattung und flexibler Logistik bringen wir unsere mobile Bar sowie unsere professionellen Barkeeper direkt zu Ihrer Veranstaltung – beispielsweise in <strong>Frankfurt</strong>, <strong>Hannover</strong> oder <strong>Stuttgart</strong>.</p><p>Unsere mobile Cocktailbar sorgt überall für stilvollen Genuss und bleibt Ihren Gästen garantiert in bester Erinnerung – ganz gleich, wie groß Ihr Event ist.</p>",
+    "mobileCocktailbar.cta2.badge": "Ihr nächster Schritt",
+    "mobileCocktailbar.cta2.title": "Bereit für Ihr perfektes Event?",
     "footer.quickLinks": "Schnellzugriff",
     "footer.contact": "Kontakt",
     "footer.tagline":
@@ -580,6 +692,118 @@ export const ui = {
     "individuell.service.weihnacht.bullets": "Christmas finger food, Mulled wine & Co., Safe & cozy atmosphere, Tailored to your location, Festive atmosphere, Pure surprise!",
     "individuell.cta.badge": "More than just a drink",
     "individuell.cta.title": "Get in touch with us",
+    "hero.mobileCocktailbar.title": "Mobile cocktail bar for your event",
+    "hero.mobileCocktailbar.subtitle": "Mobile Cocktail Bar",
+    "hero.mobileCocktailbar.description":
+      "Give your event that special something with our mobile cocktail bar. Whether indoors or outdoors, we mix refreshing cocktails right where the party is.",
+    "hero.mobileCocktailbar.paragraph":
+      "Our experienced team brings everything – from high-quality ingredients to professional equipment. You celebrate, we shake – reliably, flexibly and with a passion for detail. On request, we also create an individual cocktail menu tailored to your occasion. So your event will not only be special, but unforgettable.",
+    "hero.mobileCocktailbar.bullet1": "Tasty cocktails",
+    "hero.mobileCocktailbar.bullet2": "All-inclusive package",
+    "hero.mobileCocktailbar.bullet3": "Happy customers",
+    "mobileCocktailbar.textList.badge": "6 good reasons",
+    "mobileCocktailbar.textList.title": "Your next corporate event",
+    "mobileCocktailbar.textList.description":
+      "Why you need a mobile cocktail bar for your next event",
+    "mobileCocktailbar.textList.item1.title":
+      "Professional cocktails – anywhere and anytime",
+    "mobileCocktailbar.textList.item1.description":
+      "A mobile cocktail bar brings high-quality drinks directly to your desired location. Whether in the garden, on the rooftop terrace or in the event hall – the bartender comes to you.",
+    "mobileCocktailbar.textList.item2.title":
+      "No preparation for the host",
+    "mobileCocktailbar.textList.item2.description":
+      "No shopping, no setup or dismantling – you book, we deliver. Celebrate stress-free without organizational hassle.",
+    "mobileCocktailbar.textList.item3.title":
+      "Perfect for outdoor events and special locations",
+    "mobileCocktailbar.textList.item3.description":
+      "No fixed bar on site? No problem. The mobile solution is independent of infrastructure and can be planned for all weather conditions.",
+    "mobileCocktailbar.textList.item4.title":
+      "Personal service with show factor",
+    "mobileCocktailbar.textList.item4.description":
+      "Experienced bartenders don't just mix cocktails – they also provide entertainment. Flair bartending, expertise and charm included.",
+    "mobileCocktailbar.textList.item5.title":
+      "An experience that stays in your memory",
+    "mobileCocktailbar.textList.item5.description":
+      "Cocktails mixed live, friendly service and a relaxed atmosphere make an impression. So your event becomes something special – long after it's over.",
+    "mobileCocktailbar.textList.item6.title":
+      "High quality and fresh ingredients",
+    "mobileCocktailbar.textList.item6.description":
+      "Professional equipment, clean working methods and high-quality products guarantee the best results. Your guests will taste the difference.",
+    "mobileCocktailbar.gallery.badge": "Images",
+    "mobileCocktailbar.gallery.title": "Our cocktails in pictures",
+    "mobileCocktailbar.gallery.description":
+      "Cocktail classics and additional food – an impression of our mobile cocktail bar.",
+    "mobileCocktailbar.cta1.badge": "More than just a drink",
+    "mobileCocktailbar.cta1.title": "Feel free to get in touch!",
+    "mobileCocktailbar.cocktail.aperol.title":
+      "Aperol Spritz – The sparkling classic with style",
+    "mobileCocktailbar.cocktail.aperol.description":
+      "The Aperol Spritz is an indispensable summer drink and one of the most popular aperitifs in Europe. Its roots lie in northern Italy, but it has long established itself as a stylish companion at our events. With its bright orange appearance and refreshingly bitter taste, it brings summer lightness and sociable enjoyment – ideal both for receptions and at the mobile bar during summer parties. The Aperol Spritz is classically prepared from Aperol, Italian sparkling wine and a splash of soda water. The balanced ratio of these ingredients gives the drink a pleasant bitter note, paired with fruity freshness and moderate alcohol content. The recipe makes it the perfect start to festive evenings or casual get-togethers outdoors.",
+    "mobileCocktailbar.cocktail.aperol.descriptionHtml":
+      "<p>The <strong>Aperol Spritz</strong> is an indispensable <strong>summer drink</strong> and one of the most popular <strong>aperitifs</strong> in Europe. Its roots lie in <strong>northern Italy</strong>, but it has long established itself as a stylish companion at our events. With its bright <strong>orange</strong> appearance and <strong>refreshingly bitter</strong> taste, it brings summer lightness and sociable enjoyment – ideal both for receptions and at the mobile bar during summer parties.</p><p>The Aperol Spritz is classically prepared from <strong>Aperol</strong>, <strong>Italian sparkling wine</strong> and a <strong>splash of soda water</strong>. The balanced ratio of these ingredients gives the drink a pleasant bitter note, paired with fruity freshness and moderate alcohol content. The recipe makes it the perfect start to festive evenings or casual get-togethers outdoors.</p>",
+    "mobileCocktailbar.cocktail.aperol.bullets":
+      "Popular at corporate events, Perfect as a wedding aperitif, Ideal for summer events, Bar classic, Visually a highlight, Lightly bitter, fruity fresh",
+    "mobileCocktailbar.cocktail.erdbeerMojito.title":
+      "Strawberry Mojito – Freshness meets fruit, perfectly combined",
+    "mobileCocktailbar.cocktail.erdbeerMojito.description":
+      "The Strawberry Mojito is a fruity variation of the Cuban Mojito and combines the freshness of lime and mint with the sweetness of our strawberry purée. Together with white rum, sugar and crushed ice, a lively summer drink is created with a balanced balance between fruit and freshness. This cocktail is particularly well suited for events in the warm season and can be individually adapted – for example with raspberries, mango or other seasonal fruits. Tip: For guests who prefer the classic version, we also offer the traditional Mojito without fruit addition.",
+    "mobileCocktailbar.cocktail.erdbeerMojito.descriptionHtml":
+      "<p>The <strong>Strawberry Mojito</strong> is a fruity variation of the Cuban Mojito and combines the freshness of <strong>lime and mint</strong> with the sweetness of our <strong>strawberry purée</strong>. Together with <strong>white rum</strong>, <strong>sugar</strong> and <strong>crushed ice</strong>, a lively summer drink is created with a balanced balance between fruit and freshness.</p><p>This cocktail is particularly well suited for events in the warm season and can be <strong>individually</strong> <strong>adapted</strong> – for example with <strong>raspberries</strong>, <strong>mango</strong> or other seasonal fruits.</p><p><strong>Tip:</strong> For guests who prefer the classic version, we also offer the <strong>traditional</strong> Mojito without fruit addition.</p>",
+    "mobileCocktailbar.cocktail.erdbeerMojito.bullets":
+      "Popular with younger audiences, Popular at garden parties, Fruity-fresh summer refreshment, Also available as a variation, Perfect for weddings, Served with fresh mint",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.title":
+      "Sex on the Beach – The colourful evergreen among party drinks",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.description":
+      "Sex on the Beach is an internationally known cocktail classic that convinces with its fruity sweetness and striking colour. The classic recipe combines vodka, peach, orange juice, a hint of lemon juice and a splash of grenadine, which gives the drink its characteristic red-orange layering. With its balanced, easily accessible taste, this drink appeals to a broad audience – ideal for weddings, summer parties, corporate events or casual evening events. It brings bar feeling to any venue and provides both a visual and taste highlight at every mobile cocktail bar.",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.descriptionHtml":
+      "<p><strong>Sex on the Beach</strong> is an internationally known <strong>cocktail classic</strong> that convinces with its <strong>fruity sweetness</strong> and striking <strong>colour</strong>. The classic recipe combines <strong>vodka</strong>, <strong>peach</strong>, <strong>orange juice</strong>, a hint of <strong>lemon juice</strong> and a splash of <strong>grenadine</strong>, which gives the drink its characteristic <strong>red-orange layering</strong>.</p><p>With its balanced, easily accessible taste, this drink appeals to a <strong>broad audience</strong> – ideal for <strong>weddings</strong>, <strong>summer parties</strong>, <strong>corporate events</strong> or <strong>casual evening events</strong>.</p><p>It brings <strong>bar feeling</strong> to any venue and provides both a visual and taste highlight at every mobile cocktail bar.</p>",
+    "mobileCocktailbar.cocktail.sexOnTheBeach.bullets":
+      "Ideal for birthday parties, Classic for corporate events, Colourful eye-catcher at the bar, Proven. Popular. Often booked., Fruity, sweet – but balanced, Summer feeling in a cocktail glass",
+    "mobileCocktailbar.cocktail.ipanema.title":
+      "Ipanema – Full flavour, completely alcohol-free",
+    "mobileCocktailbar.cocktail.ipanema.description":
+      "The Ipanema is the alcohol-free interpretation of the Brazilian Caipirinha and convinces with a complex flavour profile – completely without alcohol. Freshly crushed limes, brown cane sugar and ice form the base, complemented by passion fruit juice, which gives the drink a tropical-fruity depth. The Ipanema is not only a refreshing cocktail but also ideal for guests who consciously want to avoid alcohol. For an alcoholic variation we offer a Caipiroschka: It is based on the same fruity mixture – but supplemented with vodka. So the refreshing profile is preserved but gets a noticeably more powerful note.",
+    "mobileCocktailbar.cocktail.ipanema.descriptionHtml":
+      "<p>The <strong>Ipanema</strong> is the alcohol-free interpretation of the Brazilian <strong>Caipirinha</strong> and convinces with a complex <strong>flavour profile – completely without alcohol</strong>. Freshly crushed <strong>limes</strong>, <strong>brown cane sugar</strong> and <strong>ice</strong> form the base, complemented by <strong>passion fruit juice</strong>, which gives the drink a tropical-fruity depth. The Ipanema is not only a <strong>refreshing cocktail</strong> but also ideal for guests who consciously want to avoid alcohol.</p><p>For an alcoholic variation we offer a <strong>Caipiroschka</strong>: It is based on the same fruity mixture – but supplemented with <strong>vodka</strong>. So the refreshing profile is preserved but gets a noticeably more powerful note.</p>",
+    "mobileCocktailbar.cocktail.ipanema.bullets":
+      "Popular with mixed audiences, Refreshing and versatile, The alcohol-free cocktail classic, Alcoholic variation available, Ideal addition for all events, Fruity-exotic with passion fruit",
+    "mobileCocktailbar.testimonials.badge": "Customer voices",
+    "mobileCocktailbar.testimonials.title":
+      "Voices from our happy guests",
+    "mobileCocktailbar.testimonials.description":
+      "What our customers say about our mobile cocktail bar.",
+    "mobileCocktailbar.testimonials.item1.name": "Dorothea E.",
+    "mobileCocktailbar.testimonials.item1.jobTitle": "Event planner",
+    "mobileCocktailbar.testimonials.item1.text":
+      "The mobile bar was the highlight of our celebration – stylish and delicious. Our guests were thrilled with the taste and presentation!",
+    "mobileCocktailbar.testimonials.item2.name": "Thorsten R.",
+    "mobileCocktailbar.testimonials.item2.jobTitle": "Private person",
+    "mobileCocktailbar.testimonials.item2.text":
+      "Every cocktail was a small work of art. The bartenders were super friendly and hit our taste exactly.",
+    "mobileCocktailbar.testimonials.item3.name": "Jacqueline N.",
+    "mobileCocktailbar.testimonials.item3.jobTitle": "Bride",
+    "mobileCocktailbar.testimonials.item3.text":
+      "The mobile bar and food perfectly rounded off our wedding. Stylish, professional and with a lot of attention to detail",
+    "mobileCocktailbar.testimonials.item4.name": "Niklas A.",
+    "mobileCocktailbar.testimonials.item4.jobTitle": "Event manager",
+    "mobileCocktailbar.testimonials.item4.text":
+      "Thank you for the great catering! Our guests still talk about the crêpe stand and the delicious drinks today.",
+    "mobileCocktailbar.foodBlock.badge": "Additional offers",
+    "mobileCocktailbar.foodBlock.title":
+      "More than cocktails: Additional food options",
+    "mobileCocktailbar.foodBlock.description":
+      "In addition to our cocktail catering, we also offer various food solutions – from savoury to sweet, tailored to the occasion, number of guests and schedule. Whether small accompaniments, full meals or live cooking stations: We develop a suitable concept together with you. Get in touch – we'll be happy to advise you on an individually tailored overall offer.",
+    "mobileCocktailbar.foodBlock.descriptionHtml":
+      "<p>In addition to our cocktail catering, we also offer various <strong>food solutions</strong> – from savoury to sweet, tailored to the occasion, number of guests and schedule. Whether small accompaniments, full meals or live cooking stations: We develop a <strong>suitable concept</strong> together with you.</p><p>Get in touch – we'll be happy to advise you on an <strong>individually tailored overall offer</strong>.</p>",
+    "mobileCocktailbar.foodBlock.body":
+      "<p>In addition to our cocktail catering, we also offer various food solutions – from savoury to sweet, tailored to the occasion, number of guests and schedule. Whether small accompaniments, full meals or live cooking stations: We develop a suitable concept together with you.</p><p>Get in touch – we'll be happy to advise you on an individually tailored overall offer.</p>",
+    "mobileCocktailbar.foodBlock.linkText": "Learn more",
+    "mobileCocktailbar.locationBlock.badge": "Service area",
+    "mobileCocktailbar.locationBlock.title": "Where we serve you",
+    "mobileCocktailbar.locationBlock.body":
+      "<p>Based in <strong>Waldbröl</strong>, we are quickly ready for action with our mobile cocktail bar throughout the region. We reliably and with a lot of experience look after events in the <strong>Oberberg district</strong>, <strong>Gummersbach</strong>, the <strong>Rhein-Sieg district</strong> as well as in the greater <strong>Cologne</strong>, <strong>Bonn</strong> and <strong>Düsseldorf</strong> area – including freshly mixed cocktails, high-quality ingredients and a well-rehearsed bar team.</p><p>We are also deployed nationwide beyond the region. Thanks to mobile equipment and flexible logistics, we bring our mobile bar and our professional bartenders directly to your event – for example in <strong>Frankfurt</strong>, <strong>Hannover</strong> or <strong>Stuttgart</strong>.</p><p>Our mobile cocktail bar ensures stylish enjoyment everywhere and is guaranteed to stay in your guests' best memory – no matter how big your event is.</p>",
+    "mobileCocktailbar.cta2.badge": "Your next step",
+    "mobileCocktailbar.cta2.title": "Ready for your perfect event?",
     "footer.quickLinks": "Quick Links",
     "footer.contact": "Contact",
     "footer.tagline":

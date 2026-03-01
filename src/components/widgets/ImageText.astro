@@ -21,13 +21,23 @@ interface Props {
    */
   checkItems?: string[];
   /**
-   * Optional supporting paragraph below the heading.
+   * Optional supporting paragraph below the heading (plain text).
    */
   description?: string;
+  /**
+   * Optional HTML content for the description. When set, overrides description.
+   * Supports <p>, <strong>, etc. from the source page.
+   */
+  descriptionHtml?: string;
   /**
    * Image with src and alt from central registry.
    */
   image: ImageAsset;
+  /**
+   * Image aspect: "standard" (4:3, object-cover) or "original" (portrait 3:4, object-contain).
+   * Use "original" for cocktail/portrait images to avoid cropping.
+   */
+  imageAspect?: "standard" | "original";
   /**
    * Position of the image: "left" (default) or "right".
    */
@@ -72,7 +82,9 @@ const {
   buttonText = "Mehr erfahren",
   checkItems = [],
   description = "",
+  descriptionHtml,
   image,
+  imageAspect = "standard",
   imagePosition = "left",
   leftStatLabel,
   leftStatPrefix = "",
@@ -114,7 +126,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
 >
   <div
     class:list={[
-      "mx-auto flex max-w-7xl gap-8 px-6 py-12 md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28",
+      "mx-auto flex max-w-8xl gap-8 px-6 py-12 md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28",
       flexOrderClasses,
     ]}
   >
@@ -123,14 +135,22 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
       class="fade-in-section flex w-full justify-center md:w-1/2 md:justify-end"
     >
       <div
-        class="aspect-[4/3] w-full overflow-hidden rounded-br-4xl md:aspect-square"
+        class:list={[
+          "w-full overflow-hidden rounded-br-4xl",
+          imageAspect === "original"
+            ? "aspect-[3/4] md:aspect-[3/4]"
+            : "aspect-[4/3] md:aspect-square",
+        ]}
       >
         <Image
           src={image.src as import("astro").ImageMetadata}
           alt={getImageAlt(image, lang)}
-          class="h-full w-full object-cover"
-          width={800}
-          height={600}
+          class:list={[
+            "h-full w-full",
+            imageAspect === "original" ? "object-contain" : "object-cover",
+          ]}
+          width={imageAspect === "original" ? 600 : 800}
+          height={imageAspect === "original" ? 800 : 600}
         />
       </div>
     </div>
@@ -164,21 +184,27 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         </p>
       </div>
 
-      {/* Description (optional) */}
-      {
-        description && (
-          <div>
-            <p
-              class:list={[
-                "text-base font-light leading-relaxed md:text-lg",
-                descriptionClass,
-              ]}
-            >
-              {description}
-            </p>
-          </div>
-        )
-      }
+      {/* Description (optional): HTML or plain text */}
+      {descriptionHtml ? (
+        <div
+          class:list={[
+            "image-text-description text-base font-light leading-relaxed md:text-lg max-w-none",
+            descriptionClass,
+          ]}
+          set:html={descriptionHtml}
+        />
+      ) : description ? (
+        <div>
+          <p
+            class:list={[
+              "text-base font-light leading-relaxed md:text-lg",
+              descriptionClass,
+            ]}
+          >
+            {description}
+          </p>
+        </div>
+      ) : null}
 
       {/* Check list: 2-column grid of checkmark items (optional) */}
       {

@@ -4,23 +4,29 @@ import bambusbar from "../assets/images/catering/bambusbar.jpg";
 import bambusbarAbend from "../assets/images/catering/bambusbar-abend.jpg";
 import bratwurstGrill from "../assets/images/catering/bratwurst-grill.jpg";
 import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
+import aperolSpritz from "../assets/images/cocktails/aperol-spritz.jpg";
 import coffeeTruck from "../assets/images/catering/coffee-truck.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
 import crepes from "../assets/images/catering/crepes.jpg";
 import eisbecherDiverse from "../assets/images/catering/eisbecher-diverse.jpg";
+import erdbeerMojito from "../assets/images/cocktails/erdbeer-mojito.jpg";
 import flammkuchen from "../assets/images/catering/flammkuchen.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
 import individuellHero from "../assets/images/hero/individuell-hero.jpg";
+import ipanema from "../assets/images/cocktails/ipanema.jpg";
 import messeHero from "../assets/images/hero/messe-hero.jpg";
+import mobileCocktailbarHero from "../assets/images/hero/mobile-cocktailbar-hero.jpg";
 import mitarbeiterin from "../assets/images/catering/mitarbeiterin.jpg";
 import hochzeit from "../assets/images/events/hochzeit.jpg";
 import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
 import messe from "../assets/images/events/messe.jpg";
 import oni from "../assets/images/logos/oni.png";
+import salatCatering from "../assets/images/catering/salat-catering.jpg";
 import schwalbe from "../assets/images/logos/schwalbe.svg";
+import sexOnTheBeach from "../assets/images/cocktails/sex-on-the-beach.jpg";
 import sparkasse from "../assets/images/logos/sparkasse.png";
 import teamExperts from "../assets/images/team/team-experts.png";
 import volksbank from "../assets/images/logos/volksbank.png";
@@ -97,6 +103,33 @@ export const imageProvider = {
       altEn: "Mobile Christmas market at a corporate event",
       src: weihnachtsmarkt,
     },
+    salatCatering: {
+      alt: "Catering für Essen – Salate und Speisen von Pfeil's Catering",
+      altEn: "Food catering – salads and dishes by Pfeil's Catering",
+      src: salatCatering,
+    },
+  },
+  cocktails: {
+    aperolSpritz: {
+      alt: "Aperol Spritz – der spritzige Klassiker",
+      altEn: "Aperol Spritz – the sparkling classic",
+      src: aperolSpritz,
+    },
+    erdbeerMojito: {
+      alt: "Erdbeer Mojito – Frische trifft Frucht",
+      altEn: "Strawberry Mojito – freshness meets fruit",
+      src: erdbeerMojito,
+    },
+    sexOnTheBeach: {
+      alt: "Sex on the Beach – farbenfroher Party-Drink",
+      altEn: "Sex on the Beach – colourful party drink",
+      src: sexOnTheBeach,
+    },
+    ipanema: {
+      alt: "Ipanema – alkoholfreier Cocktail-Klassiker",
+      altEn: "Ipanema – alcohol-free cocktail classic",
+      src: ipanema,
+    },
   },
   events: {
     firmenfeier: {
@@ -140,6 +173,11 @@ export const imageProvider = {
       alt: "Cocktail-Bar auf einer Messe – professioneller Barservice am Messestand",
       altEn: "Cocktail bar at a trade fair – professional bar service at the exhibition stand",
       src: messeHero,
+    },
+    mobileCocktailbarBackground: {
+      alt: "Mobile Cocktailbar von Pfeil's Catering bei einer Veranstaltung",
+      altEn: "Mobile cocktail bar by Pfeil's Catering at an event",
+      src: mobileCocktailbarHero,
     },
     weddingBackground: {
       alt: "Hochzeitsfeier mit Cocktail-Catering – festliche Atmosphäre",
