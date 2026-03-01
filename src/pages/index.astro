@@ -5,6 +5,7 @@ import HeroMain from "../components/widgets/HeroMain.astro";
 import ImageNavigation from "../components/widgets/ImageNavigation.astro";
 import ImageText from "../components/widgets/ImageText.astro";
 import LogoList from "../components/widgets/LogoList.astro";
+import FAQ from "../components/widgets/FAQ.astro";
 import Testimonials from "../components/widgets/Testimonials.astro";
 import Navigation from "../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
@@ -186,6 +187,46 @@ const translatePath = useTranslatedPath(lang);
               text: "Ein rundum gelungener Auftritt bei unserem Sommerfest. Von der Planung bis zum letzten Drink – alles lief reibungslos und auf höchstem Niveau.",
             },
           ]}
+        />
+
+        <FAQ
+          badge="FAQ"
+          description="Häufig gestellte Fragen zu unserem Cocktail-Catering."
+          title="Fragen & Antworten"
+          items={[
+            {
+              question: "Was ist im Cocktail-Catering enthalten?",
+              answer:
+                "Unser Service beinhaltet professionelle Barkeeper, eine mobile Bar (wenn benötigt), sämtliche Zutaten für die Cocktails, Gläser, Eis, Deko sowie natürlich eine individuelle Cocktailkarte – abgestimmt auf Ihren Geschmack und das Event.",
+            },
+            {
+              question: "Wie viel Vorlaufzeit benötigt eine Buchung?",
+              answer:
+                "Idealerweise buchen Sie unseren Service mindestens 2–4 Wochen im Voraus. Kurzfristige Anfragen sind je nach Verfügbarkeit aber auch möglich – einfach anfragen!",
+            },
+            {
+              question: "Wie läuft die Preisgestaltung ab?",
+              answer:
+                "Unsere Preise richten sich nach der Gästeanzahl, der Dauer des Events, dem gewünschten Leistungsumfang und der Auswahl der Cocktails. Gerne erstellen wir Ihnen ein maßgeschneidertes, unverbindliches Angebot.",
+            },
+            {
+              question: "Können wir eigene Cocktails oder Wünsche einbringen?",
+              answer:
+                "Natürlich! Wir freuen uns, wenn Sie eigene Ideen oder Lieblingsdrinks mitbringen. Unsere Barkeeper erstellen gerne individuelle Kreationen passend zu Ihrem Event.",
+            },
+            {
+              question: "In welchen Regionen bietet ihr euren Service an?",
+              answer:
+                "Unser Cocktail-Catering ist regional und auf Wunsch auch deutschlandweit verfügbar. Je nach Entfernung können Anfahrtskosten anfallen – diese besprechen wir transparent im Angebot.",
+            },
+            {
+              question:
+                "Gibt es eine maximale Anzahl an Gästen, die ihr bedienen könnt?",
+              answer:
+                "Grundsätzlich nicht – wir sind für kleine Feiern ebenso wie für Großveranstaltungen mit mehreren hundert Gästen ausgestattet. Bei größeren Events stellen wir ein entsprechend großes Team sowie mehrere Barstationen bereit, damit ein reibungsloser Ablauf garantiert ist. Teilen Sie uns einfach Ihre Gästezahl mit, und wir planen alles entsprechend!",
+            },
+          ]}
+          theme="grey"
         />
 
         <Footer />

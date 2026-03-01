@@ -5,6 +5,7 @@ import HeroMain from "../../components/widgets/HeroMain.astro";
 import ImageNavigation from "../../components/widgets/ImageNavigation.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
 import LogoList from "../../components/widgets/LogoList.astro";
+import FAQ from "../../components/widgets/FAQ.astro";
 import Testimonials from "../../components/widgets/Testimonials.astro";
 import Navigation from "../../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
@@ -183,6 +184,44 @@ const translatePath = useTranslatedPath(lang);
               name: "Gianluca Z.",
               jobTitle: "Private Customer",
               text: "An all-round successful performance at our summer party. From planning to the last drink – everything ran smoothly and at the highest level.",
+            },
+          ]}
+        />
+
+        <FAQ
+          badge="FAQ"
+          description="Frequently asked questions about our cocktail catering."
+          title="Questions & Answers"
+          items={[
+            {
+              question: "What is included in the cocktail catering?",
+              answer:
+                "Our service includes professional bartenders, a mobile bar (if required), all cocktail ingredients, glasses, ice, decoration and of course an individual cocktail menu – tailored to your taste and the event.",
+            },
+            {
+              question: "How much lead time is needed for a booking?",
+              answer:
+                "Ideally, book our service at least 2–4 weeks in advance. Short-term requests are also possible depending on availability – just ask!",
+            },
+            {
+              question: "How does pricing work?",
+              answer:
+                "Our prices depend on the number of guests, the duration of the event, the desired scope of services and the selection of cocktails. We will be happy to create a tailored, non-binding quote for you.",
+            },
+            {
+              question: "Can we bring our own cocktails or requests?",
+              answer:
+                "Of course! We are happy when you bring your own ideas or favorite drinks. Our bartenders will gladly create individual creations to match your event.",
+            },
+            {
+              question: "In which regions do you offer your service?",
+              answer:
+                "Our cocktail catering is available regionally and, on request, throughout Germany. Depending on the distance, travel costs may apply – we discuss these transparently in our quote.",
+            },
+            {
+              question: "Is there a maximum number of guests you can serve?",
+              answer:
+                "Basically no – we are equipped for small celebrations as well as for large events with several hundred guests. For larger events, we provide a correspondingly large team and several bar stations to ensure smooth operations. Just let us know your guest count, and we will plan everything accordingly!",
             },
           ]}
         />
