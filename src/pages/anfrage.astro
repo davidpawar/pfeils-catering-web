@@ -1,7 +1,9 @@
 ---
 import BaseHead from "../components/base/BaseHead.astro";
+import ContactForm from "../components/widgets/ContactForm.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
+import HeroAnfrage from "../components/widgets/HeroAnfrage.astro";
 import { getLangFromUrl } from "../i18n/utils";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
@@ -16,9 +18,9 @@ const lang = getLangFromUrl(Astro.url);
   <body>
     <div class="relative">
       <Navigation />
-      <main class="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-16">
-        <h1 class="font-anton text-4xl text-dark">Jetzt anfragen</h1>
-        <p class="mt-4 text-dark/70">Inhalt folgt.</p>
+      <main>
+        <HeroAnfrage />
+        <ContactForm theme="light" />
       </main>
       <Footer />
     </div>

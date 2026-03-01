@@ -1,0 +1,396 @@
+---
+/**
+ * ContactForm: Responsive contact form with sidebar content.
+ * Styling unified with TextBlock, ItemList, CallToAction (badge, rounded-br-4xl, etc.).
+ */
+interface Props {
+  /**
+   * Optional badge text above the content section.
+   */
+  badge?: string;
+  /**
+   * Color theme: light (white), dark, or grey.
+   */
+  theme?: "light" | "dark" | "grey";
+}
+
+const { badge = "Kontakt", theme = "light" } = Astro.props;
+
+const isDark = theme === "dark";
+const isGrey = theme === "grey";
+
+const sectionBgClass = isDark
+  ? "bg-dark-bg"
+  : isGrey
+    ? "bg-slate-100"
+    : "bg-white";
+
+const titleClass = isDark ? "text-white" : "text-dark";
+const textClass = isDark ? "text-white/80" : "text-dark/70";
+const labelClass = isDark ? "text-white/90" : "text-dark";
+
+/* Inputs: rounded-tl-xl rounded-br-2xl to match widget badge/card style */
+const inputBaseClass =
+  "mt-1 block w-full rounded-tl-xl rounded-br-2xl border px-4 py-3 font-outfit text-base focus:outline-none focus:ring-2";
+const inputClass =
+  inputBaseClass +
+  " border-slate-300 bg-white text-dark placeholder:text-slate-400 focus:border-primary focus:ring-primary/20";
+const inputDarkClass =
+  inputBaseClass +
+  " border-white/20 bg-white/5 text-white placeholder:text-white/50 focus:border-primary-light focus:ring-primary-light/20";
+const inputBgClass = isDark ? inputDarkClass : inputClass;
+
+/* Icon boxes: rounded */
+const iconBoxClass = isDark
+  ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 transition-colors duration-300 group-hover:bg-primary-light"
+  : "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-200 transition-colors duration-300 group-hover:bg-primary";
+const iconBoxStaticClass = isDark
+  ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10"
+  : "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-200";
+---
+
+<section class:list={["relative overflow-hidden", sectionBgClass]}>
+  <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-16">
+      {/* Content: left side, 2 columns on lg */}
+      <div class="fade-in-section order-2 lg:order-1 lg:col-span-2">
+        <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
+          {
+            badge && (
+              <div class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6">
+                <h3 class="font-outfit text-sm uppercase tracking-wider text-white leading-[1.3] md:text-base">
+                  {badge}
+                </h3>
+              </div>
+            )
+          }
+          <h2
+            class:list={[
+              "font-anton text-3xl leading-tight md:text-4xl lg:text-5xl",
+              titleClass,
+            ]}
+          >
+            Kontaktieren Sie uns!
+          </h2>
+          <p
+            class:list={[
+              "mt-1 text-base font-light leading-relaxed md:text-lg",
+              textClass,
+            ]}
+          >
+            Füllen Sie das Kontaktformular aus, um mit uns in Kontakt zu treten.
+            Wir gehen gerne auf Ihre Wünsche ein und beraten Sie.
+          </p>
+        </div>
+
+        <div class="fade-in-section delay-200 mt-8 space-y-6">
+          <a
+            href="tel:01784988521"
+            class="flex items-start gap-4 transition-colors duration-300 hover:text-primary group"
+            class:list={[
+              isDark
+                ? "text-white/80 hover:text-primary-light"
+                : "text-dark/70",
+            ]}
+          >
+            <div class={iconBoxClass}>
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.5 1.5 0 0 0-1.22-1.473l-4.42-.884a1.5 1.5 0 0 0-1.48.56l-.97 1.294a12.08 12.08 0 0 1-5.287-5.287l1.295-.97a1.5 1.5 0 0 0 .56-1.48l-.884-4.42A1.5 1.5 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <span class="font-outfit font-semibold">0178 498 85 21</span>
+              <p class="mt-0.5 text-sm">
+                Rufen Sie uns an: Mo–Fr 09:00 – 18:00
+              </p>
+            </div>
+          </a>
+
+          <div
+            class="flex items-start gap-4"
+            class:list={[isDark ? "text-white/80" : "text-dark/70"]}
+          >
+            <div class={iconBoxStaticClass}>
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                <path
+                  d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <span class="font-outfit font-semibold">Oberbergischer Kreis</span
+              >
+              <p class="mt-0.5 text-sm">Buschweg 10, 51545 Waldbröl</p>
+            </div>
+          </div>
+
+          <a
+            href="mailto:info@pfeils-catering.de"
+            class="flex items-start gap-4 transition-colors duration-300 hover:text-primary group"
+            class:list={[
+              isDark
+                ? "text-white/80 hover:text-primary-light"
+                : "text-dark/70",
+            ]}
+          >
+            <div class={iconBoxClass}>
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.79a1.875 1.875 0 0 1-2.08 0L2.25 7.5"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <span class="font-outfit font-semibold"
+                >info@pfeils-catering.de</span
+              >
+              <p class="mt-0.5 text-sm">Hinterlassen Sie uns eine E-Mail!</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* Form: right side, 3 columns on lg */}
+      <div class="fade-in-section delay-200 order-1 lg:order-2 lg:col-span-3">
+        <form
+          id="contact-form"
+          action="/api/contact"
+          method="POST"
+          class="space-y-5"
+        >
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div>
+              <label
+                for="name"
+                class:list={[
+                  "block font-outfit text-sm font-medium",
+                  labelClass,
+                ]}
+              >
+                Name <span class="text-primary">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class={inputBgClass}
+                placeholder="Ihr Name"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class:list={[
+                  "block font-outfit text-sm font-medium",
+                  labelClass,
+                ]}
+              >
+                E-Mail <span class="text-primary">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class={inputBgClass}
+                placeholder="ihre@email.de"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div>
+              <label
+                for="guests"
+                class:list={[
+                  "block font-outfit text-sm font-medium",
+                  labelClass,
+                ]}
+              >
+                Gästeanzahl
+              </label>
+              <input
+                type="text"
+                id="guests"
+                name="guests"
+                class={inputBgClass}
+                placeholder="z.B. 50"
+              />
+            </div>
+            <div>
+              <label
+                for="date"
+                class:list={[
+                  "block font-outfit text-sm font-medium",
+                  labelClass,
+                ]}
+              >
+                Datum
+              </label>
+              <input type="date" id="date" name="date" class={inputBgClass} />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="location"
+              class:list={["block font-outfit text-sm font-medium", labelClass]}
+            >
+              Wo findet die Veranstaltung statt?
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              class={inputBgClass}
+              placeholder="Ort oder Adresse"
+            />
+          </div>
+
+          <div>
+            <label
+              for="source"
+              class:list={["block font-outfit text-sm font-medium", labelClass]}
+            >
+              Woher kennen Sie uns?
+            </label>
+            <select id="source" name="source" class={inputBgClass}>
+              <option value="">Bitte wählen …</option>
+              <option value="google">Google</option>
+              <option value="empfehlung">Empfehlung</option>
+              <option value="social-media">Social Media</option>
+              <option value="messe">Messe / Event</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="message"
+              class:list={["block font-outfit text-sm font-medium", labelClass]}
+            >
+              Erzählen Sie uns etwas über Ihre Feier
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              class={inputBgClass}
+              placeholder="Beschreiben Sie Ihren Anlass, Wünsche oder Fragen …"
+            ></textarea>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="inline-flex min-h-12 w-fit items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-light px-6 py-3 font-outfit text-base font-medium text-white transition-all duration-300 hover:shadow-lg md:min-h-14 md:px-8 md:py-4 md:text-lg"
+            >
+              Abschicken
+            </button>
+          </div>
+
+          <div
+            id="form-feedback"
+            class="hidden font-outfit text-sm"
+            aria-live="polite"
+          >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById(
+      "contact-form",
+    ) as HTMLFormElement | null;
+    const feedback = document.getElementById("form-feedback");
+    if (!form || !feedback) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      feedback.classList.add("hidden");
+      feedback.textContent = "";
+
+      const submitBtn = form.querySelector(
+        'button[type="submit"]',
+      ) as HTMLButtonElement | null;
+      const originalText = submitBtn?.textContent;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Wird gesendet …";
+      }
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+        });
+        const data = (await res.json().catch(() => ({}))) as {
+          message?: string;
+        };
+
+        if (res.ok) {
+          feedback.classList.remove("hidden");
+          feedback.classList.add("text-green-600");
+          feedback.classList.remove("text-red-600");
+          feedback.textContent =
+            data.message || "Vielen Dank! Ihre Nachricht wurde gesendet.";
+          form.reset();
+        } else {
+          feedback.classList.remove("hidden");
+          feedback.classList.add("text-red-600");
+          feedback.classList.remove("text-green-600");
+          feedback.textContent =
+            data.message ||
+            "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.";
+        }
+      } catch {
+        feedback.classList.remove("hidden");
+        feedback.classList.add("text-red-600");
+        feedback.classList.remove("text-green-600");
+        feedback.textContent =
+          "Netzwerkfehler. Bitte versuchen Sie es später erneut.";
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText || "Abschicken";
+        }
+      }
+    });
+  });
+</script>

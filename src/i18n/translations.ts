@@ -30,6 +30,10 @@ export const ui = {
     "hero.firmenfeier.bullet3": "Rundum-sorglos-Paket",
     "hero.firmenfeier.bullet4": "Glückliche Kunden",
     "hero.firmenfeier.imageAlt": "Thomas Pfeil beim Mixen eines Cocktails",
+    "hero.anfrage.subtitle": "Kontakt",
+    "hero.anfrage.title": "Jetzt anfragen",
+    "hero.anfrage.description":
+      "Füllen Sie das Kontaktformular aus – wir melden uns zeitnah bei Ihnen.",
     "hero.hochzeitsfeier.subtitle": "Cocktail Catering",
     "hero.hochzeitsfeier.title":
       "Ihr persönliches Cocktail Catering für atemberaubende Hochzeitsfeiern",
@@ -205,6 +209,10 @@ export const ui = {
     "hero.firmenfeier.bullet3": "All-inclusive Package",
     "hero.firmenfeier.bullet4": "Happy Customers",
     "hero.firmenfeier.imageAlt": "Thomas Pfeil mixing a cocktail",
+    "hero.anfrage.subtitle": "Contact",
+    "hero.anfrage.title": "Contact us",
+    "hero.anfrage.description":
+      "Fill out the contact form – we will get back to you soon.",
     "hero.hochzeitsfeier.subtitle": "Cocktail Catering",
     "hero.hochzeitsfeier.title":
       "Your personal cocktail catering for stunning wedding celebrations",
