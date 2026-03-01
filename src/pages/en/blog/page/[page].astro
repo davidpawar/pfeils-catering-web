@@ -1,12 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../../../../components/base/BaseHead.astro";
-import Footer from "../../../../components/base/Footer.astro";
-import Navigation from "../../../../components/base/Navigation.astro";
-import BlogPostList from "../../../../components/widgets/BlogPostList.astro";
-import HeroSubpage from "../../../../components/widgets/HeroSubpage.astro";
-import { imageProvider } from "../../../../provider/imageProvider";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../../../i18n/utils";
+import BlogIndexLayout from "../../../../layouts/BlogIndexLayout.astro";
 
 export async function getStaticPaths() {
   const postsPerPage = 6;
@@ -21,15 +15,6 @@ const POSTS_PER_PAGE = 6;
 
 const { page } = Astro.params;
 const pageNum = parseInt(page ?? "2", 10);
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
-
-const blogHeroUrl =
-  typeof imageProvider.hero.headerBackground.src === "object"
-    ? imageProvider.hero.headerBackground.src.src
-    : imageProvider.hero.headerBackground.src;
 
 const allPosts = (await getCollection("blogEn")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -47,36 +32,8 @@ const posts = allPosts.slice(start, start + POSTS_PER_PAGE).map((p) => ({
 }));
 ---
 
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <BaseHead title={t("blog.meta.title")} description={t("blog.meta.description")} lang={lang} />
-  </head>
-  <body>
-    <div class="relative">
-      <Navigation />
-      <main>
-        <HeroSubpage
-          title={t("hero.blog.title")}
-          imageUrl={blogHeroUrl}
-        />
-        <BlogPostList
-          badge={t("blog.badge")}
-          currentPage={currentPage}
-          description={t("blog.description")}
-          getPageHref={(p) => (p === 1 ? translatePath("/blog/") : translatePath(`/blog/page/${p}/`))}
-          getPostHref={(slug) => translatePath(`/blog/${slug}/`)}
-          locale={lang === "en" ? "en-GB" : "de-DE"}
-          paginationNextText={t("blog.paginationNext")}
-          paginationPrevText={t("blog.paginationPrev")}
-          posts={posts}
-          readMoreText={t("blog.readMore")}
-          theme="grey"
-          title={t("blog.title")}
-          totalPages={totalPages}
-        />
-      </main>
-      <Footer />
-    </div>
-  </body>
-</html>
+<BlogIndexLayout
+  currentPage={currentPage}
+  posts={posts}
+  totalPages={totalPages}
+/>

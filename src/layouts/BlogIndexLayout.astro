@@ -1,0 +1,117 @@
+---
+/**
+ * BlogIndexLayout: Shared layout for blog index pages (page 1 and paginated pages).
+ * Receives posts, currentPage, totalPages and renders the full page with Hero, BlogPostList and Footer.
+ */
+import BaseHead from "../components/base/BaseHead.astro";
+import Footer from "../components/base/Footer.astro";
+import Navigation from "../components/base/Navigation.astro";
+import BlogPostList from "../components/widgets/BlogPostList.astro";
+import HeroSubpage from "../components/widgets/HeroSubpage.astro";
+import headerBg from "../assets/images/hero/header-background.jpg";
+import type { ui } from "../i18n/translations";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+
+/**
+ * Single blog post entry for the list.
+ */
+export interface BlogPostItem {
+  /**
+   * Description of the blog post.
+   */
+  description: string;
+  /**
+   * Hero image of the blog post.
+   */
+  heroImage?: string;
+  /**
+   * ID of the blog post.
+   */
+  id: string;
+  /**
+   * Publication date of the blog post.
+   */
+  pubDate: Date;
+  /**
+   * Slug of the blog post.
+   */
+  slug: string;
+  /**
+   * Title of the blog post.
+   */
+  title: string;
+}
+
+interface Props {
+  /**
+   * Current page number (1-based).
+   */
+  currentPage: number;
+  /**
+   * Optional language override. Defaults to URL-derived language.
+   */
+  lang?: keyof typeof ui;
+  /**
+   * List of blog posts to display.
+   */
+  posts: BlogPostItem[];
+  /**
+   * Total number of pagination pages.
+   */
+  totalPages: number;
+}
+
+const { currentPage, lang: langProp, posts, totalPages } = Astro.props;
+
+/* Derive language and translation helpers */
+const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+/* Hero background image URL */
+const blogHeroUrl = typeof headerBg === "object" ? headerBg.src : headerBg;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead
+      title={t("blog.meta.title")}
+      description={t("blog.meta.description")}
+      lang={lang}
+    />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        {/* Hero: blog section header with background image */}
+        <HeroSubpage title={t("hero.blog.title")} imageUrl={blogHeroUrl} />
+        {/* BlogPostList: post cards with pagination */}
+        <BlogPostList
+          badge={t("blog.badge")}
+          currentPage={currentPage}
+          description={t("blog.description")}
+          getPageHref={(p) =>
+            p === 1
+              ? translatePath("/blog/")
+              : translatePath(`/blog/page/${p}/`)}
+          getPostHref={(slug) => translatePath(`/blog/${slug}/`)}
+          locale={lang === "en" ? "en-GB" : "de-DE"}
+          paginationNextText={t("blog.paginationNext")}
+          paginationPrevText={t("blog.paginationPrev")}
+          posts={posts}
+          readMoreText={t("blog.readMore")}
+          theme="grey"
+          title={t("blog.title")}
+          totalPages={totalPages}
+        />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

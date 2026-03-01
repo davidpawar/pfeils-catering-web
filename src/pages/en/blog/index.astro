@@ -1,21 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../../../components/base/BaseHead.astro";
-import Footer from "../../../components/base/Footer.astro";
-import Navigation from "../../../components/base/Navigation.astro";
-import BlogPostList from "../../../components/widgets/BlogPostList.astro";
-import HeroSubpage from "../../../components/widgets/HeroSubpage.astro";
-import { imageProvider } from "../../../provider/imageProvider";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
-
-const blogHeroUrl =
-  typeof imageProvider.hero.headerBackground.src === "object"
-    ? imageProvider.hero.headerBackground.src.src
-    : imageProvider.hero.headerBackground.src;
+import BlogIndexLayout from "../../../layouts/BlogIndexLayout.astro";
 
 const POSTS_PER_PAGE = 6;
 
@@ -23,7 +8,6 @@ const allPosts = (await getCollection("blogEn")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
-const currentPage = 1;
 const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
   description: p.data.description,
   heroImage: p.data.heroImage,
@@ -34,36 +18,8 @@ const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
 }));
 ---
 
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <BaseHead title={t("blog.meta.title")} description={t("blog.meta.description")} lang={lang} />
-  </head>
-  <body>
-    <div class="relative">
-      <Navigation />
-      <main>
-        <HeroSubpage
-          title={t("hero.blog.title")}
-          imageUrl={blogHeroUrl}
-        />
-        <BlogPostList
-          badge={t("blog.badge")}
-          currentPage={currentPage}
-          description={t("blog.description")}
-          getPageHref={(page) => (page === 1 ? translatePath("/blog/") : translatePath(`/blog/page/${page}/`))}
-          getPostHref={(slug) => translatePath(`/blog/${slug}/`)}
-          locale={lang === "en" ? "en-GB" : "de-DE"}
-          paginationNextText={t("blog.paginationNext")}
-          paginationPrevText={t("blog.paginationPrev")}
-          posts={posts}
-          readMoreText={t("blog.readMore")}
-          theme="grey"
-          title={t("blog.title")}
-          totalPages={totalPages}
-        />
-      </main>
-      <Footer />
-    </div>
-  </body>
-</html>
+<BlogIndexLayout
+  currentPage={1}
+  posts={posts}
+  totalPages={totalPages}
+/>

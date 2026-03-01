@@ -55,7 +55,6 @@ function formatDate(date: Date, locale: string): string {
   }
 </style>
 
-<!doctype html>
 <html lang={lang}>
   <head>
     <BaseHead title={title} description={description} lang={lang} />
@@ -89,7 +88,10 @@ function formatDate(date: Date, locale: string): string {
                   href={translatePath("/blog/")}
                   class="group mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 font-outfit text-sm font-medium text-primary transition-all hover:border-primary hover:bg-primary hover:text-white"
                 >
-                  <span class="transition-transform group-hover:-translate-x-0.5" aria-hidden="true">←</span>
+                  <span
+                    class="transition-transform group-hover:-translate-x-0.5"
+                    aria-hidden="true">←</span
+                  >
                   {t("blog.backToBlog")}
                 </a>
                 <h1
