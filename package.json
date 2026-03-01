@@ -23,7 +23,7 @@
     "typescript": "5.9.3"
   },
   "devDependencies": {
-    "wrangler": "4.68.1"
+    "wrangler": "4.69.0"
   },
   "private": true,
   "scripts": {
@@ -31,7 +31,8 @@
     "build": "astro build",
     "cf-typegen": "wrangler types",
     "check": "astro build && tsc && wrangler deploy --dry-run",
-    "deploy": "wrangler deploy",
+    "deploy:dev": "wrangler deploy --env dev",
+    "deploy:prod": "wrangler deploy --env prod",
     "dev": "astro dev --host",
     "preview": "astro build && wrangler dev"
   },
