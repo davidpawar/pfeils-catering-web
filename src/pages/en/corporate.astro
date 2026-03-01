@@ -3,7 +3,7 @@ import BaseHead from "../../components/base/BaseHead.astro";
 import Footer from "../../components/base/Footer.astro";
 import Navigation from "../../components/base/Navigation.astro";
 import CallToAction from "../../components/widgets/CallToAction.astro";
-import HeroMain from "../../components/widgets/HeroMain.astro";
+import HeroSubpage from "../../components/widgets/HeroSubpage.astro";
 import ImageGalleryMasonry from "../../components/widgets/ImageGalleryMasonry.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
 import ItemList from "../../components/widgets/ItemList.astro";
@@ -50,7 +50,13 @@ const testimonialItems = [
     <div class="relative">
       <Navigation />
       <main>
-        <HeroMain />
+        <HeroSubpage
+          subtitle={t("hero.firmenfeier.subtitle")}
+          title={t("hero.firmenfeier.title")}
+          description={t("hero.firmenfeier.description")}
+          imageUrl="https://pfeils-catering.de/wp-content/uploads/2025/04/Thomas-Firmenfeier-neu-dunkel-scaled.jpg"
+          showCta
+        />
         <ImageText
           badgeText={t("hero.firmenfeier.subtitle")}
           buttonText={t("hero.cta")}

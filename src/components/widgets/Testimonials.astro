@@ -62,7 +62,9 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
 {/* Testimonials: Section with customer quotes in card grid */}
 {
   hasTestimonials && (
-    <section
+    <>
+      {/* Testimonials: Section with customer quotes in card grid */}
+      <section
       class:list={[
         "relative overflow-hidden",
         isDark ? "bg-dark-bg" : "bg-white",
@@ -158,6 +160,7 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
         </div>
       </div>
     </section>
+    </>
   )
 }
 

@@ -4,13 +4,13 @@
  */
 interface FAQItem {
   /**
-   * The answer/response text.
-   */
-  answer: string;
-  /**
    * The question text.
    */
   question: string;
+  /**
+   * The answer/response text.
+   */
+  answer: string;
 }
 
 interface Props {
@@ -38,7 +38,7 @@ interface Props {
 
 const { badge, description, items, theme = "light", title } = Astro.props;
 
-/* Derived values */
+/* Theme & derived class names */
 const answerClass = theme === "dark" ? "text-white/80" : "text-dark/70";
 const descClass = theme === "dark" ? "text-white/80" : "text-dark/70";
 

@@ -24,7 +24,7 @@ interface Props {
   theme?: "light" | "dark" | "grey";
 }
 
-const { badge, buttonText, href, theme = "light", title } = Astro.props;
+const { badge, buttonText, href, title, theme = "light" } = Astro.props;
 
 const isDark = theme === "dark";
 const isGrey = theme === "grey";
