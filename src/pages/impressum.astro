@@ -2,16 +2,16 @@
 import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
-import { getLangFromUrl } from "../i18n/utils";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead title={t("impressum.meta.title")} description={t("impressum.meta.description")} lang={lang} />
   </head>
   <body>
     <div class="relative">

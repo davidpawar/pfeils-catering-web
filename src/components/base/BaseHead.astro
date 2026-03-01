@@ -55,6 +55,7 @@ const { title, description, image = "/blog-placeholder-1.jpg", lang } = Astro.pr
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content="Pfeil's Cocktail Catering" />
 {lang && <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />}
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

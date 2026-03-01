@@ -7,7 +7,6 @@ import BlogPostList from "../../components/widgets/BlogPostList.astro";
 import HeroSubpage from "../../components/widgets/HeroSubpage.astro";
 import { imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -38,7 +37,7 @@ const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead title={t("blog.meta.title")} description={t("blog.meta.description")} lang={lang} />
   </head>
   <body>
     <div class="relative">

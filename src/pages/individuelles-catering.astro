@@ -6,7 +6,6 @@ import CallToAction from "../components/widgets/CallToAction.astro";
 import HeroSubpage from "../components/widgets/HeroSubpage.astro";
 import ImageText from "../components/widgets/ImageText.astro";
 import TextBlock from "../components/widgets/TextBlock.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import {
   getLangFromUrl,
   useTranslations,
@@ -36,7 +35,7 @@ const weihnachtBullets = t("individuell.service.weihnacht.bullets").split(", ");
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
+    <BaseHead title={t("individuell.meta.title")} description={t("individuell.meta.description")} lang={lang} />
   </head>
   <body>
     <div class="relative">

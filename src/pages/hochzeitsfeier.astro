@@ -8,7 +8,6 @@ import ImageGalleryMasonry from "../components/widgets/ImageGalleryMasonry.astro
 import ImageText from "../components/widgets/ImageText.astro";
 import ItemList from "../components/widgets/ItemList.astro";
 import Testimonials from "../components/widgets/Testimonials.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import {
   getLangFromUrl,
   useTranslations,
@@ -86,7 +85,7 @@ const testimonialItems = [
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
+    <BaseHead title={t("hochzeitsfeier.meta.title")} description={t("hochzeitsfeier.meta.description")} lang={lang} />
   </head>
   <body>
     <div class="relative">

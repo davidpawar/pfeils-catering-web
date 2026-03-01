@@ -5,7 +5,6 @@ import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
 import HeroSubpage from "../components/widgets/HeroSubpage.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { imageProvider } from "../provider/imageProvider";
 
 const lang = getLangFromUrl(Astro.url);
@@ -20,7 +19,7 @@ const heroImageUrl =
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead title={t("anfrage.meta.title")} description={t("anfrage.meta.description")} lang={lang} />
   </head>
   <body>
     <div class="relative">
