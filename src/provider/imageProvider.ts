@@ -2,13 +2,19 @@ import type { ImageMetadata } from "astro";
 
 import bambusbar from "../assets/images/catering/bambusbar.jpg";
 import bambusbarAbend from "../assets/images/catering/bambusbar-abend.jpg";
+import bratwurstGrill from "../assets/images/catering/bratwurst-grill.jpg";
 import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
+import coffeeTruck from "../assets/images/catering/coffee-truck.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
+import crepes from "../assets/images/catering/crepes.jpg";
 import eisCatering from "../assets/images/catering/eis-catering.jpg";
+import flammkuchen from "../assets/images/catering/flammkuchen.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
+import individuellHero from "../assets/images/hero/individuell-hero.jpg";
 import messeHero from "../assets/images/hero/messe-hero.jpg";
+import mitarbeiterin from "../assets/images/catering/mitarbeiterin.jpg";
 import hochzeit from "../assets/images/events/hochzeit.jpg";
 import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
@@ -20,6 +26,7 @@ import teamExperts from "../assets/images/team/team-experts.png";
 import volksbank from "../assets/images/logos/volksbank.png";
 import weddingHero from "../assets/images/hero/wedding-hero.jpg";
 import weihnachtsfeier from "../assets/images/events/weihnachtsfeier.jpg";
+import weihnachtsmarkt from "../assets/images/catering/weihnachtsmarkt.jpg";
 
 /**
  * Image asset with src and alt text for consistent reuse across the site.
@@ -50,15 +57,45 @@ export const imageProvider = {
       altEn: "Bamboo bar by Pfeil's Catering at an evening event",
       src: bambusbarAbend,
     },
+    bratwurstGrill: {
+      alt: "Bratwurst-Grill-Catering – frisch gegrillte Würste vor Ort",
+      altEn: "Bratwurst grill catering – freshly grilled sausages on site",
+      src: bratwurstGrill,
+    },
     cocktailService: {
       alt: "Professioneller Barkeeper bei der Zubereitung von Cocktails auf einer Firmenveranstaltung",
       altEn: "Professional bartender preparing cocktails at a corporate event",
       src: cocktailService,
     },
+    coffeeTruck: {
+      alt: "Mobiler Coffee Truck – Kaffeegenuss mit Stil",
+      altEn: "Mobile coffee truck – coffee enjoyment with style",
+      src: coffeeTruck,
+    },
+    crepes: {
+      alt: "Crêpes-Catering – frisch zubereitete Crêpes vor Ort",
+      altEn: "Crêpes catering – freshly prepared crêpes on site",
+      src: crepes,
+    },
     eisCatering: {
       alt: "Eis-Catering von Pfeil's Catering bei einer Firmenfeier",
       altEn: "Ice cream catering by Pfeil's Catering at a corporate event",
       src: eisCatering,
+    },
+    flammkuchen: {
+      alt: "Flammkuchen-Catering – knusprig aus dem Ofen",
+      altEn: "Flammkuchen catering – crispy from the oven",
+      src: flammkuchen,
+    },
+    mitarbeiterin: {
+      alt: "Mitarbeiterin von Pfeil's Catering beim Cocktail-Service",
+      altEn: "Team member of Pfeil's Catering at cocktail service",
+      src: mitarbeiterin,
+    },
+    weihnachtsmarkt: {
+      alt: "Mobiler Weihnachtsmarkt bei einer Firmenfeier",
+      altEn: "Mobile Christmas market at a corporate event",
+      src: weihnachtsmarkt,
     },
   },
   events: {
@@ -93,6 +130,11 @@ export const imageProvider = {
       alt: "",
       altEn: "",
       src: headerBg,
+    },
+    individuellBackground: {
+      alt: "Individuelles Cocktail-Catering nach Ihren Wünschen",
+      altEn: "Individual cocktail catering according to your wishes",
+      src: individuellHero,
     },
     messeBackground: {
       alt: "Cocktail-Bar auf einer Messe – professioneller Barservice am Messestand",

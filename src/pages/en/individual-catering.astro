@@ -1,0 +1,142 @@
+---
+import BaseHead from "../../components/base/BaseHead.astro";
+import Footer from "../../components/base/Footer.astro";
+import Navigation from "../../components/base/Navigation.astro";
+import CallToAction from "../../components/widgets/CallToAction.astro";
+import HeroSubpage from "../../components/widgets/HeroSubpage.astro";
+import ImageText from "../../components/widgets/ImageText.astro";
+import TextBlock from "../../components/widgets/TextBlock.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+import { imageProvider } from "../../provider/imageProvider";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const individuellHeroUrl =
+  typeof imageProvider.hero.individuellBackground.src === "object"
+    ? imageProvider.hero.individuellBackground.src.src
+    : imageProvider.hero.individuellBackground.src;
+
+const eisBullets = t("individuell.service.eis.bullets").split(", ");
+const bratwurstBullets = t("individuell.service.bratwurst.bullets").split(", ");
+const crepesBullets = t("individuell.service.crepes.bullets").split(", ");
+const coffeeBullets = t("individuell.service.coffee.bullets").split(", ");
+const flammkuchenBullets = t("individuell.service.flammkuchen.bullets").split(
+  ", ",
+);
+const weihnachtBullets = t("individuell.service.weihnacht.bullets").split(", ");
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        <HeroSubpage
+          title={t("hero.individuell.title")}
+          imageUrl={individuellHeroUrl}
+        />
+        <ImageText
+          badgeText={t("hero.individuell.subtitle")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("hero.individuell.bullet1"),
+            t("hero.individuell.bullet2"),
+            t("hero.individuell.bullet3"),
+            t("hero.individuell.bullet4"),
+          ]}
+          description={`${t("hero.individuell.description")}. ${t("hero.individuell.paragraph")}`}
+          image={imageProvider.catering.mitarbeiterin}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("hero.individuell.title")}
+        />
+        <TextBlock
+          badge={t("individuell.intro.badge")}
+          content={`<p>${t("individuell.intro.paragraph1")}</p><p>${t("individuell.intro.paragraph2")}</p>`}
+          theme="dark"
+          title={t("individuell.intro.title")}
+        />
+        <ImageText
+          badgeText={t("individuell.service.eis.title")}
+          checkItems={eisBullets}
+          description={t("individuell.service.eis.description")}
+          image={imageProvider.catering.eisCatering}
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          theme="light"
+          title={t("individuell.service.eis.subtitle")}
+        />
+        <ImageText
+          badgeText={t("individuell.service.bratwurst.title")}
+          checkItems={bratwurstBullets}
+          description={t("individuell.service.bratwurst.description")}
+          image={imageProvider.catering.bratwurstGrill}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("individuell.service.bratwurst.subtitle")}
+        />
+        <ImageText
+          badgeText={t("individuell.service.crepes.title")}
+          checkItems={crepesBullets}
+          description={t("individuell.service.crepes.description")}
+          image={imageProvider.catering.crepes}
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          theme="light"
+          title={t("individuell.service.crepes.subtitle")}
+        />
+        <ImageText
+          badgeText={t("individuell.service.coffee.title")}
+          checkItems={coffeeBullets}
+          description={t("individuell.service.coffee.description")}
+          image={imageProvider.catering.coffeeTruck}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("individuell.service.coffee.subtitle")}
+        />
+        <ImageText
+          badgeText={t("individuell.service.flammkuchen.title")}
+          checkItems={flammkuchenBullets}
+          description={t("individuell.service.flammkuchen.description")}
+          image={imageProvider.catering.flammkuchen}
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          theme="light"
+          title={t("individuell.service.flammkuchen.subtitle")}
+        />
+        <ImageText
+          badgeText={t("individuell.service.weihnacht.title")}
+          checkItems={weihnachtBullets}
+          description={t("individuell.service.weihnacht.description")}
+          image={imageProvider.catering.weihnachtsmarkt}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("individuell.service.weihnacht.subtitle")}
+        />
+        <CallToAction
+          badge={t("individuell.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("individuell.cta.title")}
+        />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

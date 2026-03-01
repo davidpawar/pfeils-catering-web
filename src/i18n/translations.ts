@@ -7,6 +7,7 @@ export const ui = {
     "nav.home": "Startseite",
     "nav.firmenfeier": "Firmenfeier",
     "nav.hochzeitsfeier": "Hochzeitsfeier",
+    "nav.individuell": "Individuelles Catering",
     "nav.messeCatering": "Messe Catering",
     "nav.mobileCocktailbar": "Mobile Cocktailbar",
     "nav.anfrage": "Jetzt anfragen",
@@ -235,6 +236,58 @@ export const ui = {
     "messe.testimonials.item4.jobTitle": "Eventmanagerin",
     "messe.testimonials.item4.text":
       "Die Drinks waren nicht nur geschmacklich ein Highlight, sondern auch optisch ein echter Hingucker.",
+    "hero.individuell.title": "Ihr individuelles Catering",
+    "hero.individuell.subtitle": "Cocktail Catering",
+    "hero.individuell.description":
+      "Exklusives Catering nach Ihren Vorstellungen. Ob Hochzeit, Firmenfeier oder private Gartenparty – wir entwickeln gemeinsam mit dir das passende Catering-Konzept.",
+    "hero.individuell.paragraph":
+      "Von der Auswahl der Drinks bis zur Ausstattung der mobilen Bar ist alles flexibel planbar. Erzähl uns von deinem Event – und wir kümmern uns um den perfekten Mix.",
+    "hero.individuell.bullet1": "Einzigartige Feier",
+    "hero.individuell.bullet2": "Exzellenter Service",
+    "hero.individuell.bullet3": "Rundum-sorglos-Paket",
+    "hero.individuell.bullet4": "Glückliche Kunden",
+    "individuell.intro.badge": "Weitere Dienstleistungen",
+    "individuell.intro.title": "Ihre nächste Firmenfeier",
+    "individuell.intro.paragraph1":
+      "Weitere Dienstleistungen und Angebote, um Ihrer Feier eine persönliche Note zu geben.",
+    "individuell.intro.paragraph2":
+      "Neben unserem Cocktail-Catering bieten wir auch weitere Dienstleistungen an. Ob stilvolle Kaffee-Bar, individuelles Eis-Catering oder besondere Ausstattung – wir gestalten Ihr Event ganz nach Ihren Wünschen. Unsere Zusatzangebote lassen sich flexibel kombinieren und anpassen. So entsteht ein rundum stimmiges Konzept, das perfekt zu Ihrem Anlass passt.",
+    "individuell.services.badge": "Zusatzangebote",
+    "individuell.services.title": "Individuell kombinierbar",
+    "individuell.services.description":
+      "So entsteht ein rundum stimmiges Konzept, das perfekt zu Ihrem Anlass passt.",
+    "individuell.service.eis.title": "Kalte Speisen",
+    "individuell.service.eis.subtitle": "Genießen Sie leckeres Eis zu jeder Jahreszeit",
+    "individuell.service.eis.description":
+      "Verwöhnen Sie Ihr Team mit unserem Eis-Catering – ein Highlight für jede Firmenfeier. Ob klassisch oder kreativ, unsere Sorten treffen garantiert jeden Geschmack.",
+    "individuell.service.eis.bullets": "Optisches Highlight, Vielfalt für Jeden, Kühle Erfrischung, 100% Sommerfeeling, Mobiler Eisgenuss überall, Gute Laune garantiert",
+    "individuell.service.bratwurst.title": "Herzhaftes Catering",
+    "individuell.service.bratwurst.subtitle": "Bratwurst-Grill – Deftig, direkt, unkompliziert",
+    "individuell.service.bratwurst.description":
+      "Unser Bratwurst-Catering ist eine praktische und bewährte Lösung für Veranstaltungen jeder Art. Im Mittelpunkt steht die frische Zubereitung vor Ort oder eine zuverlässige Anlieferung. Wir bieten verschiedene Wurstsorten, darunter auch vegetarische Optionen.",
+    "individuell.service.bratwurst.bullets": "Grillstation vor Ort, Auswahl an klassischen und besonderen Wurstsorten, Vegetarische Alternativen auf Anfrage, Individuelle Menüabstimmung, Schneller Auf- und Abbau, Auf Wunsch mit Geschirr und Besteck",
+    "individuell.service.crepes.title": "Crêpes-Catering",
+    "individuell.service.crepes.subtitle": "Crêpes-Catering für Veranstaltungen jeder Art",
+    "individuell.service.crepes.description":
+      "Wir bieten frisch zubereitete Crêpes in süßen und herzhaften Varianten – direkt vor Ort und individuell anpassbar. Die Gäste wählen selbst aus einer Vielzahl möglicher Kombinationen.",
+    "individuell.service.crepes.bullets": "Frische Zubereitung vor Ort, Süße und herzhafte Varianten, Innen- und Außenbereiche, Schnelle Zubereitung, Veranstaltungen mit wechselndem Publikum",
+    "individuell.service.coffee.title": "Coffee Truck",
+    "individuell.service.coffee.subtitle": "Mobiler Kaffeegenuss mit Stil",
+    "individuell.service.coffee.description":
+      "Das Angebot umfasst eine sorgfältig zusammengestellte Auswahl an Kaffeespezialitäten – von Espresso über Cappuccino bis Latte Macchiato. Ergänzt durch Sirupsorten, Milchalternativen und auf Wunsch kleine süße Begleitungen.",
+    "individuell.service.coffee.bullets": "Perfekte Auszeit, Frisch gebrüht, Flexibler Einsatz, Premium Kaffeebohnen, Gästemagnet, Zugeschnitten auf Ihre Location",
+    "individuell.service.flammkuchen.title": "Flammkuchen",
+    "individuell.service.flammkuchen.subtitle": "Frisch, knusprig, unwiderstehlich",
+    "individuell.service.flammkuchen.description":
+      "Wie im Elsass – knuspriger Flammkuchen direkt aus dem heißen Ofen. Wir bringen Tradition, Handwerk und Geschmack zu deinem Fest. Ein herzhaftes Erlebnis, das alle Sinne anspricht.",
+    "individuell.service.flammkuchen.bullets": "Live-Cooking, Publikumsmagnet, Frische Zubereitung, Rustikaler Charme, Veggie-Optionen, Wohlfühlfaktor",
+    "individuell.service.weihnacht.title": "Weihnachtsfeier",
+    "individuell.service.weihnacht.subtitle": "Wir bringen den Weihnachtsmarkt zu Ihnen!",
+    "individuell.service.weihnacht.description":
+      "Geben Sie ihrer Firmenfeier einen besonderen Touch. Wir bieten zusätzlich noch einen mobilen Weihnachtsmarkt an, der perfekt für eine Weihnachtsfeier geeignet ist. Die Anzahl an Hütten sind individuell anpassbar.",
+    "individuell.service.weihnacht.bullets": "Weihnachtliches Fingerfood, Glühwein & Co., Sicheres & wohles Ambiente, Zugeschnitten auf Ihre Location, Festliche Stimmung, Überraschung pur!",
+    "individuell.cta.badge": "Mehr als nur ein Getränk",
+    "individuell.cta.title": "Kommen Sie mit uns in Kontakt",
     "footer.quickLinks": "Schnellzugriff",
     "footer.contact": "Kontakt",
     "footer.tagline":
@@ -245,6 +298,7 @@ export const ui = {
     "nav.home": "Home",
     "nav.firmenfeier": "Corporate Events",
     "nav.hochzeitsfeier": "Wedding",
+    "nav.individuell": "Individual Catering",
     "nav.messeCatering": "Exhibition",
     "nav.mobileCocktailbar": "Mobile Cocktail Bar",
     "nav.anfrage": "Contact",
@@ -474,6 +528,58 @@ export const ui = {
     "messe.testimonials.item4.jobTitle": "Event manager",
     "messe.testimonials.item4.text":
       "The drinks were not only a taste highlight but also a real eye-catcher visually.",
+    "hero.individuell.title": "Your individual catering",
+    "hero.individuell.subtitle": "Cocktail Catering",
+    "hero.individuell.description":
+      "Exclusive catering according to your wishes. Whether wedding, corporate event or private garden party – we develop the right catering concept together with you.",
+    "hero.individuell.paragraph":
+      "From the selection of drinks to the equipment of the mobile bar, everything is flexibly plannable. Tell us about your event – and we'll take care of the perfect mix.",
+    "hero.individuell.bullet1": "Unique celebration",
+    "hero.individuell.bullet2": "Excellent service",
+    "hero.individuell.bullet3": "All-inclusive package",
+    "hero.individuell.bullet4": "Happy customers",
+    "individuell.intro.badge": "Additional services",
+    "individuell.intro.title": "Your next corporate event",
+    "individuell.intro.paragraph1":
+      "Additional services and offers to give your celebration a personal touch.",
+    "individuell.intro.paragraph2":
+      "In addition to our cocktail catering, we also offer other services. Whether elegant coffee bar, individual ice cream catering or special equipment – we design your event exactly according to your wishes. Our additional offers can be flexibly combined and adapted. This creates a coherent concept that fits perfectly with your occasion.",
+    "individuell.services.badge": "Additional offers",
+    "individuell.services.title": "Individually combinable",
+    "individuell.services.description":
+      "This creates a coherent concept that fits perfectly with your occasion.",
+    "individuell.service.eis.title": "Cold dishes",
+    "individuell.service.eis.subtitle": "Enjoy delicious ice cream any time of year",
+    "individuell.service.eis.description":
+      "Treat your team to our ice cream catering – a highlight for any corporate event. Whether classic or creative, our flavours are guaranteed to please everyone.",
+    "individuell.service.eis.bullets": "Visual highlight, Variety for everyone, Cool refreshment, 100% summer feeling, Mobile ice cream anywhere, Good mood guaranteed",
+    "individuell.service.bratwurst.title": "Savory catering",
+    "individuell.service.bratwurst.subtitle": "Bratwurst grill – hearty, direct, uncomplicated",
+    "individuell.service.bratwurst.description":
+      "Our bratwurst catering is a practical and proven solution for events of all kinds. The focus is on fresh preparation on site or reliable delivery. We offer various sausage varieties, including vegetarian options.",
+    "individuell.service.bratwurst.bullets": "Grill station on site, Selection of classic and special sausages, Vegetarian alternatives on request, Individual menu coordination, Quick setup and dismantling, Optional with tableware",
+    "individuell.service.crepes.title": "Crêpes catering",
+    "individuell.service.crepes.subtitle": "Crêpes catering for events of all kinds",
+    "individuell.service.crepes.description":
+      "We offer freshly prepared crêpes in sweet and savory varieties – directly on site and individually adaptable. Guests choose from a variety of possible combinations.",
+    "individuell.service.crepes.bullets": "Fresh preparation on site, Sweet and savory varieties, Indoor and outdoor areas, Quick preparation, Events with changing audience",
+    "individuell.service.coffee.title": "Coffee Truck",
+    "individuell.service.coffee.subtitle": "Mobile coffee enjoyment with style",
+    "individuell.service.coffee.description":
+      "The offer includes a carefully selected range of coffee specialities – from espresso to cappuccino to latte macchiato. Supplemented with syrup varieties, milk alternatives and optionally small sweet accompaniments.",
+    "individuell.service.coffee.bullets": "Perfect break, Freshly brewed, Flexible deployment, Premium coffee beans, Guest magnet, Tailored to your location",
+    "individuell.service.flammkuchen.title": "Flammkuchen",
+    "individuell.service.flammkuchen.subtitle": "Fresh, crispy, irresistible",
+    "individuell.service.flammkuchen.description":
+      "As in Alsace – crispy flammkuchen straight from the hot oven. We bring tradition, craftsmanship and taste to your celebration. A hearty experience that appeals to all the senses.",
+    "individuell.service.flammkuchen.bullets": "Live cooking, Crowd puller, Fresh preparation, Rustic charm, Veggie options, Feel-good factor",
+    "individuell.service.weihnacht.title": "Christmas party",
+    "individuell.service.weihnacht.subtitle": "We bring the Christmas market to you!",
+    "individuell.service.weihnacht.description":
+      "Give your corporate event a special touch. We also offer a mobile Christmas market that is perfect for a Christmas party. The number of huts can be individually adjusted.",
+    "individuell.service.weihnacht.bullets": "Christmas finger food, Mulled wine & Co., Safe & cozy atmosphere, Tailored to your location, Festive atmosphere, Pure surprise!",
+    "individuell.cta.badge": "More than just a drink",
+    "individuell.cta.title": "Get in touch with us",
     "footer.quickLinks": "Quick Links",
     "footer.contact": "Contact",
     "footer.tagline":
@@ -487,6 +593,7 @@ export const routes = {
   en: {
     firmenfeier: "corporate",
     hochzeitsfeier: "wedding",
+    "individuelles-catering": "individual-catering",
     "messe-catering": "exhibition",
     "mobile-cocktailbar": "mobile-cocktail-bar",
     anfrage: "contact",
