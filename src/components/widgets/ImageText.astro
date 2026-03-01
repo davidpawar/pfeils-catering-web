@@ -61,10 +61,10 @@ interface Props {
    */
   title: string;
   /*
-   * Visual theme: "light" (default) or "dark".
-   * Dark uses bg-dark-bg with white text.
+   * Visual theme: "light" (default), "dark", or "grey".
+   * Dark uses bg-dark-bg with white text. Grey uses bg-slate-100, text like light.
    */
-  theme?: "light" | "dark";
+  theme?: "light" | "dark" | "grey";
 }
 
 const {
@@ -105,7 +105,13 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
 ---
 
 <!-- ImageText Section -->
-<section class:list={["relative max-w-full", isDark && "bg-dark-bg"]}>
+<section
+  class:list={[
+    "relative max-w-full",
+    isDark && "bg-dark-bg",
+    theme === "grey" && "bg-slate-100",
+  ]}
+>
   <div
     class:list={[
       "mx-auto flex max-w-7xl gap-8 px-6 py-12 md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28",

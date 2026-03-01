@@ -5,6 +5,7 @@ import HeroMain from "../components/widgets/HeroMain.astro";
 import ImageNavigation from "../components/widgets/ImageNavigation.astro";
 import ImageText from "../components/widgets/ImageText.astro";
 import LogoList from "../components/widgets/LogoList.astro";
+import Testimonials from "../components/widgets/Testimonials.astro";
 import Navigation from "../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { imageProvider } from "../provider/imageProvider";
@@ -150,7 +151,41 @@ const translatePath = useTranslatedPath(lang);
           buttonText="Jetzt anfragen"
           image={imageProvider.catering.bambusbarAbend}
           link={translatePath("/anfrage/")}
+          theme="grey"
           title="Ganz einfach buchen – wir freuen uns, dass wir bereits unzählige Kunden bedienen durften."
+        />
+
+        <Testimonials
+          badge="Kundenstimmen"
+          description="Was unsere Kunden über uns sagen."
+          title="Stimmen unserer Kunden"
+          testimonials={[
+            {
+              name: "Robert S.",
+              jobTitle: "Geschäftsführer",
+              text: "Das Team hat sich perfekt auf unser Corporate Event eingestellt. Professionell, freundlich und mit einem feinen Gespür für die Atmosphäre. Gerne wieder!",
+            },
+            {
+              name: "Alina N.",
+              jobTitle: "Hochzeitsplanerin",
+              text: "So viel Liebe zum Detail und so ein tolles Team! Ihr wart ein unvergesslicher Teil unserer Hochzeit.",
+            },
+            {
+              name: "Corinna L.",
+              jobTitle: "Eventmanagerin",
+              text: "Unsere Jahresfeier war dank des Cocktail-Services ein voller Erfolg. Die Drinks waren nicht nur geschmacklich ein Highlight, sondern auch optisch ein echter Hingucker.",
+            },
+            {
+              name: "Sebastian G.",
+              jobTitle: "Veranstalter",
+              text: "Die Cocktailbar war ein echter Publikumsmagnet auf unserem Messestand. Viele Besucher blieben länger – genau das, was wir wollten.",
+            },
+            {
+              name: "Gianluca Z.",
+              jobTitle: "Privatperson",
+              text: "Ein rundum gelungener Auftritt bei unserem Sommerfest. Von der Planung bis zum letzten Drink – alles lief reibungslos und auf höchstem Niveau.",
+            },
+          ]}
         />
 
         <Footer />

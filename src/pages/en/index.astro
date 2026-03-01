@@ -5,6 +5,7 @@ import HeroMain from "../../components/widgets/HeroMain.astro";
 import ImageNavigation from "../../components/widgets/ImageNavigation.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
 import LogoList from "../../components/widgets/LogoList.astro";
+import Testimonials from "../../components/widgets/Testimonials.astro";
 import Navigation from "../../components/base/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { imageProvider } from "../../provider/imageProvider";
@@ -150,6 +151,40 @@ const translatePath = useTranslatedPath(lang);
           image={imageProvider.catering.bambusbarAbend}
           link={translatePath("/anfrage/")}
           title="Book with ease – we are delighted to have already served countless customers."
+          theme="grey"
+        />
+
+        <Testimonials
+          badge="Testimonials"
+          description="What our customers say about us."
+          title="Voices of our customers"
+          testimonials={[
+            {
+              name: "Robert S.",
+              jobTitle: "Managing Director",
+              text: "The team adapted perfectly to our corporate event. Professional, friendly and with a fine sense for the atmosphere. We'll be happy to book again!",
+            },
+            {
+              name: "Alina N.",
+              jobTitle: "Wedding Planner",
+              text: "So much attention to detail and such a great team! You were an unforgettable part of our wedding.",
+            },
+            {
+              name: "Corinna L.",
+              jobTitle: "Event Manager",
+              text: "Our annual celebration was a complete success thanks to the cocktail service. The drinks were not only a highlight in taste, but also a real eye-catcher.",
+            },
+            {
+              name: "Sebastian G.",
+              jobTitle: "Event Organizer",
+              text: "The cocktail bar was a real crowd-puller at our trade fair stand. Many visitors stayed longer – exactly what we wanted.",
+            },
+            {
+              name: "Gianluca Z.",
+              jobTitle: "Private Customer",
+              text: "An all-round successful performance at our summer party. From planning to the last drink – everything ran smoothly and at the highest level.",
+            },
+          ]}
         />
 
         <Footer />
