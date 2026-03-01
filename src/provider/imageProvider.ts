@@ -2,6 +2,7 @@ import type { ImageMetadata } from "astro";
 
 import teamExperts from "../assets/images/team/team-experts.png";
 import bambusbar from "../assets/images/catering/bambusbar.jpg";
+import bambusbarAbend from "../assets/images/catering/bambusbar-abend.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import hochzeit from "../assets/images/events/hochzeit.jpg";
@@ -45,6 +46,11 @@ export const imageProvider = {
       src: bambusbar,
       alt: "Mobile Bambusbar von Pfeil's Catering bei einer Veranstaltung",
       altEn: "Mobile bamboo bar by Pfeil's Catering at an event",
+    },
+    bambusbarAbend: {
+      src: bambusbarAbend,
+      alt: "Bambusbar von Pfeil's Catering bei einer Abendveranstaltung",
+      altEn: "Bamboo bar by Pfeil's Catering at an evening event",
     },
     cocktailService: {
       src: cocktailService,

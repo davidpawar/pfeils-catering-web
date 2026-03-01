@@ -17,11 +17,15 @@ interface Props {
    */
   checkItems?: string[];
   /*
-   * Supporting paragraph below the heading.
+   * Optional supporting paragraph below the heading.
    */
-  description: string;
+  description?: string;
   /*
-   * Optional URL for the "Mehr erfahren" button. When set, a button is shown at the bottom.
+   * Optional button label when link is set. Default: "Mehr erfahren".
+   */
+  buttonText?: string;
+  /*
+   * Optional URL for the CTA button. When set, a button is shown at the bottom.
    */
   link?: string;
   /*
@@ -65,8 +69,9 @@ interface Props {
 
 const {
   badgeText,
+  buttonText = "Mehr erfahren",
   checkItems = [],
-  description,
+  description = "",
   image,
   link,
   imagePosition = "left",
@@ -131,7 +136,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
       <!-- Badge -->
       <div>
         <div
-          class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6"
+          class="mb-2 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1"
         >
           <h2
             class="font-outfit text-sm uppercase tracking-wider text-white leading-[1.3] md:text-base"
@@ -153,17 +158,21 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         </p>
       </div>
 
-      <!-- Description -->
-      <div>
-        <p
-          class:list={[
-            "text-base font-light leading-relaxed md:text-lg",
-            descriptionClass,
-          ]}
-        >
-          {description}
-        </p>
-      </div>
+      <!-- Description (optional) -->
+      {
+        description && (
+          <div>
+            <p
+              class:list={[
+                "text-base font-light leading-relaxed md:text-lg",
+                descriptionClass,
+              ]}
+            >
+              {description}
+            </p>
+          </div>
+        )
+      }
 
       <!-- Check List (optional) -->
       {
@@ -256,7 +265,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
       {
         link && (
           <Button href={link} class="mt-6 md:mt-8">
-            Mehr erfahren
+            {buttonText}
           </Button>
         )
       }

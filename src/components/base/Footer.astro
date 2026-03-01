@@ -2,7 +2,11 @@
 import { Image } from "astro:assets";
 import { getImageAlt } from "../../provider/imageProvider";
 import { imageProvider } from "../../provider/imageProvider";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,13 +17,16 @@ const quickLinks = [
   { label: t("nav.firmenfeier"), href: translatePath("/firmenfeier/") },
   { label: t("nav.hochzeitsfeier"), href: translatePath("/hochzeitsfeier/") },
   { label: t("nav.messeCatering"), href: translatePath("/messe-catering/") },
-  { label: t("nav.mobileCocktailbar"), href: translatePath("/mobile-cocktailbar/") },
+  {
+    label: t("nav.mobileCocktailbar"),
+    href: translatePath("/mobile-cocktailbar/"),
+  },
   { label: t("nav.anfrage"), href: translatePath("/anfrage/") },
 ];
 ---
 
 <footer class="bg-dark-bg text-white">
-  <div class="fade-in-section mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
     <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12 lg:gap-16">
       <!-- Column 1: Company Info -->
       <div class="space-y-4 md:space-y-6">
@@ -29,7 +36,8 @@ const quickLinks = [
           aria-label={`Pfeil's Catering – ${t("nav.home")}`}
         >
           <Image
-            src={imageProvider.logo.altWeiss.src as import("astro").ImageMetadata}
+            src={imageProvider.logo.altWeiss
+              .src as import("astro").ImageMetadata}
             alt={getImageAlt(imageProvider.logo.altWeiss, lang)}
             class="h-12 w-auto md:h-14"
             width={180}
@@ -67,7 +75,9 @@ const quickLinks = [
 
       <!-- Column 2: Quick Links -->
       <div>
-        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">{t("footer.quickLinks")}</h3>
+        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">
+          {t("footer.quickLinks")}
+        </h3>
         <nav class="space-y-3 md:space-y-4">
           {
             quickLinks.map((link) => (
@@ -84,7 +94,9 @@ const quickLinks = [
 
       <!-- Column 3: Contact Info -->
       <div>
-        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">{t("footer.contact")}</h3>
+        <h3 class="mb-4 font-anton text-lg md:mb-6 md:text-xl">
+          {t("footer.contact")}
+        </h3>
         <div class="space-y-4 md:space-y-5">
           <a
             href="tel:01784988521"
@@ -177,10 +189,16 @@ const quickLinks = [
           © {currentYear} Pfeil's Cocktail Catering. {t("footer.copyright")}
         </p>
         <div class="flex gap-6">
-          <a href={translatePath("/impressum/")} class="transition-colors hover:text-primary">
+          <a
+            href={translatePath("/impressum/")}
+            class="transition-colors hover:text-primary"
+          >
             {t("nav.impressum")}
           </a>
-          <a href={translatePath("/datenschutz/")} class="transition-colors hover:text-primary">
+          <a
+            href={translatePath("/datenschutz/")}
+            class="transition-colors hover:text-primary"
+          >
             {t("nav.datenschutz")}
           </a>
         </div>
