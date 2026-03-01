@@ -1,4 +1,5 @@
 ---
+import { Check } from "@lucide/astro";
 import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
 import type { ImageAsset } from "../../provider/imageProvider";
@@ -212,18 +213,12 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
           <div class="grid grid-cols-2 gap-x-4 gap-y-2 sm:gap-x-6 sm:gap-y-3">
             {checkItems.map((item) => (
               <div class="flex items-center gap-2">
-                <svg
+                <Check
                   class:list={["h-5 w-5 shrink-0", checkIconClass]}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
+                  size={20}
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                   aria-hidden="true"
-                >
-                  <path d="M5 13l4 4L19 7" />
-                </svg>
+                />
                 <span
                   class:list={[
                     "font-outfit text-sm md:text-base",

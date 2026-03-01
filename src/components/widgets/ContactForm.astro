@@ -1,4 +1,6 @@
 ---
+import { Mail, MapPin, Phone } from "@lucide/astro";
+
 /**
  * ContactForm: Responsive contact form with sidebar content.
  * Styling unified with TextBlock, ItemList, CallToAction (badge, rounded-br-4xl, etc.).
@@ -95,20 +97,7 @@ const iconBoxStaticClass = isDark
             ]}
           >
             <div class={iconBoxClass}>
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.5 1.5 0 0 0-1.22-1.473l-4.42-.884a1.5 1.5 0 0 0-1.48.56l-.97 1.294a12.08 12.08 0 0 1-5.287-5.287l1.295-.97a1.5 1.5 0 0 0 .56-1.48l-.884-4.42A1.5 1.5 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                ></path>
-              </svg>
+              <Phone class="h-5 w-5" size={20} stroke-width="1.5" aria-hidden="true" />
             </div>
             <div>
               <span class="font-outfit font-semibold">0178 498 85 21</span>
@@ -123,21 +112,7 @@ const iconBoxStaticClass = isDark
             class:list={[isDark ? "text-white/80" : "text-dark/70"]}
           >
             <div class={iconBoxStaticClass}>
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-                <path
-                  d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                ></path>
-              </svg>
+              <MapPin class="h-5 w-5" size={20} stroke-width="1.5" aria-hidden="true" />
             </div>
             <div>
               <span class="font-outfit font-semibold">Oberbergischer Kreis</span
@@ -156,20 +131,7 @@ const iconBoxStaticClass = isDark
             ]}
           >
             <div class={iconBoxClass}>
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M21.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.79a1.875 1.875 0 0 1-2.08 0L2.25 7.5"
-                ></path>
-              </svg>
+              <Mail class="h-5 w-5" size={20} stroke-width="1.5" aria-hidden="true" />
             </div>
             <div>
               <span class="font-outfit font-semibold"
