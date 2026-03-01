@@ -1,0 +1,94 @@
+---
+/**
+ * Imprint component: Legal imprint (Impressum) with contact, VAT ID, ODR and VSBG notice.
+ * Responsive layout matching the site's design system.
+ */
+interface Props {
+  /** When false, hides the main title (e.g. when used with HeroSubpage). */
+  showTitle?: boolean;
+}
+
+const { showTitle = true } = Astro.props;
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="relative overflow-hidden bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl">
+    <div class="max-w-3xl">
+      {showTitle && (
+        <>
+          <h1 class="font-anton text-3xl leading-tight text-dark md:text-4xl lg:text-5xl">
+            {t("impressum.title")}
+          </h1>
+          <hr class="mt-6 border-dark/10 pb-8 md:pb-10" />
+        </>
+      )}
+
+      <!-- Kontakt -->
+      <h2 class="font-outfit text-lg font-semibold text-dark md:text-xl">
+        {t("impressum.contact")}
+      </h2>
+      <div class="mt-4 space-y-1 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        <p class="font-semibold text-dark">Thomas Pfeil</p>
+        <p>Buschweg 10</p>
+        <p>51545 Waldbröl</p>
+      </div>
+      <div class="mt-4 space-y-1 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        <p>
+          <span class="font-semibold text-dark">{t("impressum.phone")}: </span>
+          <a
+            href="tel:+491784988521"
+            class="text-primary transition-colors hover:text-primary-light underline"
+          >
+            +49 1784988521
+          </a>
+        </p>
+        <p>
+          <span class="font-semibold text-dark">{t("impressum.email")}: </span>
+          <a
+            href="mailto:info@pfeils-catering.de"
+            class="text-primary transition-colors hover:text-primary-light underline"
+          >
+            info@pfeils-catering.de
+          </a>
+        </p>
+      </div>
+
+      <!-- Umsatzsteuer-ID -->
+      <h2 class="mt-10 font-outfit text-lg font-semibold text-dark md:mt-12 md:text-xl">
+        {t("impressum.vatId")}
+      </h2>
+      <p class="mt-4 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        {t("impressum.vatIdText")}
+        <br />
+        DE328147354
+      </p>
+
+      <!-- EU ODR -->
+      <h2 class="mt-10 font-outfit text-lg font-semibold text-dark md:mt-12 md:text-xl">
+        {t("impressum.odr")}
+      </h2>
+      <p class="mt-4 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        <a
+          href="https://ec.europa.eu/consumers/odr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary transition-colors hover:text-primary-light underline break-all"
+        >
+          https://ec.europa.eu/consumers/odr
+        </a>
+      </p>
+
+      <!-- VSBG Hinweis -->
+      <h2 class="mt-10 font-outfit text-lg font-semibold text-dark md:mt-12 md:text-xl">
+        {t("impressum.vsbg")}
+      </h2>
+      <p class="mt-4 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        {t("impressum.vsbgText")}
+      </p>
+    </div>
+  </div>
+</section>

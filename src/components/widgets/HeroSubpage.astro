@@ -4,9 +4,9 @@
  */
 interface Props {
   /**
-   * URL for the background image.
+   * Optional URL for the background image. If omitted, uses solid dark background.
    */
-  imageUrl: string;
+  imageUrl?: string;
   /**
    * Main heading.
    */
@@ -18,15 +18,13 @@ const { imageUrl, title } = Astro.props;
 
 {/* HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text */}
 <section
-  class="relative flex min-h-[45vh] flex-col justify-center bg-dark-bg bg-cover bg-center bg-no-repeat md:min-h-[55vh]"
-  style={{
-    backgroundImage: `url('${imageUrl}')`,
-  }}
+  class="relative flex min-h-[45vh] flex-col justify-center bg-dark-bg md:min-h-[55vh]"
+  class:list={[imageUrl && "bg-cover bg-center bg-no-repeat"]}
+  style={imageUrl ? { backgroundImage: `url('${imageUrl}')` } : {}}
 >
-  <div
-    class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75"
-  >
-  </div>
+  {imageUrl && (
+    <div class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75" />
+  )}
 
   {/* Content container */}
   <div
