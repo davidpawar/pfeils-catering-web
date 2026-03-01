@@ -1,5 +1,5 @@
 ---
-import { Mail, MapPin, Phone } from "@lucide/astro";
+import { Heart, Mail, MapPin, Phone } from "@lucide/astro";
 import { Image } from "astro:assets";
 import { getImageAlt } from "../../provider/imageProvider";
 import { imageProvider } from "../../provider/imageProvider";
@@ -9,10 +9,13 @@ import {
   useTranslatedPath,
 } from "../../i18n/utils";
 
+const currentYear = new Date().getFullYear();
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-const currentYear = new Date().getFullYear();
+
+const skelTechUrl =
+  "https://skeltech.de?utm_source=pfeils-catering&utm_medium=footer";
 
 const quickLinks = [
   { label: t("nav.firmenfeier"), href: translatePath("/firmenfeier/") },
@@ -146,6 +149,8 @@ const quickLinks = [
               <MapPin size={20} stroke-width="1.5" aria-hidden="true" />
             </div>
             <span class="text-base md:text-lg">
+              Waldbröl
+              <br />
               Oberbergischer Kreis
               <br />
               Nordrhein-Westfalen
@@ -165,7 +170,20 @@ const quickLinks = [
         class="flex flex-col items-center justify-between gap-4 text-center text-sm text-white/50 md:flex-row md:text-left"
       >
         <p>
-          © {currentYear} Pfeil's Cocktail Catering. {t("footer.copyright")}
+          © {currentYear} Pfeil's Cocktail Catering –{" "}
+          <a
+            href={skelTechUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 transition-colors hover:text-primary"
+          >
+            Made with <Heart
+              class="inline h-3.5 w-3.5 fill-current"
+              size={14}
+              stroke-width="2"
+              aria-hidden="true"
+            /> by SkelTech
+          </a>
         </p>
         <div class="flex gap-6">
           <a
