@@ -12,6 +12,9 @@
   "env": {
     "dev": {
       "name": "dev-pfeils-catering-web"
+    },
+    "prod": {
+      "name": "pfeils-catering-web"
     }
   }
 }
