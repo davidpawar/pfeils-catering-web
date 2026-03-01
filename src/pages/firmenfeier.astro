@@ -1,16 +1,21 @@
 ---
 import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
-import HeroMain from "../components/widgets/HeroMain.astro";
+import Navigation from "../components/base/Navigation.astro";
 import CallToAction from "../components/widgets/CallToAction.astro";
+import HeroMain from "../components/widgets/HeroMain.astro";
 import ImageGalleryMasonry from "../components/widgets/ImageGalleryMasonry.astro";
-import Testimonials from "../components/widgets/Testimonials.astro";
 import ImageText from "../components/widgets/ImageText.astro";
 import ItemList from "../components/widgets/ItemList.astro";
-import Navigation from "../components/base/Navigation.astro";
-import { imageProvider } from "../provider/imageProvider";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
+import Testimonials from "../components/widgets/Testimonials.astro";
+import TextBlock from "../components/widgets/TextBlock.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+import { imageProvider } from "../provider/imageProvider";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -24,19 +29,53 @@ const galleryItems = [
 ];
 
 const textListItems = [
-  { title: t("firmenfeier.textList.item1.title"), description: t("firmenfeier.textList.item1.description") },
-  { title: t("firmenfeier.textList.item2.title"), description: t("firmenfeier.textList.item2.description") },
-  { title: t("firmenfeier.textList.item3.title"), description: t("firmenfeier.textList.item3.description") },
-  { title: t("firmenfeier.textList.item4.title"), description: t("firmenfeier.textList.item4.description") },
-  { title: t("firmenfeier.textList.item5.title"), description: t("firmenfeier.textList.item5.description") },
-  { title: t("firmenfeier.textList.item6.title"), description: t("firmenfeier.textList.item6.description") },
+  {
+    title: t("firmenfeier.textList.item1.title"),
+    description: t("firmenfeier.textList.item1.description"),
+  },
+  {
+    title: t("firmenfeier.textList.item2.title"),
+    description: t("firmenfeier.textList.item2.description"),
+  },
+  {
+    title: t("firmenfeier.textList.item3.title"),
+    description: t("firmenfeier.textList.item3.description"),
+  },
+  {
+    title: t("firmenfeier.textList.item4.title"),
+    description: t("firmenfeier.textList.item4.description"),
+  },
+  {
+    title: t("firmenfeier.textList.item5.title"),
+    description: t("firmenfeier.textList.item5.description"),
+  },
+  {
+    title: t("firmenfeier.textList.item6.title"),
+    description: t("firmenfeier.textList.item6.description"),
+  },
 ];
 
 const testimonialItems = [
-  { jobTitle: t("firmenfeier.testimonials.item1.jobTitle"), name: t("firmenfeier.testimonials.item1.name"), text: t("firmenfeier.testimonials.item1.text") },
-  { jobTitle: t("firmenfeier.testimonials.item2.jobTitle"), name: t("firmenfeier.testimonials.item2.name"), text: t("firmenfeier.testimonials.item2.text") },
-  { jobTitle: t("firmenfeier.testimonials.item3.jobTitle"), name: t("firmenfeier.testimonials.item3.name"), text: t("firmenfeier.testimonials.item3.text") },
-  { jobTitle: t("firmenfeier.testimonials.item4.jobTitle"), name: t("firmenfeier.testimonials.item4.name"), text: t("firmenfeier.testimonials.item4.text") },
+  {
+    jobTitle: t("firmenfeier.testimonials.item1.jobTitle"),
+    name: t("firmenfeier.testimonials.item1.name"),
+    text: t("firmenfeier.testimonials.item1.text"),
+  },
+  {
+    jobTitle: t("firmenfeier.testimonials.item2.jobTitle"),
+    name: t("firmenfeier.testimonials.item2.name"),
+    text: t("firmenfeier.testimonials.item2.text"),
+  },
+  {
+    jobTitle: t("firmenfeier.testimonials.item3.jobTitle"),
+    name: t("firmenfeier.testimonials.item3.name"),
+    text: t("firmenfeier.testimonials.item3.text"),
+  },
+  {
+    jobTitle: t("firmenfeier.testimonials.item4.jobTitle"),
+    name: t("firmenfeier.testimonials.item4.name"),
+    text: t("firmenfeier.testimonials.item4.text"),
+  },
 ];
 ---
 
@@ -79,13 +118,6 @@ const testimonialItems = [
           sectionDescription={t("firmenfeier.gallery.description")}
           sectionTitle={t("firmenfeier.gallery.title")}
         />
-        <CallToAction
-          badge={t("firmenfeier.cta.badge")}
-          buttonText={t("hero.cta")}
-          href={translatePath("/anfrage/")}
-          theme="dark"
-          title={t("firmenfeier.cta.title")}
-        />
         <ImageText
           badgeText={t("firmenfeier.weihnachtsmarkt.badge")}
           buttonText={t("hero.cta")}
@@ -120,6 +152,19 @@ const testimonialItems = [
           link={translatePath("/anfrage/")}
           theme="grey"
           title={t("firmenfeier.eiscatering.title")}
+        />
+        <CallToAction
+          badge={t("firmenfeier.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("firmenfeier.cta.title")}
+        />
+        <TextBlock
+          badge={t("firmenfeier.textBlock.badge")}
+          content={t("firmenfeier.textBlock.body")}
+          theme="grey"
+          title={t("firmenfeier.textBlock.title")}
         />
         <Testimonials
           badge={t("firmenfeier.testimonials.badge")}

@@ -2,13 +2,14 @@ import type { ImageMetadata } from "astro";
 
 import bambusbar from "../assets/images/catering/bambusbar.jpg";
 import bambusbarAbend from "../assets/images/catering/bambusbar-abend.jpg";
+import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
 import eisCatering from "../assets/images/catering/eis-catering.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
 import hochzeit from "../assets/images/events/hochzeit.jpg";
-import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
+import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
 import messe from "../assets/images/events/messe.jpg";
 import oni from "../assets/images/logos/oni.png";
@@ -16,6 +17,7 @@ import schwalbe from "../assets/images/logos/schwalbe.svg";
 import sparkasse from "../assets/images/logos/sparkasse.png";
 import teamExperts from "../assets/images/team/team-experts.png";
 import volksbank from "../assets/images/logos/volksbank.png";
+import weddingHero from "../assets/images/hero/wedding-hero.jpg";
 import weihnachtsfeier from "../assets/images/events/weihnachtsfeier.jpg";
 
 /**
@@ -69,6 +71,11 @@ export const imageProvider = {
       altEn: "Wedding celebration with elegant cocktail bar",
       src: hochzeit,
     },
+    hochzeitWedding: {
+      alt: "Cocktail-Bar bei einer Hochzeitsfeier mit Gästen",
+      altEn: "Cocktail bar at a wedding celebration with guests",
+      src: hochzeitWedding,
+    },
     messe: {
       alt: "Mobile Cocktail-Bar auf einer Messe oder Großveranstaltung",
       altEn: "Mobile cocktail bar at a trade fair or large event",
@@ -85,6 +92,11 @@ export const imageProvider = {
       alt: "",
       altEn: "",
       src: headerBg,
+    },
+    weddingBackground: {
+      alt: "Hochzeitsfeier mit Cocktail-Catering – festliche Atmosphäre",
+      altEn: "Wedding celebration with cocktail catering – festive atmosphere",
+      src: weddingHero,
     },
   },
   logo: {
@@ -117,7 +129,8 @@ export const imageProvider = {
     },
     sparkasse: {
       alt: "Sparkasse KölnBonn, Geschäftsstelle Oberbergischer Kreis – Partner von Pfeil's Catering",
-      altEn: "Sparkasse KölnBonn, Oberberg district branch – partner of Pfeil's Catering",
+      altEn:
+        "Sparkasse KölnBonn, Oberberg district branch – partner of Pfeil's Catering",
       src: sparkasse,
     },
     volksbank: {
@@ -129,7 +142,8 @@ export const imageProvider = {
   team: {
     teamExperts: {
       alt: "Erfahrenes Team von Pfeil's Catering mit Leidenschaft für Cocktails und Service",
-      altEn: "Experienced team of Pfeil's Catering with a passion for cocktails and service",
+      altEn:
+        "Experienced team of Pfeil's Catering with a passion for cocktails and service",
       src: teamExperts,
     },
   },

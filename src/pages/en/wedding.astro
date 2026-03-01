@@ -2,23 +2,134 @@
 import BaseHead from "../../components/base/BaseHead.astro";
 import Footer from "../../components/base/Footer.astro";
 import Navigation from "../../components/base/Navigation.astro";
-import { getLangFromUrl } from "../../i18n/utils";
+import CallToAction from "../../components/widgets/CallToAction.astro";
+import HeroMain from "../../components/widgets/HeroMain.astro";
+import ImageGalleryMasonry from "../../components/widgets/ImageGalleryMasonry.astro";
+import ImageText from "../../components/widgets/ImageText.astro";
+import ItemList from "../../components/widgets/ItemList.astro";
+import Testimonials from "../../components/widgets/Testimonials.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+import { imageProvider } from "../../provider/imageProvider";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const galleryItems = [
+  { image: imageProvider.events.hochzeitWedding },
+  { image: imageProvider.catering.cocktailService },
+  { image: imageProvider.catering.bambusbar },
+  { image: imageProvider.catering.bambusbarAbend },
+];
+
+const textListItems = [
+  {
+    title: t("hochzeitsfeier.textList.item1.title"),
+    description: t("hochzeitsfeier.textList.item1.description"),
+  },
+  {
+    title: t("hochzeitsfeier.textList.item2.title"),
+    description: t("hochzeitsfeier.textList.item2.description"),
+  },
+  {
+    title: t("hochzeitsfeier.textList.item3.title"),
+    description: t("hochzeitsfeier.textList.item3.description"),
+  },
+  {
+    title: t("hochzeitsfeier.textList.item4.title"),
+    description: t("hochzeitsfeier.textList.item4.description"),
+  },
+  {
+    title: t("hochzeitsfeier.textList.item5.title"),
+    description: t("hochzeitsfeier.textList.item5.description"),
+  },
+  {
+    title: t("hochzeitsfeier.textList.item6.title"),
+    description: t("hochzeitsfeier.textList.item6.description"),
+  },
+];
+
+const testimonialItems = [
+  {
+    jobTitle: t("hochzeitsfeier.testimonials.item1.jobTitle"),
+    name: t("hochzeitsfeier.testimonials.item1.name"),
+    text: t("hochzeitsfeier.testimonials.item1.text"),
+  },
+  {
+    jobTitle: t("hochzeitsfeier.testimonials.item2.jobTitle"),
+    name: t("hochzeitsfeier.testimonials.item2.name"),
+    text: t("hochzeitsfeier.testimonials.item2.text"),
+  },
+  {
+    jobTitle: t("hochzeitsfeier.testimonials.item3.jobTitle"),
+    name: t("hochzeitsfeier.testimonials.item3.name"),
+    text: t("hochzeitsfeier.testimonials.item3.text"),
+  },
+  {
+    jobTitle: t("hochzeitsfeier.testimonials.item4.jobTitle"),
+    name: t("hochzeitsfeier.testimonials.item4.name"),
+    text: t("hochzeitsfeier.testimonials.item4.text"),
+  },
+];
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang={lang} />
+    <BaseHead description={SITE_DESCRIPTION} lang={lang} title={SITE_TITLE} />
   </head>
   <body>
     <div class="relative">
       <Navigation />
-      <main class="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-16">
-        <h1 class="font-anton text-4xl text-dark">Wedding</h1>
-        <p class="mt-4 text-dark/70">Content coming soon.</p>
+      <main>
+        <HeroMain />
+        <ImageText
+          badgeText={t("hero.hochzeitsfeier.subtitle")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("hero.hochzeitsfeier.bullet1"),
+            t("hero.hochzeitsfeier.bullet2"),
+            t("hero.hochzeitsfeier.bullet3"),
+            t("hero.hochzeitsfeier.bullet4"),
+          ]}
+          description={`${t("hero.hochzeitsfeier.description")}. ${t("hero.hochzeitsfeier.paragraph")}`}
+          image={imageProvider.events.hochzeitWedding}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("hero.hochzeitsfeier.title")}
+        />
+        <ItemList
+          badge={t("hochzeitsfeier.textList.badge")}
+          columns={2}
+          description={t("hochzeitsfeier.textList.description")}
+          items={textListItems}
+          title={t("hochzeitsfeier.textList.title")}
+        />
+        <ImageGalleryMasonry
+          badgeText={t("hochzeitsfeier.gallery.badge")}
+          items={galleryItems}
+          sectionDescription={t("hochzeitsfeier.gallery.description")}
+          sectionTitle={t("hochzeitsfeier.gallery.title")}
+        />
+        <Testimonials
+          badge={t("hochzeitsfeier.testimonials.badge")}
+          description={t("hochzeitsfeier.testimonials.description")}
+          testimonials={testimonialItems}
+          title={t("hochzeitsfeier.testimonials.title")}
+        />
+        <CallToAction
+          badge={t("hochzeitsfeier.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="dark"
+          title={t("hochzeitsfeier.cta.title")}
+        />
       </main>
       <Footer />
     </div>
