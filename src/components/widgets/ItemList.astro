@@ -10,32 +10,52 @@ const lang = getLangFromUrl(Astro.url);
  * Single item in the list. Supports text-only or logo+link variants.
  */
 interface ItemListItem {
-  /** Item title/heading. */
-  title: string;
-  /** Item description text. */
+  /**
+   * Item description text.
+   */
   description: string;
-  /** Optional logo image (when set, renders logo above title). */
-  image?: ImageAsset;
-  /** Optional URL (when set, renders as link instead of static card). */
+  /**
+   * Optional URL (when set, renders as link instead of static card).
+   */
   href?: string;
+  /**
+   * Optional logo image (when set, renders logo above title).
+   */
+  image?: ImageAsset;
+  /**
+   * Item title/heading.
+   */
+  title: string;
 }
 
 interface Props {
-  /** Optional badge text above the section title. */
+  /**
+   * Optional badge text above the section title.
+   */
   badge?: string;
-  /** Optional section heading. */
-  title?: string;
-  /** Optional description paragraph under the section title. */
-  description?: string;
-  /** List of items to display. */
-  items: ItemListItem[];
-  /** Number of columns: 1, 2, or 3. Default: 2. */
+  /**
+   * Number of columns: 1, 2, or 3. Default: 2.
+   */
   columns?: 1 | 2 | 3;
-  /** Color theme: light (white), dark, or grey. */
+  /**
+   * Optional description paragraph under the section title.
+   */
+  description?: string;
+  /**
+   * List of items to display.
+   */
+  items: ItemListItem[];
+  /**
+   * Color theme: light (white), dark, or grey.
+   */
   theme?: "light" | "dark" | "grey";
+  /**
+   * Optional section heading.
+   */
+  title?: string;
 }
 
-const { badge, title, description, items, columns = 2, theme = "light" } = Astro.props;
+const { badge, columns = 2, description, items, theme = "light", title } = Astro.props;
 
 const isDark = theme === "dark";
 const isGrey = theme === "grey";
@@ -73,8 +93,9 @@ const gridColsClass =
 {
   hasItems && (
     <section class:list={["relative overflow-hidden", sectionBgClass]}>
+      {/* ItemList: optional header + grid of items (text cards or logo+link cards) */}
       <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24">
-        {/* Section header: badge, title, description */}
+        {/* Section header: badge, title, description (all optional) */}
         {(badge || title || description) && (
           <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
             {badge && (
@@ -107,12 +128,14 @@ const gridColsClass =
           </div>
         )}
 
-        {/* Items grid */}
+        {/* Items grid: cards with title + description (link or static) */}
+
         <div class:list={["fade-in-section delay-200 grid gap-6 md:gap-6", gridColsClass]}>
           {items.map((item) => {
             const isLink = !!item.href;
             const hasImage = !!item.image;
 
+            {/* Card content: optional logo, title, description */}
             const cardContent = (
               <>
                 {hasImage && (
@@ -152,7 +175,7 @@ const gridColsClass =
                   target="_blank"
                   rel="noopener noreferrer"
                   class:list={[
-                    "group flex flex-col rounded-br-4xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-0.5",
+                    "item-list-card group flex flex-col rounded-br-4xl overflow-hidden p-6",
                     linkCardClass,
                   ]}
                 >
@@ -164,7 +187,7 @@ const gridColsClass =
             return (
               <article
                 class:list={[
-                  "flex flex-col rounded-br-4xl p-6 transition-shadow hover:shadow-lg md:p-8",
+                  "item-list-card flex flex-col rounded-br-4xl p-6 md:p-8",
                   cardBgClass,
                 ]}
               >
@@ -177,3 +200,12 @@ const gridColsClass =
     </section>
   )
 }
+
+<style>
+  .item-list-card {
+    transition: transform 0.3s ease-out;
+  }
+  .item-list-card:hover {
+    transform: translateY(-4px);
+  }
+</style>

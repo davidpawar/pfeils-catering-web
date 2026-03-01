@@ -80,6 +80,35 @@ export const ui = {
     "firmenfeier.weihnachtsmarkt.check4": "Zugeschnitten auf Ihre Location",
     "firmenfeier.weihnachtsmarkt.check5": "Festliche Stimmung",
     "firmenfeier.weihnachtsmarkt.check6": "Überraschung pur!",
+    "firmenfeier.eiscatering.badge": "Kalte Speisen",
+    "firmenfeier.eiscatering.description":
+      "Verwöhnen Sie Ihr Team mit unserem Eis-Catering – ein Highlight für jede Firmenfeier. Ob klassisch oder kreativ, unsere Sorten treffen garantiert jeden Geschmack. So wird aus einem Arbeitstag ein echtes Genusserlebnis.",
+    "firmenfeier.eiscatering.title": "Genießen Sie leckeres Eis zu jeder Jahreszeit",
+    "firmenfeier.eiscatering.check1": "Optischer Highlight",
+    "firmenfeier.eiscatering.check2": "Kühle Erfrischung",
+    "firmenfeier.eiscatering.check3": "Vielfalt für jeden",
+    "firmenfeier.eiscatering.check4": "Gute Laune garantiert",
+    "firmenfeier.eiscatering.check5": "Mobiler Eisgenuss überall",
+    "firmenfeier.eiscatering.check6": "100% Sommerfeeling",
+    "firmenfeier.testimonials.badge": "Kundenstimmen",
+    "firmenfeier.testimonials.description": "Was unsere Kunden über unsere Firmenfeiern sagen.",
+    "firmenfeier.testimonials.title": "Stimmen von unseren Firmenfeiern",
+    "firmenfeier.testimonials.item1.name": "Corinna L.",
+    "firmenfeier.testimonials.item1.jobTitle": "Eventmanagerin",
+    "firmenfeier.testimonials.item1.text":
+      "Pfeils Catering hat uns eine tolle Firmenfeier organisiert und auch passende Ideen geliefert. Gerne wieder!",
+    "firmenfeier.testimonials.item2.name": "Wolfgang J.",
+    "firmenfeier.testimonials.item2.jobTitle": "Geschäftsführer",
+    "firmenfeier.testimonials.item2.text":
+      "Super unkompliziert im Ablauf und absolut hochwertige Drinks. Unser Firmenevent war ein voller Erfolg!",
+    "firmenfeier.testimonials.item3.name": "Nora A.",
+    "firmenfeier.testimonials.item3.jobTitle": "Eventmanagerin",
+    "firmenfeier.testimonials.item3.text":
+      "Die mobile Bar war ein echter Hingucker! Und die Drinks dazu – ein Traum. Das war ein erfolgreicher Abend!",
+    "firmenfeier.testimonials.item4.name": "Martin S.",
+    "firmenfeier.testimonials.item4.jobTitle": "Eventmanager",
+    "firmenfeier.testimonials.item4.text":
+      "Rundum-sorglos-Paket mit Geschmack. Ich würde euch sofort gerne wieder buchen. Wir freuen uns!",
     "footer.quickLinks": "Schnellzugriff",
     "footer.contact": "Kontakt",
     "footer.tagline":
@@ -163,6 +192,35 @@ export const ui = {
     "firmenfeier.weihnachtsmarkt.check4": "Tailored to Your Location",
     "firmenfeier.weihnachtsmarkt.check5": "Festive Atmosphere",
     "firmenfeier.weihnachtsmarkt.check6": "Pure Surprise!",
+    "firmenfeier.eiscatering.badge": "Cold Dishes",
+    "firmenfeier.eiscatering.description":
+      "Treat your team to our ice cream catering – a highlight for any corporate event. Whether classic or creative, our flavours are guaranteed to please everyone. Turn a workday into a real culinary experience.",
+    "firmenfeier.eiscatering.title": "Enjoy delicious ice cream any time of year",
+    "firmenfeier.eiscatering.check1": "Visual Highlight",
+    "firmenfeier.eiscatering.check2": "Cool Refreshment",
+    "firmenfeier.eiscatering.check3": "Variety for Everyone",
+    "firmenfeier.eiscatering.check4": "Good Mood Guaranteed",
+    "firmenfeier.eiscatering.check5": "Mobile Ice Cream Anywhere",
+    "firmenfeier.eiscatering.check6": "100% Summer Feeling",
+    "firmenfeier.testimonials.badge": "Customer Voices",
+    "firmenfeier.testimonials.description": "What our customers say about our corporate events.",
+    "firmenfeier.testimonials.title": "Voices from our corporate events",
+    "firmenfeier.testimonials.item1.name": "Corinna L.",
+    "firmenfeier.testimonials.item1.jobTitle": "Event Manager",
+    "firmenfeier.testimonials.item1.text":
+      "Pfeils Catering organised a great corporate event for us and also provided suitable ideas. Would book again!",
+    "firmenfeier.testimonials.item2.name": "Wolfgang J.",
+    "firmenfeier.testimonials.item2.jobTitle": "Managing Director",
+    "firmenfeier.testimonials.item2.text":
+      "Super straightforward process and absolutely high-quality drinks. Our corporate event was a complete success!",
+    "firmenfeier.testimonials.item3.name": "Nora A.",
+    "firmenfeier.testimonials.item3.jobTitle": "Event Manager",
+    "firmenfeier.testimonials.item3.text":
+      "The mobile bar was a real eye-catcher! And the drinks – a dream. That was a successful evening!",
+    "firmenfeier.testimonials.item4.name": "Martin S.",
+    "firmenfeier.testimonials.item4.jobTitle": "Event Manager",
+    "firmenfeier.testimonials.item4.text":
+      "All-inclusive package with taste. I would book you again in a heartbeat. We're delighted!",
     "footer.quickLinks": "Quick Links",
     "footer.contact": "Contact",
     "footer.tagline":

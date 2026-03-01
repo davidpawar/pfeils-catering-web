@@ -36,7 +36,7 @@ interface Props {
   theme?: "light" | "dark" | "grey";
 }
 
-const { badge, description, items, title, theme = "light" } = Astro.props;
+const { badge, description, items, theme = "light", title } = Astro.props;
 
 /* Derived values */
 const answerClass = theme === "dark" ? "text-white/80" : "text-dark/70";
@@ -80,12 +80,12 @@ const titleClass = isDark ? "text-white" : "text-dark";
 {
   hasItems && (
     <>
-      <!-- FAQ Section -->
+      {/* FAQ: Section with question/answer cards */}
       <section class:list={["relative overflow-hidden", sectionBgClass]}>
-        <!-- JSON-LD FAQPage schema -->
+        {/* JSON-LD FAQPage schema for SEO */}
         <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
         <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24">
-          <!-- Section header: badge, title, description -->
+          {/* Section header: badge, title, description (optional) */}
           {(badge || title || description) && (
             <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
               {badge && (
@@ -118,7 +118,7 @@ const titleClass = isDark ? "text-white" : "text-dark";
             </div>
           )}
 
-          <!-- FAQ list / card grid -->
+          {/* FAQ items: grid of question/answer cards */}
           <div class="fade-in-section delay-200 grid gap-6 sm:grid-cols-2">
             {items.map((item, i) => (
               <article
@@ -129,7 +129,7 @@ const titleClass = isDark ? "text-white" : "text-dark";
                   i === 2 && "delay-200",
                 ]}
               >
-                <!-- Question mark icon (circle) -->
+                {/* Question mark icon (circle) */}
                 <div class:list={["mb-4 h-10 w-10 shrink-0", questionMarkClass]}>
                   <svg
                     aria-hidden="true"

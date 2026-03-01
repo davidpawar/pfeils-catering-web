@@ -8,59 +8,59 @@ import { getLangFromUrl } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 
 interface Props {
-  /*
+  /**
    * Small badge headline shown above the main title.
    */
   badgeText: string;
-  /*
-   * Optional list of check items shown below the description in a 2-column layout.
-   */
-  checkItems?: string[];
-  /*
-   * Optional supporting paragraph below the heading.
-   */
-  description?: string;
-  /*
+  /**
    * Optional button label when link is set. Default: "Mehr erfahren".
    */
   buttonText?: string;
-  /*
-   * Optional URL for the CTA button. When set, a button is shown at the bottom.
+  /**
+   * Optional list of check items shown below the description in a 2-column layout.
    */
-  link?: string;
-  /*
+  checkItems?: string[];
+  /**
+   * Optional supporting paragraph below the heading.
+   */
+  description?: string;
+  /**
    * Image with src and alt from central registry.
    */
   image: ImageAsset;
-  /*
+  /**
    * Position of the image: "left" (default) or "right".
    */
   imagePosition?: "left" | "right";
-  /*
+  /**
+   * Optional URL for the CTA button. When set, a button is shown at the bottom.
+   */
+  link?: string;
+  /**
    * Description text for the left statistic.
    */
   leftStatLabel?: string;
-  /*
+  /**
    * Prefix label for the left statistic, e.g. "seit".
    */
   leftStatPrefix?: string;
-  /*
+  /**
    * Numeric/value part of the left statistic.
    */
   leftStatValue?: string;
-  /*
+  /**
    * Description text for the right statistic.
    */
   rightStatLabel?: string;
-  /*
+  /**
    * Numeric/value part of the right statistic.
    */
   rightStatValue?: string;
-  /*
+  /**
    * Main heading text of the content area.
    */
   title: string;
-  /*
+  /**
    * Visual theme: "light" (default), "dark", or "grey".
    * Dark uses bg-dark-bg with white text. Grey uses bg-slate-100, text like light.
    */
@@ -73,15 +73,15 @@ const {
   checkItems = [],
   description = "",
   image,
-  link,
   imagePosition = "left",
   leftStatLabel,
   leftStatPrefix = "",
   leftStatValue,
+  link,
   rightStatLabel,
   rightStatValue,
-  title,
   theme = "light",
+  title,
 } = Astro.props;
 
 const showStats =
@@ -104,7 +104,7 @@ const checkTextClass = isDark ? "text-white/90" : "text-dark/70";
 const checkIconClass = isDark ? "text-primary-light" : "text-primary";
 ---
 
-<!-- ImageText Section -->
+{/* ImageText: Section with image + text content (badge, title, description, check list, optional stats/button) */}
 <section
   class:list={[
     "relative max-w-full",
@@ -118,7 +118,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
       flexOrderClasses,
     ]}
   >
-    <!-- Image Block -->
+    {/* Image block: left or right depending on imagePosition */}
     <div
       class="fade-in-section flex w-full justify-center md:w-1/2 md:justify-end"
     >
@@ -135,11 +135,11 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
       </div>
     </div>
 
-    <!-- Content Block -->
+    {/* Content block: badge, title, description, check list, stats, button */}
     <div
       class="fade-in-section delay-200 flex flex-1 flex-col justify-center gap-4 md:gap-6"
     >
-      <!-- Badge -->
+      {/* Badge: small label above title */}
       <div>
         <div
           class="mb-2 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1"
@@ -152,7 +152,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         </div>
       </div>
 
-      <!-- Title -->
+      {/* Title: main heading */}
       <div>
         <p
           class:list={[
@@ -164,7 +164,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         </p>
       </div>
 
-      <!-- Description (optional) -->
+      {/* Description (optional) */}
       {
         description && (
           <div>
@@ -180,7 +180,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         )
       }
 
-      <!-- Check List (optional) -->
+      {/* Check list: 2-column grid of checkmark items (optional) */}
       {
         checkItems.length > 0 && (
           <div class="grid grid-cols-2 gap-x-4 gap-y-2 sm:gap-x-6 sm:gap-y-3">
@@ -212,7 +212,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         )
       }
 
-      <!-- Statistics (optional) -->
+      {/* Statistics: left/right stat blocks (optional) */}
       {
         showStats && (
           <div class="mt-2 grid grid-cols-2 gap-6 md:gap-10">
@@ -267,7 +267,7 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
         )
       }
 
-      <!-- Button (optional, bottommost) -->
+      {/* Button: CTA link (optional, shown when link prop is set) */}
       {
         link && (
           <Button href={link} class="mt-6 md:mt-8">

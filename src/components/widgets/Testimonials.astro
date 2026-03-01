@@ -3,24 +3,40 @@
  * Single testimonial entry.
  */
 interface TestimonialItem {
-  /** Job title or role of the person (e.g. "Geschäftsführer"). */
+  /**
+   * Job title or role of the person (e.g. "Geschäftsführer").
+   */
   jobTitle: string;
-  /** Full name of the person. */
+  /**
+   * Full name of the person.
+   */
   name: string;
-  /** The testimonial quote text. */
+  /**
+   * The testimonial quote text.
+   */
   text: string;
 }
 
 interface Props {
-  /** Optional badge text above the section title. */
+  /**
+   * Optional badge text above the section title.
+   */
   badge?: string;
-  /** Optional description paragraph under the section title. */
+  /**
+   * Optional description paragraph under the section title.
+   */
   description?: string;
-  /** List of testimonial items to display. */
+  /**
+   * List of testimonial items to display.
+   */
   testimonials: TestimonialItem[];
-  /** Section heading. */
+  /**
+   * Section heading.
+   */
   title: string;
-  /** Color theme: light (white) or dark background. */
+  /**
+   * Color theme: light (white) or dark background.
+   */
   theme?: "light" | "dark";
 }
 
@@ -28,8 +44,8 @@ const {
   badge,
   description,
   testimonials,
-  title,
   theme = "light",
+  title,
 } = Astro.props;
 const isDark = theme === "dark";
 const hasTestimonials = testimonials.length > 0;
@@ -43,7 +59,7 @@ const jobClass = isDark ? "text-primary-light" : "text-primary";
 const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
 ---
 
-{/* Testimonials Section */}
+{/* Testimonials: Section with customer quotes in card grid */}
 {
   hasTestimonials && (
     <section
@@ -86,17 +102,22 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
           </div>
         )}
 
-        {/* Testimonial cards grid */}
+        {/* Testimonial cards: quote icon, text, author name + job title */}
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((item, i) => (
-            <article
+            <div
               class:list={[
-                "fade-in-section flex flex-col rounded-br-4xl p-6 transition-shadow hover:shadow-lg md:p-8",
-                cardBgClass,
+                "fade-in-section",
                 i === 1 && "delay-200",
                 i === 2 && "delay-200",
               ]}
             >
+              <article
+                class:list={[
+                  "testimonial-card flex flex-col rounded-br-4xl p-6 md:p-8",
+                  cardBgClass,
+                ]}
+              >
               {/* Quote icon */}
               <div class:list={["mb-4 h-10 w-10 shrink-0", quoteClass]}>
                 <svg
@@ -120,7 +141,7 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
                 {item.text}
               </p>
 
-              {/* Author */}
+              {/* Author: name + job title */}
               <footer>
                 <p
                   class:list={["font-outfit text-lg font-semibold", nameClass]}
@@ -132,9 +153,19 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
                 </p>
               </footer>
             </article>
+            </div>
           ))}
         </div>
       </div>
     </section>
   )
 }
+
+<style>
+  .testimonial-card {
+    transition: transform 0.3s ease-out;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+  }
+</style>

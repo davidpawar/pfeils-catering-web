@@ -3,6 +3,7 @@ import type { ImageMetadata } from "astro";
 import bambusbar from "../assets/images/catering/bambusbar.jpg";
 import bambusbarAbend from "../assets/images/catering/bambusbar-abend.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
+import eisCatering from "../assets/images/catering/eis-catering.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
@@ -50,6 +51,11 @@ export const imageProvider = {
       alt: "Professioneller Barkeeper bei der Zubereitung von Cocktails auf einer Firmenveranstaltung",
       altEn: "Professional bartender preparing cocktails at a corporate event",
       src: cocktailService,
+    },
+    eisCatering: {
+      alt: "Eis-Catering von Pfeil's Catering bei einer Firmenfeier",
+      altEn: "Ice cream catering by Pfeil's Catering at a corporate event",
+      src: eisCatering,
     },
   },
   events: {

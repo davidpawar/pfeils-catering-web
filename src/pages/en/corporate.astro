@@ -4,6 +4,7 @@ import Footer from "../../components/base/Footer.astro";
 import HeroMain from "../../components/widgets/HeroMain.astro";
 import CallToAction from "../../components/widgets/CallToAction.astro";
 import ImageGalleryMasonry from "../../components/widgets/ImageGalleryMasonry.astro";
+import Testimonials from "../../components/widgets/Testimonials.astro";
 import ImageText from "../../components/widgets/ImageText.astro";
 import ItemList from "../../components/widgets/ItemList.astro";
 import Navigation from "../../components/base/Navigation.astro";
@@ -29,6 +30,13 @@ const textListItems = [
   { title: t("firmenfeier.textList.item4.title"), description: t("firmenfeier.textList.item4.description") },
   { title: t("firmenfeier.textList.item5.title"), description: t("firmenfeier.textList.item5.description") },
   { title: t("firmenfeier.textList.item6.title"), description: t("firmenfeier.textList.item6.description") },
+];
+
+const testimonialItems = [
+  { jobTitle: t("firmenfeier.testimonials.item1.jobTitle"), name: t("firmenfeier.testimonials.item1.name"), text: t("firmenfeier.testimonials.item1.text") },
+  { jobTitle: t("firmenfeier.testimonials.item2.jobTitle"), name: t("firmenfeier.testimonials.item2.name"), text: t("firmenfeier.testimonials.item2.text") },
+  { jobTitle: t("firmenfeier.testimonials.item3.jobTitle"), name: t("firmenfeier.testimonials.item3.name"), text: t("firmenfeier.testimonials.item3.text") },
+  { jobTitle: t("firmenfeier.testimonials.item4.jobTitle"), name: t("firmenfeier.testimonials.item4.name"), text: t("firmenfeier.testimonials.item4.text") },
 ];
 ---
 
@@ -94,6 +102,30 @@ const textListItems = [
           imagePosition="left"
           link={translatePath("/anfrage/")}
           title={t("firmenfeier.weihnachtsmarkt.title")}
+        />
+        <ImageText
+          badgeText={t("firmenfeier.eiscatering.badge")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("firmenfeier.eiscatering.check1"),
+            t("firmenfeier.eiscatering.check2"),
+            t("firmenfeier.eiscatering.check3"),
+            t("firmenfeier.eiscatering.check4"),
+            t("firmenfeier.eiscatering.check5"),
+            t("firmenfeier.eiscatering.check6"),
+          ]}
+          description={t("firmenfeier.eiscatering.description")}
+          image={imageProvider.catering.eisCatering}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("firmenfeier.eiscatering.title")}
+        />
+        <Testimonials
+          badge={t("firmenfeier.testimonials.badge")}
+          description={t("firmenfeier.testimonials.description")}
+          testimonials={testimonialItems}
+          title={t("firmenfeier.testimonials.title")}
         />
       </main>
       <Footer />

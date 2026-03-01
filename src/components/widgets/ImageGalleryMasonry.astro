@@ -11,20 +11,34 @@ interface GalleryItem {
 }
 
 interface Props {
-  items: GalleryItem[];
+  /**
+   * Optional badge text above the section heading.
+   */
   badgeText?: string;
-  sectionTitle?: string;
+  /**
+   * List of gallery items (each with an image).
+   */
+  items: GalleryItem[];
+  /**
+   * Optional description paragraph under the section heading.
+   */
   sectionDescription?: string;
+  /**
+   * Optional section heading.
+   */
+  sectionTitle?: string;
 }
 
-const { items, badgeText, sectionTitle, sectionDescription } = Astro.props;
+const { badgeText, items, sectionDescription, sectionTitle } = Astro.props;
 
 // Varying aspect ratios for true masonry stagger (square, landscape, portrait, wide)
 const aspectRatios = ["aspect-square", "aspect-video", "aspect-[3/4]", "aspect-[4/3]"];
 ---
 
+{/* ImageGalleryMasonry: masonry grid of images with optional header */}
 <section class="bg-slate-100">
   <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24">
+    {/* Section header: badge, title, description (optional) */}
     {(badgeText || sectionTitle || sectionDescription) && (
       <div class="fade-in-section mb-6 max-w-4xl md:mb-8">
         {badgeText && (
@@ -51,11 +65,13 @@ const aspectRatios = ["aspect-square", "aspect-video", "aspect-[3/4]", "aspect-[
       </div>
     )}
 
+    {/* Masonry grid: responsive columns with varying aspect ratios */}
     <div class="masonry-gallery fade-in-section delay-200">
       {items.map((item, i) => {
         const aspectClass = aspectRatios[i % aspectRatios.length];
         return (
           <article class="group masonry-card flex flex-col overflow-hidden rounded-br-4xl bg-white p-0 transition-shadow duration-300 hover:shadow-lg">
+            {/* Gallery card: image with hover zoom */}
             <div class={`overflow-hidden rounded-br-4xl ${aspectClass}`}>
               <Image
                 src={item.image.src as import("astro").ImageMetadata}
