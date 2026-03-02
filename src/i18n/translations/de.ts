@@ -18,7 +18,7 @@ export const de = {
   "nav.individuell.description":
     "Individuell kombinierbar – Eis, Grill, Crêpes & mehr",
   "nav.cateringAngebote": "Catering-Angebote",
-  "nav.inhalt": "Inhalt",
+  "nav.kontaktUndBlog": "Kontakt & Blog",
   "nav.rechtliches": "Rechtliches",
   "nav.blog.description":
     "Tipps, Rezepte und Einblicke rund um Cocktail-Catering",

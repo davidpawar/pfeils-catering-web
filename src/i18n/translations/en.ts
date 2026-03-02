@@ -18,7 +18,7 @@ export const en = {
   "nav.individuell.description":
     "Individually combinable – ice cream, grill, crêpes & more",
   "nav.cateringAngebote": "Catering Services",
-  "nav.inhalt": "Content",
+  "nav.kontaktUndBlog": "Contact & Blog",
   "nav.rechtliches": "Legal",
   "nav.blog.description": "Tips, recipes and insights on cocktail catering",
   "nav.impressum.description": "Imprint and legal information",

@@ -13,13 +13,14 @@ import LanguagePicker from "./LanguagePicker.astro";
 import Button from "../ui/Button.astro";
 import {
   Building2,
+  FileText,
   Heart,
   LayoutGrid,
-  Wine,
-  Sparkles,
-  FileText,
+  Mail,
   Newspaper,
   Menu,
+  Sparkles,
+  Wine,
   X,
 } from "@lucide/astro";
 
@@ -67,8 +68,14 @@ const cateringLinks = [
   },
 ];
 
-/* Inhalt: Blog link with icon and description */
-const inhaltLinks = [
+/* Kontakt & Blog: Anfrage + Blog links */
+const kontaktUndBlogLinks = [
+  {
+    label: t("nav.anfrage"),
+    description: t("nav.anfrage.description"),
+    href: translatePath("/anfrage/"),
+    Icon: Mail,
+  },
   {
     label: t("nav.blog"),
     description: t("nav.blog.description"),
@@ -169,7 +176,7 @@ const overlayCloseId = "nav-overlay-close";
       <X size={24} />
     </button>
 
-    {/* Three columns: Catering | Inhalt | Rechtliches */}
+    {/* Three columns: Catering | Kontakt & Blog | Rechtliches */}
     <div class="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
       <!-- Column 1: Catering-Angebote (5 links with icons) -->
       <div>
@@ -206,16 +213,16 @@ const overlayCloseId = "nav-overlay-close";
         </ul>
       </div>
 
-      <!-- Column 2: Inhalt (Blog) -->
+      <!-- Column 2: Kontakt & Blog -->
       <div
         class="border-t border-dark-bg/10 pt-8 md:border-t-0 md:border-l md:border-dark-bg/10 md:pt-0 md:pl-8"
       >
         <h3 class="mb-6 font-outfit text-lg font-semibold text-dark-bg">
-          {t("nav.inhalt")}
+          {t("nav.kontaktUndBlog")}
         </h3>
         <ul class="flex flex-col gap-4">
           {
-            inhaltLinks.map((link) => {
+            kontaktUndBlogLinks.map((link) => {
               const Icon = link.Icon;
               return (
                 /* Icon + label + description */

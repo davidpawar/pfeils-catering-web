@@ -1,5 +1,5 @@
 ---
-import { Mail, MapPin, Phone } from "@lucide/astro";
+import { AlertCircle, Mail, MapPin, Phone, X } from "@lucide/astro";
 
 /**
  * ContactForm: Responsive contact form with sidebar content.
@@ -53,11 +53,13 @@ const iconBoxStaticClass = isDark
 
 {/* ContactForm: Responsive contact form with sidebar content */}
 <section class:list={["relative overflow-hidden", sectionBgClass]}>
-  <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl">
+  <div
+    class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl"
+  >
     <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-16">
-      {/* Content: left side, 2 columns on lg */}
-      <div class="fade-in-section order-2 lg:order-1 lg:col-span-2">
-        <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
+      {/* Content: top on mobile, left on lg */}
+      <div class="order-1 lg:order-1 lg:col-span-2">
+        <div class="mb-8 max-w-4xl md:mb-12">
           {
             badge && (
               <div class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6">
@@ -86,7 +88,7 @@ const iconBoxStaticClass = isDark
           </p>
         </div>
 
-        <div class="fade-in-section delay-200 mt-8 space-y-6">
+        <div class="mt-8 space-y-6">
           <a
             href="tel:01784988521"
             class="flex items-start gap-4 transition-colors duration-300 hover:text-primary group"
@@ -97,7 +99,12 @@ const iconBoxStaticClass = isDark
             ]}
           >
             <div class={iconBoxClass}>
-              <Phone class="h-5 w-5" size={20} stroke-width="1.5" aria-hidden="true" />
+              <Phone
+                class="h-5 w-5"
+                size={20}
+                stroke-width="1.5"
+                aria-hidden="true"
+              />
             </div>
             <div>
               <span class="font-outfit font-semibold">0178 498 85 21</span>
@@ -112,7 +119,12 @@ const iconBoxStaticClass = isDark
             class:list={[isDark ? "text-white/80" : "text-dark/70"]}
           >
             <div class={iconBoxStaticClass}>
-              <MapPin class="h-5 w-5" size={20} stroke-width="1.5" aria-hidden="true" />
+              <MapPin
+                class="h-5 w-5"
+                size={20}
+                stroke-width="1.5"
+                aria-hidden="true"
+              />
             </div>
             <div>
               <span class="font-outfit font-semibold">Oberbergischer Kreis</span
@@ -131,7 +143,12 @@ const iconBoxStaticClass = isDark
             ]}
           >
             <div class={iconBoxClass}>
-              <Mail class="h-5 w-5" size={20} stroke-width="1.5" aria-hidden="true" />
+              <Mail
+                class="h-5 w-5"
+                size={20}
+                stroke-width="1.5"
+                aria-hidden="true"
+              />
             </div>
             <div>
               <span class="font-outfit font-semibold"
@@ -143,8 +160,8 @@ const iconBoxStaticClass = isDark
         </div>
       </div>
 
-      {/* Form: right side, 3 columns on lg */}
-      <div class="fade-in-section delay-200 order-1 lg:order-2 lg:col-span-3">
+      {/* Form: below content on mobile, right on lg */}
+      <div class="relative order-2 lg:order-2 lg:col-span-3">
         <form
           id="contact-form"
           action="/api/contact"
@@ -282,73 +299,192 @@ const iconBoxStaticClass = isDark
               Abschicken
             </button>
           </div>
-
-          <div
-            id="form-feedback"
-            class="hidden font-outfit text-sm"
-            aria-live="polite"
-          >
-          </div>
         </form>
+
+        {
+          /* Result overlay: success or error, same pattern as Navigation overlay */
+        }
+        <div
+          id="contact-result-overlay"
+          class="fixed inset-0 z-40 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm opacity-0 transition-opacity duration-200 pointer-events-none data-[open=true]:opacity-100 data-[open=true]:pointer-events-auto lg:absolute lg:inset-0"
+          data-open="false"
+          aria-hidden="true"
+        >
+          <div
+            id="contact-result-content"
+            class="relative w-full max-w-md overflow-y-auto rounded border border-dark-bg/10 bg-white p-8 shadow-2xl"
+          >
+            <button
+              id="contact-result-close"
+              type="button"
+              class="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-dark-bg/70 transition-colors hover:bg-dark-bg/10 hover:text-dark-bg"
+              aria-label="Schließen"
+            >
+              <X size={24} />
+            </button>
+            {/* Success state */}
+            <div
+              id="contact-result-success"
+              class="flex flex-col items-center text-center"
+            >
+              <div
+                class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10"
+              >
+                <Mail
+                  class="h-8 w-8 text-primary"
+                  size={32}
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                />
+              </div>
+              <h3 class="font-anton text-2xl text-dark">Vielen Dank!</h3>
+              <p class="mt-2 font-outfit text-dark/70">
+                Ihre Nachricht wurde gesendet. Sie erhalten in Kürze eine
+                Bestätigungs-E-Mail.
+              </p>
+              <p class="mt-4 font-outfit text-sm font-semibold text-dark">
+                Falls Sie keine E-Mail erhalten, prüfen Sie bitte Ihren
+                Spam-Ordner.
+              </p>
+            </div>
+            {/* Error state */}
+            <div
+              id="contact-result-error"
+              class="hidden flex flex-col items-center text-center"
+            >
+              <div
+                class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-100"
+              >
+                <AlertCircle
+                  class="h-8 w-8 text-red-600"
+                  size={32}
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                />
+              </div>
+              <h3 class="font-anton text-2xl text-dark">Fehler aufgetreten</h3>
+              <p
+                id="contact-result-error-message"
+                class="mt-2 font-outfit text-dark/70"
+              >
+                Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später
+                erneut.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <script>
+  /*
+   * Contact form + result overlay (success or error).
+   * Overlay uses same pattern as Navigation: data-open, backdrop click.
+   */
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById(
       "contact-form",
     ) as HTMLFormElement | null;
-    const feedback = document.getElementById("form-feedback");
-    if (!form || !feedback) return;
+    const overlay = document.getElementById("contact-result-overlay");
+    const closeBtn = document.getElementById("contact-result-close");
+    const container = document.getElementById("contact-result-content");
+    const successBlock = document.getElementById("contact-result-success");
+    const errorBlock = document.getElementById("contact-result-error");
+    const errorMessage = document.getElementById(
+      "contact-result-error-message",
+    );
+
+    /**
+     * Opens the result overlay.
+     */
+    function openOverlay(mode: "success" | "error", message = "") {
+      if (mode === "success") {
+        successBlock?.classList.remove("hidden");
+        errorBlock?.classList.add("hidden");
+      } else {
+        successBlock?.classList.add("hidden");
+        errorBlock?.classList.remove("hidden");
+        if (errorMessage && message) errorMessage.textContent = message;
+      }
+      overlay?.setAttribute("data-open", "true");
+      overlay?.setAttribute("aria-hidden", "false");
+
+      // Lock scroll on mobile, because the overlay is fixed.
+      if (window.matchMedia("(max-width: 1023px)").matches) {
+        document.documentElement.style.overflow = "hidden";
+      }
+    }
+
+    /**
+     * Closes the result overlay.
+     */
+    function closeOverlay() {
+      overlay?.setAttribute("data-open", "false");
+      overlay?.setAttribute("aria-hidden", "true");
+
+      // Unlock scroll on mobile.
+      document.documentElement.style.overflow = "";
+    }
+
+    closeBtn?.addEventListener("click", closeOverlay);
+
+    overlay?.addEventListener("click", (e) => {
+      if (e.target instanceof Node && !container?.contains(e.target))
+        closeOverlay();
+    });
+
+    // If the form is not found, return early.
+    if (!form) return;
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      feedback.classList.add("hidden");
-      feedback.textContent = "";
 
       const submitBtn = form.querySelector(
         'button[type="submit"]',
       ) as HTMLButtonElement | null;
       const originalText = submitBtn?.textContent;
+
+      // Disable the submit button and show a loading state.
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Wird gesendet …";
       }
 
       try {
+        // Send the form data to the server.
         const formData = new FormData(form);
         const res = await fetch("/api/contact", {
           method: "POST",
           body: formData,
         });
+
+        // Parse the response.
         const data = (await res.json().catch(() => ({}))) as {
           message?: string;
         };
 
+        // If the response is ok, show the success state.
         if (res.ok) {
-          feedback.classList.remove("hidden");
-          feedback.classList.add("text-green-600");
-          feedback.classList.remove("text-red-600");
-          feedback.textContent =
-            data.message || "Vielen Dank! Ihre Nachricht wurde gesendet.";
           form.reset();
+          openOverlay("success");
         } else {
-          feedback.classList.remove("hidden");
-          feedback.classList.add("text-red-600");
-          feedback.classList.remove("text-green-600");
-          feedback.textContent =
+          // If the response is not ok, show the error state.
+          openOverlay(
+            "error",
             data.message ||
-            "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.";
+              "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+          );
         }
       } catch {
-        feedback.classList.remove("hidden");
-        feedback.classList.add("text-red-600");
-        feedback.classList.remove("text-green-600");
-        feedback.textContent =
-          "Netzwerkfehler. Bitte versuchen Sie es später erneut.";
+        // If an error occurs, show the error state.
+        openOverlay(
+          "error",
+          "Netzwerkfehler. Bitte versuchen Sie es später erneut.",
+        );
       } finally {
+        // Enable the submit button and show the original text.
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = originalText || "Abschicken";
