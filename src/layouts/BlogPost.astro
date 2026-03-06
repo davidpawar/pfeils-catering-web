@@ -39,26 +39,26 @@ function formatDate(date: Date, locale: string): string {
 }
 ---
 
-<style is:global>
-  .blog-content > p:has(> img) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-    margin: 0 0 2rem 0;
-  }
-  .blog-content > p:has(> img) img {
-    flex: 1 1 280px;
-    min-width: 0;
-    max-width: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-</style>
-
+<!doctype html>
 <html lang={lang}>
   <head>
     <BaseHead title={title} description={description} lang={lang} />
+    <style is:global>
+      .blog-content > p:has(> img) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 0 0 2rem 0;
+      }
+      .blog-content > p:has(> img) img {
+        flex: 1 1 280px;
+        min-width: 0;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    </style>
   </head>
   <body>
     <div class="relative">
