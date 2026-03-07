@@ -65,6 +65,25 @@ const t = useTranslations(lang);
   </button>
 </section>
 
+<style is:global>
+  @keyframes mouseScroll {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateY(6px);
+      opacity: 0.5;
+    }
+  }
+
+  .animate-mouse-scroll {
+    animation: mouseScroll 2s ease-in-out infinite;
+  }
+</style>
+
 <script is:inline>
   /*
    * Scroll-to-next-section: When the user clicks the mouse indicator,

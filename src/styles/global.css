@@ -30,12 +30,6 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* Shared fade-in values (single source of truth) */
-:root {
-  --fade-in-offset: 20px;
-  --fade-in-duration: 0.5s;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -56,103 +50,4 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Fade-in from below: triggered by Intersection Observer when element enters viewport */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(var(--fade-in-offset, 20px));
-  transition: opacity var(--fade-in-duration, 0.5s) ease-out, transform var(--fade-in-duration, 0.5s) ease-out;
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-in-section.delay-200.is-visible {
-  transition-delay: 0.2s;
-}
-
-/* Subtle shake to draw attention to CTA */
-@keyframes ctaShake {
-
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  15% {
-    transform: translateX(-3px);
-  }
-
-  30% {
-    transform: translateX(3px);
-  }
-
-  45% {
-    transform: translateX(-2px);
-  }
-
-  60% {
-    transform: translateX(2px);
-  }
-
-  75% {
-    transform: translateX(-1px);
-  }
-}
-
-.cta-shake {
-  animation: ctaShake 3s ease-in-out infinite;
-}
-
-/* Navigation: shrink on scroll (desktop only) */
-@media (min-width: 768px) {
-  #nav-header[data-scrolled="true"] .nav-bar {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  #nav-header[data-scrolled="true"] .nav-logo {
-    height: 2rem;
-  }
-}
-
-/* Mouse scroll indicator: wheel moves up and down */
-@keyframes mouseScroll {
-
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateY(6px);
-    opacity: 0.5;
-  }
-}
-
-.animate-mouse-scroll {
-  animation: mouseScroll 2s ease-in-out infinite;
-}
-
-/* ImageText: HTML description styling (no prose, avoids bolder conflict) */
-.image-text-description p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.image-text-description p:first-child {
-  margin-top: 0;
-}
-
-.image-text-description p:last-child {
-  margin-bottom: 0;
-}
-
-.image-text-description strong,
-.image-text-description b {
-  font-weight: 700;
 }
