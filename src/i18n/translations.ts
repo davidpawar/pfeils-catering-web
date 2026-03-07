@@ -21,7 +21,6 @@ export const routes = {
     anfrage: "contact",
     impressum: "imprint",
     datenschutz: "privacy",
-    about: "about",
     blog: "blog",
   },
 } as const;

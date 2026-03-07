@@ -23,6 +23,7 @@
     "typescript": "5.9.3"
   },
   "devDependencies": {
+    "lighthouse": "^13.0.3",
     "wrangler": "4.69.0"
   },
   "private": true,
@@ -34,6 +35,8 @@
     "deploy:dev": "wrangler deploy --env dev",
     "deploy:prod": "wrangler deploy --env prod",
     "dev": "astro dev --host",
+    "lighthouse:local": "node ./scripts/lighthouse-all.js --sitemap http://localhost:8787/sitemap-index.xml --target-origin http://localhost:8787 --output-dir .lighthouse/local",
+    "lighthouse:prod": "node ./scripts/lighthouse-all.js --sitemap https://www.pfeils-catering.de/sitemap-index.xml --target-origin https://www.pfeils-catering.de --output-dir .lighthouse/prod",
     "preview": "astro build && wrangler dev"
   },
   "type": "module"

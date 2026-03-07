@@ -33,7 +33,7 @@ const popoverId = `lang-picker-popover-${currentLang}-${Math.random().toString(3
   <button
     type="button"
     class="lang-picker-trigger flex cursor-pointer items-center gap-1 rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-xl text-white transition-colors hover:bg-white/10"
-    aria-label="Select language"
+    aria-label={`${flags[currentLang as keyof typeof languages]} ${languages[currentLang as keyof typeof languages]}`}
     aria-expanded="false"
     aria-haspopup="true"
     aria-controls={popoverId}

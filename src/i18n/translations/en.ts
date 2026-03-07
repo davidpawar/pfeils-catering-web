@@ -1,5 +1,4 @@
 export const en = {
-  "nav.about": "About",
   "nav.anfrage": "Contact",
   "nav.blog": "Blog",
   "nav.datenschutz": "Privacy",
@@ -40,9 +39,6 @@ export const en = {
     "Fill out the contact form – we will get back to you soon.",
   "hero.anfrage.subtitle": "Contact",
   "hero.anfrage.title": "Contact us",
-  "about.meta.description":
-    "Experienced team passionate about cocktails. Professional catering since 2008 in Waldbröl, Oberberg, Cologne and surrounding areas.",
-  "about.meta.title": "About Us | Pfeil's Cocktail Catering Waldbröl",
   "blog.articleLabel": "Article",
   "blog.backToBlog": "Back to Blog",
   "blog.badge": "Latest Posts",

@@ -160,6 +160,7 @@ const overlayCloseId = "nav-overlay-close";
   class="nav-overlay-backdrop fixed inset-0 z-40 flex items-center justify-center bg-black/40 p-4 pt-20 pb-8 backdrop-blur-sm opacity-0 transition-opacity duration-200 pointer-events-none data-[open=true]:opacity-100 data-[open=true]:pointer-events-auto md:pt-4 md:pb-4"
   data-open="false"
   aria-hidden="true"
+  inert
 >
   <!-- White container: 3-column grid on desktop, stacked on mobile -->
   <div
@@ -337,6 +338,7 @@ const overlayCloseId = "nav-overlay-close";
   function openOverlay() {
     overlay?.setAttribute("data-open", "true");
     overlay?.setAttribute("aria-hidden", "false");
+    overlay?.removeAttribute("inert");
     burger?.setAttribute("aria-expanded", "true");
     document.documentElement.style.overflow = "hidden";
   }
@@ -347,6 +349,7 @@ const overlayCloseId = "nav-overlay-close";
   function closeOverlay() {
     overlay?.setAttribute("data-open", "false");
     overlay?.setAttribute("aria-hidden", "true");
+    overlay?.setAttribute("inert", "");
     burger?.setAttribute("aria-expanded", "false");
     document.documentElement.style.overflow = "";
   }
