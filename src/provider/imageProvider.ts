@@ -1,16 +1,21 @@
 import type { ImageMetadata } from "astro";
 
+// Alphanetical order
+import aperolSpritz from "../assets/images/cocktails/aperol-spritz.jpg";
+import bartenderCocktailShaker from "../assets/images/blog/bartender-cocktail-shaker.jpg";
+import barkeeperShow from "../assets/images/blog/barkeeper-show.jpg";
 import bambusbar from "../assets/images/catering/bambusbar.jpg";
 import bambusbarAbend from "../assets/images/catering/bambusbar-abend.jpg";
 import bratwurstGrill from "../assets/images/catering/bratwurst-grill.jpg";
 import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
-import aperolSpritz from "../assets/images/cocktails/aperol-spritz.jpg";
 import coffeeTruck from "../assets/images/catering/coffee-truck.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
+import cocktailsAroundWorld from "../assets/images/blog/cocktails-around-world.jpg";
 import crepes from "../assets/images/catering/crepes.jpg";
 import eisbecherDiverse from "../assets/images/catering/eisbecher-diverse.jpg";
 import erdbeerMojito from "../assets/images/cocktails/erdbeer-mojito.jpg";
 import flammkuchen from "../assets/images/catering/flammkuchen.jpg";
+import bunteCocktails from "../assets/images/blog/bunte-cocktails.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
@@ -44,6 +49,19 @@ export type ImageAsset = {
   src: ImageMetadata | string;
 };
 
+export type ImageCategory = Record<string, ImageAsset>;
+
+export type ImageProvider = {
+  blog: ImageCategory;
+  catering: ImageCategory;
+  cocktails: ImageCategory;
+  events: ImageCategory;
+  hero: ImageCategory;
+  logo: ImageCategory;
+  partners: ImageCategory;
+  team: ImageCategory;
+};
+
 /**
  * Returns the alt text for the given language.
  */
@@ -51,7 +69,29 @@ export function getImageAlt(image: ImageAsset, lang: string): string {
   return lang === "en" && image.altEn ? image.altEn : image.alt;
 }
 
-export const imageProvider = {
+export const imageProvider: ImageProvider = {
+  blog: {
+    bartenderCocktailShaker: {
+      alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
+      altEn: "Bartender with cocktail shaker during a show performance",
+      src: bartenderCocktailShaker,
+    },
+    barkeeperShow: {
+      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
+      altEn: "Bartender preparing cocktails at the bar",
+      src: barkeeperShow,
+    },
+    bunteCocktails: {
+      alt: "Bunte Cocktails stilvoll auf einer Bar angerichtet",
+      altEn: "Colourful cocktails elegantly arranged on a bar",
+      src: bunteCocktails,
+    },
+    cocktailsAroundWorld: {
+      alt: "Drei Cocktails inspiriert von verschiedenen Laendern",
+      altEn: "Three cocktails inspired by different countries",
+      src: cocktailsAroundWorld,
+    },
+  },
   catering: {
     bambusbar: {
       alt: "Mobile Bambusbar von Pfeil's Catering bei einer Veranstaltung",
@@ -85,7 +125,8 @@ export const imageProvider = {
     },
     eisbecherDiverse: {
       alt: "Diverse Eisbecher mit Schoko, Karamell und Frucht – Eis-Catering von Pfeil's Catering",
-      altEn: "Diverse ice cream cups with chocolate, caramel and fruit – ice cream catering by Pfeil's Catering",
+      altEn:
+        "Diverse ice cream cups with chocolate, caramel and fruit – ice cream catering by Pfeil's Catering",
       src: eisbecherDiverse,
     },
     flammkuchen: {
@@ -171,7 +212,8 @@ export const imageProvider = {
     },
     messeBackground: {
       alt: "Cocktail-Bar auf einer Messe – professioneller Barservice am Messestand",
-      altEn: "Cocktail bar at a trade fair – professional bar service at the exhibition stand",
+      altEn:
+        "Cocktail bar at a trade fair – professional bar service at the exhibition stand",
       src: messeHero,
     },
     mobileCocktailbarBackground: {
