@@ -39,6 +39,10 @@ Use the existing patterns first. Prefer consistency over creativity.
 - German URLs have no `/de/` prefix.
 - English URLs use `/en/...`.
 - Top-level translated slugs are defined in `src/i18n/translations.ts` under `routes.en`.
+- A new localized page usually needs two actual page files:
+  - German in `src/pages/...`
+  - English in `src/pages/en/...`
+- `routes.en` maps slugs, but it does not create page files for you.
 
 Examples:
 
@@ -85,6 +89,7 @@ Their schema is defined in:
 Important notes:
 
 - German and English blog posts are separate MDX files.
+- German and English versions of the same blog post should use the same filename/slug in their respective folders.
 - Blog frontmatter includes fields like `title`, `description`, `pubDate`, `heroImage`, and optional `lang`.
 - Blog list and article pages are rendered through layouts, not hand-built widget pages.
 
@@ -167,6 +172,9 @@ Do not invent a third pattern. Follow the existing pattern of the page you are e
 
 Choose components by content goal, not by implementation details. The point of this section is fast matching:
 
+- need the standard page shell and metadata: `BaseHead` + `Navigation` + `Footer`
+- need a button-styled CTA link: `Button`
+- need legal imprint content: `Imprint`
 - need a hero for the homepage: `HeroMain`
 - need a hero for a normal subpage: `HeroSubpage`
 - need image + story + optional CTA: `ImageText`
@@ -178,6 +186,68 @@ Choose components by content goal, not by implementation details. The point of t
 - need trust and proof: `Testimonials`
 - need a contact page: `ContactForm`
 - need a blog archive or article: use the blog layouts
+
+### Base and UI components
+
+#### `BaseHead`
+
+File: `src/components/base/BaseHead.astro`
+
+Use for:
+
+- page metadata and SEO base setup
+
+Use this when:
+
+- creating any new normal page or layout
+
+#### `Navigation`
+
+File: `src/components/base/Navigation.astro`
+
+Use for:
+
+- the global page header and language switch entry point
+
+Use this when:
+
+- building any standard page
+
+#### `Footer`
+
+File: `src/components/base/Footer.astro`
+
+Use for:
+
+- the global page footer
+
+Use this when:
+
+- finishing any standard page
+
+#### `Button`
+
+File: `src/components/ui/Button.astro`
+
+Use for:
+
+- CTA links that should look like buttons
+
+Use this when:
+
+- you need a consistent CTA inside a section or layout
+
+#### `Imprint`
+
+File: `src/components/base/Imprint.astro`
+
+Use for:
+
+- legal imprint content
+
+Use this when:
+
+- working on the imprint/legal page only
 
 ### Widget components
 
@@ -474,6 +544,7 @@ Rules:
 - keep new content structurally consistent with similar existing pages
 - use translated links via `useTranslatedPath()`
 - update `routes.en` in `src/i18n/translations.ts` when adding a new localized top-level page
+- create both the German page file and the English page file when adding a new localized page
 
 ### Do not
 
@@ -500,7 +571,8 @@ When adding a new blog post:
 
 1. Create the German MDX file in `src/content/blog/de/`.
 2. Create the English MDX file in `src/content/blog/en/`.
-3. Add the blog hero image in `public/blog/` if needed.
-4. Fill frontmatter according to `src/content.config.ts`.
-5. Let the existing blog layouts render the content.
+3. Keep the same filename/slug in both folders for the same article.
+4. Add the blog hero image in `public/blog/` if needed.
+5. Fill frontmatter according to `src/content.config.ts`.
+6. Let the existing blog layouts render the content.
 
