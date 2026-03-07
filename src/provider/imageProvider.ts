@@ -201,8 +201,9 @@ export const imageProvider: ImageProvider = {
   },
   hero: {
     headerBackground: {
-      alt: "",
-      altEn: "",
+      alt: "Atmosphärische Hero-Aufnahme von Pfeil's Cocktail Catering mit mobiler Bar",
+      altEn:
+        "Atmospheric hero image of Pfeil's Cocktail Catering with mobile bar setup",
       src: headerBg,
     },
     individuellBackground: {
