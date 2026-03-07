@@ -1,5 +1,4 @@
 export const de = {
-  "nav.about": "Über uns",
   "nav.anfrage": "Jetzt anfragen",
   "nav.blog": "Blog",
   "nav.datenschutz": "Datenschutz",
@@ -41,9 +40,6 @@ export const de = {
     "Füllen Sie das Kontaktformular aus – wir melden uns zeitnah bei Ihnen.",
   "hero.anfrage.subtitle": "Kontakt",
   "hero.anfrage.title": "Jetzt anfragen",
-  "about.meta.description":
-    "Erfahrenes Team mit Leidenschaft für Cocktails. Seit 2008 professionelles Catering in Waldbröl, Oberberg, Köln und Umgebung.",
-  "about.meta.title": "Über uns | Pfeil's Cocktail Catering Waldbröl",
   "blog.articleLabel": "Artikel",
   "blog.backToBlog": "Zurück zum Blog",
   "blog.badge": "Neueste Beiträge",

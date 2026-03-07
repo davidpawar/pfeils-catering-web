@@ -3,12 +3,15 @@
  * Hero section for homepage with background image, headline and CTA.
  * Uses i18n for translated content and paths.
  */
+import { Image } from "astro:assets";
 import { ChevronDown } from "@lucide/astro";
-import { imageProvider } from "../../provider/imageProvider";
+import { getImageAlt, imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const heroImageAsset = imageProvider.hero.headerBackground;
+const heroImage = imageProvider.hero.headerBackground.src as import("astro").ImageMetadata;
 ---
 
 <!--
@@ -17,11 +20,19 @@ const t = useTranslations(lang);
 -->
 <section
   id="hero-main"
-  class="relative flex min-h-screen flex-col justify-center bg-dark-bg bg-cover bg-center bg-no-repeat"
-  style={{
-    backgroundImage: `url('${typeof imageProvider.hero.headerBackground.src === "object" ? imageProvider.hero.headerBackground.src.src : imageProvider.hero.headerBackground.src}')`,
-  }}
+  class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-dark-bg"
 >
+  <Image
+    src={heroImage}
+    alt={getImageAlt(heroImageAsset, lang)}
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+    format="webp"
+    quality={80}
+    sizes="100vw"
+  />
+
   <!-- Gradient overlay for better text readability -->
   <div
     class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75"
@@ -43,11 +54,11 @@ const t = useTranslations(lang);
 
     <!-- Subtitle: supporting text -->
     <div class="animate-fade-in mb-8 md:mb-10">
-      <h4
+      <p
         class="font-outfit text-base font-light leading-relaxed text-white md:text-lg lg:text-xl"
       >
         {t("hero.subtitle")}
-      </h4>
+      </p>
     </div>
   </div>
 
@@ -64,6 +75,25 @@ const t = useTranslations(lang);
     <ChevronDown class="h-10 w-10 text-white animate-mouse-scroll" size={40} stroke-width="2" aria-hidden="true" />
   </button>
 </section>
+
+<style is:global>
+  @keyframes mouseScroll {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateY(6px);
+      opacity: 0.5;
+    }
+  }
+
+  .animate-mouse-scroll {
+    animation: mouseScroll 2s ease-in-out infinite;
+  }
+</style>
 
 <script is:inline>
   /*
