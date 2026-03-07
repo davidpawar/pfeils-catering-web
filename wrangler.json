@@ -25,11 +25,15 @@
       "name": "pfeils-catering-web",
       "routes": [
         {
-          "pattern": "pfeils-catering.de",
+          "pattern": "www.pfeils-catering.de",
           "custom_domain": true
         },
         {
-          "pattern": "*pfeils-catering.de/*",
+          "pattern": "www.pfeils-catering.de/*",
+          "zone_name": "pfeils-catering.de"
+        },
+        {
+          "pattern": "pfeils-catering.de/*",
           "zone_name": "pfeils-catering.de"
         }
       ]
