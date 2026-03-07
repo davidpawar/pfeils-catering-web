@@ -9,7 +9,11 @@ import FAQ from "../components/widgets/FAQ.astro";
 import Testimonials from "../components/widgets/Testimonials.astro";
 import Navigation from "../components/base/Navigation.astro";
 import { imageProvider } from "../provider/imageProvider";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,7 +23,11 @@ const translatePath = useTranslatedPath(lang);
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={t("home.meta.title")} description={t("home.meta.description")} lang={lang} />
+    <BaseHead
+      title={t("home.meta.title")}
+      description={t("home.meta.description")}
+      lang={lang}
+    />
   </head>
   <body>
     <div class="relative">
@@ -27,7 +35,7 @@ const translatePath = useTranslatedPath(lang);
       <main>
         <HeroMain />
         <ImageText
-          badgeText="Wer wir sind !!"
+          badgeText="Wer wir sind"
           description="Cocktail-Stationen bringen Menschen zusammen! Ob Mitarbeiter, Kunden oder Geschaeftspartner - ein gut gemachter Cocktail ist der perfekte Eisbrecher. Man kommt ins Gespraech, probiert neue Geschmackskombinationen und interagiert spielerisch mit Kollegen. Ein professionelles Cocktail-Catering sorgt für genau die richtige Balance aus Business & Genuss."
           image={imageProvider.team.teamExperts}
           leftStatLabel="15+ Jahre der Expertise"

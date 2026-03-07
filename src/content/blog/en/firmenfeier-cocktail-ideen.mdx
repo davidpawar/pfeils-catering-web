@@ -7,6 +7,9 @@ pubDate: "2025-01-15"
 heroImage: "/blog/bartender-cocktail-shaker.jpg"
 ---
 
+import { Image } from "astro:assets";
+import { getImageAlt, imageProvider } from "../../../provider/imageProvider";
+
 A creative corporate event needs more than catering and a venue – it thrives on emotion, atmosphere and attention to detail. Our **cocktail catering** delivers exactly that: enjoyment, conversation starters and a real highlight at every corporate event.
 
 ## 1. Live Cocktail Bar with Bartender Show
@@ -17,8 +20,14 @@ Whether classically elegant or modern and extravagant: Our mobile bars flexibly 
 
 💡 **Tip:** Fire shows, shaker acrobatics and individual signature drinks with company logo or brand colours will amaze your guests and create unforgettable moments.
 
-![Bartender Show](/blog/bartender-cocktail-shaker.jpg)
-![Bartender at work](/blog/barkeeper-show.jpg)
+<Image
+  src={imageProvider.blog.bartenderCocktailShaker.src}
+  alt={getImageAlt(imageProvider.blog.bartenderCocktailShaker, "en")}
+/>
+<Image
+  src={imageProvider.blog.barkeeperShow.src}
+  alt={getImageAlt(imageProvider.blog.barkeeperShow, "en")}
+/>
 
 ## 2. Theme Night: "Around the World"
 
@@ -28,8 +37,14 @@ Whether fiery tacos and tequila creations from Mexico, elegant sake infusions fr
 
 🌍 **Our specialised cocktail team** develops individual signature drinks on request to match your chosen country – tailored to your guests, the menu or even your corporate identity.
 
-![Colourful cocktails](/blog/bunte-cocktails.jpg)
-![Three cocktails from different countries](/blog/cocktails-around-world.jpg)
+<Image
+  src={imageProvider.blog.bunteCocktails.src}
+  alt={getImageAlt(imageProvider.blog.bunteCocktails, "en")}
+/>
+<Image
+  src={imageProvider.blog.cocktailsAroundWorld.src}
+  alt={getImageAlt(imageProvider.blog.cocktailsAroundWorld, "en")}
+/>
 
 ## 3. After-Work Rooftop Party
 

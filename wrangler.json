@@ -9,12 +9,34 @@
   },
   "observability": { "enabled": true },
   "upload_source_maps": true,
+  "workers_dev": false,
+  "preview_urls": false,
   "env": {
     "dev": {
-      "name": "dev-pfeils-catering-web"
+      "name": "dev-pfeils-catering-web",
+      "routes": [
+        {
+          "pattern": "dev.pfeils-catering.de",
+          "custom_domain": true
+        }
+      ]
     },
     "prod": {
-      "name": "pfeils-catering-web"
+      "name": "pfeils-catering-web",
+      "routes": [
+        {
+          "pattern": "www.pfeils-catering.de",
+          "custom_domain": true
+        },
+        {
+          "pattern": "www.pfeils-catering.de/*",
+          "zone_name": "pfeils-catering.de"
+        },
+        {
+          "pattern": "pfeils-catering.de/*",
+          "zone_name": "pfeils-catering.de"
+        }
+      ]
     }
   }
 }

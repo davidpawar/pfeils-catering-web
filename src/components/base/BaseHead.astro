@@ -12,7 +12,12 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/blog-placeholder-1.jpg", lang } = Astro.props;
+const {
+  title,
+  description,
+  image = "/blog-placeholder-1.jpg",
+  lang,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -20,6 +25,7 @@ const { title, description, image = "/blog-placeholder-1.jpg", lang } = Astro.pr
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Font preloads -->
 <link
@@ -56,7 +62,11 @@ const { title, description, image = "/blog-placeholder-1.jpg", lang } = Astro.pr
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:site_name" content="Pfeil's Cocktail Catering" />
-{lang && <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />}
+{
+  lang && (
+    <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />
+  )
+}
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
@@ -78,9 +88,11 @@ const { title, description, image = "/blog-placeholder-1.jpg", lang } = Astro.pr
           }
         });
       },
-      { rootMargin: "0px 0px -50px 0px", threshold: 0 }
+      { rootMargin: "0px 0px -50px 0px", threshold: 0 },
     );
-    document.querySelectorAll(".fade-in-section").forEach((el) => observer.observe(el));
+    document
+      .querySelectorAll(".fade-in-section")
+      .forEach((el) => observer.observe(el));
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initFadeInObserver);

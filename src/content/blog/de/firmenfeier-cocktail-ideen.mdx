@@ -7,6 +7,9 @@ pubDate: "2025-01-15"
 heroImage: "/blog/bartender-cocktail-shaker.jpg"
 ---
 
+import { Image } from "astro:assets";
+import { getImageAlt, imageProvider } from "../../../provider/imageProvider";
+
 Eine kreative Firmenfeier braucht mehr als Catering und Location – sie lebt von Emotion, Atmosphäre und Liebe zum Detail. Unser **Cocktail-Catering** sorgt für genau das: Genuss, Gesprächsstoff und ein echtes Highlight auf jedem Firmenevent.
 
 ## 1. Live Cocktailbar mit Barkeeper-Show
@@ -17,8 +20,14 @@ Ob klassisch elegant oder modern und extravagant: Unsere mobilen Bars passen sic
 
 💡 **Tipp:** Feuershows, Shaker-Akrobatik und individuelle Signature-Drinks mit Firmenlogo oder CI-Farben lassen Ihre Gäste staunen und schaffen unvergessliche Momente.
 
-![Barkeeper Show](/blog/bartender-cocktail-shaker.jpg)
-![Barkeeper bei der Arbeit](/blog/barkeeper-show.jpg)
+<Image
+  src={imageProvider.blog.bartenderCocktailShaker.src}
+  alt={getImageAlt(imageProvider.blog.bartenderCocktailShaker, "de")}
+/>
+<Image
+  src={imageProvider.blog.barkeeperShow.src}
+  alt={getImageAlt(imageProvider.blog.barkeeperShow, "de")}
+/>
 
 ## 2. Themenabend: „Around the World“
 
@@ -28,8 +37,14 @@ Ob feurige Tacos und Tequila-Kreationen aus Mexiko, elegante Sake-Infusionen aus
 
 🌍 **Unser spezialisiertes Cocktail-Team** entwickelt auf Wunsch individuelle Signature-Drinks passend zu Ihrem gewählten Land – abgestimmt auf Ihre Gäste, das Menü oder sogar die Unternehmensidentität.
 
-![Bunte Cocktails](/blog/bunte-cocktails.jpg)
-![Drei Cocktails aus verschiedenen Ländern](/blog/cocktails-around-world.jpg)
+<Image
+  src={imageProvider.blog.bunteCocktails.src}
+  alt={getImageAlt(imageProvider.blog.bunteCocktails, "de")}
+/>
+<Image
+  src={imageProvider.blog.cocktailsAroundWorld.src}
+  alt={getImageAlt(imageProvider.blog.cocktailsAroundWorld, "de")}
+/>
 
 ## 3. After-Work Rooftop-Party
 
