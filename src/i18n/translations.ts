@@ -10,7 +10,13 @@ export const ui = {
   en,
 } as const;
 
-// Route-Keys = DE-Pfade (da defaultLang), Values = EN-Pfade
+// Route-Keys = DE-Pfade (flattened, ohne Slash), Values = EN-Pfade
+// canonicalPaths: Maps flattened key → path with slashes for LanguagePicker
+export const canonicalPaths: Record<string, string> = {
+  einsatzgebietekoeln: "einsatzgebiete/koeln",
+  einsatzgebietegummersbach: "einsatzgebiete/gummersbach",
+};
+
 export const routes = {
   en: {
     firmenfeier: "corporate",
@@ -18,6 +24,8 @@ export const routes = {
     "individuelles-catering": "individual-catering",
     "messe-catering": "exhibition",
     "mobile-cocktailbar": "mobile-cocktail-bar",
+    einsatzgebietekoeln: "service-areas/cologne",
+    einsatzgebietegummersbach: "service-areas/gummersbach",
     anfrage: "contact",
     impressum: "imprint",
     datenschutz: "privacy",

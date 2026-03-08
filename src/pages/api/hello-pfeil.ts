@@ -3,7 +3,7 @@ import type { TrackingEventProps } from "../../types/tracking";
 
 export const prerender = false;
 
-const BLOCKED_HOSTS = new Set<string>([]);
+const BLOCKED_HOSTS = new Set<string>(["localhost", "dev.pfeils-catering.de"]);
 const PLAUSIBLE_ENDPOINT = "https://plausible.io/api/event";
 
 type AnalyticsRequestBody = {

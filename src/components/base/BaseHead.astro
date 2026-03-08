@@ -90,7 +90,6 @@ const {
   }}
 >
   (() => {
-    const BLOCKED_HOSTS = new Set([]);
     const TRACKING_ENDPOINT = "/api/hello-pfeil";
     const UTM_STORAGE_KEY = "pfeils_tracking_utm_params";
     const UTM_PARAM_NAMES = [
@@ -100,16 +99,10 @@ const {
       "utm_term",
       "utm_content",
     ];
-    const hostname = window.location.hostname.toLowerCase();
-
-    if (BLOCKED_HOSTS.has(hostname)) {
-      window.trackEvent = () => undefined;
-      return;
-    }
 
     let hasActivatedTracking = false;
     let hasSentPageview = false;
-    /** @type {import("../../types/tracking").TrackingEventInput[]} */
+
     const queuedEvents = [];
 
     /**

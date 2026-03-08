@@ -484,9 +484,139 @@ export const de = {
     "Professionelle Ausstattung, saubere Arbeitsweise und hochwertige Produkte garantieren beste Ergebnisse. Ihre Gäste werden den Unterschied schmecken.",
   "mobileCocktailbar.textList.item6.title": "Hohe Qualität und frische Zutaten",
   "mobileCocktailbar.textList.title": "Ihre nächste Firmenfeier",
+  "mobileCocktailbarKoln.meta.title":
+    "Mobile Cocktailbar Köln mieten | Pfeil's Catering",
+  "mobileCocktailbarKoln.meta.description":
+    "Mobile Cocktailbar für Events in Köln. Firmenfeiern am Rheinauhafen, Hochzeiten mit Dom-Blick, Karneval-Events. Professionelles Cocktail-Catering in Köln.",
+  "mobileCocktailbarKoln.hero.title": "Mobile Cocktailbar Köln – Cocktails wo Sie feiern",
+  "mobileCocktailbarKoln.intro.badge": "Köln & Region",
+  "mobileCocktailbarKoln.intro.title": "Ihre mobile Bar für Events in und um Köln",
+  "mobileCocktailbarKoln.intro.description":
+    "Köln ist eine Stadt der Feste – ob Karneval, Firmenjubiläum am Rheinauhafen oder Hochzeit mit Blick auf den Dom. Wir bringen unsere mobile Cocktailbar direkt zu Ihrer Location: in die Kölner Innenstadt, an den Rhein, in Lofts und Eventlocations. Aus Waldbröl sind wir in rund 45 Minuten vor Ort – mit Bambusbar, Barkeepern und allem, was für stilvolle Drinks nötig ist.",
+  "mobileCocktailbarKoln.intro.bullet1": "Schnelle Anfahrt aus dem Oberbergischen",
+  "mobileCocktailbarKoln.intro.bullet2": "Erfahrung mit Kölner Eventlocations",
+  "mobileCocktailbarKoln.intro.bullet3": "Flexibel für Indoor und Outdoor",
+  "mobileCocktailbarKoln.whyKoln.badge": "Warum Köln?",
+  "mobileCocktailbarKoln.whyKoln.title": "Köln – Eventszenen, die Cocktails verdienen",
+  "mobileCocktailbarKoln.whyKoln.description":
+    "Köln ist Medienstadt, Karnevalshochburg und Wirtschaftsstandort zugleich. Firmenfeiern in Deutz oder Mülheim, Hochzeiten in historischen Villen in Rodenkirchen, Sommerfeste am Rhein – die Kölner Eventlandschaft ist vielfältig. Unsere mobile Cocktailbar passt in jeden Rahmen: von der exklusiven Galerie bis zur entspannten Gartenparty in Nippes. Wir kennen die typischen Locations und liefern, was Köln ausmacht: lockere Atmosphäre, Qualität und ein bisschen rheinische Lebensart.",
+  "mobileCocktailbarKoln.locations.badge": "Einsatzorte",
+  "mobileCocktailbarKoln.locations.title": "Wo wir in Köln für Sie im Einsatz sind",
+  "mobileCocktailbarKoln.locations.item1.title": "Rheinauhafen & Altstadt",
+  "mobileCocktailbarKoln.locations.item1.description":
+    "Lofts, Eventhallen und Terrassen mit Rheinblick – die Rheinauhafen-Kulisse ist ideal für Firmenevents und besondere Feiern. Wir liefern die Bar und den Service.",
+  "mobileCocktailbarKoln.locations.item2.title": "Deutz & Mülheim",
+  "mobileCocktailbarKoln.locations.item2.description":
+    "Unternehmen, Messen und kreative Räume: In Deutz und Mülheim finden viele Firmenfeiern statt. Kurze Wege von Waldbröl aus – wir sind pünktlich vor Ort.",
+  "mobileCocktailbarKoln.locations.item3.title": "Rodenkirchen & Süden",
+  "mobileCocktailbarKoln.locations.item3.description":
+    "Hochzeiten in Villen, Gartenpartys am Rhein – der Kölner Süden bietet idyllische Locations. Unsere mobile Bar fügt sich nahtlos in Ihr Ambiente ein.",
+  "mobileCocktailbarKoln.locations.item4.title": "Nippes, Ehrenfeld & Kölner Norden",
+  "mobileCocktailbarKoln.locations.item4.description":
+    "Kreativviertel mit eigenem Flair: Geburtstagsfeiern, Vernissagen, After-Work-Events. Wir bringen Barfeeling in jeden Stadtteil.",
+  "mobileCocktailbarKoln.occasions.badge": "Anlässe",
+  "mobileCocktailbarKoln.occasions.title": "Typische Events in Köln",
+  "mobileCocktailbarKoln.occasions.item1.title": "Firmenfeiern & Jubiläen",
+  "mobileCocktailbarKoln.occasions.item1.description":
+    "Kölner Unternehmen feiern gerne – ob in der Konzernzentrale oder in einer Location am Rhein. Wir sorgen für professionelle Cocktails und entspannte Stimmung.",
+  "mobileCocktailbarKoln.occasions.item2.title": "Hochzeiten mit Dom-Blick",
+  "mobileCocktailbarKoln.occasions.item2.description":
+    "Der Kölner Dom als Kulisse – viele Paare feiern in der Altstadt oder am Rhein. Unsere mobile Bar rundet den Stehempfang stilvoll ab.",
+  "mobileCocktailbarKoln.occasions.item3.title": "Karneval & Saisonale Feste",
+  "mobileCocktailbarKoln.occasions.item3.description":
+    "Ob Sessionseröffnung, Firmen-Karneval oder Sommerfest – in Köln wird gefeiert. Wir liefern die passenden Drinks für jede Jeck.",
+  "mobileCocktailbarKoln.gallery.badge": "Impressionen",
+  "mobileCocktailbarKoln.gallery.title": "Cocktail-Events in Köln",
+  "mobileCocktailbarKoln.gallery.description":
+    "Stilvolle Atmosphäre, professioneller Service – so erleben Ihre Gäste unsere mobile Cocktailbar in Köln.",
+  "mobileCocktailbarKoln.cta.badge": "Jetzt anfragen",
+  "mobileCocktailbarKoln.cta.title": "Ihr Event in Köln – wir sind dabei",
+  "mobileCocktailbarKoln.cta.ctaTitle": "Sprechen Sie uns gerne an!",
+  "mobileCocktailbarKoln.cta.description":
+    "Ob Rheinauhafen, Deutz oder Rodenkirchen: Sagen Sie uns, wo und wann Sie feiern. Wir erstellen ein unverbindliches Angebot für Ihr Cocktail-Catering in Köln.",
+  "mobileCocktailbarKoln.process.badge": "Unser Ablauf",
+  "mobileCocktailbarKoln.process.title": "Alles aus einer Hand – von der Idee bis zum Event",
+  "mobileCocktailbarKoln.process.content":
+    "<p>Wir bringen die mobile Cocktailbar zu Ihrer Location – inklusive Bambusbar, Barkeepern, hochwertigen Zutaten und allem, was für einen reibungslosen Ablauf nötig ist. Von der ersten Idee bis zur letzten Nachbesprechung begleiten wir Sie und koordinieren bei Bedarf auch externe Dienstleister aus unserem Netzwerk.</p><p>Ob Firmenfeier am Rheinauhafen, Hochzeit in Rodenkirchen oder Sommerfest in Ehrenfeld: Wir planen mit Ihnen gemeinsam den Umfang, die Cocktailkarte und alle Details. So wird Ihr Event in Köln genau so, wie Sie es sich vorstellen.</p>",
+  "mobileCocktailbarKoln.faq.badge": "FAQ",
+  "mobileCocktailbarKoln.faq.title": "Häufige Fragen zu unserem Service in Köln",
+  "mobileCocktailbarKoln.faq.description":
+    "Kurze Antworten auf das, was Sie wissen wollen.",
+  "mobileCocktailbarKoln.faq.q1": "Was machen wir alles?",
+  "mobileCocktailbarKoln.faq.a1":
+    "Wir liefern die komplette mobile Cocktailbar: Bambusbar, Barkeeper, Zutaten, Gläser, Eis und Equipment. Dazu passen wir die Cocktailkarte an Ihren Anlass an, mixen vor Ort und sorgen für professionellen Service. Auf Wunsch koordinieren wir auch Catering, DJ oder andere Dienstleister aus unserem Netzwerk.",
+  "mobileCocktailbarKoln.faq.q2": "Wie läuft der Einsatz ab?",
+  "mobileCocktailbarKoln.faq.a2":
+    "Zuerst ein unverbindliches Erstgespräch – per Telefon oder E-Mail. Dann arbeiten wir den Umfang aus: Gästezahl, Cocktailauswahl, Zeitrahmen. Bei Bedarf holen wir externe Dienstleister aus unserem Netzwerk dazu. Optional vereinbaren wir einen Termin vor Ort zur Planung. Am Tag des Events: Aufbau, Einsatz, Abbau. Danach gern eine kurze Nachbesprechung.",
+  "mobileCocktailbarKoln.faq.q3": "Machen wir auch Einsätze für Firmen?",
+  "mobileCocktailbarKoln.faq.a3":
+    "Ja, Firmenfeiern und Firmenevents sind unser Fokus. Ob Jubiläum, Sommerfest, Weihnachtsfeier oder Teamevent – wir bringen die mobile Bar zu Ihrer Location und sorgen für professionelles Cocktail-Catering.",
   "footer.contact": "Kontakt",
   "footer.copyright": "Alle Rechte vorbehalten.",
   "footer.quickLinks": "Schnellzugriff",
+  "mobileCocktailbarGummersbach.meta.title":
+    "Mobile Cocktailbar Gummersbach mieten | Pfeil's Catering",
+  "mobileCocktailbarGummersbach.meta.description":
+    "Mobile Cocktailbar für Events in Gummersbach und Oberberg. Firmenfeiern, Hochzeiten, Jubiläen. Kurze Wege aus Waldbröl – Ihr Cocktail-Catering vor Ort.",
+  "mobileCocktailbarGummersbach.hero.title": "Mobile Cocktailbar Gummersbach – direkt aus der Nachbarschaft",
+  "mobileCocktailbarGummersbach.intro.badge": "Oberberg & Gummersbach",
+  "mobileCocktailbarGummersbach.intro.title": "Ihre mobile Bar für Events in Gummersbach und Umgebung",
+  "mobileCocktailbarGummersbach.intro.description":
+    "Gummersbach liegt uns besonders nah – aus Waldbröl sind wir in wenigen Minuten vor Ort. Ob Firmenjubiläum im Steinmüller-Quartier, Hochzeit im Aggertal oder Teamevent in der Innenstadt: Wir bringen die mobile Cocktailbar direkt zu Ihrer Location. Ohne lange Anfahrt, mit allem, was für stilvolle Drinks nötig ist.",
+  "mobileCocktailbarGummersbach.intro.bullet1": "Kurze Wege – wir sind um die Ecke",
+  "mobileCocktailbarGummersbach.intro.bullet2": "Oberberg-Stamm – wir kennen die Region",
+  "mobileCocktailbarGummersbach.intro.bullet3": "Flexibel für Hallen, Gärten und besondere Orte",
+  "mobileCocktailbarGummersbach.whyGummersbach.badge": "Warum Gummersbach?",
+  "mobileCocktailbarGummersbach.whyGummersbach.title": "Gummersbach – Oberbergs Zentrum mit Event-Potenzial",
+  "mobileCocktailbarGummersbach.whyGummersbach.description":
+    "Gummersbach verbindet Industriegeschichte mit lebendiger Gegenwart. Umgenutzte Hallen, idyllische Orte am Agger-Stausee, Firmengelände mit Event-Charakter – die Stadt bietet vielfältige Kulissen für Feiern. Viele Oberberger Unternehmen und Privatleute schätzen die kurze Distanz zu uns: Planung und Abstimmung laufen unkompliziert, der Einsatz ist schnell koordiniert.",
+  "mobileCocktailbarGummersbach.locations.badge": "Einsatzorte",
+  "mobileCocktailbarGummersbach.locations.title": "Wo wir in Gummersbach für Sie im Einsatz sind",
+  "mobileCocktailbarGummersbach.locations.item1.title": "Innenstadt & Steinmüller-Quartier",
+  "mobileCocktailbarGummersbach.locations.item1.description":
+    "Umgenutzte Industrieflächen, Eventlocations und Firmensitze – das Steinmüller-Gelände und die Innenstadt sind beliebte Orte für Firmenfeiern und besondere Anlässe.",
+  "mobileCocktailbarGummersbach.locations.item2.title": "Aggertal & Dümmlinghausen",
+  "mobileCocktailbarGummersbach.locations.item2.description":
+    "Ruhige Lagen am Wasser, Scheunen und Gärten – ideal für Hochzeiten und private Feiern. Wir kommen mit der mobilen Bar direkt zu Ihnen.",
+  "mobileCocktailbarGummersbach.locations.item3.title": "Oberbergische Umgebung",
+  "mobileCocktailbarGummersbach.locations.item3.description":
+    "Von Gummersbach aus sind wir in Windeseile in Marienheide, Bergneustadt oder anderen Orten der Region. Kurze Wege sind unser Vorteil.",
+  "mobileCocktailbarGummersbach.occasions.badge": "Anlässe",
+  "mobileCocktailbarGummersbach.occasions.title": "Typische Events in Gummersbach",
+  "mobileCocktailbarGummersbach.occasions.item1.title": "Firmenjubiläen & Teamevents",
+  "mobileCocktailbarGummersbach.occasions.item1.description":
+    "Oberberger Unternehmen feiern Jubiläen, Sommerfeste oder Weihnachtsfeiern – oft in den eigenen Räumen oder auf dem Firmengelände. Wir liefern die Bar und den Service.",
+  "mobileCocktailbarGummersbach.occasions.item2.title": "Hochzeiten im Grünen",
+  "mobileCocktailbarGummersbach.occasions.item2.description":
+    "Das Aggertal und die Umgebung bieten idyllische Locations für Hochzeiten. Unsere mobile Bar rundet den Stehempfang oder die Gartenparty stilvoll ab.",
+  "mobileCocktailbarGummersbach.occasions.item3.title": "Private Feiern & Geburtstage",
+  "mobileCocktailbarGummersbach.occasions.item3.description":
+    "Ob runder Geburtstag im Garten oder Familienfeier in der Scheune – wir kommen vor Ort und sorgen für professionelle Cocktails ohne Aufwand für Sie.",
+  "mobileCocktailbarGummersbach.gallery.badge": "Impressionen",
+  "mobileCocktailbarGummersbach.gallery.title": "Cocktail-Events in Gummersbach",
+  "mobileCocktailbarGummersbach.gallery.description":
+    "Stilvolle Atmosphäre, kurze Wege – so erleben Ihre Gäste unsere mobile Cocktailbar in Gummersbach und Oberberg.",
+  "mobileCocktailbarGummersbach.process.badge": "Unser Ablauf",
+  "mobileCocktailbarGummersbach.process.title": "Von der Idee bis zum Event – unkompliziert",
+  "mobileCocktailbarGummersbach.process.content":
+    "<p>Wir bringen die mobile Cocktailbar zu Ihrer Location – inklusive Bambusbar, Barkeepern, Zutaten und Equipment. Dank der kurzen Distanz aus Waldbröl läuft die Abstimmung schnell: Erstgespräch, Umfangsplanung, optional ein Termin vor Ort, dann der Einsatz.</p><p>Ob Firmenfeier im Steinmüller-Quartier oder Hochzeit am Agger-Stausee – wir planen mit Ihnen gemeinsam und sorgen dafür, dass Ihr Event in Gummersbach genau so wird, wie Sie es sich vorstellen.</p>",
+  "mobileCocktailbarGummersbach.faq.badge": "FAQ",
+  "mobileCocktailbarGummersbach.faq.title": "Häufige Fragen zu unserem Service in Gummersbach",
+  "mobileCocktailbarGummersbach.faq.description":
+    "Kurze Antworten auf das, was Sie wissen wollen.",
+  "mobileCocktailbarGummersbach.faq.q1": "Wie schnell seid ihr vor Ort?",
+  "mobileCocktailbarGummersbach.faq.a1":
+    "Gummersbach liegt uns besonders nah – aus Waldbröl sind wir in wenigen Minuten da. Das erleichtert die Planung, Abstimmung und auch kurzfristige Anpassungen. Für einen Besichtigungstermin oder eine Nachbesprechung kommen wir problemlos vorbei.",
+  "mobileCocktailbarGummersbach.faq.q2": "Wie läuft der Einsatz ab?",
+  "mobileCocktailbarGummersbach.faq.a2":
+    "Zuerst ein unverbindliches Erstgespräch – per Telefon oder E-Mail. Dann arbeiten wir den Umfang aus: Gästezahl, Cocktailauswahl, Zeitrahmen. Optional ein Termin vor Ort zur Planung. Am Tag des Events: Aufbau, Einsatz, Abbau. Dank der kurzen Wege sind wir flexibel.",
+  "mobileCocktailbarGummersbach.faq.q3": "Ab wie vielen Gästen lohnt sich die mobile Bar?",
+  "mobileCocktailbarGummersbach.faq.a3":
+    "Es lohnt sich ab etwa 50 Gästen. Darunter wird der Aufwand im Verhältnis zu groß. Ab 50 Personen rechnet sich die mobile Cocktailbar – ob Firmenjubiläum, Hochzeit oder Teamevent in Gummersbach und Oberberg.",
+  "mobileCocktailbarGummersbach.cta.ctaTitle": "Sprechen Sie uns gerne an!",
+  "footer.cityPages": "Mobile Cocktailbar nach Stadt",
+  "footer.cityPages.koeln": "Köln",
+  "footer.cityPages.gummersbach": "Gummersbach",
   "footer.tagline":
     "Mit Herz gemixt, für dich und deine Gäste. Professionelles Cocktail-Catering für unvergessliche Events seit 2008.",
 } as const;

@@ -478,9 +478,139 @@ export const en = {
   "mobileCocktailbar.textList.item6.title":
     "High quality and fresh ingredients",
   "mobileCocktailbar.textList.title": "Your next corporate event",
+  "mobileCocktailbarKoln.meta.title":
+    "Mobile Cocktail Bar Cologne | Pfeil's Catering",
+  "mobileCocktailbarKoln.meta.description":
+    "Mobile cocktail bar for events in Cologne. Corporate parties at Rheinauhafen, weddings with cathedral view, carnival events. Professional cocktail catering in Cologne.",
+  "mobileCocktailbarKoln.hero.title": "Mobile Cocktail Bar Cologne – Cocktails where you celebrate",
+  "mobileCocktailbarKoln.intro.badge": "Cologne & Region",
+  "mobileCocktailbarKoln.intro.title": "Your mobile bar for events in and around Cologne",
+  "mobileCocktailbarKoln.intro.description":
+    "Cologne is a city of celebrations – whether carnival, corporate anniversaries at Rheinauhafen or weddings with a view of the cathedral. We bring our mobile cocktail bar directly to your venue: to the city centre, by the Rhine, in lofts and event spaces. From Waldbröl we're on site in about 45 minutes – with bamboo bar, bartenders and everything needed for stylish drinks.",
+  "mobileCocktailbarKoln.intro.bullet1": "Quick drive from the Oberberg region",
+  "mobileCocktailbarKoln.intro.bullet2": "Experience with Cologne event venues",
+  "mobileCocktailbarKoln.intro.bullet3": "Flexible for indoor and outdoor",
+  "mobileCocktailbarKoln.whyKoln.badge": "Why Cologne?",
+  "mobileCocktailbarKoln.whyKoln.title": "Cologne – event scenes that deserve cocktails",
+  "mobileCocktailbarKoln.whyKoln.description":
+    "Cologne is a media city, carnival stronghold and business hub all in one. Corporate parties in Deutz or Mülheim, weddings in historic villas in Rodenkirchen, summer parties by the Rhine – Cologne's event landscape is diverse. Our mobile cocktail bar fits every setting: from exclusive galleries to relaxed garden parties in Nippes. We know the typical venues and deliver what makes Cologne special: relaxed atmosphere, quality and a touch of Rhineland lifestyle.",
+  "mobileCocktailbarKoln.locations.badge": "Venues",
+  "mobileCocktailbarKoln.locations.title": "Where we serve you in Cologne",
+  "mobileCocktailbarKoln.locations.item1.title": "Rheinauhafen & Old Town",
+  "mobileCocktailbarKoln.locations.item1.description":
+    "Lofts, event halls and terraces with Rhine views – the Rheinauhafen backdrop is ideal for corporate events and special celebrations. We deliver the bar and the service.",
+  "mobileCocktailbarKoln.locations.item2.title": "Deutz & Mülheim",
+  "mobileCocktailbarKoln.locations.item2.description":
+    "Companies, trade fairs and creative spaces: many corporate parties take place in Deutz and Mülheim. Short distance from Waldbröl – we arrive on time.",
+  "mobileCocktailbarKoln.locations.item3.title": "Rodenkirchen & South",
+  "mobileCocktailbarKoln.locations.item3.description":
+    "Weddings in villas, garden parties by the Rhine – Cologne's south offers idyllic venues. Our mobile bar blends seamlessly into your setting.",
+  "mobileCocktailbarKoln.locations.item4.title": "Nippes, Ehrenfeld & North Cologne",
+  "mobileCocktailbarKoln.locations.item4.description":
+    "Creative districts with their own flair: birthday parties, vernissages, after-work events. We bring bar feeling to every neighbourhood.",
+  "mobileCocktailbarKoln.occasions.badge": "Occasions",
+  "mobileCocktailbarKoln.occasions.title": "Typical events in Cologne",
+  "mobileCocktailbarKoln.occasions.item1.title": "Corporate parties & anniversaries",
+  "mobileCocktailbarKoln.occasions.item1.description":
+    "Cologne companies love to celebrate – whether at headquarters or at a venue by the Rhine. We provide professional cocktails and a relaxed atmosphere.",
+  "mobileCocktailbarKoln.occasions.item2.title": "Weddings with cathedral view",
+  "mobileCocktailbarKoln.occasions.item2.description":
+    "Cologne Cathedral as a backdrop – many couples celebrate in the old town or by the Rhine. Our mobile bar stylishly rounds off the reception.",
+  "mobileCocktailbarKoln.occasions.item3.title": "Carnival & seasonal festivities",
+  "mobileCocktailbarKoln.occasions.item3.description":
+    "Whether session opening, corporate carnival or summer party – Cologne loves to celebrate. We deliver the right drinks for every occasion.",
+  "mobileCocktailbarKoln.gallery.badge": "Impressions",
+  "mobileCocktailbarKoln.gallery.title": "Cocktail events in Cologne",
+  "mobileCocktailbarKoln.gallery.description":
+    "Stylish atmosphere, professional service – this is how your guests experience our mobile cocktail bar in Cologne.",
+  "mobileCocktailbarKoln.cta.badge": "Get in touch",
+  "mobileCocktailbarKoln.cta.title": "Your event in Cologne – we're there",
+  "mobileCocktailbarKoln.cta.ctaTitle": "Feel free to get in touch!",
+  "mobileCocktailbarKoln.cta.description":
+    "Whether Rheinauhafen, Deutz or Rodenkirchen: tell us where and when you're celebrating. We'll create a non-binding quote for your cocktail catering in Cologne.",
+  "mobileCocktailbarKoln.process.badge": "Our process",
+  "mobileCocktailbarKoln.process.title": "All from one source – from idea to event",
+  "mobileCocktailbarKoln.process.content":
+    "<p>We bring the mobile cocktail bar to your venue – including bamboo bar, bartenders, high-quality ingredients and everything needed for a smooth operation. From the first idea to the final debrief, we support you and coordinate external service providers from our network if required.</p><p>Whether corporate party at Rheinauhafen, wedding in Rodenkirchen or summer party in Ehrenfeld: we plan the scope, cocktail menu and all details together with you. So your event in Cologne turns out exactly as you imagine.</p>",
+  "mobileCocktailbarKoln.faq.badge": "FAQ",
+  "mobileCocktailbarKoln.faq.title": "Frequently asked questions about our service in Cologne",
+  "mobileCocktailbarKoln.faq.description":
+    "Quick answers to what you want to know.",
+  "mobileCocktailbarKoln.faq.q1": "What do we do?",
+  "mobileCocktailbarKoln.faq.a1":
+    "We deliver the complete mobile cocktail bar: bamboo bar, bartenders, ingredients, glasses, ice and equipment. We adapt the cocktail menu to your occasion, mix on site and provide professional service. On request we also coordinate catering, DJ or other service providers from our network.",
+  "mobileCocktailbarKoln.faq.q2": "How does the deployment work?",
+  "mobileCocktailbarKoln.faq.a2":
+    "First a non-binding initial consultation – by phone or email. Then we work out the scope: number of guests, cocktail selection, timeframe. If needed we bring in external service providers from our network. Optionally we arrange an on-site planning visit. On the day of the event: setup, service, teardown. Afterwards we're happy to have a short debrief.",
+  "mobileCocktailbarKoln.faq.q3": "Do we also do corporate events?",
+  "mobileCocktailbarKoln.faq.a3":
+    "Yes, corporate parties and company events are our focus. Whether anniversary, summer party, Christmas party or team event – we bring the mobile bar to your venue and provide professional cocktail catering.",
   "footer.contact": "Contact",
   "footer.copyright": "All rights reserved.",
   "footer.quickLinks": "Quick Links",
+  "mobileCocktailbarGummersbach.meta.title":
+    "Mobile Cocktail Bar Gummersbach | Pfeil's Catering",
+  "mobileCocktailbarGummersbach.meta.description":
+    "Mobile cocktail bar for events in Gummersbach and Oberberg. Corporate parties, weddings, anniversaries. Short distance from Waldbröl – your cocktail catering on site.",
+  "mobileCocktailbarGummersbach.hero.title": "Mobile Cocktail Bar Gummersbach – right from the neighbourhood",
+  "mobileCocktailbarGummersbach.intro.badge": "Oberberg & Gummersbach",
+  "mobileCocktailbarGummersbach.intro.title": "Your mobile bar for events in Gummersbach and surroundings",
+  "mobileCocktailbarGummersbach.intro.description":
+    "Gummersbach is especially close to us – from Waldbröl we're on site in just a few minutes. Whether corporate anniversary in the Steinmüller quarter, wedding in the Agger valley or team event in the town centre: we bring the mobile cocktail bar directly to your venue. No long journey, with everything needed for stylish drinks.",
+  "mobileCocktailbarGummersbach.intro.bullet1": "Short distance – we're right around the corner",
+  "mobileCocktailbarGummersbach.intro.bullet2": "Oberberg locals – we know the region",
+  "mobileCocktailbarGummersbach.intro.bullet3": "Flexible for halls, gardens and special venues",
+  "mobileCocktailbarGummersbach.whyGummersbach.badge": "Why Gummersbach?",
+  "mobileCocktailbarGummersbach.whyGummersbach.title": "Gummersbach – Oberberg's centre with event potential",
+  "mobileCocktailbarGummersbach.whyGummersbach.description":
+    "Gummersbach combines industrial heritage with a lively present. Repurposed halls, idyllic spots by the Agger reservoir, company grounds with event character – the town offers diverse backdrops for celebrations. Many Oberberg companies and private clients appreciate the short distance to us: planning and coordination run smoothly, deployment is quickly arranged.",
+  "mobileCocktailbarGummersbach.locations.badge": "Venues",
+  "mobileCocktailbarGummersbach.locations.title": "Where we serve you in Gummersbach",
+  "mobileCocktailbarGummersbach.locations.item1.title": "Town centre & Steinmüller quarter",
+  "mobileCocktailbarGummersbach.locations.item1.description":
+    "Repurposed industrial spaces, event venues and company sites – the Steinmüller grounds and town centre are popular for corporate parties and special occasions.",
+  "mobileCocktailbarGummersbach.locations.item2.title": "Agger valley & Dümmlinghausen",
+  "mobileCocktailbarGummersbach.locations.item2.description":
+    "Quiet locations by the water, barns and gardens – ideal for weddings and private celebrations. We bring the mobile bar directly to you.",
+  "mobileCocktailbarGummersbach.locations.item3.title": "Oberberg surroundings",
+  "mobileCocktailbarGummersbach.locations.item3.description":
+    "From Gummersbach we're quickly in Marienheide, Bergneustadt or other places in the region. Short distances are our advantage.",
+  "mobileCocktailbarGummersbach.occasions.badge": "Occasions",
+  "mobileCocktailbarGummersbach.occasions.title": "Typical events in Gummersbach",
+  "mobileCocktailbarGummersbach.occasions.item1.title": "Corporate anniversaries & team events",
+  "mobileCocktailbarGummersbach.occasions.item1.description":
+    "Oberberg companies celebrate anniversaries, summer parties or Christmas parties – often on their own premises or company grounds. We deliver the bar and service.",
+  "mobileCocktailbarGummersbach.occasions.item2.title": "Weddings in the countryside",
+  "mobileCocktailbarGummersbach.occasions.item2.description":
+    "The Agger valley and surroundings offer idyllic venues for weddings. Our mobile bar stylishly rounds off the reception or garden party.",
+  "mobileCocktailbarGummersbach.occasions.item3.title": "Private parties & birthdays",
+  "mobileCocktailbarGummersbach.occasions.item3.description":
+    "Whether milestone birthday in the garden or family celebration in a barn – we come on site and provide professional cocktails without effort for you.",
+  "mobileCocktailbarGummersbach.gallery.badge": "Impressions",
+  "mobileCocktailbarGummersbach.gallery.title": "Cocktail events in Gummersbach",
+  "mobileCocktailbarGummersbach.gallery.description":
+    "Stylish atmosphere, short distances – this is how your guests experience our mobile cocktail bar in Gummersbach and Oberberg.",
+  "mobileCocktailbarGummersbach.process.badge": "Our process",
+  "mobileCocktailbarGummersbach.process.title": "From idea to event – straightforward",
+  "mobileCocktailbarGummersbach.process.content":
+    "<p>We bring the mobile cocktail bar to your venue – including bamboo bar, bartenders, ingredients and equipment. Thanks to the short distance from Waldbröl, coordination runs quickly: initial consultation, scope planning, optional on-site visit, then the deployment.</p><p>Whether corporate party in the Steinmüller quarter or wedding by the Agger reservoir – we plan together with you and ensure your event in Gummersbach turns out exactly as you imagine.</p>",
+  "mobileCocktailbarGummersbach.faq.badge": "FAQ",
+  "mobileCocktailbarGummersbach.faq.title": "Frequently asked questions about our service in Gummersbach",
+  "mobileCocktailbarGummersbach.faq.description":
+    "Quick answers to what you want to know.",
+  "mobileCocktailbarGummersbach.faq.q1": "How quickly can you be on site?",
+  "mobileCocktailbarGummersbach.faq.a1":
+    "Gummersbach is especially close to us – from Waldbröl we're there in just a few minutes. That makes planning, coordination and even last-minute adjustments easier. For a site visit or debrief we can easily stop by.",
+  "mobileCocktailbarGummersbach.faq.q2": "How does the deployment work?",
+  "mobileCocktailbarGummersbach.faq.a2":
+    "First a non-binding initial consultation – by phone or email. Then we work out the scope: number of guests, cocktail selection, timeframe. Optionally an on-site planning visit. On the day of the event: setup, service, teardown. Thanks to the short distance we're flexible.",
+  "mobileCocktailbarGummersbach.faq.q3": "From how many guests does the mobile bar pay off?",
+  "mobileCocktailbarGummersbach.faq.a3":
+    "It pays off from about 50 guests. Below that, the effort becomes disproportionate. From 50 people onwards, the mobile cocktail bar is worthwhile – whether corporate anniversary, wedding or team event in Gummersbach and Oberberg.",
+  "mobileCocktailbarGummersbach.cta.ctaTitle": "Feel free to get in touch!",
+  "footer.cityPages": "Mobile Cocktail Bar by City",
+  "footer.cityPages.koeln": "Cologne",
+  "footer.cityPages.gummersbach": "Gummersbach",
   "footer.tagline":
     "Mixed with heart, for you and your guests. Professional cocktail catering for unforgettable events since 2008.",
 } as const;
