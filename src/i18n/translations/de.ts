@@ -31,8 +31,7 @@ export const de = {
   "hero.title": "Dein Cocktail-Catering Service",
   "home.meta.description":
     "Professionelles Cocktail-Catering für Firmenfeiern, Hochzeiten & Events. Mobile Bar, erfahrene Barkeeper, Region Oberberg & Köln. Jetzt anfragen!",
-  "home.meta.title":
-    "Pfeil's Cocktail Catering | Mobile Cocktailbar Waldbröl – Köln, Bonn, Düsseldorf",
+  "home.meta.title": "Pfeil's Cocktail Catering | Mobile Cocktailbar",
   "anfrage.meta.description":
     "Kontaktieren Sie uns für Ihr Cocktail-Catering. Unverbindliche Anfrage für Firmenfeier, Hochzeit oder Event. Schnelle Rückmeldung.",
   "anfrage.meta.title": "Jetzt anfragen | Pfeil's Cocktail Catering",
@@ -57,8 +56,7 @@ export const de = {
   "hero.blog.title": "Blog – Tipps, Rezepte und Catering-News",
   "datenschutz.meta.description":
     "Datenschutzerklärung von Pfeil's Cocktail Catering. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.",
-  "datenschutz.meta.title":
-    "Datenschutzerklärung | Pfeil's Cocktail Catering",
+  "datenschutz.meta.title": "Datenschutzerklärung | Pfeil's Cocktail Catering",
   "firmenfeier.cta.badge": "Ihr nächster Schritt",
   "firmenfeier.cta.title": "Bereit für Ihr perfektes Event?",
   "firmenfeier.eiscatering.badge": "Kalte Speisen",
@@ -124,8 +122,7 @@ export const de = {
   "firmenfeier.textList.item1.title": "Zusammenhalt stärken",
   "firmenfeier.textList.item2.description":
     "Cocktail-Catering ist mehr als nur Trinken – es ist Entertainment, Interaktion und Genuss in einem. Ihre Gäste erleben etwas Besonderes, das in Erinnerung bleibt.",
-  "firmenfeier.textList.item2.title":
-    "Ein unvergessliches Erlebnis für Gäste",
+  "firmenfeier.textList.item2.title": "Ein unvergessliches Erlebnis für Gäste",
   "firmenfeier.textList.item3.description":
     "Wir übernehmen alles – von der mobilen Bar über die Zutaten bis zum Personal. Sie können sich ganz auf Ihre Gäste konzentrieren, während wir für perfekten Service sorgen.",
   "firmenfeier.textList.item3.title":
@@ -139,8 +136,7 @@ export const de = {
   "firmenfeier.textList.item6.description":
     "Cocktails und Musik? Traumkombi! Die Bar ist oft der Treffpunkt, an dem sich die Gäste zwischen Programmpunkten locker austauschen.",
   "firmenfeier.textList.item6.title": "Exzellente Ergänzung",
-  "firmenfeier.textList.title":
-    "Ihre nächste Firmenfeier – perfekt inszeniert",
+  "firmenfeier.textList.title": "Ihre nächste Firmenfeier – perfekt inszeniert",
   "firmenfeier.weihnachtsmarkt.badge": "Weihnachtsfeier",
   "firmenfeier.weihnachtsmarkt.check1": "Weihnachtliches Fingerfood",
   "firmenfeier.weihnachtsmarkt.check2": "Glühwein & Co.",
@@ -230,7 +226,7 @@ export const de = {
   "hochzeitsfeier.textList.item6.title": "Exzellente Ergänzung",
   "hochzeitsfeier.textList.title": "Ihre Hochzeitsfeier",
   "impressum.meta.description":
-    "Impressum und rechtliche Informationen zu Pfeil's Cocktail Catering Service.",
+    "Impressum mit rechtlichen Angaben, Kontaktdaten und Pflichtinformationen zu Pfeil's Cocktail Catering in Waldbröl.",
   "impressum.meta.title": "Impressum | Pfeil's Cocktail Catering",
   "impressum.title": "Impressum",
   "impressum.contact": "Kontakt",
@@ -486,8 +482,7 @@ export const de = {
     "Ein Erlebnis, das in Erinnerung bleibt",
   "mobileCocktailbar.textList.item6.description":
     "Professionelle Ausstattung, saubere Arbeitsweise und hochwertige Produkte garantieren beste Ergebnisse. Ihre Gäste werden den Unterschied schmecken.",
-  "mobileCocktailbar.textList.item6.title":
-    "Hohe Qualität und frische Zutaten",
+  "mobileCocktailbar.textList.item6.title": "Hohe Qualität und frische Zutaten",
   "mobileCocktailbar.textList.title": "Ihre nächste Firmenfeier",
   "footer.contact": "Kontakt",
   "footer.copyright": "Alle Rechte vorbehalten.",

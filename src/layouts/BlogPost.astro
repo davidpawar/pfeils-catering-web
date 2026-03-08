@@ -4,6 +4,7 @@ import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
 import Button from "../components/ui/Button.astro";
+import { imageProvider } from "../provider/imageProvider";
 import {
   getLangFromUrl,
   useTranslations,
@@ -21,14 +22,19 @@ const {
   author,
   pubDate,
   updatedDate,
-  heroImage,
+  heroImageKey,
   lang: langProp,
 } = Astro.props;
 const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const heroUrl = heroImage ?? "/blog-placeholder-3.jpg";
+const heroImage = heroImageKey ? imageProvider.blog[heroImageKey] : undefined;
+const heroUrl = heroImage
+  ? typeof heroImage.src === "object"
+    ? heroImage.src.src
+    : heroImage.src
+  : "/blog-placeholder-3.jpg";
 
 function formatDate(date: Date, locale: string): string {
   return new Intl.DateTimeFormat(locale, {
@@ -42,7 +48,7 @@ function formatDate(date: Date, locale: string): string {
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={title} description={description} lang={lang} />
+    <BaseHead title={title} description={description} image={heroUrl} lang={lang} />
     <style is:global>
       .blog-content > p:has(> img) {
         display: flex;

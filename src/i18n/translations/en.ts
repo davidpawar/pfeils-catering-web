@@ -30,8 +30,7 @@ export const en = {
   "hero.title": "Your Cocktail Catering Service",
   "home.meta.description":
     "Professional cocktail catering for corporate events, weddings & festivals. Mobile bar, experienced bartenders, Oberberg & Cologne region. Request a quote!",
-  "home.meta.title":
-    "Pfeil's Cocktail Catering | Mobile Cocktail Bar Waldbröl – Cologne, Bonn, Düsseldorf",
+  "home.meta.title": "Pfeil's Cocktail Catering | Mobile Cocktailbar",
   "anfrage.meta.description":
     "Contact us for your cocktail catering. Non-binding enquiry for corporate event, wedding or festival. Quick response.",
   "anfrage.meta.title": "Contact Us | Pfeil's Cocktail Catering",
@@ -68,8 +67,7 @@ export const en = {
   "firmenfeier.eiscatering.check6": "100% Summer Feeling",
   "firmenfeier.eiscatering.description":
     "Treat your team to our ice cream catering – a highlight for any corporate event. Whether classic or creative, our flavours are guaranteed to please everyone. Turn a workday into a real culinary experience.",
-  "firmenfeier.eiscatering.title":
-    "Enjoy delicious ice cream any time of year",
+  "firmenfeier.eiscatering.title": "Enjoy delicious ice cream any time of year",
   "firmenfeier.gallery.badge": "Impressions",
   "firmenfeier.gallery.description":
     "Insights into our events – from the mobile bar to professional service.",
@@ -122,8 +120,7 @@ export const en = {
   "firmenfeier.textList.item1.title": "Strengthen team spirit",
   "firmenfeier.textList.item2.description":
     "Cocktail catering is more than just drinking – it's entertainment, interaction and enjoyment in one. Your guests experience something special that stays in their memory.",
-  "firmenfeier.textList.item2.title":
-    "An unforgettable experience for guests",
+  "firmenfeier.textList.item2.title": "An unforgettable experience for guests",
   "firmenfeier.textList.item3.description":
     "We take care of everything – from the mobile bar to the ingredients and staff. You can focus entirely on your guests while we ensure perfect service.",
   "firmenfeier.textList.item3.title":
@@ -137,8 +134,7 @@ export const en = {
   "firmenfeier.textList.item6.description":
     "Cocktails and music? Dream combination! The bar is often the meeting point where guests casually mingle between program items.",
   "firmenfeier.textList.item6.title": "Excellent complement",
-  "firmenfeier.textList.title":
-    "Your next corporate event – perfectly staged",
+  "firmenfeier.textList.title": "Your next corporate event – perfectly staged",
   "firmenfeier.weihnachtsmarkt.badge": "Christmas Party",
   "firmenfeier.weihnachtsmarkt.check1": "Christmas Finger Food",
   "firmenfeier.weihnachtsmarkt.check2": "Mulled Wine & Co.",
@@ -148,8 +144,7 @@ export const en = {
   "firmenfeier.weihnachtsmarkt.check6": "Pure Surprise!",
   "firmenfeier.weihnachtsmarkt.description":
     "Give your company party a special touch. We also offer a mobile Christmas market, perfect for a Christmas party. The number of huts can be individually adjusted.",
-  "firmenfeier.weihnachtsmarkt.title":
-    "We bring the Christmas market to you!",
+  "firmenfeier.weihnachtsmarkt.title": "We bring the Christmas market to you!",
   "hero.firmenfeier.bullet1": "Tasty Cocktails",
   "hero.firmenfeier.bullet2": "Excellent Service",
   "hero.firmenfeier.bullet3": "All-inclusive Package",
@@ -228,7 +223,7 @@ export const en = {
   "hochzeitsfeier.textList.item6.title": "Excellent complement",
   "hochzeitsfeier.textList.title": "Your wedding celebration",
   "impressum.meta.description":
-    "Imprint and legal information for Pfeil's Cocktail Catering Service.",
+    "Imprint with legal details, contact information and mandatory company information for Pfeil's Cocktail Catering in Waldbröl.",
   "impressum.meta.title": "Imprint | Pfeil's Cocktail Catering",
   "impressum.title": "Imprint",
   "impressum.contact": "Contact",
@@ -473,8 +468,7 @@ export const en = {
     "Perfect for outdoor events and special locations",
   "mobileCocktailbar.textList.item4.description":
     "Experienced bartenders don't just mix cocktails – they also provide entertainment. Flair bartending, expertise and charm included.",
-  "mobileCocktailbar.textList.item4.title":
-    "Personal service with show factor",
+  "mobileCocktailbar.textList.item4.title": "Personal service with show factor",
   "mobileCocktailbar.textList.item5.description":
     "Cocktails mixed live, friendly service and a relaxed atmosphere make an impression. So your event becomes something special – long after it's over.",
   "mobileCocktailbar.textList.item5.title":

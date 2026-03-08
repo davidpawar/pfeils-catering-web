@@ -1,20 +1,23 @@
 ---
 import { getCollection } from "astro:content";
 import BlogIndexLayout from "../../layouts/BlogIndexLayout.astro";
+import { imageProvider } from "../../provider/imageProvider";
 
 const POSTS_PER_PAGE = 6;
 
 const allPosts = (await getCollection("blogDe")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (postA, postB) => postB.data.pubDate.valueOf() - postA.data.pubDate.valueOf(),
 );
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
-const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
-  description: p.data.description,
-  heroImage: p.data.heroImage,
-  id: p.id,
-  pubDate: p.data.pubDate,
-  slug: p.id.replace(/^de\//, ""),
-  title: p.data.title,
+const posts = allPosts.slice(0, POSTS_PER_PAGE).map((blogPost) => ({
+  description: blogPost.data.description,
+  heroImage: blogPost.data.heroImageKey
+    ? imageProvider.blog[blogPost.data.heroImageKey]
+    : undefined,
+  id: blogPost.id,
+  pubDate: blogPost.data.pubDate,
+  slug: blogPost.id.replace(/^de\//, ""),
+  title: blogPost.data.title,
 }));
 ---
 
