@@ -1,6 +1,4 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import "../../styles/global.css";
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const plausibleDomain = Astro.site?.hostname ?? "www.pfeils-catering.de";
 
 const {
   title,
@@ -82,3 +81,235 @@ const {
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script
+  is:inline
+  define:vars={{
+    currentLang: lang ?? "de",
+    plausibleDomain,
+  }}
+>
+  (() => {
+    const BLOCKED_HOSTS = new Set([]);
+    const TRACKING_ENDPOINT = "/api/hello-pfeil";
+    const UTM_STORAGE_KEY = "pfeils_tracking_utm_params";
+    const UTM_PARAM_NAMES = [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+    ];
+    const hostname = window.location.hostname.toLowerCase();
+
+    if (BLOCKED_HOSTS.has(hostname)) {
+      window.trackEvent = () => undefined;
+      return;
+    }
+
+    let hasActivatedTracking = false;
+    let hasSentPageview = false;
+    /** @type {import("../../types/tracking").TrackingEventInput[]} */
+    const queuedEvents = [];
+
+    /**
+     * Reads previously stored UTM values from sessionStorage.
+     * We store them in sessionStorage so campaign attribution survives
+     * internal navigation after the landing URL no longer contains the
+     * original `utm_*` query parameters.
+     */
+    function readStoredUtmParams() {
+      try {
+        const storedValue = window.sessionStorage.getItem(UTM_STORAGE_KEY);
+        if (!storedValue) return {};
+
+        const parsedValue = JSON.parse(storedValue);
+        return parsedValue && typeof parsedValue === "object"
+          ? parsedValue
+          : {};
+      } catch {
+        return {};
+      }
+    }
+
+    /**
+     * Persists UTM parameters for the current browser session.
+     * This keeps the original landing-page campaign context available for
+     * later pageviews and custom events sent from the same browser tab.
+     */
+    function storeUtmParams(params) {
+      try {
+        window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(params));
+      } catch {
+        // Ignore storage errors so tracking still works in restricted environments.
+      }
+    }
+
+    /**
+     * Collects UTM parameters from the current URL when the visitor first lands
+     * on the site, then falls back to the values already stored for this session.
+     * This makes sure later events can still be attributed even if the current
+     * page URL no longer includes the original campaign parameters.
+     */
+    function captureUtmParams() {
+      const searchParams = new URLSearchParams(window.location.search);
+      const currentUtmParams = {};
+
+      // Only copy the campaign parameters we explicitly want to forward.
+      for (const paramName of UTM_PARAM_NAMES) {
+        const value = searchParams.get(paramName);
+        if (value) {
+          currentUtmParams[paramName] = value;
+        }
+      }
+
+      if (Object.keys(currentUtmParams).length > 0) {
+        // Fresh URL params win over older stored values from the same session.
+        const mergedUtmParams = {
+          ...readStoredUtmParams(),
+          ...currentUtmParams,
+        };
+
+        storeUtmParams(mergedUtmParams);
+        return mergedUtmParams;
+      }
+
+      return readStoredUtmParams();
+    }
+
+    const utmParams = captureUtmParams();
+
+    /**
+     * Builds the URL to send to Plausible. Plausible extracts UTM parameters
+     * from the `url` field only, not from props. So we append stored UTM params
+     * when the current URL no longer has them (e.g. after client-side navigation).
+     */
+    function buildTrackingUrl() {
+      let urlToSend = window.location.href;
+      if (Object.keys(utmParams).length === 0) return urlToSend;
+
+      const currentUrl = new URL(urlToSend);
+      const hasUtm = UTM_PARAM_NAMES.some((name) =>
+        currentUrl.searchParams.has(name),
+      );
+      if (!hasUtm) {
+        for (const [key, value] of Object.entries(utmParams)) {
+          currentUrl.searchParams.set(key, String(value));
+        }
+        urlToSend = currentUrl.toString();
+      }
+      return urlToSend;
+    }
+
+    /**
+     * Sends one event to our server-side tracking proxy.
+     * The proxy forwards the event to Plausible and keeps the browser isolated
+     * from the external analytics endpoint.
+     */
+    async function sendAnalyticsEvent(event) {
+      const response = await fetch(TRACKING_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          domain: plausibleDomain,
+          lang: currentLang,
+          // Plausible uses the top-level `name` field as the primary event label.
+          name: event.eventAction,
+          // Merge the stored UTM values into every event so Plausible keeps the
+          // original campaign attribution for later interactions in the session.
+          props: {
+            eventAction: event.eventAction,
+            eventCategory: event.eventCategory,
+            eventName: event.eventName ?? null,
+            ...utmParams,
+            ...event.props,
+          },
+          referrer: document.referrer || undefined,
+          // Plausible extracts UTM from the URL only. Append stored UTM when missing.
+          url: buildTrackingUrl(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `Analytics request failed with status ${response.status}`,
+        );
+      }
+    }
+
+    /**
+     * Replays events that were queued before tracking became active.
+     * This prevents early interactions from being lost.
+     */
+    function flushQueuedEvents() {
+      while (queuedEvents.length > 0) {
+        const queuedEvent = queuedEvents.shift();
+        if (!queuedEvent) continue;
+        sendAnalyticsEvent(queuedEvent).catch(() => undefined);
+      }
+    }
+
+    /**
+     * Enables tracking after the first real user interaction.
+     * We also send the initial pageview only once from here.
+     */
+    function activateTracking() {
+      if (hasActivatedTracking) return;
+
+      hasActivatedTracking = true;
+
+      if (!hasSentPageview) {
+        hasSentPageview = true;
+        // The first pageview acts as the session entry point in Plausible.
+        sendAnalyticsEvent({
+          eventAction: "PAGEVIEW",
+          eventCategory: "PAGE",
+          props: { lang: currentLang },
+        }).catch(() => undefined);
+      }
+
+      flushQueuedEvents();
+    }
+
+    /**
+     * Small wrapper used by multiple event listeners so activation logic
+     * stays in one place.
+     */
+    function handleHumanInteraction() {
+      activateTracking();
+    }
+
+    /**
+     * Global helper for custom frontend tracking events.
+     */
+    window.trackEvent = (event) => {
+      if (!event?.eventAction || typeof event.eventAction !== "string") return;
+      if (!event?.eventCategory || typeof event.eventCategory !== "string")
+        return;
+
+      if (!hasActivatedTracking) {
+        // Queue events until we are sure there was actual human interaction.
+        queuedEvents.push(event);
+        return;
+      }
+
+      sendAnalyticsEvent(event).catch(() => undefined);
+    };
+
+    // Tracking only becomes active after a lightweight interaction signal.
+    window.addEventListener("mousemove", handleHumanInteraction, {
+      once: true,
+      passive: true,
+    });
+    window.addEventListener("touchmove", handleHumanInteraction, {
+      once: true,
+      passive: true,
+    });
+    window.addEventListener("keydown", handleHumanInteraction, {
+      once: true,
+      passive: true,
+    });
+  })();
+</script>
