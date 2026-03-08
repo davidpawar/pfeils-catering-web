@@ -1,0 +1,168 @@
+---
+import BaseHead from "../../components/base/BaseHead.astro";
+import Footer from "../../components/base/Footer.astro";
+import Navigation from "../../components/base/Navigation.astro";
+import CallToAction from "../../components/widgets/CallToAction.astro";
+import FAQ from "../../components/widgets/FAQ.astro";
+import HeroSubpage from "../../components/widgets/HeroSubpage.astro";
+import ImageGalleryMasonry from "../../components/widgets/ImageGalleryMasonry.astro";
+import ImageText from "../../components/widgets/ImageText.astro";
+import ItemList from "../../components/widgets/ItemList.astro";
+import TextBlock from "../../components/widgets/TextBlock.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+import { imageProvider } from "../../provider/imageProvider";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const locationItems = [
+  {
+    title: t("mobileCocktailbarGummersbach.locations.item1.title"),
+    description: t("mobileCocktailbarGummersbach.locations.item1.description"),
+  },
+  {
+    title: t("mobileCocktailbarGummersbach.locations.item2.title"),
+    description: t("mobileCocktailbarGummersbach.locations.item2.description"),
+  },
+  {
+    title: t("mobileCocktailbarGummersbach.locations.item3.title"),
+    description: t("mobileCocktailbarGummersbach.locations.item3.description"),
+  },
+];
+
+const occasionItems = [
+  {
+    title: t("mobileCocktailbarGummersbach.occasions.item1.title"),
+    description: t("mobileCocktailbarGummersbach.occasions.item1.description"),
+  },
+  {
+    title: t("mobileCocktailbarGummersbach.occasions.item2.title"),
+    description: t("mobileCocktailbarGummersbach.occasions.item2.description"),
+  },
+  {
+    title: t("mobileCocktailbarGummersbach.occasions.item3.title"),
+    description: t("mobileCocktailbarGummersbach.occasions.item3.description"),
+  },
+];
+
+const faqItems = [
+  {
+    question: t("mobileCocktailbarGummersbach.faq.q1"),
+    answer: t("mobileCocktailbarGummersbach.faq.a1"),
+  },
+  {
+    question: t("mobileCocktailbarGummersbach.faq.q2"),
+    answer: t("mobileCocktailbarGummersbach.faq.a2"),
+  },
+  {
+    question: t("mobileCocktailbarGummersbach.faq.q3"),
+    answer: t("mobileCocktailbarGummersbach.faq.a3"),
+  },
+];
+
+const gummersbachHeroUrl =
+  typeof imageProvider.hero.mobileCocktailbarBackground.src === "object"
+    ? imageProvider.hero.mobileCocktailbarBackground.src.src
+    : imageProvider.hero.mobileCocktailbarBackground.src;
+
+const galleryItems = [
+  { image: imageProvider.events.firmenfeier },
+  { image: imageProvider.catering.cocktailService },
+  { image: imageProvider.catering.bambusbar },
+  { image: imageProvider.catering.bambusbarAbend },
+  { image: imageProvider.blog.bartenderCocktailShaker },
+  { image: imageProvider.events.messe },
+];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead
+      title={t("mobileCocktailbarGummersbach.meta.title")}
+      description={t("mobileCocktailbarGummersbach.meta.description")}
+      lang={lang}
+    />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        <HeroSubpage
+          title={t("mobileCocktailbarGummersbach.hero.title")}
+          imageUrl={gummersbachHeroUrl}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbarGummersbach.intro.badge")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("mobileCocktailbarGummersbach.intro.bullet1"),
+            t("mobileCocktailbarGummersbach.intro.bullet2"),
+            t("mobileCocktailbarGummersbach.intro.bullet3"),
+          ]}
+          description={t("mobileCocktailbarGummersbach.intro.description")}
+          image={imageProvider.cocktails.erdbeerMojito}
+          imagePosition="left"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("mobileCocktailbarGummersbach.intro.title")}
+        />
+        <TextBlock
+          badge={t("mobileCocktailbarGummersbach.whyGummersbach.badge")}
+          content={`<p>${t("mobileCocktailbarGummersbach.whyGummersbach.description")}</p>`}
+          theme="light"
+          title={t("mobileCocktailbarGummersbach.whyGummersbach.title")}
+        />
+        <ItemList
+          badge={t("mobileCocktailbarGummersbach.locations.badge")}
+          columns={2}
+          description=""
+          items={locationItems}
+          title={t("mobileCocktailbarGummersbach.locations.title")}
+          theme="grey"
+        />
+        <ItemList
+          badge={t("mobileCocktailbarGummersbach.occasions.badge")}
+          columns={3}
+          description=""
+          items={occasionItems}
+          title={t("mobileCocktailbarGummersbach.occasions.title")}
+          theme="light"
+        />
+        <ImageGalleryMasonry
+          badgeText={t("mobileCocktailbarGummersbach.gallery.badge")}
+          sectionTitle={t("mobileCocktailbarGummersbach.gallery.title")}
+          sectionDescription={t("mobileCocktailbarGummersbach.gallery.description")}
+          items={galleryItems}
+        />
+        <TextBlock
+          badge={t("mobileCocktailbarGummersbach.process.badge")}
+          content={t("mobileCocktailbarGummersbach.process.content")}
+          theme="light"
+          title={t("mobileCocktailbarGummersbach.process.title")}
+        />
+        <FAQ
+          badge={t("mobileCocktailbarGummersbach.faq.badge")}
+          description={t("mobileCocktailbarGummersbach.faq.description")}
+          items={faqItems}
+          theme="grey"
+          title={t("mobileCocktailbarGummersbach.faq.title")}
+        />
+        <CallToAction
+          badge={t("mobileCocktailbarKoln.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="light"
+          title={t("mobileCocktailbarGummersbach.cta.ctaTitle")}
+        />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
+

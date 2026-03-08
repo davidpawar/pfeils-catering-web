@@ -27,6 +27,12 @@ const quickLinks = [
   },
   { label: t("nav.anfrage"), href: translatePath("/anfrage/") },
 ];
+
+// Städte-Seiten: Erweiterbar für weitere Orte (z.B. Bonn, Düsseldorf)
+const cityPages = [
+  { label: t("footer.cityPages.koeln"), href: translatePath("/einsatzgebiete/koeln/") },
+  { label: t("footer.cityPages.gummersbach"), href: translatePath("/einsatzgebiete/gummersbach/") },
+];
 ---
 
 <footer class="bg-dark-bg text-white">
@@ -157,6 +163,25 @@ const quickLinks = [
         </div>
       </div>
     </div>
+
+    <!-- Städte-Seiten: Mobile Cocktailbar nach Stadt (erweiterbar) -->
+    {cityPages.length > 0 && (
+      <div class="mt-12 border-t border-white/10 pt-10 md:mt-16 md:pt-12">
+        <p class="mb-4 font-anton text-lg md:mb-6 md:text-xl">
+          {t("footer.cityPages")}
+        </p>
+        <nav class="flex flex-wrap gap-x-6 gap-y-2">
+          {cityPages.map((link) => (
+            <a
+              href={link.href}
+              class="text-base text-white/70 transition-colors duration-300 hover:text-primary md:text-lg"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    )}
   </div>
 
   <!-- Bottom Bar -->

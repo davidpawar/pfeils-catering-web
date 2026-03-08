@@ -21,6 +21,7 @@ import firmenfeier from "../assets/images/events/firmenfeier.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
 import individuellHero from "../assets/images/hero/individuell-hero.jpg";
 import ipanema from "../assets/images/cocktails/ipanema.jpg";
+import koelnDomBruecke from "../assets/images/hero/koeln-dom-bruecke.jpg";
 import messeHero from "../assets/images/hero/messe-hero.jpg";
 import mobileCocktailbarHero from "../assets/images/hero/mobile-cocktailbar-hero.jpg";
 import mitarbeiterin from "../assets/images/catering/mitarbeiterin.jpg";
@@ -210,6 +211,11 @@ export const imageProvider: ImageProvider = {
       alt: "Individuelles Cocktail-Catering nach Ihren Wünschen",
       altEn: "Individual cocktail catering according to your wishes",
       src: individuellHero,
+    },
+    koelnDomBruecke: {
+      alt: "Nächtliche Skyline von Köln mit Kölner Dom und Hohenzollernbrücke am Rhein",
+      altEn: "Night skyline of Cologne with Cologne Cathedral and Hohenzollern Bridge on the Rhine",
+      src: koelnDomBruecke,
     },
     messeBackground: {
       alt: "Cocktail-Bar auf einer Messe – professioneller Barservice am Messestand",

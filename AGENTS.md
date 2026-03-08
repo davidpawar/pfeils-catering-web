@@ -10,6 +10,7 @@ This file is the working guide for AI agents and content teams. Its job is to he
 - use the existing components instead of inventing new structures
 - register and reuse images correctly
 - keep German and English content in sync
+- ensure pages and components are responsive across devices
 
 Use the existing patterns first. Prefer consistency over creativity.
 
@@ -197,11 +198,13 @@ Always guard with `typeof window.trackEvent === "function"` so components work o
 
 Use UPPERCASE_SNAKE_CASE for all event values.
 
-| Layer | Meaning | Example |
-|-------|---------|---------|
-| **eventAction** | What happened | `CONTACT_FORM_STARTED`, `FAQ_ITEM_OPENED` |
-| **eventCategory** | Where it happened | `CONTACT_FORM`, `FAQ`, `PAGE` |
-| **eventName** | Which element was affected (optional) | `PRICING_QUESTION`, `DELIVERY_AREA` |
+
+| Layer             | Meaning                               | Example                                   |
+| ----------------- | ------------------------------------- | ----------------------------------------- |
+| **eventAction**   | What happened                         | `CONTACT_FORM_STARTED`, `FAQ_ITEM_OPENED` |
+| **eventCategory** | Where it happened                     | `CONTACT_FORM`, `FAQ`, `PAGE`             |
+| **eventName**     | Which element was affected (optional) | `PRICING_QUESTION`, `DELIVERY_AREA`       |
+
 
 - `eventAction` and `eventCategory` are required.
 - `eventName` is optional. Use it when a specific element is involved (e.g. which FAQ item was opened).
@@ -530,6 +533,25 @@ Use this when:
 - rendering one blog article from MDX content
 - an AI should turn article content into a proper blog detail page
 
+## Widget Color Alternation
+
+Widgets use three themes: `light` (white), `grey` (slate-100), and `dark` (dark-bg).
+
+**Rule:** Never place two sections with the same background color back-to-back. Always alternate: light → grey or dark, grey → light or dark, dark → light or grey.
+
+**Footer rule:** The last section before the footer must not use the same color as the footer. The footer is dark (`bg-dark-bg`), so the final widget on the page must be `light` or `grey`, never `dark`.
+
+When assembling pages, check the sequence of `theme` props and ensure no two adjacent sections share the same theme.
+
+## Responsive Design
+
+**Rule:** All pages and components must be responsive. They must work correctly on mobile, tablet, and desktop viewports.
+
+- Use fluid layouts, flexible images, and appropriate breakpoints.
+- Test new or modified layouts at different screen widths.
+- Do not introduce fixed widths that cause horizontal overflow on small screens.
+- Existing widgets and layouts are built to be responsive; follow their patterns when adding content.
+
 ## Common Page Patterns
 
 ### Homepage pattern
@@ -615,6 +637,10 @@ Rules:
 
 ### Do
 
+- every German page must have an English variant – both page files and `routes.en` entry
+- ensure all pages and components are responsive – work on mobile, tablet, and desktop
+- ensure the LanguagePicker shows the correct link for every localized page – `getRouteFromUrl` must resolve nested paths (e.g. `einsatzgebiete/koeln`) and `routes.en` must contain the mapping
+- alternate widget themes (light, grey, dark) – never two same-colored sections in a row; last section before footer must not be dark
 - keep German and English in sync
 - use UPPERCASE_SNAKE_CASE for tracking event values (`eventAction`, `eventCategory`, `eventName`)
 - reuse existing component patterns
@@ -627,6 +653,8 @@ Rules:
 
 ### Do not
 
+- create layouts that break or overflow on small screens
+- place two sections with the same theme (light, grey, dark) consecutively
 - add new copy only in English
 - hardcode visible text in pages when it belongs in translations
 - use raw image paths when a provider image should exist

@@ -6,7 +6,7 @@
  * default language in the URL.
  */
 
-import { ui, defaultLang, showDefaultLang, routes } from "./translations";
+import { ui, defaultLang, showDefaultLang, routes, canonicalPaths } from "./translations";
 
 /**
  * Determines the current language from the URL path.
@@ -80,10 +80,10 @@ export function getRouteFromUrl(url: URL): string | undefined {
   const pathname = new URL(url).pathname;
   const parts = pathname.split("/").filter(Boolean);
   const currentLang = getLangFromUrl(url);
-  // Default lang: first segment is the path; other langs: path is after locale prefix
+  // Full path: for nested routes (e.g. einsatzgebiete/koeln)
   const path =
     currentLang === defaultLang
-      ? (parts[0] ?? "")
+      ? (parts.join("/") ?? "")
       : (parts.slice(1).join("/") ?? "");
 
   if (path === "") {
@@ -91,15 +91,20 @@ export function getRouteFromUrl(url: URL): string | undefined {
   }
 
   if (defaultLang === currentLang) {
-    // Path is already the canonical key; verify it exists in route mappings
+    // Path is DE path; check flattened form in route mappings
     const route = Object.values(routes)[0] as Record<string, string>;
-    return path in route ? path : undefined;
+    const pathNormalized = path.replaceAll("/", "");
+    const existsInRoute = pathNormalized in route;
+    // Return path with slashes for translatePath (use canonicalPaths if available)
+    return existsInRoute
+      ? (canonicalPaths[pathNormalized] ?? path)
+      : undefined;
   }
 
   const routeForLang = routes[currentLang as keyof typeof routes];
   if (!routeForLang) return undefined;
 
-  // Reverse lookup: find the key whose value matches the current path
+  // Reverse lookup: find the key whose value matches the current path (full path or first segment)
   const getKeyByValue = (
     obj: Record<string, string>,
     value: string,
@@ -107,11 +112,10 @@ export function getRouteFromUrl(url: URL): string | undefined {
     return Object.keys(obj).find((key) => obj[key] === value);
   };
 
-  // For nested paths (e.g. blog/post-1), use first segment for lookup
-  const pathSegment = path.split("/")[0] ?? path;
-  const reversedKey = getKeyByValue(
-    routeForLang as Record<string, string>,
-    pathSegment,
-  );
-  return reversedKey ?? undefined;
+  // Try full path first (e.g. "service-areas/cologne"), then first segment
+  const reversedKey =
+    getKeyByValue(routeForLang as Record<string, string>, path) ??
+    getKeyByValue(routeForLang as Record<string, string>, path.split("/")[0] ?? path);
+
+  return reversedKey ? (canonicalPaths[reversedKey] ?? reversedKey) : undefined;
 }
