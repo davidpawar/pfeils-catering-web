@@ -1,12 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
+import { getImageAlt } from "../../provider/imageProvider";
+import type { ImageAsset } from "../../provider/imageProvider";
 
 /**
  * Single blog post entry for the list.
  */
 interface BlogPostItem {
   description: string;
-  heroImage?: string;
+  heroImage?: ImageAsset;
   id: string;
   pubDate: Date;
   slug: string;
@@ -115,6 +118,7 @@ const sectionBgClass = isDark
 const titleClass = isDark ? "text-white" : "text-dark";
 const descClass = isDark ? "text-white/80" : "text-dark/70";
 const dateClass = isDark ? "text-primary-light" : "text-primary";
+const lang = locale.startsWith("en") ? "en" : "de";
 const cardBgClass = isDark
   ? "bg-white/5"
   : isGrey
@@ -190,13 +194,25 @@ function formatDate(date: Date, locale: string): string {
                 class="block aspect-video overflow-hidden"
                 aria-label={post.title}
               >
-                <img
-                  width={720}
-                  height={400}
-                  src={post.heroImage ?? "/blog-placeholder-3.jpg"}
-                  alt=""
-                  class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
+                {
+                  post.heroImage ? (
+                    <Image
+                      src={post.heroImage.src as import("astro").ImageMetadata}
+                      alt={getImageAlt(post.heroImage, lang)}
+                      width={720}
+                      height={400}
+                      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      width={720}
+                      height={400}
+                      src="/blog-placeholder-3.jpg"
+                      alt={post.title}
+                      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    />
+                  )
+                }
               </a>
               <div class="flex flex-1 flex-col p-6 md:p-8">
                 <time

@@ -1,5 +1,8 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
+import { imageProvider } from "./provider/imageProvider";
+
+const blogImageKeys = Object.keys(imageProvider.blog) as [string, ...string[]];
 
 const blogSchema = z.object({
 	title: z.string(),
@@ -7,7 +10,7 @@ const blogSchema = z.object({
 	author: z.string().optional(),
 	pubDate: z.coerce.date(),
 	updatedDate: z.coerce.date().optional(),
-	heroImage: z.string().optional(),
+	heroImageKey: z.enum(blogImageKeys).optional(),
 	lang: z.enum(["de", "en"]).optional(),
 });
 

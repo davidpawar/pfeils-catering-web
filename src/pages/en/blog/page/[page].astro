@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogIndexLayout from "../../../../layouts/BlogIndexLayout.astro";
+import { imageProvider } from "../../../../provider/imageProvider";
 
 export async function getStaticPaths() {
   const postsPerPage = 6;
@@ -24,7 +25,9 @@ const currentPage = Math.min(Math.max(1, pageNum), totalPages);
 const start = (currentPage - 1) * POSTS_PER_PAGE;
 const posts = allPosts.slice(start, start + POSTS_PER_PAGE).map((p) => ({
   description: p.data.description,
-  heroImage: p.data.heroImage,
+  heroImage: p.data.heroImageKey
+    ? imageProvider.blog[p.data.heroImageKey]
+    : undefined,
   id: p.id,
   pubDate: p.data.pubDate,
   slug: p.id.replace(/^en\//, ""),

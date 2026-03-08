@@ -9,6 +9,7 @@ import Navigation from "../components/base/Navigation.astro";
 import BlogPostList from "../components/widgets/BlogPostList.astro";
 import HeroSubpage from "../components/widgets/HeroSubpage.astro";
 import headerBg from "../assets/images/hero/header-background.jpg";
+import type { ImageAsset } from "../provider/imageProvider";
 import type { ui } from "../i18n/translations";
 import {
   getLangFromUrl,
@@ -27,7 +28,7 @@ export interface BlogPostItem {
   /**
    * Hero image of the blog post.
    */
-  heroImage?: string;
+  heroImage?: ImageAsset;
   /**
    * ID of the blog post.
    */
