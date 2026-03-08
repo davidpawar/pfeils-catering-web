@@ -496,13 +496,13 @@ export const en = {
     "Cologne is a media city, carnival stronghold and business hub all in one. Corporate parties in Deutz or Mülheim, weddings in historic villas in Rodenkirchen, summer parties by the Rhine – Cologne's event landscape is diverse. Our mobile cocktail bar fits every setting: from exclusive galleries to relaxed garden parties in Nippes. We know the typical venues and deliver what makes Cologne special: relaxed atmosphere, quality and a touch of Rhineland lifestyle.",
   "mobileCocktailbarKoln.locations.badge": "Venues",
   "mobileCocktailbarKoln.locations.title": "Where we serve you in Cologne",
-  "mobileCocktailbarKoln.locations.item1.title": "Rheinauhafen & Old Town",
+  "mobileCocktailbarKoln.locations.item1.title": "Rheinauhafen & Altstadt",
   "mobileCocktailbarKoln.locations.item1.description":
     "Lofts, event halls and terraces with Rhine views – the Rheinauhafen backdrop is ideal for corporate events and special celebrations. We deliver the bar and the service.",
   "mobileCocktailbarKoln.locations.item2.title": "Deutz & Mülheim",
   "mobileCocktailbarKoln.locations.item2.description":
     "Companies, trade fairs and creative spaces: many corporate parties take place in Deutz and Mülheim. Short distance from Waldbröl – we arrive on time.",
-  "mobileCocktailbarKoln.locations.item3.title": "Rodenkirchen & South",
+  "mobileCocktailbarKoln.locations.item3.title": "Rodenkirchen & Kölner Süden",
   "mobileCocktailbarKoln.locations.item3.description":
     "Weddings in villas, garden parties by the Rhine – Cologne's south offers idyllic venues. Our mobile bar blends seamlessly into your setting.",
   "mobileCocktailbarKoln.locations.item4.title": "Nippes, Ehrenfeld & North Cologne",

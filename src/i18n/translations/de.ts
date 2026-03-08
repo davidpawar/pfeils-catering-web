@@ -508,7 +508,7 @@ export const de = {
   "mobileCocktailbarKoln.locations.item2.title": "Deutz & Mülheim",
   "mobileCocktailbarKoln.locations.item2.description":
     "Unternehmen, Messen und kreative Räume: In Deutz und Mülheim finden viele Firmenfeiern statt. Kurze Wege von Waldbröl aus – wir sind pünktlich vor Ort.",
-  "mobileCocktailbarKoln.locations.item3.title": "Rodenkirchen & Süden",
+  "mobileCocktailbarKoln.locations.item3.title": "Rodenkirchen & Kölner Süden",
   "mobileCocktailbarKoln.locations.item3.description":
     "Hochzeiten in Villen, Gartenpartys am Rhein – der Kölner Süden bietet idyllische Locations. Unsere mobile Bar fügt sich nahtlos in Ihr Ambiente ein.",
   "mobileCocktailbarKoln.locations.item4.title": "Nippes, Ehrenfeld & Kölner Norden",
