@@ -396,6 +396,7 @@ const iconBoxStaticClass = isDark
     const errorMessage = document.getElementById(
       "contact-result-error-message",
     );
+    let hasTrackedFormStart = false;
 
     /**
      * Opens the result overlay.
@@ -441,6 +442,19 @@ const iconBoxStaticClass = isDark
     // If the form is not found, return early.
     if (!form) return;
 
+    form.addEventListener("focusin", () => {
+      if (hasTrackedFormStart) return;
+
+      hasTrackedFormStart = true;
+
+      if (typeof window.trackEvent === "function") {
+        window.trackEvent({
+          eventAction: "CONTACT_FORM_STARTED",
+          eventCategory: "CONTACT_FORM",
+        });
+      }
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -470,6 +484,13 @@ const iconBoxStaticClass = isDark
 
         // If the response is ok, show the success state.
         if (res.ok) {
+          if (typeof window.trackEvent === "function") {
+            window.trackEvent({
+              eventAction: "CONTACT_FORM_SUBMITTED",
+              eventCategory: "CONTACT_FORM",
+            });
+          }
+
           form.reset();
           openOverlay("success");
         } else {

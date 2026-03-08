@@ -168,6 +168,84 @@ Examples:
 
 Do not invent a third pattern. Follow the existing pattern of the page you are editing unless the team explicitly standardizes it later.
 
+## Tracking Workflow
+
+### Where tracking lives
+
+- The global `window.trackEvent` helper is set up in `src/components/base/BaseHead.astro`.
+- Events are sent to the server-side proxy at `/api/hello-pfeil`, which forwards them to Plausible.
+- Shared types and the `Window` augmentation live in `src/types/tracking.ts` and `src/env.d.ts`.
+
+### How to track events
+
+Call `window.trackEvent` with an event object. Tracking only becomes active after the first human interaction (mousemove, touchmove, or keydown). Events fired before that are queued and sent once tracking is active.
+
+```javascript
+if (typeof window.trackEvent === "function") {
+  window.trackEvent({
+    eventAction: "CONTACT_FORM_STARTED",
+    eventCategory: "CONTACT_FORM",
+    eventName: "OPTIONAL_ELEMENT_ID",
+    props: { form_id: "contact-form" },
+  });
+}
+```
+
+Always guard with `typeof window.trackEvent === "function"` so components work on blocked hosts (e.g. localhost) where tracking is disabled.
+
+### The three-layer model
+
+Use UPPERCASE_SNAKE_CASE for all event values.
+
+| Layer | Meaning | Example |
+|-------|---------|---------|
+| **eventAction** | What happened | `CONTACT_FORM_STARTED`, `FAQ_ITEM_OPENED` |
+| **eventCategory** | Where it happened | `CONTACT_FORM`, `FAQ`, `PAGE` |
+| **eventName** | Which element was affected (optional) | `PRICING_QUESTION`, `DELIVERY_AREA` |
+
+- `eventAction` and `eventCategory` are required.
+- `eventName` is optional. Use it when a specific element is involved (e.g. which FAQ item was opened).
+- `props` is optional. Use it for extra metadata like `form_id`, `lang`, or UTM data (UTM is added automatically from sessionStorage).
+
+### Examples
+
+**Contact form** (no `eventName`; the form itself is the context):
+
+```javascript
+window.trackEvent({
+  eventAction: "CONTACT_FORM_STARTED",
+  eventCategory: "CONTACT_FORM",
+});
+
+window.trackEvent({
+  eventAction: "CONTACT_FORM_SUBMITTED",
+  eventCategory: "CONTACT_FORM",
+});
+```
+
+**FAQ accordion** (with `eventName` for the opened item):
+
+```javascript
+window.trackEvent({
+  eventAction: "FAQ_ITEM_OPENED",
+  eventCategory: "FAQ",
+  eventName: "PRICING_QUESTION",
+});
+```
+
+**Pageview** (handled automatically by BaseHead):
+
+```javascript
+// eventAction: "PAGEVIEW", eventCategory: "PAGE"
+```
+
+### Important tracking rules
+
+- Use UPPERCASE_SNAKE_CASE for `eventAction`, `eventCategory`, and `eventName`.
+- Do not invent new event names without checking existing ones in `ContactForm.astro` and `BaseHead.astro`.
+- UTM parameters from the landing URL are captured and merged into every event automatically.
+- The API endpoint is `/api/hello-pfeil` (not `/api/analytics` or similar).
+
 ## Component Catalog
 
 Choose components by content goal, not by implementation details. The point of this section is fast matching:
@@ -538,6 +616,7 @@ Rules:
 ### Do
 
 - keep German and English in sync
+- use UPPERCASE_SNAKE_CASE for tracking event values (`eventAction`, `eventCategory`, `eventName`)
 - reuse existing component patterns
 - use `imageProvider` for reusable site imagery
 - write meaningful `alt` and `altEn` text

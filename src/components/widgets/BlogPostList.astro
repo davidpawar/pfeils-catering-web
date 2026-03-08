@@ -194,25 +194,23 @@ function formatDate(date: Date, locale: string): string {
                 class="block aspect-video overflow-hidden"
                 aria-label={post.title}
               >
-                {
-                  post.heroImage ? (
-                    <Image
-                      src={post.heroImage.src as import("astro").ImageMetadata}
-                      alt={getImageAlt(post.heroImage, lang)}
-                      width={720}
-                      height={400}
-                      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                    />
-                  ) : (
-                    <img
-                      width={720}
-                      height={400}
-                      src="/blog-placeholder-3.jpg"
-                      alt={post.title}
-                      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                    />
-                  )
-                }
+                {post.heroImage ? (
+                  <Image
+                    src={post.heroImage.src as import("astro").ImageMetadata}
+                    alt={getImageAlt(post.heroImage, lang)}
+                    width={720}
+                    height={400}
+                    class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                ) : (
+                  <img
+                    width={720}
+                    height={400}
+                    src="/blog-placeholder-3.jpg"
+                    alt={post.title}
+                    class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                )}
               </a>
               <div class="flex flex-1 flex-col p-6 md:p-8">
                 <time
@@ -245,7 +243,7 @@ function formatDate(date: Date, locale: string): string {
                   class="mt-auto w-fit"
                   size="sm"
                 >
-                  {`${readMoreText}: ${post.title}`}
+                  {`${readMoreText}`}
                 </Button>
               </div>
             </article>
