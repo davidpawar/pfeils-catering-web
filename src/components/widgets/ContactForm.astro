@@ -212,6 +212,24 @@ const iconBoxStaticClass = isDark
           <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
               <label
+                for="phone"
+                class:list={[
+                  "block font-outfit text-sm font-medium",
+                  labelClass,
+                ]}
+              >
+                Telefon
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class={inputBgClass}
+                placeholder="z.B. 0178 498 85 21"
+              />
+            </div>
+            <div>
+              <label
                 for="guests"
                 class:list={[
                   "block font-outfit text-sm font-medium",
@@ -280,12 +298,14 @@ const iconBoxStaticClass = isDark
               for="message"
               class:list={["block font-outfit text-sm font-medium", labelClass]}
             >
-              Erzählen Sie uns etwas über Ihre Feier
+              Erzählen Sie uns etwas über Ihre Feier{" "}
+              <span class="text-primary">*</span>
             </label>
             <textarea
               id="message"
               name="message"
               rows={5}
+              required
               class={inputBgClass}
               placeholder="Beschreiben Sie Ihren Anlass, Wünsche oder Fragen …"
             ></textarea>
@@ -294,7 +314,7 @@ const iconBoxStaticClass = isDark
           <div>
             <button
               type="submit"
-              class="inline-flex min-h-12 w-fit items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-light px-6 py-3 font-outfit text-base font-medium text-white transition-all duration-300 hover:shadow-lg md:min-h-14 md:px-8 md:py-4 md:text-lg"
+              class="inline-flex min-h-12 w-fit cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-light px-6 py-3 font-outfit text-base font-medium text-white transition-all duration-300 hover:shadow-lg md:min-h-14 md:px-8 md:py-4 md:text-lg"
             >
               Abschicken
             </button>

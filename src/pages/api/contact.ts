@@ -43,11 +43,13 @@ function buildConfirmationEmailHtml(data: {
   email: string;
   guests?: string;
   location?: string;
-  message?: string;
+  message: string;
   name: string;
+  phone?: string;
   source?: string;
 }): string {
   const details: string[] = [];
+  if (data.phone) details.push(buildDetailRow("Telefon", data.phone));
   if (data.date) details.push(buildDetailRow("Datum", data.date));
   if (data.guests) details.push(buildDetailRow("Gästeanzahl", data.guests));
   if (data.location)
@@ -58,13 +60,11 @@ function buildConfirmationEmailHtml(data: {
   }
   const detailsHtml = details.length > 0 ? details.join("") : "";
 
-  const messageBlock = data.message
-    ? `
+  const messageBlock = `
   <div style="${EMAIL_LAYOUT.messageBlock}">
     <p style="${EMAIL_LAYOUT.label}">Ihre Nachricht</p>
     <p style="${EMAIL_LAYOUT.messageText}">${escapeHtml(data.message)}</p>
-  </div>`
-    : "";
+  </div>`;
 
   return `
 <!DOCTYPE html>
@@ -115,8 +115,9 @@ function buildEmailHtml(data: {
   email: string;
   guests?: string;
   location?: string;
-  message?: string;
+  message: string;
   name: string;
+  phone?: string;
   source?: string;
 }): string {
   const emailLink = `<a href="mailto:${escapeHtml(data.email)}" style="color:#0041c2;text-decoration:none">${escapeHtml(data.email)}</a>`;
@@ -124,6 +125,7 @@ function buildEmailHtml(data: {
     buildDetailRow("Name", data.name),
     `<div style="${EMAIL_LAYOUT.detailRow}"><p style="${EMAIL_LAYOUT.label}">E-Mail</p><p style="${EMAIL_LAYOUT.value}">${emailLink}</p></div>`,
   ];
+  if (data.phone) rows.push(buildDetailRow("Telefon", data.phone));
   if (data.date) rows.push(buildDetailRow("Datum", data.date));
   if (data.guests) rows.push(buildDetailRow("Gästeanzahl", data.guests));
   if (data.location)
@@ -132,13 +134,11 @@ function buildEmailHtml(data: {
     const label = SOURCE_LABELS[data.source] ?? data.source;
     rows.push(buildDetailRow("Woher kennen Sie uns?", label));
   }
-  const messageBlock = data.message
-    ? `
+  const messageBlock = `
   <div style="${EMAIL_LAYOUT.messageBlock}">
     <p style="${EMAIL_LAYOUT.label}">Nachricht</p>
     <p style="${EMAIL_LAYOUT.messageText}">${escapeHtml(data.message)}</p>
-  </div>`
-    : "";
+  </div>`;
 
   return `
 <!DOCTYPE html>
@@ -196,12 +196,21 @@ export const POST: APIRoute = async ({ locals, request }) => {
     const message =
       (formData.get("message") as string | null)?.trim() || undefined;
     const name = (formData.get("name") as string | null)?.trim();
+    const phone =
+      (formData.get("phone") as string | null)?.trim() || undefined;
     const source =
       (formData.get("source") as string | null)?.trim() || undefined;
 
     if (!name || !email) {
       return createJSONResponse(
         { message: "Bitte geben Sie Name und E-Mail an." },
+        400,
+      );
+    }
+
+    if (!message) {
+      return createJSONResponse(
+        { message: "Bitte geben Sie eine Nachricht an." },
         400,
       );
     }
@@ -226,6 +235,7 @@ export const POST: APIRoute = async ({ locals, request }) => {
           location,
           message,
           name,
+          phone,
           source,
         }),
         reply_to: email,
@@ -262,6 +272,7 @@ export const POST: APIRoute = async ({ locals, request }) => {
           location,
           message,
           name,
+          phone,
           source,
         }),
         subject: "Ihre Anfrage bei Pfeils Catering",
