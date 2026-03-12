@@ -89,7 +89,7 @@ export const de = {
   "firmenfeier.meta.description":
     "Exklusives Cocktail-Catering für Ihre Firmenfeier. Mobile Bar, Barkeeper-Show, Signature Drinks. Region Köln, Bonn, Düsseldorf. Unverbindlich anfragen.",
   "firmenfeier.meta.title":
-    "Cocktail-Catering Firmenfeier | Pfeil's Catering Waldbröl",
+    "Cocktail-Catering Firmenfeier | Pfeil's Catering",
   "firmenfeier.testimonials.badge": "Kundenstimmen",
   "firmenfeier.testimonials.description":
     "Was unsere Kunden über unsere Firmenfeiern sagen.",
@@ -180,7 +180,7 @@ export const de = {
   "hochzeitsfeier.meta.description":
     "Persönliches Cocktail-Catering für Ihre Hochzeitsfeier. Bar-Charme, erstklassige Drinks, Rundum-Service. Oberberg, Köln, Bonn. Jetzt planen.",
   "hochzeitsfeier.meta.title":
-    "Cocktail-Catering Hochzeit | Pfeil's Catering Waldbröl",
+    "Cocktail-Catering Hochzeit | Pfeil's Catering",
   "hochzeitsfeier.testimonials.badge": "Kundenstimmen",
   "hochzeitsfeier.testimonials.description":
     "Was unsere Kunden über unser Cocktail-Catering bei Hochzeiten sagen.",
@@ -435,7 +435,7 @@ export const de = {
   "mobileCocktailbar.meta.description":
     "Mobile Cocktailbar für Events mieten. Bambusbar, Barkeeper, Signature Drinks. Hochzeiten, Firmenfeiern, Festivals. Köln, Bonn, Oberberg.",
   "mobileCocktailbar.meta.title":
-    "Mobile Cocktailbar mieten | Pfeil's Catering Waldbröl",
+    "Mobile Cocktailbar mieten | Pfeil's Catering",
   "mobileCocktailbar.testimonials.badge": "Kundenstimmen",
   "mobileCocktailbar.testimonials.description":
     "Was unsere Kunden über unsere mobile Cocktailbar sagen.",

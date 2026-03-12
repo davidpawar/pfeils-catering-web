@@ -87,7 +87,7 @@ export const en = {
   "firmenfeier.meta.description":
     "Exclusive cocktail catering for your corporate event. Mobile bar, bartender show, signature drinks. Cologne, Bonn, Düsseldorf region. Request a quote.",
   "firmenfeier.meta.title":
-    "Cocktail Catering Corporate Events | Pfeil's Catering Waldbröl",
+    "Cocktail Catering Corporate Events | Pfeil's Catering",
   "firmenfeier.testimonials.badge": "Customer Voices",
   "firmenfeier.testimonials.description":
     "What our customers say about our corporate events.",
@@ -177,7 +177,7 @@ export const en = {
   "hochzeitsfeier.meta.description":
     "Personal cocktail catering for your wedding. Bar charm, premium drinks, full-service. Oberberg, Cologne, Bonn. Plan your wedding bar.",
   "hochzeitsfeier.meta.title":
-    "Cocktail Catering Wedding | Pfeil's Catering Waldbröl",
+    "Cocktail Catering Wedding | Pfeil's Catering",
   "hochzeitsfeier.testimonials.badge": "Customer Voices",
   "hochzeitsfeier.testimonials.description":
     "What our customers say about our cocktail catering at weddings.",
@@ -431,7 +431,7 @@ export const en = {
   "mobileCocktailbar.meta.description":
     "Rent a mobile cocktail bar for your event. Bamboo bar, bartenders, signature drinks. Weddings, corporate events, festivals. Cologne, Bonn, Oberberg.",
   "mobileCocktailbar.meta.title":
-    "Rent Mobile Cocktail Bar | Pfeil's Catering Waldbröl",
+    "Rent Mobile Cocktail Bar | Pfeil's Catering",
   "mobileCocktailbar.testimonials.badge": "Customer voices",
   "mobileCocktailbar.testimonials.description":
     "What our customers say about our mobile cocktail bar.",
