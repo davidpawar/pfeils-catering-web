@@ -239,12 +239,13 @@ window.trackEvent({
 **Pageview** (handled automatically by BaseHead):
 
 ```javascript
-// eventAction: "PAGEVIEW", eventCategory: "PAGE"
+// eventAction: "pageview", eventCategory: "PAGE"
+// Note: Plausible requires lowercase "pageview" for Entry/Exit pages to work.
 ```
 
 ### Important tracking rules
 
-- Use UPPERCASE_SNAKE_CASE for `eventAction`, `eventCategory`, and `eventName`.
+- Use UPPERCASE_SNAKE_CASE for `eventAction`, `eventCategory`, and `eventName`. Exception: the pageview event must use `eventAction: "pageview"` (lowercase) so Plausible populates Entry/Exit pages.
 - Do not invent new event names without checking existing ones in `ContactForm.astro` and `BaseHead.astro`.
 - UTM parameters from the landing URL are captured and merged into every event automatically.
 - The API endpoint is `/api/hello-pfeil` (not `/api/analytics` or similar).
