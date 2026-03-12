@@ -255,9 +255,10 @@ const {
 
       if (!hasSentPageview) {
         hasSentPageview = true;
-        // The first pageview acts as the session entry point in Plausible.
+        // Plausible expects "pageview" (lowercase) as the event name – only then are
+        // Entry Pages and Exit Pages populated. Other names are treated as custom events.
         sendAnalyticsEvent({
-          eventAction: "PAGEVIEW",
+          eventAction: "pageview",
           eventCategory: "PAGE",
           props: { lang: currentLang },
         }).catch(() => undefined);
