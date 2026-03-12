@@ -316,7 +316,7 @@ export const de = {
     "Exklusive Cocktails live gemixt – der Messe-Hingucker schlechthin. Bewegung, Farbe und der Duft frisch gemixter Drinks ziehen Blicke auf sich und sorgen dafür, dass Ihr Stand sich von der Masse abhebt.",
   "hero.messe.subtitle": "Cocktail Catering",
   "hero.messe.title":
-    "Ihr Cocktail Catering für einen eindrucksvollen Messestand",
+    "Messe Cocktail Catering – Ihr Catering für den eindrucksvollen Messestand",
   "messe.cta.badge": "Mehr als nur ein Getränk",
   "messe.cta.title": "Kommen Sie mit uns in Kontakt",
   "messe.gallery.badge": "Impressionen",
@@ -324,8 +324,8 @@ export const de = {
     "Einblicke in unsere Messe-Events – von der mobilen Bar bis zum professionellen Barservice am Stand.",
   "messe.gallery.title": "Cocktail Catering auf Messen",
   "messe.meta.description":
-    "Professionelles Catering für Messen, Ausstellungen & Business-Events. Mobile Cocktailbar, erfahrene Barkeeper. Köln, Düsseldorf, NRW.",
-  "messe.meta.title": "Messe-Catering & Event-Catering | Pfeil's Catering",
+    "Messe Cocktail Catering für Messen, Ausstellungen & Business-Events. Mobile Cocktailbar, erfahrene Barkeeper. Köln, Düsseldorf, NRW.",
+  "messe.meta.title": "Messe Cocktail Catering | Catering für Messen & Events | Pfeil's Catering",
   "messe.testimonials.badge": "Kundenstimmen",
   "messe.testimonials.description":
     "Was unsere Kunden über unser Cocktail-Catering auf Messen sagen.",

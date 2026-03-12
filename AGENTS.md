@@ -552,6 +552,19 @@ When assembling pages, check the sequence of `theme` props and ensure no two adj
 - Do not introduce fixed widths that cause horizontal overflow on small screens.
 - Existing widgets and layouts are built to be responsive; follow their patterns when adding content.
 
+## SEO Metadata
+
+**Page title (meta title):**
+
+- Must end with `| Pfeil's Catering`.
+- Length: 50–60 characters (including the brand suffix).
+- Keys: `*.meta.title` in `src/i18n/translations/de.ts` and `en.ts`.
+
+**Meta description:**
+
+- Length: 120–158 characters.
+- Keys: `*.meta.description` in `src/i18n/translations/de.ts` and `en.ts`.
+
 ## Common Page Patterns
 
 ### Homepage pattern
@@ -638,6 +651,7 @@ Rules:
 ### Do
 
 - every German page must have an English variant – both page files and `routes.en` entry
+- page titles must end with `| Pfeil's Catering` and be 50–60 characters; meta descriptions 120–158 characters
 - ensure all pages and components are responsive – work on mobile, tablet, and desktop
 - ensure the LanguagePicker shows the correct link for every localized page – `getRouteFromUrl` must resolve nested paths (e.g. `einsatzgebiete/koeln`) and `routes.en` must contain the mapping
 - alternate widget themes (light, grey, dark) – never two same-colored sections in a row; last section before footer must not be dark

@@ -312,7 +312,7 @@ export const en = {
     "Exclusive cocktails mixed live – the ultimate trade fair eye-catcher. Movement, color and the scent of freshly mixed drinks draw attention and ensure your stand stands out from the crowd.",
   "hero.messe.subtitle": "Cocktail Catering",
   "hero.messe.title":
-    "Your cocktail catering for an impressive exhibition stand",
+    "Exhibition Cocktail Catering – Trade Fair Bar Service for Your Stand",
   "messe.cta.badge": "More than just a drink",
   "messe.cta.title": "Get in touch with us",
   "messe.gallery.badge": "Impressions",
@@ -320,8 +320,8 @@ export const en = {
     "Insights into our trade fair events – from the mobile bar to professional bar service at the stand.",
   "messe.gallery.title": "Cocktail catering at trade fairs",
   "messe.meta.description":
-    "Professional catering for trade fairs, exhibitions & business events. Mobile cocktail bar, experienced bartenders. Cologne, Düsseldorf, NRW.",
-  "messe.meta.title": "Exhibition & Event Catering | Pfeil's Catering",
+    "Exhibition cocktail catering for trade fairs, exhibitions & business events. Mobile cocktail bar, experienced bartenders. Cologne, Düsseldorf, NRW.",
+  "messe.meta.title": "Exhibition Cocktail Catering | Trade Fair Catering | Pfeil's Catering",
   "messe.testimonials.badge": "Customer voices",
   "messe.testimonials.description":
     "What our customers say about our cocktail catering at trade fairs.",
