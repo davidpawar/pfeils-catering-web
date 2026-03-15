@@ -1,11 +1,19 @@
 ---
 import BaseHead from "../../components/base/BaseHead.astro";
+import ContactForm from "../../components/widgets/ContactForm.astro";
 import Footer from "../../components/base/Footer.astro";
 import Navigation from "../../components/base/Navigation.astro";
+import HeroSubpage from "../../components/widgets/HeroSubpage.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { imageProvider } from "../../provider/imageProvider";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const heroImageUrl =
+  typeof imageProvider.hero.headerBackground.src === "object"
+    ? imageProvider.hero.headerBackground.src.src
+    : imageProvider.hero.headerBackground.src;
 ---
 
 <!doctype html>
@@ -16,9 +24,12 @@ const t = useTranslations(lang);
   <body>
     <div class="relative">
       <Navigation />
-      <main class="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-16 min-[1920px]:max-w-8xl">
-        <h1 class="font-anton text-4xl text-dark">Contact</h1>
-        <p class="mt-4 text-dark/70">Content coming soon.</p>
+      <main>
+        <HeroSubpage
+          title={t("hero.anfrage.title")}
+          imageUrl={heroImageUrl}
+        />
+        <ContactForm theme="light" />
       </main>
       <Footer />
     </div>
