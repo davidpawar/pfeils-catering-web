@@ -1,5 +1,6 @@
 ---
 import { AlertCircle, Mail, MapPin, Phone, X } from "@lucide/astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 /**
  * ContactForm: Responsive contact form with sidebar content.
@@ -16,7 +17,9 @@ interface Props {
   theme?: "light" | "dark" | "grey";
 }
 
-const { badge = "Kontakt", theme = "light" } = Astro.props;
+const { badge, theme = "light" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const isDark = theme === "dark";
 const isGrey = theme === "grey";
@@ -60,22 +63,18 @@ const iconBoxStaticClass = isDark
       {/* Content: top on mobile, left on lg */}
       <div class="order-1 lg:order-1 lg:col-span-2">
         <div class="mb-8 max-w-4xl md:mb-12">
-          {
-            badge && (
-              <div class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6">
-                <p class="font-outfit text-sm uppercase tracking-wider text-white leading-[1.3] md:text-base">
-                  {badge}
-                </p>
-              </div>
-            )
-          }
+          <div class="mb-4 inline-block rounded-tl-xl rounded-br-xl bg-gradient-to-r from-primary to-primary-light px-3 py-1 md:mb-6">
+            <p class="font-outfit text-sm uppercase tracking-wider text-white leading-[1.3] md:text-base">
+              {badge ?? t("contactForm.badge")}
+            </p>
+          </div>
           <h2
             class:list={[
               "font-anton text-3xl leading-tight md:text-4xl lg:text-5xl",
               titleClass,
             ]}
           >
-            Kontaktieren Sie uns!
+            {t("contactForm.title")}
           </h2>
           <p
             class:list={[
@@ -83,8 +82,7 @@ const iconBoxStaticClass = isDark
               textClass,
             ]}
           >
-            Füllen Sie das Kontaktformular aus, um mit uns in Kontakt zu treten.
-            Wir gehen gerne auf Ihre Wünsche ein und beraten Sie.
+            {t("contactForm.description")}
           </p>
         </div>
 
@@ -109,7 +107,7 @@ const iconBoxStaticClass = isDark
             <div>
               <span class="font-outfit font-semibold">0178 498 85 21</span>
               <p class="mt-0.5 text-sm">
-                Rufen Sie uns an: Mo–Fr 09:00 – 18:00
+                {t("contactForm.callUs")}
               </p>
             </div>
           </a>
@@ -127,9 +125,8 @@ const iconBoxStaticClass = isDark
               />
             </div>
             <div>
-              <span class="font-outfit font-semibold">Oberbergischer Kreis</span
-              >
-              <p class="mt-0.5 text-sm">Buschweg 10, 51545 Waldbröl</p>
+              <span class="font-outfit font-semibold">{t("contactForm.locationLabel")}</span>
+              <p class="mt-0.5 text-sm">{t("contactForm.locationAddress")}</p>
             </div>
           </div>
 
@@ -154,7 +151,7 @@ const iconBoxStaticClass = isDark
               <span class="font-outfit font-semibold"
                 >info@pfeils-catering.de</span
               >
-              <p class="mt-0.5 text-sm">Hinterlassen Sie uns eine E-Mail!</p>
+              <p class="mt-0.5 text-sm">{t("contactForm.emailHint")}</p>
             </div>
           </a>
         </div>
@@ -177,7 +174,7 @@ const iconBoxStaticClass = isDark
                   labelClass,
                 ]}
               >
-                Name <span class="text-primary">*</span>
+                {t("contactForm.nameLabel")} <span class="text-primary">*</span>
               </label>
               <input
                 type="text"
@@ -185,7 +182,7 @@ const iconBoxStaticClass = isDark
                 name="name"
                 required
                 class={inputBgClass}
-                placeholder="Ihr Name"
+                placeholder={t("contactForm.namePlaceholder")}
               />
             </div>
             <div>
@@ -196,7 +193,7 @@ const iconBoxStaticClass = isDark
                   labelClass,
                 ]}
               >
-                E-Mail <span class="text-primary">*</span>
+                {t("contactForm.emailLabel")} <span class="text-primary">*</span>
               </label>
               <input
                 type="email"
@@ -204,7 +201,7 @@ const iconBoxStaticClass = isDark
                 name="email"
                 required
                 class={inputBgClass}
-                placeholder="ihre@email.de"
+                placeholder={t("contactForm.emailPlaceholder")}
               />
             </div>
           </div>
@@ -218,14 +215,14 @@ const iconBoxStaticClass = isDark
                   labelClass,
                 ]}
               >
-                Telefon
+                {t("contactForm.phoneLabel")}
               </label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 class={inputBgClass}
-                placeholder="z.B. 0178 498 85 21"
+                placeholder={t("contactForm.phonePlaceholder")}
               />
             </div>
             <div>
@@ -236,14 +233,14 @@ const iconBoxStaticClass = isDark
                   labelClass,
                 ]}
               >
-                Gästeanzahl
+                {t("contactForm.guestsLabel")}
               </label>
               <input
                 type="text"
                 id="guests"
                 name="guests"
                 class={inputBgClass}
-                placeholder="z.B. 50"
+                placeholder={t("contactForm.guestsPlaceholder")}
               />
             </div>
             <div>
@@ -254,7 +251,7 @@ const iconBoxStaticClass = isDark
                   labelClass,
                 ]}
               >
-                Datum
+                {t("contactForm.dateLabel")}
               </label>
               <input type="date" id="date" name="date" class={inputBgClass} />
             </div>
@@ -265,14 +262,14 @@ const iconBoxStaticClass = isDark
               for="location"
               class:list={["block font-outfit text-sm font-medium", labelClass]}
             >
-              Wo findet die Veranstaltung statt?
+              {t("contactForm.locationFieldLabel")}
             </label>
             <input
               type="text"
               id="location"
               name="location"
               class={inputBgClass}
-              placeholder="Ort oder Adresse"
+              placeholder={t("contactForm.locationPlaceholder")}
             />
           </div>
 
@@ -281,15 +278,15 @@ const iconBoxStaticClass = isDark
               for="source"
               class:list={["block font-outfit text-sm font-medium", labelClass]}
             >
-              Woher kennen Sie uns?
+              {t("contactForm.sourceLabel")}
             </label>
             <select id="source" name="source" class={inputBgClass}>
-              <option value="">Bitte wählen …</option>
-              <option value="google">Google</option>
-              <option value="empfehlung">Empfehlung</option>
-              <option value="social-media">Social Media</option>
-              <option value="messe">Messe / Event</option>
-              <option value="sonstiges">Sonstiges</option>
+              <option value="">{t("contactForm.sourcePlaceholder")}</option>
+              <option value="google">{t("contactForm.sourceGoogle")}</option>
+              <option value="empfehlung">{t("contactForm.sourceEmpfehlung")}</option>
+              <option value="social-media">{t("contactForm.sourceSocialMedia")}</option>
+              <option value="messe">{t("contactForm.sourceMesse")}</option>
+              <option value="sonstiges">{t("contactForm.sourceSonstiges")}</option>
             </select>
           </div>
 
@@ -298,7 +295,7 @@ const iconBoxStaticClass = isDark
               for="message"
               class:list={["block font-outfit text-sm font-medium", labelClass]}
             >
-              Erzählen Sie uns etwas über Ihre Feier{" "}
+              {t("contactForm.messageLabel")}{" "}
               <span class="text-primary">*</span>
             </label>
             <textarea
@@ -307,7 +304,7 @@ const iconBoxStaticClass = isDark
               rows={5}
               required
               class={inputBgClass}
-              placeholder="Beschreiben Sie Ihren Anlass, Wünsche oder Fragen …"
+              placeholder={t("contactForm.messagePlaceholder")}
             ></textarea>
           </div>
 
@@ -315,8 +312,10 @@ const iconBoxStaticClass = isDark
             <button
               type="submit"
               class="inline-flex min-h-12 w-fit cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-light px-6 py-3 font-outfit text-base font-medium text-white transition-all duration-300 hover:shadow-lg md:min-h-14 md:px-8 md:py-4 md:text-lg"
+              data-submit-text={t("contactForm.submit")}
+              data-submitting-text={t("contactForm.submitting")}
             >
-              Abschicken
+              {t("contactForm.submit")}
             </button>
           </div>
         </form>
@@ -330,6 +329,12 @@ const iconBoxStaticClass = isDark
           data-open="false"
           aria-hidden="true"
           inert
+          data-success-title={t("contactForm.successTitle")}
+          data-success-message={t("contactForm.successMessage")}
+          data-success-spam={t("contactForm.successSpamHint")}
+          data-error-title={t("contactForm.errorTitle")}
+          data-error-default={t("contactForm.errorDefault")}
+          data-error-network={t("contactForm.errorNetwork")}
         >
           <div
             id="contact-result-content"
@@ -339,7 +344,7 @@ const iconBoxStaticClass = isDark
               id="contact-result-close"
               type="button"
               class="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-dark-bg/70 transition-colors hover:bg-dark-bg/10 hover:text-dark-bg"
-              aria-label="Schließen"
+              aria-label={t("contactForm.close")}
             >
               <X size={24} />
             </button>
@@ -358,14 +363,12 @@ const iconBoxStaticClass = isDark
                   aria-hidden="true"
                 />
               </div>
-              <h3 class="font-anton text-2xl text-dark">Vielen Dank!</h3>
-              <p class="mt-2 font-outfit text-dark/70">
-                Ihre Nachricht wurde gesendet. Sie erhalten in Kürze eine
-                Bestätigungs-E-Mail.
+              <h3 id="contact-result-success-title" class="font-anton text-2xl text-dark">{t("contactForm.successTitle")}</h3>
+              <p id="contact-result-success-message" class="mt-2 font-outfit text-dark/70">
+                {t("contactForm.successMessage")}
               </p>
-              <p class="mt-4 font-outfit text-sm font-semibold text-dark">
-                Falls Sie keine E-Mail erhalten, prüfen Sie bitte Ihren
-                Spam-Ordner.
+              <p id="contact-result-success-spam" class="mt-4 font-outfit text-sm font-semibold text-dark">
+                {t("contactForm.successSpamHint")}
               </p>
             </div>
             {/* Error state */}
@@ -383,13 +386,12 @@ const iconBoxStaticClass = isDark
                   aria-hidden="true"
                 />
               </div>
-              <h3 class="font-anton text-2xl text-dark">Fehler aufgetreten</h3>
+              <h3 id="contact-result-error-title" class="font-anton text-2xl text-dark">{t("contactForm.errorTitle")}</h3>
               <p
                 id="contact-result-error-message"
                 class="mt-2 font-outfit text-dark/70"
               >
-                Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später
-                erneut.
+                {t("contactForm.errorDefault")}
               </p>
             </div>
           </div>
@@ -486,7 +488,7 @@ const iconBoxStaticClass = isDark
       // Disable the submit button and show a loading state.
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Wird gesendet …";
+        submitBtn.textContent = submitBtn.dataset.submittingText || "Sending …";
       }
 
       try {
@@ -515,23 +517,27 @@ const iconBoxStaticClass = isDark
           openOverlay("success");
         } else {
           // If the response is not ok, show the error state.
-          openOverlay(
-            "error",
-            data.message ||
-              "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
-          );
+          const overlay =
+            document.getElementById("contact-result-overlay");
+          const defaultMsg =
+            overlay?.dataset.errorDefault ||
+            "An error occurred. Please try again later.";
+          openOverlay("error", data.message || defaultMsg);
         }
       } catch {
         // If an error occurs, show the error state.
-        openOverlay(
-          "error",
-          "Netzwerkfehler. Bitte versuchen Sie es später erneut.",
-        );
+          const overlay =
+            document.getElementById("contact-result-overlay");
+          const networkMsg =
+            overlay?.dataset.errorNetwork ||
+            "Network error. Please try again later.";
+          openOverlay("error", networkMsg);
       } finally {
         // Enable the submit button and show the original text.
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = originalText || "Abschicken";
+          submitBtn.textContent =
+            originalText || submitBtn.dataset.submitText || "Submit";
         }
       }
     });
