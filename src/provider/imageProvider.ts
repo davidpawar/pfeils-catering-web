@@ -53,7 +53,6 @@ export type ImageAsset = {
 export type ImageCategory = Record<string, ImageAsset>;
 
 export type ImageProvider = {
-  blog: ImageCategory;
   catering: ImageCategory;
   cocktails: ImageCategory;
   events: ImageCategory;
@@ -71,28 +70,6 @@ export function getImageAlt(image: ImageAsset, lang: string): string {
 }
 
 export const imageProvider: ImageProvider = {
-  blog: {
-    bartenderCocktailShaker: {
-      alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
-      altEn: "Bartender with cocktail shaker during a show performance",
-      src: bartenderCocktailShaker,
-    },
-    barkeeperShow: {
-      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
-      altEn: "Bartender preparing cocktails at the bar",
-      src: barkeeperShow,
-    },
-    bunteCocktails: {
-      alt: "Bunte Cocktails stilvoll auf einer Bar angerichtet",
-      altEn: "Colourful cocktails elegantly arranged on a bar",
-      src: bunteCocktails,
-    },
-    cocktailsAroundWorld: {
-      alt: "Drei Cocktails inspiriert von verschiedenen Laendern",
-      altEn: "Three cocktails inspired by different countries",
-      src: cocktailsAroundWorld,
-    },
-  },
   catering: {
     bambusbar: {
       alt: "Mobile Bambusbar von Pfeil's Catering bei einer Veranstaltung",
@@ -103,6 +80,16 @@ export const imageProvider: ImageProvider = {
       alt: "Bambusbar von Pfeil's Catering bei einer Abendveranstaltung",
       altEn: "Bamboo bar by Pfeil's Catering at an evening event",
       src: bambusbarAbend,
+    },
+    bartenderCocktailShaker: {
+      alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
+      altEn: "Bartender with cocktail shaker during a show performance",
+      src: bartenderCocktailShaker,
+    },
+    barkeeperShow: {
+      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
+      altEn: "Bartender preparing cocktails at the bar",
+      src: barkeeperShow,
     },
     bratwurstGrill: {
       alt: "Bratwurst-Grill-Catering – frisch gegrillte Würste vor Ort",
@@ -156,6 +143,16 @@ export const imageProvider: ImageProvider = {
       alt: "Aperol Spritz – der spritzige Klassiker",
       altEn: "Aperol Spritz – the sparkling classic",
       src: aperolSpritz,
+    },
+    bunteCocktails: {
+      alt: "Bunte Cocktails stilvoll auf einer Bar angerichtet",
+      altEn: "Colourful cocktails elegantly arranged on a bar",
+      src: bunteCocktails,
+    },
+    cocktailsAroundWorld: {
+      alt: "Drei Cocktails inspiriert von verschiedenen Laendern",
+      altEn: "Three cocktails inspired by different countries",
+      src: cocktailsAroundWorld,
     },
     erdbeerMojito: {
       alt: "Erdbeer Mojito – Frische trifft Frucht",

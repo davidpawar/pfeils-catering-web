@@ -26,7 +26,12 @@ const start = (currentPage - 1) * POSTS_PER_PAGE;
 const posts = allPosts.slice(start, start + POSTS_PER_PAGE).map((blogPost) => ({
   description: blogPost.data.description,
   heroImage: blogPost.data.heroImageKey
-    ? imageProvider.blog[blogPost.data.heroImageKey]
+    ? imageProvider.catering[
+        blogPost.data.heroImageKey as keyof typeof imageProvider.catering
+      ] ??
+      imageProvider.cocktails[
+        blogPost.data.heroImageKey as keyof typeof imageProvider.cocktails
+      ]
     : undefined,
   id: blogPost.id,
   pubDate: blogPost.data.pubDate,
