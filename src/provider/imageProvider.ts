@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-// Alphanetical order
+// Alphabetical order
 import aperolSpritz from "../assets/images/cocktails/aperol-spritz.jpg";
 import bartenderCocktailShaker from "../assets/images/blog/bartender-cocktail-shaker.jpg";
 import barkeeperShow from "../assets/images/blog/barkeeper-show.jpg";
@@ -29,6 +29,7 @@ import hochzeit from "../assets/images/events/hochzeit.jpg";
 import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
 import messe from "../assets/images/events/messe.jpg";
+import nuembrechtSchloss from "../assets/images/service-areas/nuembrecht-schloss.jpg";
 import oni from "../assets/images/logos/oni.png";
 import salatCatering from "../assets/images/catering/salat-catering.jpg";
 import schwalbe from "../assets/images/logos/schwalbe.svg";
@@ -59,6 +60,7 @@ export type ImageProvider = {
   hero: ImageCategory;
   logo: ImageCategory;
   partners: ImageCategory;
+  serviceAreas: ImageCategory;
   team: ImageCategory;
 };
 
@@ -211,7 +213,8 @@ export const imageProvider: ImageProvider = {
     },
     koelnDomBruecke: {
       alt: "Nächtliche Skyline von Köln mit Kölner Dom und Hohenzollernbrücke am Rhein",
-      altEn: "Night skyline of Cologne with Cologne Cathedral and Hohenzollern Bridge on the Rhine",
+      altEn:
+        "Night skyline of Cologne with Cologne Cathedral and Hohenzollern Bridge on the Rhine",
       src: koelnDomBruecke,
     },
     messeBackground: {
@@ -269,6 +272,14 @@ export const imageProvider: ImageProvider = {
       alt: "Volksbank Oberberg – Partner von Pfeil's Catering",
       altEn: "Volksbank Oberberg – partner of Pfeil's Catering",
       src: volksbank,
+    },
+  },
+  serviceAreas: {
+    nuembrechtSchloss: {
+      alt: "Schloss Homburg in Nümbrecht – historische Burganlage mit gelbem Schloss und steinernen Mauern unter blauem Himmel",
+      altEn:
+        "Schloss Homburg in Nümbrecht, Germany – historic castle with pale yellow walls and stone fortifications under a blue sky",
+      src: nuembrechtSchloss,
     },
   },
   team: {

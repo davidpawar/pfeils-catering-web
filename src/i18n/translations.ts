@@ -15,6 +15,7 @@ export const ui = {
 export const canonicalPaths: Record<string, string> = {
   einsatzgebietekoeln: "einsatzgebiete/koeln",
   einsatzgebietegummersbach: "einsatzgebiete/gummersbach",
+  einsatzgebietenuembrecht: "einsatzgebiete/nuembrecht",
 };
 
 export const routes = {
@@ -26,6 +27,7 @@ export const routes = {
     "mobile-cocktailbar": "mobile-cocktail-bar",
     einsatzgebietekoeln: "service-areas/cologne",
     einsatzgebietegummersbach: "service-areas/gummersbach",
+    einsatzgebietenuembrecht: "service-areas/nuembrecht",
     anfrage: "contact",
     impressum: "imprint",
     datenschutz: "privacy",

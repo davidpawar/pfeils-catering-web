@@ -566,6 +566,10 @@ When assembling pages, check the sequence of `theme` props and ensure no two adj
 - Length: 120–158 characters.
 - Keys: `*.meta.description` in `src/i18n/translations/de.ts` and `en.ts`.
 
+### Einsatzgebiete / service area pages (SEO)
+
+**Rule:** Location pages under `einsatzgebiete/...` and `en/service-areas/...` must **not** be near-duplicates of each other. Do not reuse the same paragraphs with only the place name swapped. Vary **angle** (local landmarks, typical venues, occasion mix), **FAQ questions and answers**, **section titles**, and **process wording** so each page has clear, distinct value for readers and search engines. Reuse the same **widget sequence** as existing city pages for consistency, but write **original copy** per location.
+
 ## Common Page Patterns
 
 ### Homepage pattern
