@@ -29,7 +29,14 @@ const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const heroImage = heroImageKey ? imageProvider.blog[heroImageKey] : undefined;
+const heroImage = heroImageKey
+  ? imageProvider.catering[
+      heroImageKey as keyof typeof imageProvider.catering
+    ] ??
+    imageProvider.cocktails[
+      heroImageKey as keyof typeof imageProvider.cocktails
+    ]
+  : undefined;
 const heroUrl = heroImage
   ? typeof heroImage.src === "object"
     ? heroImage.src.src
@@ -50,19 +57,80 @@ function formatDate(date: Date, locale: string): string {
   <head>
     <BaseHead title={title} description={description} image={heroUrl} lang={lang} />
     <style is:global>
+      /*
+        MDX <Image /> renders as direct <img> siblings under .blog-content (not inside <p>).
+        Mobile: one column. md+: text blocks full width; consecutive images form a 2-column row.
+      */
+      .blog-content {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .blog-content > img {
+        display: block;
+        width: 100%;
+        max-width: 42rem;
+        height: auto;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0.75rem;
+        box-shadow:
+          0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        object-fit: cover;
+      }
+
+      @media (min-width: 768px) {
+        .blog-content {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 1.5rem;
+        }
+
+        .blog-content > h2,
+        .blog-content > h3,
+        .blog-content > p,
+        .blog-content > ul,
+        .blog-content > ol,
+        .blog-content > pre {
+          grid-column: 1 / -1;
+        }
+
+        .blog-content > img {
+          grid-column: 1 / -1;
+          justify-self: center;
+        }
+
+        .blog-content > img:has(+ img),
+        .blog-content > img + img {
+          grid-column: span 1;
+          justify-self: stretch;
+          max-width: 100%;
+        }
+      }
+
+      /* Legacy: multiple <img> inside one <p> */
       .blog-content > p:has(> img) {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
-        justify-content: center;
-        margin: 0 0 2rem 0;
+        margin: 0 0 1rem 0;
+      }
+      @media (min-width: 768px) {
+        .blog-content > p:has(> img + img) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
       .blog-content > p:has(> img) img {
-        flex: 1 1 280px;
-        min-width: 0;
-        max-width: 100%;
-        margin-top: 0;
-        margin-bottom: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 0.75rem;
+        box-shadow:
+          0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        object-fit: cover;
       }
     </style>
   </head>
@@ -117,7 +185,7 @@ function formatDate(date: Date, locale: string): string {
 
               {/* Artikelinhalt */}
               <div
-                class="blog-content pt-8 font-outfit text-base leading-relaxed text-dark/85 md:text-lg [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-primary-light [&_h2]:font-anton [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:text-dark [&_h3]:font-anton [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-dark [&_p]:mb-4 [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_pre]:mb-4 [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-slate-100 [&_pre]:p-4 [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_img]:my-8 [&_img]:block [&_img]:w-full [&_img]:max-w-2xl [&_img]:mx-auto [&_img]:rounded-xl [&_img]:shadow-lg [&_img]:object-cover"
+                class="blog-content pt-8 font-outfit text-base leading-relaxed text-dark/85 md:text-lg [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-primary-light [&_h2]:font-anton [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:text-dark [&_h3]:font-anton [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-dark [&_p]:mb-4 [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_pre]:mb-4 [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-slate-100 [&_pre]:p-4 [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_p_img]:my-4 [&_p_img]:rounded-xl [&_p_img]:shadow-lg [&_p_img]:object-cover"
               >
                 <slot />
               </div>

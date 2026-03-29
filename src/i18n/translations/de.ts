@@ -474,9 +474,9 @@ export const de = {
     "<p>Mit Sitz in <strong>Waldbröl</strong> sind wir mit unserer mobilen Cocktailbar in der gesamten Region schnell einsatzbereit. Veranstaltungen im <strong>Oberbergischen Kreis</strong>, in <strong>Gummersbach</strong>, dem <strong>Rhein-Sieg-Kreis</strong> sowie im Großraum <strong>Köln</strong>, <strong>Bonn</strong> und <strong>Düsseldorf</strong> betreuen wir zuverlässig und mit viel Erfahrung – inklusive frisch gemixter Cocktails, hochwertiger Zutaten und einem eingespielten Barteam.</p><p>Auch über die Region hinaus sind wir deutschlandweit im Einsatz. Dank mobiler Ausstattung und flexibler Logistik bringen wir unsere mobile Bar sowie unsere professionellen Barkeeper direkt zu Ihrer Veranstaltung – beispielsweise in <strong>Frankfurt</strong>, <strong>Hannover</strong> oder <strong>Stuttgart</strong>.</p><p>Unsere mobile Cocktailbar sorgt überall für stilvollen Genuss und bleibt Ihren Gästen garantiert in bester Erinnerung – ganz gleich, wie groß Ihr Event ist.</p>",
   "mobileCocktailbar.locationBlock.title": "Wo wir für Sie im Einsatz sind",
   "mobileCocktailbar.meta.description":
-    "Mobile Cocktailbar für Events mieten. Bambusbar, Barkeeper, Signature Drinks. Hochzeiten, Firmenfeiern, Festivals. Köln, Bonn, Oberberg.",
+    "Professionelles Cocktail-Catering mit mobiler Bar: Bambusbar, Barkeeper, Signature Drinks. Hochzeiten, Firmenfeiern, Festivals. Köln, Bonn, Oberberg.",
   "mobileCocktailbar.meta.title":
-    "Mobile Cocktailbar mieten | Pfeil's Catering",
+    "Professionelle mobile Cocktailbar | Pfeil's Catering",
   "mobileCocktailbar.testimonials.badge": "Kundenstimmen",
   "mobileCocktailbar.testimonials.description":
     "Was unsere Kunden über unsere mobile Cocktailbar sagen.",
@@ -526,7 +526,7 @@ export const de = {
   "mobileCocktailbar.textList.item6.title": "Hohe Qualität und frische Zutaten",
   "mobileCocktailbar.textList.title": "Ihre nächste Firmenfeier",
   "mobileCocktailbarKoln.meta.title":
-    "Mobile Cocktailbar Köln mieten | Pfeil's Catering",
+    "Mobile Cocktailbar Köln | Pfeil's Catering",
   "mobileCocktailbarKoln.meta.description":
     "Mobile Cocktailbar für Events in Köln. Firmenfeiern am Rheinauhafen, Hochzeiten mit Dom-Blick, Karneval-Events. Professionelles Cocktail-Catering in Köln.",
   "mobileCocktailbarKoln.hero.title": "Mobile Cocktailbar Köln – Cocktails wo Sie feiern",
@@ -596,7 +596,7 @@ export const de = {
   "footer.copyright": "Alle Rechte vorbehalten.",
   "footer.quickLinks": "Schnellzugriff",
   "mobileCocktailbarGummersbach.meta.title":
-    "Mobile Cocktailbar Gummersbach mieten | Pfeil's Catering",
+    "Mobile Cocktailbar Gummersbach | Pfeil's Catering",
   "mobileCocktailbarGummersbach.meta.description":
     "Mobile Cocktailbar für Events in Gummersbach und Oberberg. Firmenfeiern, Hochzeiten, Jubiläen. Kurze Wege aus Waldbröl – Ihr Cocktail-Catering vor Ort.",
   "mobileCocktailbarGummersbach.hero.title": "Mobile Cocktailbar Gummersbach – direkt aus der Nachbarschaft",
@@ -655,9 +655,92 @@ export const de = {
   "mobileCocktailbarGummersbach.faq.a3":
     "Es lohnt sich ab etwa 50 Gästen. Darunter wird der Aufwand im Verhältnis zu groß. Ab 50 Personen rechnet sich die mobile Cocktailbar – ob Firmenjubiläum, Hochzeit oder Teamevent in Gummersbach und Oberberg.",
   "mobileCocktailbarGummersbach.cta.ctaTitle": "Sprechen Sie uns gerne an!",
+  "mobileCocktailbarNuembrecht.meta.title":
+    "Mobile Cocktailbar Nümbrecht | Pfeil's Catering",
+  "mobileCocktailbarNuembrecht.meta.description":
+    "Cocktail-Catering für Nümbrecht & Naturpark Bergisches Land: mobile Bar für Gartenfeste, Schlosskulisse und Firmenfeiern – kurze Anfahrt aus Waldbröl.",
+  "mobileCocktailbarNuembrecht.hero.title":
+    "Mobile Cocktailbar Nümbrecht – Drinks zwischen Kurpark und Bergpanorama",
+  "mobileCocktailbarNuembrecht.intro.badge": "Nümbrecht & Bergisches Land",
+  "mobileCocktailbarNuembrecht.intro.title":
+    "Cocktailbar für Feiern in Nümbrecht und der grünen Oberberg-Region",
+  "mobileCocktailbarNuembrecht.intro.description":
+    "Nümbrecht steht für Kurstadtflair, Schloss Homburg und den Naturpark Bergisches Land ringsum. Hier feiert man oft etwas kleiner und näher zur Natur – im Garten, auf dem Hof oder in einer Location mit Aussicht. Wir fahren aus Waldbröl zu Ihnen und bauen die mobile Cocktailbar dort auf, wo Sie Ihre Gäste empfangen: mit Barkeepern, frischen Zutaten und einem Getränkekonzept, das zu Ihrem Anlass passt.",
+  "mobileCocktailbarNuembrecht.intro.bullet1":
+    "Ideal für Gartenfeste, Höfe und Aussichtslagen",
+  "mobileCocktailbarNuembrecht.intro.bullet2":
+    "Erfahrung mit Feiern in historischer Kulisse und ländlicher Umgebung",
+  "mobileCocktailbarNuembrecht.intro.bullet3":
+    "Kurze Anfahrt aus Waldbröl in die Kurstadt und das Bergische Umland",
+  "mobileCocktailbarNuembrecht.whyNuembrecht.badge": "Warum Nümbrecht?",
+  "mobileCocktailbarNuembrecht.whyNuembrecht.title":
+    "Kurstadt und Naturpark – ein anderes Eventprofil als in der Großstadt",
+  "mobileCocktailbarNuembrecht.whyNuembrecht.description":
+    "Anders als in Köln geht es in Nümbrecht oft um intime Feiern, Landschaft und Erholungsort-Atmosphäre: Heiraten mit Blick ins Grüne, Sommerfeste auf Privatgeländen oder Betriebsfeiern abseits des Messe-Trubels. Das Schloss prägt das Ortsbild; Wanderwege und Panoramapunkte liegen vor der Tür. Genau dafür ist unsere mobile Bar gedacht: flexibel im Aufbau, dezent im Auftritt, wenn die Kulisse schon die Hauptrolle spielt.",
+  "mobileCocktailbarNuembrecht.locations.badge": "Einsatzorte",
+  "mobileCocktailbarNuembrecht.locations.title":
+    "Wo wir rund um Nümbrecht für Sie unterwegs sind",
+  "mobileCocktailbarNuembrecht.locations.item1.title":
+    "Innenstadt, Marktplatz & Veranstaltungsräume",
+  "mobileCocktailbarNuembrecht.locations.item1.description":
+    "Feiern im Zentrum, in Gastronomie oder gemieteten Räumen – wir ergänzen Ihre Location mit Bar, Personal und Logistik, ohne dass Sie selbst an Gläser und Eis denken müssen.",
+  "mobileCocktailbarNuembrecht.locations.item2.title":
+    "Schloss Homburg, Park & historische Kulisse",
+  "mobileCocktailbarNuembrecht.locations.item2.description":
+    "Wenn Ihr Event Schloss, Park oder Fachwerk als Hintergrund hat, stimmen wir Aufbau und Ablauf darauf ab – diskret, damit Architektur und Natur im Vordergrund bleiben.",
+  "mobileCocktailbarNuembrecht.locations.item3.title":
+    "Bergisches Umland – Morsbach, Hömel, Rösrath & Co.",
+  "mobileCocktailbarNuembrecht.locations.item3.description":
+    "Von Nümbrecht aus sind wir schnell in den Nachbarorten und auf Streuobstwiesen, Hofschaften und Landgütern. Sprechen Sie uns mit Adresse und Gästezahl an – wir prüfen Route und Aufbau.",
+  "mobileCocktailbarNuembrecht.occasions.badge": "Anlässe",
+  "mobileCocktailbarNuembrecht.occasions.title":
+    "Typische Feiern in und um Nümbrecht",
+  "mobileCocktailbarNuembrecht.occasions.item1.title":
+    "Hochzeiten & freie Trauungen im Grünen",
+  "mobileCocktailbarNuembrecht.occasions.item1.description":
+    "Stehempfang auf der Wiese, Gartenparty oder Festscheune: Wir mixen Signature-Drinks und Klassiker, damit der erste Teil Ihrer Feier entspannt und stimmig bleibt.",
+  "mobileCocktailbarNuembrecht.occasions.item2.title":
+    "Geburtstage, Jubiläen & Familienfeste",
+  "mobileCocktailbarNuembrecht.occasions.item2.description":
+    "Private Anlässe mit überschaubarer Gästeliste profitieren von einer echten Bar statt Selbstbedienung – wir übernehmen Service und Aufräumen nach dem Event.",
+  "mobileCocktailbarNuembrecht.occasions.item3.title":
+    "Betriebsfeiern & Teambuilding in ruhiger Lage",
+  "mobileCocktailbarNuembrecht.occasions.item3.description":
+    "Tagsüber Seminar, abends Grillen oder Buffet plus Bar: Wir integrieren uns in Ihren Tagesablauf und sorgen dafür, dass der Abendteil ohne Wartezeiten an der Theke läuft.",
+  "mobileCocktailbarNuembrecht.gallery.badge": "Impressionen",
+  "mobileCocktailbarNuembrecht.gallery.title":
+    "Cocktail-Catering – Stimmung, nicht nur Getränke",
+  "mobileCocktailbarNuembrecht.gallery.description":
+    "Ein Auszug aus unseren Einsätzen: von der mobilen Bar bis zu festlichen Setups – passend zu verschiedenen Locations und Gästezahlen.",
+  "mobileCocktailbarNuembrecht.cta.badge": "Jetzt anfragen",
+  "mobileCocktailbarNuembrecht.cta.ctaTitle":
+    "Ihr Termin in Nümbrecht – wir melden uns!",
+  "mobileCocktailbarNuembrecht.process.badge": "Ablauf",
+  "mobileCocktailbarNuembrecht.process.title":
+    "Von der Skizze bis zum letzten Drink – transparent geplant",
+  "mobileCocktailbarNuembrecht.process.content":
+    "<p>Zuerst klären wir kurz Ort, Datum und ungefähre Gästezahl. Dann schlagen wir Umfang und Cocktailauswahl vor – inklusive alkoholfreier Optionen. Bei Außen- oder Hanglagen klären wir Strom, Wasser und Aufbaufläche, damit am Eventtag nichts fehlt.</p><p>Am Veranstaltungstag bauen wir pünktlich auf, mixen während des vereinbarten Zeitraums und bauen sauber wieder ab. Ob Nümbrecht, Nachbarort oder ein Hof im Bergischen Land: Sie haben einen Ansprechpartner, der die Route aus Waldbröl kennt.</p>",
+  "mobileCocktailbarNuembrecht.faq.badge": "FAQ",
+  "mobileCocktailbarNuembrecht.faq.title":
+    "Fragen zu Cocktail-Catering in Nümbrecht & Umgebung",
+  "mobileCocktailbarNuembrecht.faq.description":
+    "Antworten rund um Aufbau, Orte und Ablauf – ohne Standardtext von der Großstadt-Seite.",
+  "mobileCocktailbarNuembrecht.faq.q1":
+    "Fahrt ihr auch zu sehr kleinen Orten oder auf Hofschaften?",
+  "mobileCocktailbarNuembrecht.faq.a1":
+    "Ja, im Bergischen Land und rund um Nümbrecht sind wir das gewohnt. Entscheidend sind Zufahrt, Stellfläche für den Aufbau und die Gästezahl – nennen Sie uns die Adresse, dann sagen wir ehrlich, ob und wie es sich umsetzen lässt.",
+  "mobileCocktailbarNuembrecht.faq.q2":
+    "Passt eine mobile Bar zu einer Feier mit Schloss- oder Fachwerkkulisse?",
+  "mobileCocktailbarNuembrecht.faq.a2":
+    "Absolut. Wir passen Optik des Setups und die Kommunikation mit der Location an, damit nichts gegen Hausregeln oder Denkmalschutz spricht und die Kulisse sichtbar bleibt.",
+  "mobileCocktailbarNuembrecht.faq.q3":
+    "Wie groß sollte die Gästegruppe mindestens sein?",
+  "mobileCocktailbarNuembrecht.faq.a3":
+    "Erfahrungsgemäß lohnt sich der Aufwand ab etwa 50 Gästen. Darunter empfehlen wir eher eine kompakte Lösung oder ein reduziertes Paket – sprechen Sie uns an, wir finden eine passende Variante.",
   "footer.cityPages": "Mobile Cocktailbar nach Stadt",
   "footer.cityPages.koeln": "Köln",
   "footer.cityPages.gummersbach": "Gummersbach",
+  "footer.cityPages.nuembrecht": "Nümbrecht",
   "footer.tagline":
     "Mit Herz gemixt, für dich und deine Gäste. Professionelles Cocktail-Catering für unvergessliche Events seit 2008.",
 } as const;

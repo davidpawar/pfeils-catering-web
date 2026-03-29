@@ -35,8 +35,8 @@ interface Props {
    */
   image: ImageAsset;
   /**
-   * Image aspect: "standard" (4:3, object-cover) or "original" (portrait 3:4, object-contain).
-   * Use "original" for cocktail/portrait images to avoid cropping.
+   * Image aspect: "standard" (4:3 / md square, max-height 80vh, object-cover center) or "original" (3:4, object-contain).
+   * Use "original" for mobile-cocktailbar portrait shots.
    */
   imageAspect?: "standard" | "original";
   /**
@@ -115,6 +115,15 @@ const statValueClass = isDark ? "text-primary-light" : "text-primary";
 const statLabelClass = isDark ? "text-white/90" : "text-dark/70";
 const checkTextClass = isDark ? "text-white/90" : "text-dark/70";
 const checkIconClass = isDark ? "text-primary-light" : "text-primary";
+
+const imgSrc = image.src as import("astro").ImageMetadata;
+const hasDims =
+  typeof imgSrc === "object" &&
+  imgSrc !== null &&
+  "width" in imgSrc &&
+  "height" in imgSrc;
+const imgWidth = hasDims ? imgSrc.width : 800;
+const imgHeight = hasDims ? imgSrc.height : 600;
 ---
 
 {/* ImageText: Section with image + text content (badge, title, description, check list, optional stats/button) */}
@@ -127,31 +136,33 @@ const checkIconClass = isDark ? "text-primary-light" : "text-primary";
 >
   <div
     class:list={[
-      "mx-auto flex max-w-7xl gap-8 px-6 py-12 md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28 min-[1920px]:max-w-8xl",
+      "mx-auto flex max-w-7xl items-start gap-8 px-6 py-12 md:gap-12 md:px-12 md:py-20 lg:gap-20 lg:px-16 lg:py-28 min-[1920px]:max-w-8xl",
       flexOrderClasses,
     ]}
   >
     {/* Image block: left or right depending on imagePosition */}
     <div
-      class="fade-in-section flex w-full justify-center md:w-1/2 md:justify-end"
+      class="fade-in-section flex w-full shrink-0 items-start justify-center md:w-1/2 md:justify-end"
     >
       <div
         class:list={[
           "w-full overflow-hidden rounded-br-4xl",
           imageAspect === "original"
             ? "aspect-[3/4] md:aspect-[3/4]"
-            : "aspect-[4/3] md:aspect-square",
+            : "aspect-[4/3] max-h-[80vh] md:aspect-square",
         ]}
       >
         <Image
-          src={image.src as import("astro").ImageMetadata}
+          src={imgSrc}
           alt={getImageAlt(image, lang)}
           class:list={[
-            "h-full w-full",
-            imageAspect === "original" ? "object-contain" : "object-cover",
+            "overflow-hidden rounded-br-4xl",
+            imageAspect === "original"
+              ? "h-full w-full object-contain"
+              : "h-full w-full object-cover object-center",
           ]}
-          width={imageAspect === "original" ? 600 : 800}
-          height={imageAspect === "original" ? 800 : 600}
+          width={imageAspect === "original" ? 600 : imgWidth}
+          height={imageAspect === "original" ? 800 : imgHeight}
         />
       </div>
     </div>

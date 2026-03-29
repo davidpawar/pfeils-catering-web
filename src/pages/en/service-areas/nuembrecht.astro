@@ -1,0 +1,167 @@
+---
+import BaseHead from "../../../components/base/BaseHead.astro";
+import Footer from "../../../components/base/Footer.astro";
+import Navigation from "../../../components/base/Navigation.astro";
+import CallToAction from "../../../components/widgets/CallToAction.astro";
+import FAQ from "../../../components/widgets/FAQ.astro";
+import HeroSubpage from "../../../components/widgets/HeroSubpage.astro";
+import ImageGalleryMasonry from "../../../components/widgets/ImageGalleryMasonry.astro";
+import ImageText from "../../../components/widgets/ImageText.astro";
+import ItemList from "../../../components/widgets/ItemList.astro";
+import TextBlock from "../../../components/widgets/TextBlock.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../../i18n/utils";
+import { imageProvider } from "../../../provider/imageProvider";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const locationItems = [
+  {
+    title: t("mobileCocktailbarNuembrecht.locations.item1.title"),
+    description: t("mobileCocktailbarNuembrecht.locations.item1.description"),
+  },
+  {
+    title: t("mobileCocktailbarNuembrecht.locations.item2.title"),
+    description: t("mobileCocktailbarNuembrecht.locations.item2.description"),
+  },
+  {
+    title: t("mobileCocktailbarNuembrecht.locations.item3.title"),
+    description: t("mobileCocktailbarNuembrecht.locations.item3.description"),
+  },
+];
+
+const occasionItems = [
+  {
+    title: t("mobileCocktailbarNuembrecht.occasions.item1.title"),
+    description: t("mobileCocktailbarNuembrecht.occasions.item1.description"),
+  },
+  {
+    title: t("mobileCocktailbarNuembrecht.occasions.item2.title"),
+    description: t("mobileCocktailbarNuembrecht.occasions.item2.description"),
+  },
+  {
+    title: t("mobileCocktailbarNuembrecht.occasions.item3.title"),
+    description: t("mobileCocktailbarNuembrecht.occasions.item3.description"),
+  },
+];
+
+const faqItems = [
+  {
+    question: t("mobileCocktailbarNuembrecht.faq.q1"),
+    answer: t("mobileCocktailbarNuembrecht.faq.a1"),
+  },
+  {
+    question: t("mobileCocktailbarNuembrecht.faq.q2"),
+    answer: t("mobileCocktailbarNuembrecht.faq.a2"),
+  },
+  {
+    question: t("mobileCocktailbarNuembrecht.faq.q3"),
+    answer: t("mobileCocktailbarNuembrecht.faq.a3"),
+  },
+];
+
+const nuembrechtHeroUrl =
+  typeof imageProvider.serviceAreas.nuembrechtSchloss.src === "object"
+    ? imageProvider.serviceAreas.nuembrechtSchloss.src.src
+    : imageProvider.serviceAreas.nuembrechtSchloss.src;
+
+const galleryItems = [
+  { image: imageProvider.serviceAreas.nuembrechtSchloss },
+  { image: imageProvider.events.hochzeit },
+  { image: imageProvider.catering.weihnachtsmarkt },
+  { image: imageProvider.catering.coffeeTruck },
+  { image: imageProvider.catering.flammkuchen },
+  { image: imageProvider.events.weihnachtsfeier },
+];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead
+      title={t("mobileCocktailbarNuembrecht.meta.title")}
+      description={t("mobileCocktailbarNuembrecht.meta.description")}
+      lang={lang}
+    />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        <HeroSubpage
+          title={t("mobileCocktailbarNuembrecht.hero.title")}
+          imageUrl={nuembrechtHeroUrl}
+        />
+        <ImageText
+          badgeText={t("mobileCocktailbarNuembrecht.intro.badge")}
+          buttonText={t("hero.cta")}
+          checkItems={[
+            t("mobileCocktailbarNuembrecht.intro.bullet1"),
+            t("mobileCocktailbarNuembrecht.intro.bullet2"),
+            t("mobileCocktailbarNuembrecht.intro.bullet3"),
+          ]}
+          description={t("mobileCocktailbarNuembrecht.intro.description")}
+          image={imageProvider.cocktails.cocktailsAroundWorld}
+          imagePosition="right"
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("mobileCocktailbarNuembrecht.intro.title")}
+        />
+        <TextBlock
+          badge={t("mobileCocktailbarNuembrecht.whyNuembrecht.badge")}
+          content={`<p>${t("mobileCocktailbarNuembrecht.whyNuembrecht.description")}</p>`}
+          theme="light"
+          title={t("mobileCocktailbarNuembrecht.whyNuembrecht.title")}
+        />
+        <ItemList
+          badge={t("mobileCocktailbarNuembrecht.locations.badge")}
+          columns={2}
+          description=""
+          items={locationItems}
+          title={t("mobileCocktailbarNuembrecht.locations.title")}
+          theme="grey"
+        />
+        <ItemList
+          badge={t("mobileCocktailbarNuembrecht.occasions.badge")}
+          columns={3}
+          description=""
+          items={occasionItems}
+          title={t("mobileCocktailbarNuembrecht.occasions.title")}
+          theme="light"
+        />
+        <ImageGalleryMasonry
+          badgeText={t("mobileCocktailbarNuembrecht.gallery.badge")}
+          sectionTitle={t("mobileCocktailbarNuembrecht.gallery.title")}
+          sectionDescription={t("mobileCocktailbarNuembrecht.gallery.description")}
+          items={galleryItems}
+        />
+        <TextBlock
+          badge={t("mobileCocktailbarNuembrecht.process.badge")}
+          content={t("mobileCocktailbarNuembrecht.process.content")}
+          theme="light"
+          title={t("mobileCocktailbarNuembrecht.process.title")}
+        />
+        <FAQ
+          badge={t("mobileCocktailbarNuembrecht.faq.badge")}
+          description={t("mobileCocktailbarNuembrecht.faq.description")}
+          items={faqItems}
+          theme="grey"
+          title={t("mobileCocktailbarNuembrecht.faq.title")}
+        />
+        <CallToAction
+          badge={t("mobileCocktailbarNuembrecht.cta.badge")}
+          buttonText={t("hero.cta")}
+          href={translatePath("/anfrage/")}
+          theme="light"
+          title={t("mobileCocktailbarNuembrecht.cta.ctaTitle")}
+        />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

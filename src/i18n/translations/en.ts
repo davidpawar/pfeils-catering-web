@@ -470,9 +470,9 @@ export const en = {
     "<p>Based in <strong>Waldbröl</strong>, we are quickly ready for action with our mobile cocktail bar throughout the region. We reliably and with a lot of experience look after events in the <strong>Oberberg district</strong>, <strong>Gummersbach</strong>, the <strong>Rhein-Sieg district</strong> as well as in the greater <strong>Cologne</strong>, <strong>Bonn</strong> and <strong>Düsseldorf</strong> area – including freshly mixed cocktails, high-quality ingredients and a well-rehearsed bar team.</p><p>We are also deployed nationwide beyond the region. Thanks to mobile equipment and flexible logistics, we bring our mobile bar and our professional bartenders directly to your event – for example in <strong>Frankfurt</strong>, <strong>Hannover</strong> or <strong>Stuttgart</strong>.</p><p>Our mobile cocktail bar ensures stylish enjoyment everywhere and is guaranteed to stay in your guests' best memory – no matter how big your event is.</p>",
   "mobileCocktailbar.locationBlock.title": "Where we serve you",
   "mobileCocktailbar.meta.description":
-    "Rent a mobile cocktail bar for your event. Bamboo bar, bartenders, signature drinks. Weddings, corporate events, festivals. Cologne, Bonn, Oberberg.",
+    "Professional cocktail catering with a mobile bar: bamboo bar, bartenders, signature drinks. Weddings, corporate events, festivals. Cologne, Bonn, Oberberg.",
   "mobileCocktailbar.meta.title":
-    "Rent Mobile Cocktail Bar | Pfeil's Catering",
+    "Professional mobile cocktail bar | Pfeil's Catering",
   "mobileCocktailbar.testimonials.badge": "Customer voices",
   "mobileCocktailbar.testimonials.description":
     "What our customers say about our mobile cocktail bar.",
@@ -649,9 +649,92 @@ export const en = {
   "mobileCocktailbarGummersbach.faq.a3":
     "It pays off from about 50 guests. Below that, the effort becomes disproportionate. From 50 people onwards, the mobile cocktail bar is worthwhile – whether corporate anniversary, wedding or team event in Gummersbach and Oberberg.",
   "mobileCocktailbarGummersbach.cta.ctaTitle": "Feel free to get in touch!",
+  "mobileCocktailbarNuembrecht.meta.title":
+    "Mobile Cocktail Bar Nümbrecht & Region | Pfeil's Catering",
+  "mobileCocktailbarNuembrecht.meta.description":
+    "Mobile cocktail bar for Nümbrecht & Bergisches Land: garden parties, castle settings, corporate events in quiet spots. Short drive from Waldbröl.",
+  "mobileCocktailbarNuembrecht.hero.title":
+    "Mobile Cocktail Bar Nümbrecht – drinks between spa gardens and hill views",
+  "mobileCocktailbarNuembrecht.intro.badge": "Nümbrecht & Bergisches Land",
+  "mobileCocktailbarNuembrecht.intro.title":
+    "A cocktail bar for celebrations in Nümbrecht and the green Oberberg region",
+  "mobileCocktailbarNuembrecht.intro.description":
+    "Nümbrecht is known for its spa-town character, Schloss Homburg and the Bergisches Land nature park all around. Celebrations here are often a little smaller and closer to nature – in the garden, on a farm courtyard or at a venue with a view. We drive from Waldbröl to your site and set up the mobile cocktail bar where you welcome guests: with bartenders, fresh ingredients and a drinks concept that fits your occasion.",
+  "mobileCocktailbarNuembrecht.intro.bullet1":
+    "Ideal for garden parties, farmyards and scenic spots",
+  "mobileCocktailbarNuembrecht.intro.bullet2":
+    "Experience with events in historic settings and rural surroundings",
+  "mobileCocktailbarNuembrecht.intro.bullet3":
+    "Short drive from Waldbröl to the spa town and Bergisch countryside",
+  "mobileCocktailbarNuembrecht.whyNuembrecht.badge": "Why Nümbrecht?",
+  "mobileCocktailbarNuembrecht.whyNuembrecht.title":
+    "Spa town and nature park – a different event profile from the big city",
+  "mobileCocktailbarNuembrecht.whyNuembrecht.description":
+    "Unlike Cologne, Nümbrecht often means intimate celebrations, landscape and a resort-town feel: weddings with greenery in view, summer parties on private grounds or company events away from trade-fair bustle. The castle shapes the town; trails and panoramic viewpoints are close by. Our mobile bar is built for that: flexible setup, a discreet presence when the setting already steals the show.",
+  "mobileCocktailbarNuembrecht.locations.badge": "Venues",
+  "mobileCocktailbarNuembrecht.locations.title":
+    "Where we serve you around Nümbrecht",
+  "mobileCocktailbarNuembrecht.locations.item1.title":
+    "Town centre, market square & function rooms",
+  "mobileCocktailbarNuembrecht.locations.item1.description":
+    "Celebrations downtown, in hospitality or hired rooms – we add bar, staff and logistics so you do not have to worry about glassware and ice.",
+  "mobileCocktailbarNuembrecht.locations.item2.title":
+    "Schloss Homburg, park & historic backdrops",
+  "mobileCocktailbarNuembrecht.locations.item2.description":
+    "When your event features castle, park or timber-framed architecture, we align setup and flow so the scenery stays centre stage.",
+  "mobileCocktailbarNuembrecht.locations.item3.title":
+    "Bergisch countryside – Morsbach, Hömel, Rösrath & beyond",
+  "mobileCocktailbarNuembrecht.locations.item3.description":
+    "From Nümbrecht we quickly reach neighbouring villages, orchards, farmsteads and country estates. Share the address and guest count – we check route and setup.",
+  "mobileCocktailbarNuembrecht.occasions.badge": "Occasions",
+  "mobileCocktailbarNuembrecht.occasions.title":
+    "Typical celebrations in and around Nümbrecht",
+  "mobileCocktailbarNuembrecht.occasions.item1.title":
+    "Weddings & outdoor ceremonies in green settings",
+  "mobileCocktailbarNuembrecht.occasions.item1.description":
+    "Garden reception, lawn aperitif or barn party: we mix signature drinks and classics so the first part of your celebration stays relaxed and cohesive.",
+  "mobileCocktailbarNuembrecht.occasions.item2.title":
+    "Birthdays, anniversaries & family gatherings",
+  "mobileCocktailbarNuembrecht.occasions.item2.description":
+    "Private events with a modest guest count benefit from a real bar instead of self-service – we handle service and breakdown after the party.",
+  "mobileCocktailbarNuembrecht.occasions.item3.title":
+    "Company parties & team events in a quiet setting",
+  "mobileCocktailbarNuembrecht.occasions.item3.description":
+    "Seminar by day, barbecue or buffet plus bar in the evening: we fit your schedule and keep the bar flowing without long queues.",
+  "mobileCocktailbarNuembrecht.gallery.badge": "Impressions",
+  "mobileCocktailbarNuembrecht.gallery.title":
+    "Cocktail catering – atmosphere, not just drinks",
+  "mobileCocktailbarNuembrecht.gallery.description":
+    "A glimpse of our work: from mobile bars to festive setups – suited to different venues and guest numbers.",
+  "mobileCocktailbarNuembrecht.cta.badge": "Get in touch",
+  "mobileCocktailbarNuembrecht.cta.ctaTitle":
+    "Your date in Nümbrecht – we'll get back to you!",
+  "mobileCocktailbarNuembrecht.process.badge": "Process",
+  "mobileCocktailbarNuembrecht.process.title":
+    "From outline to last drink – planned clearly",
+  "mobileCocktailbarNuembrecht.process.content":
+    "<p>First we clarify venue, date and approximate guest count. Then we propose scope and cocktail selection – including non-alcoholic options. For outdoor or sloped sites we check power, water and footprint so nothing is missing on the day.</p><p>On the event day we set up on time, mix for the agreed period and strike cleanly afterwards. Whether Nümbrecht, a nearby village or a farm in the Bergisches Land, you have one contact who knows the route from Waldbröl.</p>",
+  "mobileCocktailbarNuembrecht.faq.badge": "FAQ",
+  "mobileCocktailbarNuembrecht.faq.title":
+    "Questions about cocktail catering in Nümbrecht & surroundings",
+  "mobileCocktailbarNuembrecht.faq.description":
+    "Answers on setup, locations and flow – not copy-pasted from our big-city page.",
+  "mobileCocktailbarNuembrecht.faq.q1":
+    "Do you also travel to very small villages or farmsteads?",
+  "mobileCocktailbarNuembrecht.faq.a1":
+    "Yes – around Nümbrecht and in the Bergisches Land we do that regularly. What matters is access, space for setup and guest count. Give us the address and we'll be straightforward about what works.",
+  "mobileCocktailbarNuembrecht.faq.q2":
+    "Does a mobile bar suit a celebration with a castle or half-timbered backdrop?",
+  "mobileCocktailbarNuembrecht.faq.a2":
+    "Yes. We adapt the look of the setup and liaise with the venue so house rules and heritage constraints are respected and the scenery stays visible.",
+  "mobileCocktailbarNuembrecht.faq.q3":
+    "What is the minimum guest count you recommend?",
+  "mobileCocktailbarNuembrecht.faq.a3":
+    "From experience, the effort pays off from about 50 guests. Below that we often suggest a leaner setup – talk to us and we'll find a fit.",
   "footer.cityPages": "Mobile Cocktail Bar by City",
   "footer.cityPages.koeln": "Cologne",
   "footer.cityPages.gummersbach": "Gummersbach",
+  "footer.cityPages.nuembrecht": "Nümbrecht",
   "footer.tagline":
     "Mixed with heart, for you and your guests. Professional cocktail catering for unforgettable events since 2008.",
 } as const;

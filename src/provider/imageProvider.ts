@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-// Alphanetical order
+// Alphabetical order
 import aperolSpritz from "../assets/images/cocktails/aperol-spritz.jpg";
 import bartenderCocktailShaker from "../assets/images/blog/bartender-cocktail-shaker.jpg";
 import barkeeperShow from "../assets/images/blog/barkeeper-show.jpg";
@@ -29,6 +29,7 @@ import hochzeit from "../assets/images/events/hochzeit.jpg";
 import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
 import messe from "../assets/images/events/messe.jpg";
+import nuembrechtSchloss from "../assets/images/service-areas/nuembrecht-schloss.jpg";
 import oni from "../assets/images/logos/oni.png";
 import salatCatering from "../assets/images/catering/salat-catering.jpg";
 import schwalbe from "../assets/images/logos/schwalbe.svg";
@@ -53,13 +54,13 @@ export type ImageAsset = {
 export type ImageCategory = Record<string, ImageAsset>;
 
 export type ImageProvider = {
-  blog: ImageCategory;
   catering: ImageCategory;
   cocktails: ImageCategory;
   events: ImageCategory;
   hero: ImageCategory;
   logo: ImageCategory;
   partners: ImageCategory;
+  serviceAreas: ImageCategory;
   team: ImageCategory;
 };
 
@@ -71,28 +72,6 @@ export function getImageAlt(image: ImageAsset, lang: string): string {
 }
 
 export const imageProvider: ImageProvider = {
-  blog: {
-    bartenderCocktailShaker: {
-      alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
-      altEn: "Bartender with cocktail shaker during a show performance",
-      src: bartenderCocktailShaker,
-    },
-    barkeeperShow: {
-      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
-      altEn: "Bartender preparing cocktails at the bar",
-      src: barkeeperShow,
-    },
-    bunteCocktails: {
-      alt: "Bunte Cocktails stilvoll auf einer Bar angerichtet",
-      altEn: "Colourful cocktails elegantly arranged on a bar",
-      src: bunteCocktails,
-    },
-    cocktailsAroundWorld: {
-      alt: "Drei Cocktails inspiriert von verschiedenen Laendern",
-      altEn: "Three cocktails inspired by different countries",
-      src: cocktailsAroundWorld,
-    },
-  },
   catering: {
     bambusbar: {
       alt: "Mobile Bambusbar von Pfeil's Catering bei einer Veranstaltung",
@@ -103,6 +82,16 @@ export const imageProvider: ImageProvider = {
       alt: "Bambusbar von Pfeil's Catering bei einer Abendveranstaltung",
       altEn: "Bamboo bar by Pfeil's Catering at an evening event",
       src: bambusbarAbend,
+    },
+    bartenderCocktailShaker: {
+      alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
+      altEn: "Bartender with cocktail shaker during a show performance",
+      src: bartenderCocktailShaker,
+    },
+    barkeeperShow: {
+      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
+      altEn: "Bartender preparing cocktails at the bar",
+      src: barkeeperShow,
     },
     bratwurstGrill: {
       alt: "Bratwurst-Grill-Catering – frisch gegrillte Würste vor Ort",
@@ -156,6 +145,16 @@ export const imageProvider: ImageProvider = {
       alt: "Aperol Spritz – der spritzige Klassiker",
       altEn: "Aperol Spritz – the sparkling classic",
       src: aperolSpritz,
+    },
+    bunteCocktails: {
+      alt: "Bunte Cocktails stilvoll auf einer Bar angerichtet",
+      altEn: "Colourful cocktails elegantly arranged on a bar",
+      src: bunteCocktails,
+    },
+    cocktailsAroundWorld: {
+      alt: "Drei Cocktails inspiriert von verschiedenen Laendern",
+      altEn: "Three cocktails inspired by different countries",
+      src: cocktailsAroundWorld,
     },
     erdbeerMojito: {
       alt: "Erdbeer Mojito – Frische trifft Frucht",
@@ -214,7 +213,8 @@ export const imageProvider: ImageProvider = {
     },
     koelnDomBruecke: {
       alt: "Nächtliche Skyline von Köln mit Kölner Dom und Hohenzollernbrücke am Rhein",
-      altEn: "Night skyline of Cologne with Cologne Cathedral and Hohenzollern Bridge on the Rhine",
+      altEn:
+        "Night skyline of Cologne with Cologne Cathedral and Hohenzollern Bridge on the Rhine",
       src: koelnDomBruecke,
     },
     messeBackground: {
@@ -272,6 +272,14 @@ export const imageProvider: ImageProvider = {
       alt: "Volksbank Oberberg – Partner von Pfeil's Catering",
       altEn: "Volksbank Oberberg – partner of Pfeil's Catering",
       src: volksbank,
+    },
+  },
+  serviceAreas: {
+    nuembrechtSchloss: {
+      alt: "Schloss Homburg in Nümbrecht – historische Burganlage mit gelbem Schloss und steinernen Mauern unter blauem Himmel",
+      altEn:
+        "Schloss Homburg in Nümbrecht, Germany – historic castle with pale yellow walls and stone fortifications under a blue sky",
+      src: nuembrechtSchloss,
     },
   },
   team: {
