@@ -94,6 +94,26 @@ Important notes:
 - Blog frontmatter includes fields like `title`, `description`, `pubDate`, `heroImage`, and optional `lang`.
 - Blog list and article pages are rendered through layouts, not hand-built widget pages.
 
+### Blog FAQ and JSON-LD
+
+Do not use the `FAQ` widget (`src/components/widgets/FAQ.astro`) inside blog MDX. It is a full-width page section (own background, `max-w-7xl` container, page-level padding and typography) and breaks the article reading layout and the `.blog-content` grid in `src/layouts/BlogPost.astro`.
+
+Instead, for blog posts:
+
+- Blog FAQs must be informational content, never advertising. Write neutral, third-person answers (avoid "wir"/"we", "unser Team"/"our team", product pitches and CTAs). Only light, generic hints are allowed (e.g. "a mobile catering service usually brings glassware, ice and tables"). Save any direct mention of Pfeil's Catering for the conclusion, not the FAQ.
+- Write the visible FAQ as normal Markdown in the MDX body (e.g. a `## FAQ` heading with `### Question` plus an answer paragraph).
+- To emit `FAQPage` JSON-LD, add an optional `faq` array to the post frontmatter. `src/layouts/BlogPost.astro` renders the structured data automatically when `faq` is present.
+- Keep the `faq` frontmatter in sync with the visible Markdown FAQ, and use plain text (no Markdown like `**bold**`) in `faq` so the structured data stays clean.
+- Keep `faq` in sync between the German and English versions of the same post.
+
+Example frontmatter:
+
+```yaml
+faq:
+  - question: "How early should we start planning?"
+    answer: "It depends on headcount: for up to ~100 guests, 8–12 weeks is usually enough."
+```
+
 ## Image Workflow
 
 ### Where reusable images live

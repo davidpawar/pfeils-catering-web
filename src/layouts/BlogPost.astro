@@ -23,6 +23,7 @@ const {
   pubDate,
   updatedDate,
   heroImageKey,
+  faq,
   lang: langProp,
 } = Astro.props;
 const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
@@ -50,12 +51,37 @@ function formatDate(date: Date, locale: string): string {
     year: "numeric",
   }).format(date);
 }
+
+/* FAQPage JSON-LD: emitted from frontmatter `faq` (keep in sync with the visible MDX FAQ). */
+const faqSchema =
+  faq && faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : undefined;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <BaseHead title={title} description={description} image={heroUrl} lang={lang} />
+    {
+      faqSchema && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(faqSchema)}
+        />
+      )
+    }
     <style is:global>
       /*
         MDX <Image /> renders as direct <img> siblings under .blog-content (not inside <p>).
@@ -72,7 +98,7 @@ function formatDate(date: Date, locale: string): string {
         max-width: 42rem;
         height: auto;
         margin-top: 2rem;
-        margin-bottom: 0;
+        margin-bottom: 2rem;
         margin-left: auto;
         margin-right: auto;
         border-radius: 0.75rem;
