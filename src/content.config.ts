@@ -16,6 +16,19 @@ const blogSchema = z
 		/** Key in `imageProvider.catering` or `imageProvider.cocktails`. */
 		heroImageKey: z.string().optional(),
 		lang: z.enum(["de", "en"]).optional(),
+		/**
+		 * Optional FAQ entries. Used only to emit FAQPage JSON-LD in the blog
+		 * layout. The visible FAQ stays in the MDX body; keep both in sync.
+		 * Use plain text (no Markdown) so the structured data is clean.
+		 */
+		faq: z
+			.array(
+				z.object({
+					question: z.string(),
+					answer: z.string(),
+				}),
+			)
+			.optional(),
 	})
 	.superRefine((data, ctx) => {
 		if (!data.heroImageKey) return;
