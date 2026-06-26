@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { env } from "cloudflare:workers";
 
 export const prerender = false;
 
@@ -184,7 +185,7 @@ const createJSONResponse = (body: object, status = 200) =>
  * POST handler for the contact form.
  * Sends 1) an email to info@pfeils-catering.de and 2) a confirmation email to the customer.
  */
-export const POST: APIRoute = async ({ locals, request }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
     const date = (formData.get("date") as string | null)?.trim() || undefined;
@@ -215,7 +216,7 @@ export const POST: APIRoute = async ({ locals, request }) => {
       );
     }
 
-    const apiKey = locals.runtime?.env?.RESEND_API_KEY;
+    const apiKey = env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("RESEND_API_KEY is not configured");
       return createJSONResponse(

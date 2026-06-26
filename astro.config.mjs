@@ -10,13 +10,15 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.pfeils-catering.de",
+  // Astro 7 changed the default to 'jsx' (strips whitespace between inline
+  // elements). Keep the previous HTML-aware behavior to avoid spacing regressions.
+  compressHTML: true,
   integrations: [mdx(), sitemap()],
 
   adapter: cloudflare({
-      platformProxy: {
-          enabled: true,
-      },
-	}),
+    imageService: "compile",
+    prerenderEnvironment: "node",
+  }),
 
   vite: {
     plugins: [tailwindcss()],
