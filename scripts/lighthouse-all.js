@@ -313,8 +313,10 @@ async function runCommand(command, args) {
  * Runs Lighthouse for one URL and stores a JSON report on disk.
  */
 async function runLighthouse(url, options) {
-  const fileBase = path.join(options.outputDir, sanitizeFilename(url));
-  const reportPath = `${fileBase}.report.json`;
+  const reportPath = path.join(
+    options.outputDir,
+    `${sanitizeFilename(url)}.report.json`,
+  );
   const args = [
     "lighthouse",
     url,
@@ -324,8 +326,10 @@ async function runLighthouse(url, options) {
     options.onlyCategories,
     "--output",
     "json",
+    // Lighthouse 13.4+ writes to the exact --output-path given (it no longer
+    // appends ".report.json"), so pass the full report path here.
     "--output-path",
-    fileBase,
+    reportPath,
     "--chrome-flags",
     options.chromeFlags,
     "--quiet",

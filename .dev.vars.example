@@ -1,0 +1,4 @@
+# Local secrets for the Cloudflare workerd dev server (astro dev / astro preview).
+# Copy this file to ".dev.vars" and fill in real values. Never commit ".dev.vars".
+# Production/dev secrets live encrypted in the Cloudflare dashboard or via `wrangler secret put`.
+RESEND_API_KEY=

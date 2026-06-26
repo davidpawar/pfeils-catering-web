@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { imageProvider } from "./provider/imageProvider";
 
 function isBlogHeroImageKey(key: string): boolean {
@@ -34,7 +35,7 @@ const blogSchema = z
 		if (!data.heroImageKey) return;
 		if (!isBlogHeroImageKey(data.heroImageKey)) {
 			ctx.addIssue({
-				code: z.ZodIssueCode.custom,
+				code: "custom",
 				message: `heroImageKey "${data.heroImageKey}" not found in imageProvider.catering or imageProvider.cocktails`,
 				path: ["heroImageKey"],
 			});
