@@ -69,6 +69,8 @@ export const en = {
     "Describe your occasion, wishes or questions …",
   "contactForm.submit": "Submit",
   "contactForm.submitting": "Sending …",
+  "contactForm.privacyNoticePrefix": "Further information is available in our",
+  "contactForm.privacyNoticeLink": "Privacy Policy",
   "contactForm.close": "Close",
   "contactForm.successTitle": "Thank you!",
   "contactForm.successMessage":
@@ -95,8 +97,19 @@ export const en = {
   "blog.title": "Tips, Recipes and Catering News",
   "hero.blog.title": "Blog – Tips, Recipes and Catering News",
   "datenschutz.meta.description":
-    "Privacy policy of Pfeil's Cocktail Catering. Information on the processing of your personal data.",
+    "Short privacy policy of Pfeil's Cocktail Catering on hosting, analytics, contact form processing and your rights under GDPR.",
   "datenschutz.meta.title": "Privacy Policy | Pfeil's Cocktail Catering",
+  "datenschutz.title": "Privacy Policy",
+  "datenschutz.controller": "Controller",
+  "datenschutz.processing.title": "What data we process",
+  "datenschutz.processing.text":
+    "When you visit this website, our hosting provider Cloudflare processes technically necessary data (e.g. IP address, page viewed, browser information). For statistical evaluation we use Plausible Analytics without tracking cookies; events are recorded only after you interact with the page. UTM parameters are stored in sessionStorage until the session ends. Via the contact form we process your details (e.g. name, email, message) to handle your inquiry; delivery is handled by Resend. Data is transmitted over encrypted HTTPS.",
+  "datenschutz.rights.title": "Your rights and complaints",
+  "datenschutz.rights.text":
+    "You have the right to access, rectification, erasure, restriction, data portability and objection. Contact info@pfeils-catering.de to exercise your rights. You may also lodge a complaint with the State Commissioner for Data Protection and Freedom of Information NRW (LDI NRW), https://www.ldi.nrw.de.",
+  "datenschutz.updated.title": "Version of this policy",
+  "datenschutz.updated.text":
+    "The version published on this page applies. We update this policy when our website or the services we use change.",
   "firmenfeier.cta.badge": "Your next step",
   "firmenfeier.cta.title": "Ready for your perfect event?",
   "firmenfeier.eiscatering.badge": "Cold Dishes",
@@ -264,16 +277,20 @@ export const en = {
   "hochzeitsfeier.textList.item6.title": "Excellent complement",
   "hochzeitsfeier.textList.title": "Your wedding celebration",
   "impressum.meta.description":
-    "Imprint with legal details, contact information and mandatory company information for Pfeil's Cocktail Catering in Waldbröl.",
+    "Imprint with provider details, contact information, VAT ID and mandatory legal information for Pfeil's Cocktail Catering in Waldbröl.",
   "impressum.meta.title": "Imprint | Pfeil's Cocktail Catering",
   "impressum.title": "Imprint",
+  "impressum.businessName": "Pfeil's Cocktail Catering",
+  "impressum.owner": "Owner: Thomas Pfeil",
+  "impressum.legalForm": "Sole proprietorship",
   "impressum.contact": "Contact",
   "impressum.phone": "Phone",
   "impressum.email": "Email",
   "impressum.vatId": "VAT ID",
   "impressum.vatIdText":
     "VAT identification number according to §27 a of the German VAT Act:",
-  "impressum.odr": "EU Commission platform for online dispute resolution",
+  "impressum.contentResponsible":
+    "Responsible for content pursuant to § 18 (2) MStV",
   "impressum.vsbg": "Notice according to § 36 VSBG:",
   "impressum.vsbgText":
     "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.",

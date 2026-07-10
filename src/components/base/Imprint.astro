@@ -1,6 +1,6 @@
 ---
 /**
- * Imprint component: Legal imprint (Impressum) with contact, VAT ID, ODR and VSBG notice.
+ * Imprint component: Legal imprint (Impressum) with contact, VAT ID, MStV and VSBG notice.
  * Responsive layout matching the site's design system.
  */
 interface Props {
@@ -32,7 +32,9 @@ const t = useTranslations(lang);
         {t("impressum.contact")}
       </h2>
       <div class="mt-4 space-y-1 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
-        <p class="font-semibold text-dark">Thomas Pfeil</p>
+        <p class="font-semibold text-dark">{t("impressum.businessName")}</p>
+        <p>{t("impressum.owner")}</p>
+        <p>{t("impressum.legalForm")}</p>
         <p>Buschweg 10</p>
         <p>51545 Waldbröl</p>
       </div>
@@ -43,7 +45,7 @@ const t = useTranslations(lang);
             href="tel:+491784988521"
             class="text-primary transition-colors hover:text-primary-light underline"
           >
-            +49 1784988521
+            +49 178 498 85 21
           </a>
         </p>
         <p>
@@ -67,20 +69,15 @@ const t = useTranslations(lang);
         DE328147354
       </p>
 
-      <!-- EU ODR -->
+      <!-- Verantwortlich für Inhalte (MStV) -->
       <h2 class="mt-10 font-outfit text-lg font-semibold text-dark md:mt-12 md:text-xl">
-        {t("impressum.odr")}
+        {t("impressum.contentResponsible")}
       </h2>
-      <p class="mt-4 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
-        <a
-          href="https://ec.europa.eu/consumers/odr"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary transition-colors hover:text-primary-light underline break-all"
-        >
-          https://ec.europa.eu/consumers/odr
-        </a>
-      </p>
+      <div class="mt-4 space-y-1 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        <p>Thomas Pfeil</p>
+        <p>Buschweg 10</p>
+        <p>51545 Waldbröl</p>
+      </div>
 
       <!-- VSBG Hinweis -->
       <h2 class="mt-10 font-outfit text-lg font-semibold text-dark md:mt-12 md:text-xl">
