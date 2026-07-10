@@ -1,0 +1,28 @@
+---
+import BaseHead from "../components/base/BaseHead.astro";
+import Footer from "../components/base/Footer.astro";
+import HeroSubpage from "../components/widgets/HeroSubpage.astro";
+import Navigation from "../components/base/Navigation.astro";
+import PrivacyPolicy from "../components/base/PrivacyPolicy.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead title={t("datenschutz.meta.title")} description={t("datenschutz.meta.description")} lang={lang} />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        <HeroSubpage title={t("datenschutz.title")} />
+        <PrivacyPolicy showTitle={false} />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

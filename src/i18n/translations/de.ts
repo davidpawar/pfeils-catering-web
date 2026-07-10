@@ -70,6 +70,8 @@ export const de = {
     "Beschreiben Sie Ihren Anlass, Wünsche oder Fragen …",
   "contactForm.submit": "Abschicken",
   "contactForm.submitting": "Wird gesendet …",
+  "contactForm.privacyNoticePrefix": "Weitere Informationen finden Sie in unserer",
+  "contactForm.privacyNoticeLink": "Datenschutzerklärung",
   "contactForm.close": "Schließen",
   "contactForm.successTitle": "Vielen Dank!",
   "contactForm.successMessage":
@@ -96,8 +98,19 @@ export const de = {
   "blog.title": "Bargeflüster – Von Mixkunst & Momenten",
   "hero.blog.title": "Blog – Tipps, Rezepte und Catering-News",
   "datenschutz.meta.description":
-    "Datenschutzerklärung von Pfeil's Cocktail Catering. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.",
+    "Kurze Datenschutzerklärung von Pfeil's Cocktail Catering zu Hosting, Analyse, Kontaktformular und Ihren Rechten nach DSGVO.",
   "datenschutz.meta.title": "Datenschutzerklärung | Pfeil's Cocktail Catering",
+  "datenschutz.title": "Datenschutzerklärung",
+  "datenschutz.controller": "Verantwortlicher",
+  "datenschutz.processing.title": "Welche Daten wir verarbeiten",
+  "datenschutz.processing.text":
+    "Beim Besuch dieser Website verarbeitet unser Hosting-Anbieter Cloudflare technisch notwendige Daten (z. B. IP-Adresse, aufgerufene Seite, Browserinformationen). Für eine statistische Auswertung nutzen wir Plausible Analytics ohne Tracking-Cookies; Ereignisse werden erst nach Ihrer Interaktion erfasst. UTM-Parameter speichern wir bis Sitzungsende im sessionStorage. Über das Kontaktformular verarbeiten wir Ihre Angaben (z. B. Name, E-Mail, Nachricht) zur Bearbeitung Ihrer Anfrage; der Versand erfolgt über Resend. Die Übertragung erfolgt verschlüsselt per HTTPS.",
+  "datenschutz.rights.title": "Ihre Rechte und Beschwerde",
+  "datenschutz.rights.text":
+    "Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Wenden Sie sich dazu an info@pfeils-catering.de. Sie können sich zudem bei der Landesbeauftragten für Datenschutz und Informationsfreiheit NRW (LDI NRW), https://www.ldi.nrw.de, beschweren.",
+  "datenschutz.updated.title": "Stand dieser Erklärung",
+  "datenschutz.updated.text":
+    "Es gilt die jeweils auf dieser Seite veröffentlichte Fassung. Wir passen die Erklärung an, wenn sich unsere Website oder eingesetzte Dienste ändern.",
   "firmenfeier.cta.badge": "Ihr nächster Schritt",
   "firmenfeier.cta.title": "Bereit für Ihr perfektes Event?",
   "firmenfeier.eiscatering.badge": "Kalte Speisen",
@@ -267,16 +280,20 @@ export const de = {
   "hochzeitsfeier.textList.item6.title": "Exzellente Ergänzung",
   "hochzeitsfeier.textList.title": "Ihre Hochzeitsfeier",
   "impressum.meta.description":
-    "Impressum mit rechtlichen Angaben, Kontaktdaten und Pflichtinformationen zu Pfeil's Cocktail Catering in Waldbröl.",
+    "Impressum von Pfeil's Cocktail Catering: Anbieterkennzeichnung, Kontakt, USt-IdNr., Verantwortlicher nach MStV und VSBG-Hinweis in Waldbröl.",
   "impressum.meta.title": "Impressum | Pfeil's Cocktail Catering",
   "impressum.title": "Impressum",
+  "impressum.businessName": "Pfeil's Cocktail Catering",
+  "impressum.owner": "Inhaber: Thomas Pfeil",
+  "impressum.legalForm": "Einzelunternehmen",
   "impressum.contact": "Kontakt",
   "impressum.phone": "Telefon",
   "impressum.email": "E-Mail",
   "impressum.vatId": "Umsatzsteuer-ID",
   "impressum.vatIdText":
     "Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:",
-  "impressum.odr": "Plattform der EU-Kommission zur Online-Streitbeilegung",
+  "impressum.contentResponsible":
+    "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
   "impressum.vsbg": "Hinweis gemäß § 36 VSBG:",
   "impressum.vsbgText":
     "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",

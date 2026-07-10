@@ -1,0 +1,67 @@
+---
+/**
+ * Privacy policy component with GDPR-relevant sections for this site’s
+ * actual data processing (hosting, analytics proxy, contact form).
+ */
+interface Props {
+  /** When false, hides the main title (e.g. when used with HeroSubpage). */
+  showTitle?: boolean;
+}
+
+const { showTitle = true } = Astro.props;
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const sectionKeys = ["processing", "rights", "updated"] as const;
+---
+
+<section class="relative overflow-hidden bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl">
+    <div class="max-w-3xl">
+      {
+        showTitle && (
+          <>
+            <h1 class="font-anton text-3xl leading-tight text-dark md:text-4xl lg:text-5xl">
+              {t("datenschutz.title")}
+            </h1>
+            <hr class="mt-6 border-dark/10 pb-8 md:pb-10" />
+          </>
+        )
+      }
+
+      <h2 class="font-outfit text-lg font-semibold text-dark md:text-xl">
+        {t("datenschutz.controller")}
+      </h2>
+      <div class="mt-4 space-y-1 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+        <p class="font-semibold text-dark">{t("impressum.businessName")}</p>
+        <p>{t("impressum.owner")}</p>
+        <p>Buschweg 10</p>
+        <p>51545 Waldbröl</p>
+        <p>
+          <span class="font-semibold text-dark">{t("impressum.email")}: </span>
+          <a
+            href="mailto:info@pfeils-catering.de"
+            class="text-primary transition-colors hover:text-primary-light underline"
+          >
+            info@pfeils-catering.de
+          </a>
+        </p>
+      </div>
+
+      {
+        sectionKeys.map((key) => (
+          <div>
+            <h2 class="mt-10 font-outfit text-lg font-semibold text-dark md:mt-12 md:text-xl">
+              {t(`datenschutz.${key}.title`)}
+            </h2>
+            <p class="mt-4 font-outfit text-base leading-relaxed text-dark/80 md:text-lg">
+              {t(`datenschutz.${key}.text`)}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
