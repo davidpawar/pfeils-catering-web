@@ -1,6 +1,6 @@
 {
   "name": "pfeils-catering-web",
-  "description": "Build a personal website, blog, or portfolio with Astro.",
+  "description": "Website of Pfeil's Cocktail Catering.",
   "cloudflare": {
     "label": "Astro Framework Starter",
     "products": [
