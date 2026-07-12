@@ -3,7 +3,7 @@ import { Check } from "@lucide/astro";
 import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
 import type { ImageAsset } from "../../provider/imageProvider";
-import { getImageAlt } from "../../provider/imageProvider";
+import { getImageAlt } from "../../utils/imageUtils";
 import { getLangFromUrl } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -161,8 +161,12 @@ const imgHeight = hasDims ? imgSrc.height : 600;
               ? "h-full w-full object-contain"
               : "h-full w-full object-cover object-center",
           ]}
-          width={imageAspect === "original" ? 600 : imgWidth}
+          format="webp"
           height={imageAspect === "original" ? 800 : imgHeight}
+          quality={80}
+          sizes="(min-width: 768px) 50vw, 100vw"
+          width={imageAspect === "original" ? 600 : imgWidth}
+          widths={[480, 640, 768, 960, 1200, 1600, 1920]}
         />
       </div>
     </div>

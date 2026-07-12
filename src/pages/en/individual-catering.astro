@@ -17,11 +17,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const individuellHeroUrl =
-  typeof imageProvider.hero.individuellBackground.src === "object"
-    ? imageProvider.hero.individuellBackground.src.src
-    : imageProvider.hero.individuellBackground.src;
-
 const eisBullets = t("individuell.service.eis.bullets").split(", ");
 const bratwurstBullets = t("individuell.service.bratwurst.bullets").split(", ");
 const crepesBullets = t("individuell.service.crepes.bullets").split(", ");
@@ -43,7 +38,7 @@ const weihnachtBullets = t("individuell.service.weihnacht.bullets").split(", ");
       <main>
         <HeroSubpage
           title={t("hero.individuell.title")}
-          imageUrl={individuellHeroUrl}
+          image={imageProvider.hero.individuellBackground}
         />
         <ImageText
           badgeText={t("hero.individuell.subtitle")}

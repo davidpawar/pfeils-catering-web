@@ -19,13 +19,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const weddingHeroUrl =
-  typeof imageProvider.hero.weddingBackground.src === "object"
-    ? imageProvider.hero.weddingBackground.src.src
-    : imageProvider.hero.weddingBackground.src;
-
 const galleryItems = [
-  { image: imageProvider.events.hochzeitWedding },
+  { image: imageProvider.events.hochzeit },
   { image: imageProvider.catering.cocktailService },
   { image: imageProvider.catering.bambusbar },
   { image: imageProvider.catering.bambusbarAbend },
@@ -93,7 +88,7 @@ const testimonialItems = [
       <main>
         <HeroSubpage
           title={t("hero.hochzeitsfeier.title")}
-          imageUrl={weddingHeroUrl}
+          image={imageProvider.hero.weddingBackground}
         />
         <ImageText
           badgeText={t("hero.hochzeitsfeier.subtitle")}
@@ -105,7 +100,7 @@ const testimonialItems = [
             t("hero.hochzeitsfeier.bullet4"),
           ]}
           description={`${t("hero.hochzeitsfeier.description")}. ${t("hero.hochzeitsfeier.paragraph")}`}
-          image={imageProvider.events.hochzeitWedding}
+          image={imageProvider.events.hochzeit}
           imagePosition="right"
           link={translatePath("/anfrage/")}
           theme="grey"

@@ -14,10 +14,12 @@ This file is the working guide for AI agents and content teams. Its job is to he
 
 Use the existing patterns first. Prefer consistency over creativity.
 
+When you change project patterns, components, or page structures, update this file in the same pass.
+
 ## Project Mental Model
 
 - Normal pages are assembled from:
-`BaseHead` + `Navigation` + content widgets + `Footer`
+  `BaseHead` + `Navigation` + content widgets + `Footer`
 - Blog pages use layouts instead of manual page assembly.
 - German is the source of truth for copy, slugs, and structure.
 - English mirrors the German content and route structure.
@@ -91,7 +93,7 @@ Important notes:
 
 - German and English blog posts are separate MDX files.
 - German and English versions of the same blog post should use the same filename/slug in their respective folders.
-- Blog frontmatter includes fields like `title`, `description`, `pubDate`, `heroImage`, and optional `lang`.
+- Blog frontmatter includes fields like `title`, `description`, `pubDate`, optional `heroImageKey`, and optional `lang`.
 - Blog list and article pages are rendered through layouts, not hand-built widget pages.
 
 ### Blog FAQ and JSON-LD
@@ -123,10 +125,11 @@ Most reusable site images live under:
 - `src/assets/images/blog`
 - `src/assets/images/catering`
 - `src/assets/images/cocktails`
-- `src/assets/images/events`
+- `src/assets/images/events` (subfolders per event type, e.g. `firmenfeier/`, `hochzeit/`)
 - `src/assets/images/hero`
 - `src/assets/images/logo`
 - `src/assets/images/logos`
+- `src/assets/images/service-areas`
 - `src/assets/images/team`
 
 ### Where images are registered
@@ -140,8 +143,11 @@ Each image entry should have:
 - `src`
 - `alt` for German
 - optional `altEn` for English
+- optional `blogHero: true` when the image may be used as a blog post hero via `heroImageKey`
 
-Use `getImageAlt()` from `src/provider/imageProvider.ts` to render localized alt text.
+Use `getImageAlt()` from `src/utils/imageUtils.ts` to render localized alt text.
+
+Blog hero lookup and list mapping live in `src/utils/blogImages.ts`.
 
 ### How to add a new reusable image
 
@@ -164,30 +170,23 @@ Example:
 - Do not scatter duplicate alt text across pages.
 - If `altEn` is missing, English pages will show the German alt text.
 - Most widgets expect an `ImageAsset` object from `imageProvider`, not a random string path.
+- Use `<Image>` with `sizes` and `widths`; do not over-compress sources for performance.
 
-### Blog image exception
+### Blog hero images
 
-Blog hero images are different.
+Blog post heroes reuse registered `imageProvider` images — no separate `public/blog` path.
 
-- Blog frontmatter currently uses string paths like `/blog/...`
-- These files come from `public/blog`
-- They are validated through `src/content.config.ts`
+- Set `heroImageKey` in blog frontmatter to the flat key name, e.g. `"firmenfeierFullSetup"`.
+- The referenced image must have `blogHero: true` in `imageProvider`.
+- Validation runs at build time via `src/utils/blogImages.ts` and `src/content.config.ts`.
+- Blog detail heroes are rendered through Astro `<Image>` with responsive widths and eager/high-priority loading; do not replace them with CSS background images.
+- Inline images in MDX use `BlogImage` from `src/components/blog/BlogImage.astro` together with `imageProvider` + `getImageAlt()`. `BlogImage` provides the shared WebP quality, responsive widths/sizes, and lazy loading defaults.
 
 So:
 
-- use `imageProvider` for reusable site images
-- use `public/blog/...` string paths for blog post hero images
-
-### Hero image exception
-
-Some subpage heroes use direct `imageUrl` strings instead of `imageProvider`.
-
-Examples:
-
-- `src/pages/en/corporate.astro`
-- `src/components/widgets/HeroSubpage.astro`
-
-Do not invent a third pattern. Follow the existing pattern of the page you are editing unless the team explicitly standardizes it later.
+- use `imageProvider` for all reusable site images, including blog heroes and inline MDX images
+- use `<BlogImage>` instead of importing `<Image>` directly in blog MDX
+- subpage heroes: `HeroSubpage` with optional `image={imageProvider...}` (no raw URL strings)
 
 ## Tracking Workflow
 
@@ -218,13 +217,11 @@ Always guard with `typeof window.trackEvent === "function"` so components work o
 
 Use UPPERCASE_SNAKE_CASE for all event values.
 
-
 | Layer             | Meaning                               | Example                                   |
 | ----------------- | ------------------------------------- | ----------------------------------------- |
 | **eventAction**   | What happened                         | `CONTACT_FORM_STARTED`, `FAQ_ITEM_OPENED` |
 | **eventCategory** | Where it happened                     | `CONTACT_FORM`, `FAQ`, `PAGE`             |
 | **eventName**     | Which element was affected (optional) | `PRICING_QUESTION`, `DELIVERY_AREA`       |
-
 
 - `eventAction` and `eventCategory` are required.
 - `eventName` is optional. Use it when a specific element is involved (e.g. which FAQ item was opened).
@@ -298,10 +295,13 @@ File: `src/components/base/BaseHead.astro`
 Use for:
 
 - page metadata and SEO base setup
+- canonical and localized `hreflang` links (`de`, `en`, and `x-default`)
+- the optimized default social sharing image when a layout does not provide one
 
 Use this when:
 
 - creating any new normal page or layout
+- blog and nested routes must remain resolvable through `getRouteFromUrl()` so their language alternates point to the equivalent page, not a locale homepage
 
 #### `Navigation`
 
@@ -375,7 +375,7 @@ File: `src/components/widgets/HeroSubpage.astro`
 
 Use for:
 
-- compact subpage hero with title and optional background image
+- compact subpage hero with title and optional `image` from `imageProvider`
 
 Use this when:
 
@@ -655,6 +655,8 @@ Typical structure:
 4. `ContactForm`
 5. `Footer`
 
+Legal pages (`/impressum/`, `/datenschutz/`): same shell with `HeroSubpage` (title only) + `Imprint` or `PrivacyPolicy`.
+
 ### Blog pattern
 
 Reference:
@@ -689,6 +691,7 @@ Rules:
 - use translated links via `useTranslatedPath()`
 - update `routes.en` in `src/i18n/translations.ts` when adding a new localized top-level page
 - create both the German page file and the English page file when adding a new localized page
+- update `AGENTS.md` when you change reusable patterns
 
 ### Do not
 
@@ -718,7 +721,13 @@ When adding a new blog post:
 1. Create the German MDX file in `src/content/blog/de/`.
 2. Create the English MDX file in `src/content/blog/en/`.
 3. Keep the same filename/slug in both folders for the same article.
-4. Add the blog hero image in `public/blog/` if needed.
+4. For the hero: register the image in `imageProvider` with `blogHero: true`, then set `heroImageKey` in frontmatter.
 5. Fill frontmatter according to `src/content.config.ts`.
 6. Let the existing blog layouts render the content.
 
+## Lighthouse
+
+- `npm run lighthouse:local` — sitemap audit on `localhost:4321` (after dev/preview)
+- `npm run lighthouse:prod` — production audit; JSON reports in `.lighthouse/`
+
+Local SEO may score low: `robots.txt.ts` blocks indexing on localhost/dev by design.

@@ -10,10 +10,6 @@ import { imageProvider } from "../provider/imageProvider";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const heroImageUrl =
-  typeof imageProvider.hero.headerBackground.src === "object"
-    ? imageProvider.hero.headerBackground.src.src
-    : imageProvider.hero.headerBackground.src;
 ---
 
 <!doctype html>
@@ -27,7 +23,7 @@ const heroImageUrl =
       <main>
         <HeroSubpage
           title={t("hero.anfrage.title")}
-          imageUrl={heroImageUrl}
+          image={imageProvider.hero.headerBackground}
         />
         <ContactForm theme="light" />
       </main>

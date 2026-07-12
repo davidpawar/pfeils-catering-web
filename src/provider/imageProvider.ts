@@ -17,7 +17,13 @@ import erdbeerMojito from "../assets/images/cocktails/erdbeer-mojito.jpg";
 import flammkuchen from "../assets/images/catering/flammkuchen.jpg";
 import bunteCocktails from "../assets/images/blog/bunte-cocktails.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
-import firmenfeier from "../assets/images/events/firmenfeier.jpg";
+import firmenfeier from "../assets/images/events/firmenfeier/firmenfeier.jpg";
+import firmenfeierCocktailPreparation from "../assets/images/events/firmenfeier/firmenfeier-cocktail-preparation.jpg";
+import firmenfeierCocktailShake1 from "../assets/images/events/firmenfeier/firmenfeier-cocktail-shake-1.jpg";
+import firmenfeierFullSetup from "../assets/images/events/firmenfeier/firmenfeier-full-setup.jpg";
+import firmenfeierMenu from "../assets/images/events/firmenfeier/firmenfeier-menu.jpg";
+import firmenfeierMediumCrowd from "../assets/images/events/firmenfeier/firmenfeier-medium-crowd.jpg";
+import firmenfeierTrailerCrowd from "../assets/images/events/firmenfeier/firmenfeier-trailer-crowd.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
 import individuellHero from "../assets/images/hero/individuell-hero.jpg";
 import ipanema from "../assets/images/cocktails/ipanema.jpg";
@@ -25,20 +31,21 @@ import koelnDomBruecke from "../assets/images/hero/koeln-dom-bruecke.jpg";
 import messeHero from "../assets/images/hero/messe-hero.jpg";
 import mobileCocktailbarHero from "../assets/images/hero/mobile-cocktailbar-hero.jpg";
 import mitarbeiterin from "../assets/images/catering/mitarbeiterin.jpg";
-import hochzeit from "../assets/images/events/hochzeit.jpg";
-import hochzeitWedding from "../assets/images/events/hochzeit-wedding.jpg";
+import hochzeit from "../assets/images/events/hochzeit/hochzeit.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
-import messe from "../assets/images/events/messe.jpg";
+import messe from "../assets/images/events/messe/messe.jpg";
+import messeCocktailFreshMint from "../assets/images/events/messe/cocktail-fresh-mint.jpg";
 import nuembrechtSchloss from "../assets/images/service-areas/nuembrecht-schloss.jpg";
 import oni from "../assets/images/logos/oni.png";
 import salatCatering from "../assets/images/catering/salat-catering.jpg";
 import schwalbe from "../assets/images/logos/schwalbe.svg";
 import sexOnTheBeach from "../assets/images/cocktails/sex-on-the-beach.jpg";
 import sparkasse from "../assets/images/logos/sparkasse.png";
+import team3Experts from "../assets/images/team/team-3-experts.jpg";
 import teamExperts from "../assets/images/team/team-experts.png";
 import volksbank from "../assets/images/logos/volksbank.png";
 import weddingHero from "../assets/images/hero/wedding-hero.jpg";
-import weihnachtsfeier from "../assets/images/events/weihnachtsfeier.jpg";
+import weihnachtsfeier from "../assets/images/events/weihnachtsfeier/weihnachtsfeier.jpg";
 import weihnachtsmarkt from "../assets/images/catering/weihnachtsmarkt.jpg";
 
 /**
@@ -48,6 +55,8 @@ import weihnachtsmarkt from "../assets/images/catering/weihnachtsmarkt.jpg";
 export type ImageAsset = {
   alt: string;
   altEn?: string;
+  /** When true, the image may be referenced as `heroImageKey` in blog frontmatter. */
+  blogHero?: boolean;
   src: ImageMetadata | string;
 };
 
@@ -64,13 +73,6 @@ export type ImageProvider = {
   team: ImageCategory;
 };
 
-/**
- * Returns the alt text for the given language.
- */
-export function getImageAlt(image: ImageAsset, lang: string): string {
-  return lang === "en" && image.altEn ? image.altEn : image.alt;
-}
-
 export const imageProvider: ImageProvider = {
   catering: {
     bambusbar: {
@@ -86,6 +88,7 @@ export const imageProvider: ImageProvider = {
     bartenderCocktailShaker: {
       alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
       altEn: "Bartender with cocktail shaker during a show performance",
+      blogHero: true,
       src: bartenderCocktailShaker,
     },
     barkeeperShow: {
@@ -96,11 +99,13 @@ export const imageProvider: ImageProvider = {
     bratwurstGrill: {
       alt: "Bratwurst-Grill-Catering – frisch gegrillte Würste vor Ort",
       altEn: "Bratwurst grill catering – freshly grilled sausages on site",
+      blogHero: true,
       src: bratwurstGrill,
     },
     cocktailService: {
       alt: "Professioneller Barkeeper bei der Zubereitung von Cocktails auf einer Firmenveranstaltung",
       altEn: "Professional bartender preparing cocktails at a corporate event",
+      blogHero: true,
       src: cocktailService,
     },
     coffeeTruck: {
@@ -178,20 +183,58 @@ export const imageProvider: ImageProvider = {
       altEn: "Cocktail bar at a corporate celebration with guests",
       src: firmenfeier,
     },
+    firmenfeierCocktailPreparation: {
+      alt: "Zwei Barkeeperinnen bereiten Cocktails bei einer Firmenfeier vor, Cocktail-Becher im Vordergrund",
+      altEn:
+        "Two female bartenders preparing cocktails at a corporate event, with cocktail cups in the foreground",
+      src: firmenfeierCocktailPreparation,
+    },
+    firmenfeierCocktailShake1: {
+      alt: "Barkeeperin schüttelt einen Cocktail bei einer Firmenfeier, Spirituosenflaschen im Vordergrund",
+      altEn:
+        "Female bartender shaking a cocktail at a corporate event, with spirit bottles in the foreground",
+      src: firmenfeierCocktailShake1,
+    },
+    firmenfeierFullSetup: {
+      alt: "Komplette Firmenfeier auf dem Betriebsgelände mit beiden Cocktail-Anhängern, Bambusbar links und Sitzgarnituren in der Mitte",
+      altEn:
+        "Complete corporate event on company premises with both cocktail trailers, bamboo bar on the left and seating areas in the centre",
+      blogHero: true,
+      src: firmenfeierFullSetup,
+    },
+    firmenfeierMenu: {
+      alt: "Cocktailkarte auf einem Sommerfest – Bambusbar und Gäste im Hintergrund",
+      altEn:
+        "Cocktail menu at a summer party – bamboo bar and guests in the background",
+      src: firmenfeierMenu,
+    },
+    firmenfeierMediumCrowd: {
+      alt: "Sommerfest mit mobilen Catering-Hängern und zu rund 75 % belegten Sitzgarnituren",
+      altEn:
+        "Summer party with mobile catering trailers and seating areas roughly 75% full",
+      src: firmenfeierMediumCrowd,
+    },
+    firmenfeierTrailerCrowd: {
+      alt: "Zwei mobile Cocktail-Anhänger bei einer Firmenfeier, im Vordergrund eine verschwommene Gästeschar",
+      altEn:
+        "Two mobile cocktail trailers at a corporate event, with a blurred crowd of guests in the foreground",
+      src: firmenfeierTrailerCrowd,
+    },
     hochzeit: {
       alt: "Hochzeitsfeier mit stilvoller Cocktail-Bar",
       altEn: "Wedding celebration with elegant cocktail bar",
       src: hochzeit,
     },
-    hochzeitWedding: {
-      alt: "Cocktail-Bar bei einer Hochzeitsfeier mit Gästen",
-      altEn: "Cocktail bar at a wedding celebration with guests",
-      src: hochzeitWedding,
-    },
     messe: {
       alt: "Mobile Cocktail-Bar auf einer Messe oder Großveranstaltung",
       altEn: "Mobile cocktail bar at a trade fair or large event",
       src: messe,
+    },
+    messeCocktailFreshMint: {
+      alt: "Frische Minze an der Cocktail-Bar, unscharf Cocktail-Becher im Hintergrund",
+      altEn:
+        "Fresh mint at the cocktail bar, with blurred cocktail cups in the background",
+      src: messeCocktailFreshMint,
     },
     weihnachtsfeier: {
       alt: "Mobiler Weihnachtsmarkt bei einer Firmenfeier",
@@ -283,10 +326,15 @@ export const imageProvider: ImageProvider = {
     },
   },
   team: {
-    teamExperts: {
-      alt: "Erfahrenes Team von Pfeil's Catering mit Leidenschaft für Cocktails und Service",
+    team3Experts: {
+      alt: "Thomas und zwei Barkeeperinnen von Pfeil's Catering in dunkler Kleidung vor der mobilen Bar",
       altEn:
-        "Experienced team of Pfeil's Catering with a passion for cocktails and service",
+        "Thomas and two bartenders from Pfeil's Catering in dark uniforms in front of the mobile bar",
+      src: team3Experts,
+    },
+    teamExperts: {
+      alt: "Thomas von Pfeil's Catering beim Zubereiten eines Cocktails",
+      altEn: "Thomas from Pfeil's Catering preparing a cocktail",
       src: teamExperts,
     },
   },

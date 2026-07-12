@@ -18,8 +18,9 @@ faq:
     answer: "Absolut. Gerade in kleineren Runden sorgt eine professionelle Bar für hohe Wertschätzung und eine entspannte Gesprächsatmosphäre, die am Konferenztisch nie entstehen würde."
 ---
 
-import { Image } from "astro:assets";
-import { getImageAlt, imageProvider } from "../../../provider/imageProvider";
+import BlogImage from "../../../components/blog/BlogImage.astro";
+import { imageProvider } from "../../../provider/imageProvider";
+import { getImageAlt } from "../../../utils/imageUtils";
 
 Ein Sommerfest, Jubiläum oder klassisches Betriebsfest **auf dem eigenen Gelände** spart oft Locationkosten und schafft Nähe zur Marke – der Parkplatz wird zur Bühne, der Innenhof zur Terrasse, die Lagerhalle zum Wetter-Backup. Der Charme: keine fremde Hausordnung, keine Sperrstunde, hundert Prozent Identifikation mit dem Unternehmen.
 
@@ -27,9 +28,9 @@ Damit aus der guten Idee kein Stress wird, lohnt eine strukturierte Vorbereitung
 
 *Hinweis: Es handelt sich um allgemeine Orientierung, keine Rechtsberatung. Im Zweifel Ordnungsamt, Versicherung oder Fachanwalt einbinden.*
 
-<Image
-  src={imageProvider.events.firmenfeier.src}
-  alt={getImageAlt(imageProvider.events.firmenfeier, "de")}
+<BlogImage
+  src={imageProvider.events.firmenfeierFullSetup.src}
+  alt={getImageAlt(imageProvider.events.firmenfeierFullSetup, "de")}
 />
 
 ## 1. Die rechtliche Basis – der „Spaßverderber“-Check
@@ -48,7 +49,7 @@ Bevor Musik läuft und Gäste kommen, gehören ein paar Formalitäten auf die Li
 
 **Jugend- & Arbeitsschutz:** Denken Sie an **Jugendschutz** bei der Alkoholausgabe (z. B. wenn Azubis oder Familienangehörige dabei sind) und an ausreichende **alkoholfreie Alternativen**. Ein durchdachtes Getränkeangebot ist auch ein Stück Fürsorge.
 
-<Image
+<BlogImage
   src={imageProvider.catering.bratwurstGrill.src}
   alt={getImageAlt(imageProvider.catering.bratwurstGrill, "de")}
 />
@@ -71,11 +72,11 @@ Ihr Firmengelände ist für den Betrieb gebaut, nicht automatisch für Events. D
 
 **Auf- & Abbauzeiten:** Stimmen Sie **Zeitfenster für Anlieferung, Aufbau und Abbau** mit dem laufenden Betrieb ab – inklusive Pufferzeiten, damit am Eventtag nichts kollidiert.
 
-<Image
+<BlogImage
   src={imageProvider.catering.coffeeTruck.src}
   alt={getImageAlt(imageProvider.catering.coffeeTruck, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.events.messe.src}
   alt={getImageAlt(imageProvider.events.messe, "de")}
 />
@@ -118,11 +119,11 @@ Das Essen ist oft das Herzstück – und prägt, wie lange die Stimmung trägt.
 
 **Catering:** **Foodtrucks** und mobile Stationen sind auf Firmengeländen beliebt: wenig Druck auf die Betriebsküche, viel **Event-Charakter**, klare Abläufe. Ob Grill, internationale Küche, Flammkuchen oder ein Salat-Buffet – stimmen Sie Kapazitäten und Zeiten mit dem Caterer ab, damit keine unnötigen Warteschlangen entstehen.
 
-<Image
+<BlogImage
   src={imageProvider.catering.flammkuchen.src}
   alt={getImageAlt(imageProvider.catering.flammkuchen, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.salatCatering.src}
   alt={getImageAlt(imageProvider.catering.salatCatering, "de")}
 />
@@ -131,11 +132,11 @@ Das Essen ist oft das Herzstück – und prägt, wie lange die Stimmung trägt.
 
 **Mobile Konzepte:** Formate wie eine **Bambusbar** oder ein **Cocktail-Anhänger** lassen sich gut mit Food-Trucks kombinieren und bringen Bar-Atmosphäre direkt auf das Gelände – ohne feste Infrastruktur.
 
-<Image
+<BlogImage
   src={imageProvider.catering.cocktailService.src}
   alt={getImageAlt(imageProvider.catering.cocktailService, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.bambusbarAbend.src}
   alt={getImageAlt(imageProvider.catering.bambusbarAbend, "de")}
 />
@@ -155,11 +156,11 @@ Ein roter Faden hält die Stimmung oben, ohne den Abend zu überfrachten:
 - **Familien & Kinder:** Wird familienfreundlich gefeiert, lohnen sich alkoholfreie Specials, Eis oder Crêpes und eine kleine Spielecke.
 - **Dramaturgie:** Eine kurze Begrüßung, ein Highlight (z. B. Barkeeper-Show) und ein entspannter Ausklang geben dem Abend Struktur.
 
-<Image
+<BlogImage
   src={imageProvider.catering.bartenderCocktailShaker.src}
   alt={getImageAlt(imageProvider.catering.bartenderCocktailShaker, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.barkeeperShow.src}
   alt={getImageAlt(imageProvider.catering.barkeeperShow, "de")}
 />
@@ -174,7 +175,7 @@ Nachhaltig feiern ist heute Erwartung – und gut fürs Image:
 
 Achten Sie auf **hochwertige Mehrweg-Lösungen**: Gute Anbieter nehmen Equipment und Schmutzgeschirr nach dem Fest wieder mit, sodass das Gelände am nächsten Morgen besenrein und betriebsbereit ist.
 
-<Image
+<BlogImage
   src={imageProvider.catering.mitarbeiterin.src}
   alt={getImageAlt(imageProvider.catering.mitarbeiterin, "de")}
 />

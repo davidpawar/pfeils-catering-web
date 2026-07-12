@@ -65,11 +65,6 @@ const faqItems = [
   },
 ];
 
-const gummersbachHeroUrl =
-  typeof imageProvider.hero.mobileCocktailbarBackground.src === "object"
-    ? imageProvider.hero.mobileCocktailbarBackground.src.src
-    : imageProvider.hero.mobileCocktailbarBackground.src;
-
 const galleryItems = [
   { image: imageProvider.events.firmenfeier },
   { image: imageProvider.catering.cocktailService },
@@ -95,7 +90,7 @@ const galleryItems = [
       <main>
         <HeroSubpage
           title={t("mobileCocktailbarGummersbach.hero.title")}
-          imageUrl={gummersbachHeroUrl}
+          image={imageProvider.hero.mobileCocktailbarBackground}
         />
         <ImageText
           badgeText={t("mobileCocktailbarGummersbach.intro.badge")}

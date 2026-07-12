@@ -1,10 +1,28 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import type { ImageAsset } from "../../provider/imageProvider";
-import { getImageAlt } from "../../provider/imageProvider";
+import { getImageAlt } from "../../utils/imageUtils";
 import { getLangFromUrl } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
+
+const logoImageClass =
+  "block h-full w-auto max-w-32 object-contain object-left opacity-90 transition-opacity duration-300 group-hover:opacity-100";
+
+/** Partner logos may be SVG (e.g. Schwalbe). Astro's <Image> routes through /_image. */
+function isSvgAsset(src: ImageMetadata | string): boolean {
+  if (typeof src === "string") return /\.svg(\?|$)/i.test(src);
+  return src.format === "svg";
+}
+
+/** SVG imports expose width/height on ImageMetadata; string URLs need a fallback. */
+function getSvgDimensions(src: ImageMetadata | string) {
+  if (typeof src === "object") {
+    return { width: src.width, height: src.height };
+  }
+  return { width: 243, height: 40 };
+}
 
 /**
  * Single item in the list. Supports text-only or logo+link variants.
@@ -140,13 +158,44 @@ const gridColsClass =
               <>
                 {hasImage && (
                   <div class="mb-4 flex h-16 items-center md:h-20">
-                    <Image
-                      src={item.image!.src as import("astro").ImageMetadata}
-                      alt={getImageAlt(item.image!, lang)}
-                      class="h-full w-auto max-w-32 object-contain object-left opacity-90 transition-opacity duration-300 group-hover:opacity-100"
-                      width={160}
-                      height={80}
-                    />
+                    {/*
+                      SVG: plain <img> — Cloudflare imageService "compile" rejects f=svg
+                      (400 Unsupported format). Raster logos keep using <Image> for WebP.
+                    */}
+                    {isSvgAsset(item.image!.src) ? (
+                      <img
+                        src={
+                          typeof item.image!.src === "string"
+                            ? item.image!.src
+                            : item.image!.src.src
+                        }
+                        alt={getImageAlt(item.image!, lang)}
+                        class={logoImageClass}
+                        decoding="async"
+                        loading="lazy"
+                        {...getSvgDimensions(item.image!.src)}
+                      />
+                    ) : (
+                      <Image
+                        src={item.image!.src as ImageMetadata}
+                        alt={getImageAlt(item.image!, lang)}
+                        class={logoImageClass}
+                        format="webp"
+                        height={
+                          typeof item.image!.src === "object"
+                            ? item.image!.src.height
+                            : 80
+                        }
+                        quality={80}
+                        sizes="128px"
+                        width={
+                          typeof item.image!.src === "object"
+                            ? item.image!.src.width
+                            : 160
+                        }
+                        widths={[128, 256, 384]}
+                      />
+                    )}
                   </div>
                 )}
                 <h3

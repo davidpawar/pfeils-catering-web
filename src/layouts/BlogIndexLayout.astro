@@ -8,7 +8,7 @@ import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
 import BlogPostList from "../components/widgets/BlogPostList.astro";
 import HeroSubpage from "../components/widgets/HeroSubpage.astro";
-import headerBg from "../assets/images/hero/header-background.jpg";
+import { imageProvider } from "../provider/imageProvider";
 import type { ImageAsset } from "../provider/imageProvider";
 import type { ui } from "../i18n/translations";
 import {
@@ -72,9 +72,6 @@ const { currentPage, lang: langProp, posts, totalPages } = Astro.props;
 const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-
-/* Hero background image URL */
-const blogHeroUrl = typeof headerBg === "object" ? headerBg.src : headerBg;
 ---
 
 <!doctype html>
@@ -91,7 +88,10 @@ const blogHeroUrl = typeof headerBg === "object" ? headerBg.src : headerBg;
       <Navigation />
       <main>
         {/* Hero: blog section header with background image */}
-        <HeroSubpage title={t("hero.blog.title")} imageUrl={blogHeroUrl} />
+        <HeroSubpage
+          title={t("hero.blog.title")}
+          image={imageProvider.hero.headerBackground}
+        />
         {/* BlogPostList: post cards with pagination */}
         <BlogPostList
           badge={t("blog.badge")}

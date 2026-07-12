@@ -1,11 +1,7 @@
 import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
-import { imageProvider } from "./provider/imageProvider";
-
-function isBlogHeroImageKey(key: string): boolean {
-	return key in imageProvider.catering || key in imageProvider.cocktails;
-}
+import { isBlogHeroImageKey } from "./utils/blogImages";
 
 const blogSchema = z
 	.object({
@@ -14,7 +10,7 @@ const blogSchema = z
 		author: z.string().optional(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
-		/** Key in `imageProvider.catering` or `imageProvider.cocktails`. */
+		/** Flat key of an image registered with `blogHero: true` in `imageProvider`. */
 		heroImageKey: z.string().optional(),
 		lang: z.enum(["de", "en"]).optional(),
 		/**
@@ -36,7 +32,7 @@ const blogSchema = z
 		if (!isBlogHeroImageKey(data.heroImageKey)) {
 			ctx.addIssue({
 				code: "custom",
-				message: `heroImageKey "${data.heroImageKey}" not found in imageProvider.catering or imageProvider.cocktails`,
+				message: `heroImageKey "${data.heroImageKey}" is not registered with blogHero: true in imageProvider`,
 				path: ["heroImageKey"],
 			});
 		}

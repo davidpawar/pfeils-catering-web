@@ -21,7 +21,11 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const galleryItems = [
+  { image: imageProvider.events.firmenfeierFullSetup },
   { image: imageProvider.events.firmenfeier },
+  { image: imageProvider.events.firmenfeierTrailerCrowd },
+  { image: imageProvider.events.firmenfeierCocktailShake1 },
+  { image: imageProvider.events.firmenfeierCocktailPreparation },
   { image: imageProvider.catering.cocktailService },
   { image: imageProvider.catering.bambusbar },
   { image: imageProvider.catering.bambusbarAbend },
@@ -89,7 +93,7 @@ const testimonialItems = [
       <main>
         <HeroSubpage
           title={t("hero.firmenfeier.title")}
-          imageUrl="https://pfeils-catering.de/wp-content/uploads/2025/04/Thomas-Firmenfeier-neu-dunkel-scaled.jpg"
+          image={imageProvider.events.firmenfeierFullSetup}
         />
         <ImageText
           badgeText={t("hero.firmenfeier.subtitle")}

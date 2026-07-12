@@ -14,8 +14,9 @@ faq:
     answer: "A well-rehearsed team stows the equipment and glassware after the event; with reusable solutions, no packaging waste is left behind. It helps to agree on breakdown time and access in advance."
 ---
 
-import { Image } from "astro:assets";
-import { getImageAlt, imageProvider } from "../../../provider/imageProvider";
+import BlogImage from "../../../components/blog/BlogImage.astro";
+import { imageProvider } from "../../../provider/imageProvider";
+import { getImageAlt } from "../../../utils/imageUtils";
 
 Who says you always need to hire an external venue for a top-tier company anniversary or summer party? Your own business premises are often an underrated gold mine: no room hire, no closing time, and full alignment with your brand.
 
@@ -25,15 +26,11 @@ But how do you turn a functional car park or a chilly warehouse into a place whe
 
 An empty car park can feel lost—we offer **two strong setups**: our **cocktail trailer** (fully weatherproof and self-contained) and the modular **Cocktail Bamboo Bar** for lounge-style presence on site. Depending on space and concept, we deploy either or both. Once the bar is live and the first round of shaking begins, the workday is forgotten—with real festival energy right outside your office door.
 
-*Top: mobile cocktail bar on the trailer. Below: our bamboo bar on location.*
+*Overview: both cocktail trailers, bamboo bar and seating on the company premises.*
 
-<Image
-  src={imageProvider.hero.mobileCocktailbarBackground.src}
-  alt={getImageAlt(imageProvider.hero.mobileCocktailbarBackground, "en")}
-/>
-<Image
-  src={imageProvider.catering.bambusbar.src}
-  alt={getImageAlt(imageProvider.catering.bambusbar, "en")}
+<BlogImage
+  src={imageProvider.events.firmenfeierFullSetup.src}
+  alt={getImageAlt(imageProvider.events.firmenfeierFullSetup, "en")}
 />
 
 ## 2. Industry lounge: pop-up bar in the warehouse
@@ -42,11 +39,11 @@ Your warehouse or production floor delivers perfect “industrial chic”. With 
 
 **Full-service promise:** we don’t just bring the drinks—we also supply the right poseur tables and all glassware. You don’t have to worry about logistics.
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeier.src}
   alt={getImageAlt(imageProvider.events.firmenfeier, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.bambusbarAbend.src}
   alt={getImageAlt(imageProvider.catering.bambusbarAbend, "en")}
 />
@@ -55,11 +52,11 @@ Your warehouse or production floor delivers perfect “industrial chic”. With 
 
 Make catering a highlight of your anniversary programme. In a mini cocktail class, your colleagues can get hands-on with guidance from our pros. It breaks the ice between departments faster than any round of introductions.
 
-<Image
+<BlogImage
   src={imageProvider.catering.bartenderCocktailShaker.src}
   alt={getImageAlt(imageProvider.catering.bartenderCocktailShaker, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.barkeeperShow.src}
   alt={getImageAlt(imageProvider.catering.barkeeperShow, "en")}
 />
@@ -68,7 +65,7 @@ Make catering a highlight of your anniversary programme. In a mini cocktail clas
 
 An anniversary on your own site is the ideal stage for your corporate identity. We create signature drinks in your brand colours and brand the bar menus. That drives excitement on the night—and strong content for channels like LinkedIn or Instagram.
 
-<Image
+<BlogImage
   src={imageProvider.cocktails.bunteCocktails.src}
   alt={getImageAlt(imageProvider.cocktails.bunteCocktails, "en")}
 />
@@ -77,7 +74,7 @@ An anniversary on your own site is the ideal stage for your corporate identity. 
 
 On-site events need coordination. So you don’t have to call ten different companies, we tap our regional network. Food trucks, lighting, marquees—we coordinate the full setup. You have a single point of contact for the entire culinary concept.
 
-<Image
+<BlogImage
   src={imageProvider.catering.cocktailService.src}
   alt={getImageAlt(imageProvider.catering.cocktailService, "en")}
 />
@@ -92,19 +89,19 @@ Many people think of winter corporate parties as a scramble for restaurant table
 
 **Hassle-free:** we even bring cups and poseur tables. After the party we pack everything away—including dirty dishes. Your site is clean and ready for business the next morning.
 
-<Image
+<BlogImage
   src={imageProvider.catering.weihnachtsmarkt.src}
   alt={getImageAlt(imageProvider.catering.weihnachtsmarkt, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.events.weihnachtsfeier.src}
   alt={getImageAlt(imageProvider.events.weihnachtsfeier, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.flammkuchen.src}
   alt={getImageAlt(imageProvider.catering.flammkuchen, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.crepes.src}
   alt={getImageAlt(imageProvider.catering.crepes, "en")}
 />

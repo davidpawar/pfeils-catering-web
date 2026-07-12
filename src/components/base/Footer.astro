@@ -1,7 +1,7 @@
 ---
 import { Heart, Mail, MapPin, Phone } from "@lucide/astro";
 import { Image } from "astro:assets";
-import { getImageAlt } from "../../provider/imageProvider";
+import { getImageAlt } from "../../utils/imageUtils";
 import { imageProvider } from "../../provider/imageProvider";
 import {
   getLangFromUrl,
@@ -52,9 +52,13 @@ const cityPages = [
             src={imageProvider.logo.altWeiss
               .src as import("astro").ImageMetadata}
             alt={getImageAlt(imageProvider.logo.altWeiss, lang)}
-            class="h-12 w-auto md:h-14"
-            width={180}
-            height={56}
+            class="block h-12 w-auto md:h-14"
+            format="webp"
+            height={140}
+            quality={80}
+            sizes="(min-width: 768px) 189px, 151px"
+            width={378}
+            widths={[151, 302, 378]}
           />
         </a>
         <p class="text-base leading-relaxed text-white/70 md:text-lg">
