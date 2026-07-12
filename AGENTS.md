@@ -93,7 +93,7 @@ Important notes:
 
 - German and English blog posts are separate MDX files.
 - German and English versions of the same blog post should use the same filename/slug in their respective folders.
-- Blog frontmatter includes fields like `title`, `description`, `pubDate`, `heroImage`, and optional `lang`.
+- Blog frontmatter includes fields like `title`, `description`, `pubDate`, optional `heroImageKey`, and optional `lang`.
 - Blog list and article pages are rendered through layouts, not hand-built widget pages.
 
 ### Blog FAQ and JSON-LD
@@ -143,8 +143,11 @@ Each image entry should have:
 - `src`
 - `alt` for German
 - optional `altEn` for English
+- optional `blogHero: true` when the image may be used as a blog post hero via `heroImageKey`
 
-Use `getImageAlt()` from `src/provider/imageProvider.ts` to render localized alt text.
+Use `getImageAlt()` from `src/utils/imageUtils.ts` to render localized alt text.
+
+Blog hero lookup and list mapping live in `src/utils/blogImages.ts`.
 
 ### How to add a new reusable image
 
@@ -169,18 +172,18 @@ Example:
 - Most widgets expect an `ImageAsset` object from `imageProvider`, not a random string path.
 - Use `<Image>` with `sizes` and `widths`; do not over-compress sources for performance.
 
-### Blog image exception
+### Blog hero images
 
-Blog hero images are different.
+Blog post heroes reuse registered `imageProvider` images — no separate `public/blog` path.
 
-- Blog frontmatter currently uses string paths like `/blog/...`
-- These files come from `public/blog`
-- They are validated through `src/content.config.ts`
+- Set `heroImageKey` in blog frontmatter to the flat key name, e.g. `"firmenfeierFullSetup"`.
+- The referenced image must have `blogHero: true` in `imageProvider`.
+- Validation runs at build time via `src/utils/blogImages.ts` and `src/content.config.ts`.
+- Inline images in MDX still use `imageProvider` + `getImageAlt()` directly.
 
 So:
 
-- use `imageProvider` for reusable site images
-- use `public/blog/...` string paths for blog post hero images
+- use `imageProvider` for all reusable site images, including blog heroes and inline MDX images
 - subpage heroes: `HeroSubpage` with optional `image={imageProvider...}` (no raw URL strings)
 
 ## Tracking Workflow
@@ -715,7 +718,7 @@ When adding a new blog post:
 1. Create the German MDX file in `src/content/blog/de/`.
 2. Create the English MDX file in `src/content/blog/en/`.
 3. Keep the same filename/slug in both folders for the same article.
-4. Add the blog hero image in `public/blog/` if needed.
+4. For the hero: register the image in `imageProvider` with `blogHero: true`, then set `heroImageKey` in frontmatter.
 5. Fill frontmatter according to `src/content.config.ts`.
 6. Let the existing blog layouts render the content.
 

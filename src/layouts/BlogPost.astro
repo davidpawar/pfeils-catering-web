@@ -4,7 +4,7 @@ import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
 import Button from "../components/ui/Button.astro";
-import { imageProvider } from "../provider/imageProvider";
+import { getBlogHeroImage } from "../utils/blogImages";
 import {
   getLangFromUrl,
   useTranslations,
@@ -30,14 +30,7 @@ const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const heroImage = heroImageKey
-  ? imageProvider.catering[
-      heroImageKey as keyof typeof imageProvider.catering
-    ] ??
-    imageProvider.cocktails[
-      heroImageKey as keyof typeof imageProvider.cocktails
-    ]
-  : undefined;
+const heroImage = heroImageKey ? getBlogHeroImage(heroImageKey) : undefined;
 const heroUrl = heroImage
   ? typeof heroImage.src === "object"
     ? heroImage.src.src
@@ -108,6 +101,94 @@ const faqSchema =
         object-fit: cover;
       }
 
+      /* Responsive row: 1 col → 2×2 → 4 in one row (e.g. cocktail gallery in MDX). */
+      .blog-content > .blog-image-row {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .blog-content > .blog-image-row img {
+        display: block;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        margin: 0;
+        border-radius: 0.75rem;
+        box-shadow:
+          0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        object-fit: cover;
+      }
+
+      .blog-content > .blog-table-wrap,
+      .blog-content > table {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .blog-content > .blog-table-wrap {
+        overflow-x: auto;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .blog-content table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        font-size: inherit;
+        line-height: 1.5;
+      }
+
+      .blog-content table th,
+      .blog-content table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgb(226 232 240);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .blog-content table th {
+        font-weight: 600;
+        color: rgb(15 23 42);
+        background-color: rgb(241 245 249);
+        border-bottom: 2px solid rgb(203 213 225);
+      }
+
+      .blog-content table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .blog-content table th:nth-child(1),
+      .blog-content table td:nth-child(1) {
+        width: 9rem;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 639px) {
+        .blog-content table {
+          min-width: 20rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .blog-content > .blog-image-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .blog-content > .blog-image-row {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
       @media (min-width: 768px) {
         .blog-content {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -119,7 +200,9 @@ const faqSchema =
         .blog-content > p,
         .blog-content > ul,
         .blog-content > ol,
-        .blog-content > pre {
+        .blog-content > pre,
+        .blog-content > table,
+        .blog-content > .blog-table-wrap {
           grid-column: 1 / -1;
         }
 

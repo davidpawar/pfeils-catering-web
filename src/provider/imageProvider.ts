@@ -21,6 +21,8 @@ import firmenfeier from "../assets/images/events/firmenfeier/firmenfeier.jpg";
 import firmenfeierCocktailPreparation from "../assets/images/events/firmenfeier/firmenfeier-cocktail-preparation.jpg";
 import firmenfeierCocktailShake1 from "../assets/images/events/firmenfeier/firmenfeier-cocktail-shake-1.jpg";
 import firmenfeierFullSetup from "../assets/images/events/firmenfeier/firmenfeier-full-setup.jpg";
+import firmenfeierMenu from "../assets/images/events/firmenfeier/firmenfeier-menu.jpg";
+import firmenfeierMediumCrowd from "../assets/images/events/firmenfeier/firmenfeier-medium-crowd.jpg";
 import firmenfeierTrailerCrowd from "../assets/images/events/firmenfeier/firmenfeier-trailer-crowd.jpg";
 import headerBg from "../assets/images/hero/header-background.jpg";
 import individuellHero from "../assets/images/hero/individuell-hero.jpg";
@@ -53,6 +55,8 @@ import weihnachtsmarkt from "../assets/images/catering/weihnachtsmarkt.jpg";
 export type ImageAsset = {
   alt: string;
   altEn?: string;
+  /** When true, the image may be referenced as `heroImageKey` in blog frontmatter. */
+  blogHero?: boolean;
   src: ImageMetadata | string;
 };
 
@@ -69,13 +73,6 @@ export type ImageProvider = {
   team: ImageCategory;
 };
 
-/**
- * Returns the alt text for the given language.
- */
-export function getImageAlt(image: ImageAsset, lang: string): string {
-  return lang === "en" && image.altEn ? image.altEn : image.alt;
-}
-
 export const imageProvider: ImageProvider = {
   catering: {
     bambusbar: {
@@ -91,6 +88,7 @@ export const imageProvider: ImageProvider = {
     bartenderCocktailShaker: {
       alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
       altEn: "Bartender with cocktail shaker during a show performance",
+      blogHero: true,
       src: bartenderCocktailShaker,
     },
     barkeeperShow: {
@@ -101,11 +99,13 @@ export const imageProvider: ImageProvider = {
     bratwurstGrill: {
       alt: "Bratwurst-Grill-Catering – frisch gegrillte Würste vor Ort",
       altEn: "Bratwurst grill catering – freshly grilled sausages on site",
+      blogHero: true,
       src: bratwurstGrill,
     },
     cocktailService: {
       alt: "Professioneller Barkeeper bei der Zubereitung von Cocktails auf einer Firmenveranstaltung",
       altEn: "Professional bartender preparing cocktails at a corporate event",
+      blogHero: true,
       src: cocktailService,
     },
     coffeeTruck: {
@@ -199,7 +199,20 @@ export const imageProvider: ImageProvider = {
       alt: "Komplette Firmenfeier auf dem Betriebsgelände mit beiden Cocktail-Anhängern, Bambusbar links und Sitzgarnituren in der Mitte",
       altEn:
         "Complete corporate event on company premises with both cocktail trailers, bamboo bar on the left and seating areas in the centre",
+      blogHero: true,
       src: firmenfeierFullSetup,
+    },
+    firmenfeierMenu: {
+      alt: "Cocktailkarte auf einem Sommerfest – Bambusbar und Gäste im Hintergrund",
+      altEn:
+        "Cocktail menu at a summer party – bamboo bar and guests in the background",
+      src: firmenfeierMenu,
+    },
+    firmenfeierMediumCrowd: {
+      alt: "Sommerfest mit mobilen Catering-Hängern und zu rund 75 % belegten Sitzgarnituren",
+      altEn:
+        "Summer party with mobile catering trailers and seating areas roughly 75% full",
+      src: firmenfeierMediumCrowd,
     },
     firmenfeierTrailerCrowd: {
       alt: "Zwei mobile Cocktail-Anhänger bei einer Firmenfeier, im Vordergrund eine verschwommene Gästeschar",

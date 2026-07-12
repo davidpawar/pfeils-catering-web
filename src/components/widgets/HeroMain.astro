@@ -5,7 +5,8 @@
  */
 import { Image } from "astro:assets";
 import { ChevronDown } from "@lucide/astro";
-import { getImageAlt, imageProvider } from "../../provider/imageProvider";
+import { getImageAlt } from "../../utils/imageUtils";
+import { imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);

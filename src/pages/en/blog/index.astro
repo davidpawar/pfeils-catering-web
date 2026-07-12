@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogIndexLayout from "../../../layouts/BlogIndexLayout.astro";
-import { imageProvider } from "../../../provider/imageProvider";
+import { toBlogPostListItem } from "../../../utils/blogImages";
 
 const POSTS_PER_PAGE = 6;
 
@@ -9,21 +9,9 @@ const allPosts = (await getCollection("blogEn")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
-const posts = allPosts.slice(0, POSTS_PER_PAGE).map((p) => ({
-  description: p.data.description,
-  heroImage: p.data.heroImageKey
-    ? imageProvider.catering[
-        p.data.heroImageKey as keyof typeof imageProvider.catering
-      ] ??
-      imageProvider.cocktails[
-        p.data.heroImageKey as keyof typeof imageProvider.cocktails
-      ]
-    : undefined,
-  id: p.id,
-  pubDate: p.data.pubDate,
-  slug: p.id.replace(/^en\//, ""),
-  title: p.data.title,
-}));
+const posts = allPosts
+  .slice(0, POSTS_PER_PAGE)
+  .map((p) => toBlogPostListItem(p, "en"));
 ---
 
 <BlogIndexLayout

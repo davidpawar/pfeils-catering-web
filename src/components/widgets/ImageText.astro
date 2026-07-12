@@ -3,7 +3,7 @@ import { Check } from "@lucide/astro";
 import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
 import type { ImageAsset } from "../../provider/imageProvider";
-import { getImageAlt } from "../../provider/imageProvider";
+import { getImageAlt } from "../../utils/imageUtils";
 import { getLangFromUrl } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
