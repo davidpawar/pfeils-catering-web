@@ -19,7 +19,7 @@ When you change project patterns, components, or page structures, update this fi
 ## Project Mental Model
 
 - Normal pages are assembled from:
-`BaseHead` + `Navigation` + content widgets + `Footer`
+  `BaseHead` + `Navigation` + content widgets + `Footer`
 - Blog pages use layouts instead of manual page assembly.
 - German is the source of truth for copy, slugs, and structure.
 - English mirrors the German content and route structure.
@@ -179,11 +179,13 @@ Blog post heroes reuse registered `imageProvider` images — no separate `public
 - Set `heroImageKey` in blog frontmatter to the flat key name, e.g. `"firmenfeierFullSetup"`.
 - The referenced image must have `blogHero: true` in `imageProvider`.
 - Validation runs at build time via `src/utils/blogImages.ts` and `src/content.config.ts`.
-- Inline images in MDX still use `imageProvider` + `getImageAlt()` directly.
+- Blog detail heroes are rendered through Astro `<Image>` with responsive widths and eager/high-priority loading; do not replace them with CSS background images.
+- Inline images in MDX use `BlogImage` from `src/components/blog/BlogImage.astro` together with `imageProvider` + `getImageAlt()`. `BlogImage` provides the shared WebP quality, responsive widths/sizes, and lazy loading defaults.
 
 So:
 
 - use `imageProvider` for all reusable site images, including blog heroes and inline MDX images
+- use `<BlogImage>` instead of importing `<Image>` directly in blog MDX
 - subpage heroes: `HeroSubpage` with optional `image={imageProvider...}` (no raw URL strings)
 
 ## Tracking Workflow
@@ -215,13 +217,11 @@ Always guard with `typeof window.trackEvent === "function"` so components work o
 
 Use UPPERCASE_SNAKE_CASE for all event values.
 
-
 | Layer             | Meaning                               | Example                                   |
 | ----------------- | ------------------------------------- | ----------------------------------------- |
 | **eventAction**   | What happened                         | `CONTACT_FORM_STARTED`, `FAQ_ITEM_OPENED` |
 | **eventCategory** | Where it happened                     | `CONTACT_FORM`, `FAQ`, `PAGE`             |
 | **eventName**     | Which element was affected (optional) | `PRICING_QUESTION`, `DELIVERY_AREA`       |
-
 
 - `eventAction` and `eventCategory` are required.
 - `eventName` is optional. Use it when a specific element is involved (e.g. which FAQ item was opened).
@@ -295,10 +295,13 @@ File: `src/components/base/BaseHead.astro`
 Use for:
 
 - page metadata and SEO base setup
+- canonical and localized `hreflang` links (`de`, `en`, and `x-default`)
+- the optimized default social sharing image when a layout does not provide one
 
 Use this when:
 
 - creating any new normal page or layout
+- blog and nested routes must remain resolvable through `getRouteFromUrl()` so their language alternates point to the equivalent page, not a locale homepage
 
 #### `Navigation`
 

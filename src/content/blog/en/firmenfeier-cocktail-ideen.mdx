@@ -7,7 +7,7 @@ pubDate: "2025-01-15"
 heroImageKey: "bartenderCocktailShaker"
 ---
 
-import { Image } from "astro:assets";
+import BlogImage from "../../../components/blog/BlogImage.astro";
 import { imageProvider } from "../../../provider/imageProvider";
 import { getImageAlt } from "../../../utils/imageUtils";
 
@@ -17,11 +17,11 @@ Many people haven't heard of it yet: **cocktail catering** – a professional mo
 
 A bar where something actually happens: flair bartending, shaker tricks, sometimes even a bit of fire. Guests stop, chat – the standing reception turns into a real event. Many providers set up the bar flexibly: classic with a wooden counter or modern with LED lighting. Signature drinks with company logo or brand colours are also possible.
 
-<Image
+<BlogImage
   src={imageProvider.catering.bartenderCocktailShaker.src}
   alt={getImageAlt(imageProvider.catering.bartenderCocktailShaker, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.barkeeperShow.src}
   alt={getImageAlt(imageProvider.catering.barkeeperShow, "en")}
 />
@@ -30,11 +30,11 @@ A bar where something actually happens: flair bartending, shaker tricks, sometim
 
 A theme that's easy to pull off: each station represents a country. Mexico with tacos and tequila, Japan with sake, Brazil with caipirinha, Italy with Aperol and antipasti. Guests wander from station to station – and automatically have something to talk about. Works especially well for international teams or companies with offices worldwide.
 
-<Image
+<BlogImage
   src={imageProvider.cocktails.bunteCocktails.src}
   alt={getImageAlt(imageProvider.cocktails.bunteCocktails, "en")}
 />
-<Image
+<BlogImage
   src={imageProvider.cocktails.cocktailsAroundWorld.src}
   alt={getImageAlt(imageProvider.cocktails.cocktailsAroundWorld, "en")}
 />

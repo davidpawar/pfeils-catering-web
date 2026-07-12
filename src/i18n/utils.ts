@@ -90,6 +90,13 @@ export function getRouteFromUrl(url: URL): string | undefined {
     return undefined;
   }
 
+  // Blog slugs and pagination paths are identical in both languages. Keeping
+  // the full path lets LanguagePicker preserve the current article/page while
+  // useTranslatedPath only adds or removes the locale prefix.
+  if (path === "blog" || path.startsWith("blog/")) {
+    return path;
+  }
+
   if (defaultLang === currentLang) {
     // Path is DE path; check flattened form in route mappings
     const route = Object.values(routes)[0] as Record<string, string>;

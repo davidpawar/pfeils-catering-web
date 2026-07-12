@@ -1,10 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { getImage, Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import BaseHead from "../components/base/BaseHead.astro";
 import Footer from "../components/base/Footer.astro";
 import Navigation from "../components/base/Navigation.astro";
 import Button from "../components/ui/Button.astro";
 import { getBlogHeroImage } from "../utils/blogImages";
+import { getImageAlt } from "../utils/imageUtils";
+import { imageProvider } from "../provider/imageProvider";
 import {
   getLangFromUrl,
   useTranslations,
@@ -30,12 +34,18 @@ const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const heroImage = heroImageKey ? getBlogHeroImage(heroImageKey) : undefined;
-const heroUrl = heroImage
-  ? typeof heroImage.src === "object"
-    ? heroImage.src.src
-    : heroImage.src
-  : "/blog-placeholder-3.jpg";
+const heroImage =
+  (heroImageKey ? getBlogHeroImage(heroImageKey) : undefined) ??
+  imageProvider.hero.headerBackground;
+const heroMetadata = heroImage.src as ImageMetadata;
+const socialImage = await getImage({
+  src: heroMetadata,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpg",
+  quality: 85,
+});
 
 function formatDate(date: Date, locale: string): string {
   return new Intl.DateTimeFormat(locale, {
@@ -66,7 +76,12 @@ const faqSchema =
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={title} description={description} image={heroUrl} lang={lang} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={socialImage.src}
+      lang={lang}
+    />
     {
       faqSchema && (
         <script
@@ -247,13 +262,23 @@ const faqSchema =
     <div class="relative">
       <Navigation />
       <main>
-        {/* Hero: article title with background image */}
+        {/* Hero image is rendered as <img> so the browser discovers the LCP resource immediately. */}
         <section
-          class="relative flex min-h-[45vh] flex-col justify-center bg-dark-bg bg-cover bg-center bg-no-repeat md:min-h-[30vh]"
-          style={{
-            backgroundImage: `url('${heroUrl}')`,
-          }}
+          class="relative flex min-h-[45vh] flex-col justify-center overflow-hidden bg-dark-bg md:min-h-[30vh]"
         >
+          <Image
+            src={heroMetadata}
+            alt={getImageAlt(heroImage, lang)}
+            class="absolute inset-0 h-full w-full object-cover object-center"
+            fetchpriority="high"
+            format="webp"
+            height={heroMetadata.height}
+            loading="eager"
+            quality={80}
+            sizes="100vw"
+            width={heroMetadata.width}
+            widths={[640, 960, 1280, 1600, 1920, 2400]}
+          />
           <div
             class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75"
           >

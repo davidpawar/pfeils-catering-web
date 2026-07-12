@@ -7,7 +7,7 @@ pubDate: "2025-01-15"
 heroImageKey: "bartenderCocktailShaker"
 ---
 
-import { Image } from "astro:assets";
+import BlogImage from "../../../components/blog/BlogImage.astro";
 import { imageProvider } from "../../../provider/imageProvider";
 import { getImageAlt } from "../../../utils/imageUtils";
 
@@ -17,11 +17,11 @@ Viele kennen es noch nicht: **Cocktail-Catering** – also eine professionelle, 
 
 Eine Bar, bei der nicht nur gemixt wird, sondern auch etwas passiert: Flair-Bartending, Shaker-Tricks, manchmal sogar kleine Feuereinlagen. Die Gäste bleiben stehen, unterhalten sich – aus dem Stehempfang wird ein richtiges Event. Viele Anbieter bauen die Bar flexibel auf: klassisch mit Holztresen oder modern mit LED-Beleuchtung. Signature-Drinks mit Firmenlogo oder CI-Farben sind ebenfalls möglich.
 
-<Image
+<BlogImage
   src={imageProvider.catering.bartenderCocktailShaker.src}
   alt={getImageAlt(imageProvider.catering.bartenderCocktailShaker, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.barkeeperShow.src}
   alt={getImageAlt(imageProvider.catering.barkeeperShow, "de")}
 />
@@ -30,11 +30,11 @@ Eine Bar, bei der nicht nur gemixt wird, sondern auch etwas passiert: Flair-Bart
 
 Ein Motto, das sich gut umsetzen lässt: Jede Station steht für ein Land. Mexiko mit Tacos und Tequila, Japan mit Sake, Brasilien mit Caipirinha, Italien mit Aperol und Antipasti. Die Gäste wandern von Station zu Station – und haben dabei automatisch Gesprächsstoff. Besonders geeignet für internationale Teams oder Firmen mit Standorten weltweit.
 
-<Image
+<BlogImage
   src={imageProvider.cocktails.bunteCocktails.src}
   alt={getImageAlt(imageProvider.cocktails.bunteCocktails, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.cocktails.cocktailsAroundWorld.src}
   alt={getImageAlt(imageProvider.cocktails.cocktailsAroundWorld, "de")}
 />

@@ -14,7 +14,7 @@ faq:
     answer: "Ein eingespieltes Team verstaut nach dem Event Equipment und Geschirr; bei Mehrweg-Lösungen bleibt kein Verpackungsmüll zurück. Sinnvoll ist, Abbauzeit und Zufahrt vorab festzuhalten."
 ---
 
-import { Image } from "astro:assets";
+import BlogImage from "../../../components/blog/BlogImage.astro";
 import { imageProvider } from "../../../provider/imageProvider";
 import { getImageAlt } from "../../../utils/imageUtils";
 
@@ -28,7 +28,7 @@ Ein leerer Parkplatz wirkt oft verloren – da haben wir **zwei starke Optionen*
 
 *Gesamtansicht: beide Cocktail-Anhänger, Bambusbar und Sitzgarnituren auf dem Betriebsgelände.*
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeierFullSetup.src}
   alt={getImageAlt(imageProvider.events.firmenfeierFullSetup, "de")}
 />
@@ -39,11 +39,11 @@ Ihre Lagerhalle oder Produktion bietet den perfekten „Industrial Chic“. Mit 
 
 **Full-Service-Garantie:** Wir bringen nicht nur die Drinks, sondern auch die passenden Stehtische und alle Gläser mit. Sie müssen sich um keine Logistik kümmern.
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeier.src}
   alt={getImageAlt(imageProvider.events.firmenfeier, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.bambusbarAbend.src}
   alt={getImageAlt(imageProvider.catering.bambusbarAbend, "de")}
 />
@@ -52,11 +52,11 @@ Ihre Lagerhalle oder Produktion bietet den perfekten „Industrial Chic“. Mit 
 
 Machen Sie das Catering zum Programmpunkt Ihres Jubiläums. In einem Mini-Cocktail-Kurs können Ihre Mitarbeitenden unter Anleitung unserer Profis selbst aktiv werden. Das bricht das Eis zwischen verschiedenen Abteilungen schneller als jede klassische Vorstellungsrunde.
 
-<Image
+<BlogImage
   src={imageProvider.catering.bartenderCocktailShaker.src}
   alt={getImageAlt(imageProvider.catering.bartenderCocktailShaker, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.barkeeperShow.src}
   alt={getImageAlt(imageProvider.catering.barkeeperShow, "de")}
 />
@@ -65,7 +65,7 @@ Machen Sie das Catering zum Programmpunkt Ihres Jubiläums. In einem Mini-Cockta
 
 Ein Jubiläum auf dem eigenen Gelände ist die beste Bühne für Ihre Corporate Identity. Wir kreieren Signature Drinks in Ihren Firmenfarben und branden die Bar-Menüs. Das sorgt nicht nur für Begeisterung vor Ort, sondern auch für erstklassigen Content auf Ihren Social-Media-Kanälen wie LinkedIn oder Instagram.
 
-<Image
+<BlogImage
   src={imageProvider.cocktails.bunteCocktails.src}
   alt={getImageAlt(imageProvider.cocktails.bunteCocktails, "de")}
 />
@@ -74,7 +74,7 @@ Ein Jubiläum auf dem eigenen Gelände ist die beste Bühne für Ihre Corporate 
 
 Ein Event auf dem Betriebsgelände erfordert Koordination. Damit Sie nicht mit zehn verschiedenen Firmen telefonieren müssen, greifen wir auf unser regionales Netzwerk zurück. Ob Food-Trucks, Lichttechnik oder Zelte – wir koordinieren das gesamte Setup für Sie. Sie haben nur einen Ansprechpartner für das gesamte kulinarische Konzept.
 
-<Image
+<BlogImage
   src={imageProvider.catering.cocktailService.src}
   alt={getImageAlt(imageProvider.catering.cocktailService, "de")}
 />
@@ -89,19 +89,19 @@ Viele denken bei einer Firmenfeier im Winter sofort an die schwierige Suche nach
 
 **Rundum-Sorglos:** Wir bringen sogar die Tassen und Stehtische mit. Nach der Feier packen wir alles wieder ein – inklusive des Schmutzgeschirrs. Ihr Gelände ist am nächsten Morgen wieder besenrein und betriebsbereit.
 
-<Image
+<BlogImage
   src={imageProvider.catering.weihnachtsmarkt.src}
   alt={getImageAlt(imageProvider.catering.weihnachtsmarkt, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.events.weihnachtsfeier.src}
   alt={getImageAlt(imageProvider.events.weihnachtsfeier, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.flammkuchen.src}
   alt={getImageAlt(imageProvider.catering.flammkuchen, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.catering.crepes.src}
   alt={getImageAlt(imageProvider.catering.crepes, "de")}
 />

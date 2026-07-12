@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+/**
+ * Shared image component for inline images in blog MDX.
+ *
+ * Blog articles use many images from `imageProvider`. Using Astro's `<Image>`
+ * directly in every MDX file previously produced full-resolution images unless
+ * each call repeated the same optimization props. This wrapper keeps those
+ * rules in one place: responsive `srcset` candidates, an article-width-aware
+ * `sizes` default, WebP output, lazy loading, and consistent quality.
+ *
+ * The default maximum width is 1344px because article images render at no more
+ * than 42rem (672px); 1344px still covers high-density 2x displays without
+ * shipping the original 2000–2400px sources.
+ */
+interface Props {
+  alt: string;
+  /** Override for layouts narrower than the standard article column, e.g. galleries. */
+  sizes?: string;
+  src: ImageMetadata | string;
+}
+
+const {
+  alt,
+  sizes = "(min-width: 768px) 42rem, calc(100vw - 3rem)",
+  src,
+} = Astro.props;
+const metadata = typeof src === "object" ? src : undefined;
+const sourceWidth = metadata?.width ?? 1344;
+const sourceHeight = metadata?.height ?? 896;
+const width = Math.min(sourceWidth, 1344);
+const height = Math.round((sourceHeight / sourceWidth) * width);
+const widths = [...new Set(
+  [320, 480, 640, 768, 960, 1200, width].filter(
+    (candidate) => candidate <= width,
+  ),
+)].sort((a, b) => a - b);
+---
+
+<Image
+  src={src as ImageMetadata}
+  alt={alt}
+  decoding="async"
+  format="webp"
+  height={height}
+  loading="lazy"
+  quality={80}
+  sizes={sizes}
+  width={width}
+  widths={widths}
+/>

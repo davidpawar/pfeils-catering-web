@@ -2,7 +2,10 @@
 import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
 import { getImageAlt } from "../../utils/imageUtils";
-import type { ImageAsset } from "../../provider/imageProvider";
+import {
+  imageProvider,
+  type ImageAsset,
+} from "../../provider/imageProvider";
 
 /**
  * Single blog post entry for the list.
@@ -88,6 +91,10 @@ const {
 } = Astro.props;
 
 const showPagination = totalPages > 1;
+const postsWithImages = posts.map((post) => ({
+  ...post,
+  heroImage: post.heroImage ?? imageProvider.hero.headerBackground,
+}));
 
 /** Page numbers to show (all pages if ≤7, otherwise first + range + last) */
 function getPageNumbers(): (number | "ellipsis")[] {
@@ -181,7 +188,7 @@ function formatDate(date: Date, locale: string): string {
       class="grid grid-cols-1 gap-6 list-none m-0 p-0 sm:grid-cols-2 md:gap-8 lg:grid-cols-3"
     >
       {
-        posts.map((post) => (
+        postsWithImages.map((post) => (
           <li class="fade-in-section">
             <article
               class:list={[
@@ -194,35 +201,25 @@ function formatDate(date: Date, locale: string): string {
                 class="relative block aspect-video overflow-hidden"
                 aria-label={post.title}
               >
-                {post.heroImage ? (
-                  <Image
-                    src={post.heroImage.src as import("astro").ImageMetadata}
-                    alt={getImageAlt(post.heroImage, lang)}
-                    class="absolute inset-0 block h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                    format="webp"
-                    height={
-                      typeof post.heroImage.src === "object"
-                        ? post.heroImage.src.height
-                        : 405
-                    }
-                    quality={80}
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    width={
-                      typeof post.heroImage.src === "object"
-                        ? post.heroImage.src.width
-                        : 720
-                    }
-                    widths={[360, 480, 640, 768, 960]}
-                  />
-                ) : (
-                  <img
-                    width={720}
-                    height={405}
-                    src="/blog-placeholder-3.jpg"
-                    alt={post.title}
-                    class="absolute inset-0 block h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                  />
-                )}
+                <Image
+                  src={post.heroImage.src as import("astro").ImageMetadata}
+                  alt={getImageAlt(post.heroImage, lang)}
+                  class="absolute inset-0 block h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  format="webp"
+                  height={
+                    typeof post.heroImage.src === "object"
+                      ? post.heroImage.src.height
+                      : 405
+                  }
+                  quality={80}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  width={
+                    typeof post.heroImage.src === "object"
+                      ? post.heroImage.src.width
+                      : 720
+                  }
+                  widths={[360, 480, 640, 768, 960]}
+                />
               </a>
               <div class="flex flex-1 flex-col p-6 md:p-8">
                 <time

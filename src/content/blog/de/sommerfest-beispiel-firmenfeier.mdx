@@ -7,7 +7,7 @@ pubDate: "2026-07-12"
 heroImageKey: "firmenfeierFullSetup"
 ---
 
-import { Image } from "astro:assets";
+import BlogImage from "../../../components/blog/BlogImage.astro";
 import { imageProvider } from "../../../provider/imageProvider";
 import { getImageAlt } from "../../../utils/imageUtils";
 
@@ -17,7 +17,7 @@ Im folgenden **Beispiel** geht es deshalb bewusst um den **Cocktail-Betrieb**: S
 
 ## Vor dem ersten Shake: Bar und Setup
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeierFullSetup.src}
   alt={getImageAlt(imageProvider.events.firmenfeierFullSetup, "de")}
 />
@@ -33,7 +33,7 @@ Für 120 Personen über sechs Stunden reicht in der Regel **zwei Barkeeper** an 
 
 ## Die Cocktail-Karte
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeierMenu.src}
   alt={getImageAlt(imageProvider.events.firmenfeierMenu, "de")}
 />
@@ -42,19 +42,19 @@ An der Bar hing die **Karte gut sichtbar** – alkoholische und alkoholfreie Coc
 
 <div class="blog-image-row">
 
-<Image
+<BlogImage
   src={imageProvider.cocktails.aperolSpritz.src}
   alt={getImageAlt(imageProvider.cocktails.aperolSpritz, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.cocktails.erdbeerMojito.src}
   alt={getImageAlt(imageProvider.cocktails.erdbeerMojito, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.cocktails.sexOnTheBeach.src}
   alt={getImageAlt(imageProvider.cocktails.sexOnTheBeach, "de")}
 />
-<Image
+<BlogImage
   src={imageProvider.cocktails.ipanema.src}
   alt={getImageAlt(imageProvider.cocktails.ipanema, "de")}
 />
@@ -102,7 +102,7 @@ Die **Nachfrage hängt von Gästezahl und Dauer** ab – eine überschaubare Kar
 
 ## Wenn die Gäste kommen: Peak an der Bar
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeierMediumCrowd.src}
   alt={getImageAlt(imageProvider.events.firmenfeierMediumCrowd, "de")}
 />
@@ -113,7 +113,7 @@ Wer **Essen und Getränke sinnvoll verteilt**, entlastet die Bar zusätzlich. Zi
 
 ## Fazit
 
-<Image
+<BlogImage
   src={imageProvider.events.firmenfeierTrailerCrowd.src}
   alt={getImageAlt(imageProvider.events.firmenfeierTrailerCrowd, "de")}
 />
