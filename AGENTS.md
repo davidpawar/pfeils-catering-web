@@ -14,6 +14,8 @@ This file is the working guide for AI agents and content teams. Its job is to he
 
 Use the existing patterns first. Prefer consistency over creativity.
 
+When you change project patterns, components, or page structures, update this file in the same pass.
+
 ## Project Mental Model
 
 - Normal pages are assembled from:
@@ -123,10 +125,11 @@ Most reusable site images live under:
 - `src/assets/images/blog`
 - `src/assets/images/catering`
 - `src/assets/images/cocktails`
-- `src/assets/images/events`
+- `src/assets/images/events` (subfolders per event type, e.g. `firmenfeier/`, `hochzeit/`)
 - `src/assets/images/hero`
 - `src/assets/images/logo`
 - `src/assets/images/logos`
+- `src/assets/images/service-areas`
 - `src/assets/images/team`
 
 ### Where images are registered
@@ -164,6 +167,7 @@ Example:
 - Do not scatter duplicate alt text across pages.
 - If `altEn` is missing, English pages will show the German alt text.
 - Most widgets expect an `ImageAsset` object from `imageProvider`, not a random string path.
+- Use `<Image>` with `sizes` and `widths`; do not over-compress sources for performance.
 
 ### Blog image exception
 
@@ -177,17 +181,7 @@ So:
 
 - use `imageProvider` for reusable site images
 - use `public/blog/...` string paths for blog post hero images
-
-### Hero image exception
-
-Some subpage heroes use direct `imageUrl` strings instead of `imageProvider`.
-
-Examples:
-
-- `src/pages/en/corporate.astro`
-- `src/components/widgets/HeroSubpage.astro`
-
-Do not invent a third pattern. Follow the existing pattern of the page you are editing unless the team explicitly standardizes it later.
+- subpage heroes: `HeroSubpage` with optional `image={imageProvider...}` (no raw URL strings)
 
 ## Tracking Workflow
 
@@ -375,7 +369,7 @@ File: `src/components/widgets/HeroSubpage.astro`
 
 Use for:
 
-- compact subpage hero with title and optional background image
+- compact subpage hero with title and optional `image` from `imageProvider`
 
 Use this when:
 
@@ -655,6 +649,8 @@ Typical structure:
 4. `ContactForm`
 5. `Footer`
 
+Legal pages (`/impressum/`, `/datenschutz/`): same shell with `HeroSubpage` (title only) + `Imprint` or `PrivacyPolicy`.
+
 ### Blog pattern
 
 Reference:
@@ -689,6 +685,7 @@ Rules:
 - use translated links via `useTranslatedPath()`
 - update `routes.en` in `src/i18n/translations.ts` when adding a new localized top-level page
 - create both the German page file and the English page file when adding a new localized page
+- update `AGENTS.md` when you change reusable patterns
 
 ### Do not
 
@@ -722,3 +719,9 @@ When adding a new blog post:
 5. Fill frontmatter according to `src/content.config.ts`.
 6. Let the existing blog layouts render the content.
 
+## Lighthouse
+
+- `npm run lighthouse:local` — sitemap audit on `localhost:4321` (after dev/preview)
+- `npm run lighthouse:prod` — production audit; JSON reports in `.lighthouse/`
+
+Local SEO may score low: `robots.txt.ts` blocks indexing on localhost/dev by design.
