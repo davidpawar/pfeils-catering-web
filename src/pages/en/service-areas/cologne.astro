@@ -69,11 +69,6 @@ const faqItems = [
   },
 ];
 
-const koelnHeroUrl =
-  typeof imageProvider.hero.mobileCocktailbarBackground.src === "object"
-    ? imageProvider.hero.mobileCocktailbarBackground.src.src
-    : imageProvider.hero.mobileCocktailbarBackground.src;
-
 const galleryItems = [
   { image: imageProvider.events.firmenfeier },
   { image: imageProvider.catering.cocktailService },
@@ -99,7 +94,7 @@ const galleryItems = [
       <main>
         <HeroSubpage
           title={t("mobileCocktailbarKoln.hero.title")}
-          imageUrl={koelnHeroUrl}
+          image={imageProvider.hero.mobileCocktailbarBackground}
         />
         <ImageText
           badgeText={t("mobileCocktailbarKoln.intro.badge")}

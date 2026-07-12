@@ -19,13 +19,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const messeHeroUrl =
-  typeof imageProvider.hero.messeBackground.src === "object"
-    ? imageProvider.hero.messeBackground.src.src
-    : imageProvider.hero.messeBackground.src;
-
 const galleryItems = [
   { image: imageProvider.events.messe },
+  { image: imageProvider.events.messeCocktailFreshMint },
   { image: imageProvider.catering.cocktailService },
   { image: imageProvider.catering.bambusbar },
   { image: imageProvider.catering.bambusbarAbend },
@@ -93,7 +89,7 @@ const testimonialItems = [
       <main>
         <HeroSubpage
           title={t("hero.messe.title")}
-          imageUrl={messeHeroUrl}
+          image={imageProvider.hero.messeBackground}
         />
         <ImageText
           badgeText={t("hero.messe.subtitle")}

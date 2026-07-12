@@ -2,29 +2,62 @@
 /**
  * HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text.
  */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import type { ImageAsset } from "../../provider/imageProvider";
+import { getImageAlt } from "../../provider/imageProvider";
+import { getLangFromUrl } from "../../i18n/utils";
+
 interface Props {
   /**
-   * Optional URL for the background image. If omitted, uses solid dark background.
+   * Optional hero image from imageProvider. Rendered as <img> (not CSS background)
+   * so LCP is discoverable and fetchpriority applies.
    */
-  imageUrl?: string;
+  image?: ImageAsset;
   /**
    * Main heading.
    */
   title: string;
 }
 
-const { imageUrl, title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const { image, title } = Astro.props;
+
+const heroSrc = image?.src;
+const hasHeroImage = !!heroSrc;
+const heroMetadata =
+  typeof heroSrc === "object" ? (heroSrc as ImageMetadata) : undefined;
+const heroWidth = heroMetadata?.width ?? 1920;
+const heroHeight = heroMetadata?.height ?? 1080;
 ---
 
 {/* HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text */}
 <section
-  class="relative flex min-h-[45vh] flex-col justify-center bg-dark-bg md:min-h-[55vh]"
-  class:list={[imageUrl && "bg-cover bg-center bg-no-repeat"]}
-  style={imageUrl ? { backgroundImage: `url('${imageUrl}')` } : {}}
+  class="relative flex min-h-[45vh] flex-col justify-center overflow-hidden bg-dark-bg md:min-h-[55vh]"
 >
-  {imageUrl && (
-    <div class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75" />
-  )}
+  {
+    hasHeroImage && image && (
+      <Image
+        src={heroSrc as ImageMetadata}
+        alt={getImageAlt(image, lang)}
+        class="absolute inset-0 h-full w-full object-cover object-center"
+        fetchpriority="high"
+        format="webp"
+        height={heroHeight}
+        loading="eager"
+        quality={80}
+        sizes="100vw"
+        width={heroWidth}
+        widths={[640, 960, 1280, 1600, 1920, 2400]}
+      />
+    )
+  }
+
+  {
+    hasHeroImage && (
+      <div class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75" />
+    )
+  }
 
   {/* Content container */}
   <div

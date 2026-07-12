@@ -65,11 +65,6 @@ const faqItems = [
   },
 ];
 
-const nuembrechtHeroUrl =
-  typeof imageProvider.serviceAreas.nuembrechtSchloss.src === "object"
-    ? imageProvider.serviceAreas.nuembrechtSchloss.src.src
-    : imageProvider.serviceAreas.nuembrechtSchloss.src;
-
 const galleryItems = [
   { image: imageProvider.serviceAreas.nuembrechtSchloss },
   { image: imageProvider.events.hochzeit },
@@ -95,7 +90,7 @@ const galleryItems = [
       <main>
         <HeroSubpage
           title={t("mobileCocktailbarNuembrecht.hero.title")}
-          imageUrl={nuembrechtHeroUrl}
+          image={imageProvider.serviceAreas.nuembrechtSchloss}
         />
         <ImageText
           badgeText={t("mobileCocktailbarNuembrecht.intro.badge")}

@@ -20,11 +20,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const mobileCocktailbarHeroUrl =
-  typeof imageProvider.hero.mobileCocktailbarBackground.src === "object"
-    ? imageProvider.hero.mobileCocktailbarBackground.src.src
-    : imageProvider.hero.mobileCocktailbarBackground.src;
-
 const textListItems = [
   {
     title: t("mobileCocktailbar.textList.item1.title"),
@@ -108,7 +103,7 @@ const galleryItems = [
       <main>
         <HeroSubpage
           title={t("hero.mobileCocktailbar.title")}
-          imageUrl={mobileCocktailbarHeroUrl}
+          image={imageProvider.hero.mobileCocktailbarBackground}
         />
         <ImageText
           badgeText={t("hero.mobileCocktailbar.subtitle")}
