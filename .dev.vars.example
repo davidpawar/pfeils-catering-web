@@ -2,3 +2,5 @@
 # Copy this file to ".dev.vars" and fill in real values. Never commit ".dev.vars".
 # Production/dev secrets live encrypted in the Cloudflare dashboard or via `wrangler secret put`.
 RESEND_API_KEY=
+# Optional override; default is CONTACT_TO_EMAIL in wrangler.jsonc
+# CONTACT_TO_EMAIL=david.horn.pawar@gmail.com

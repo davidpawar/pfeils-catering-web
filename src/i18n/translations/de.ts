@@ -26,6 +26,8 @@ export const de = {
     "Datenschutzerklärung und Informationen zur Datenverarbeitung",
   "nav.anfrage.description": "Kontaktieren Sie uns für ein Angebot",
   "hero.cta": "Jetzt anfragen",
+  "hero.eyebrow": "Pfeil's",
+  "hero.scrollLabel": "Zum nächsten Abschnitt scrollen",
   "hero.subtitle":
     "Pfeil's Cocktail Catering – mit Herz gemixt, für dich und deine Gäste.",
   "hero.title": "Dein Cocktail-Catering Service",

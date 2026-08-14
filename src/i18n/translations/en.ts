@@ -25,6 +25,8 @@ export const en = {
     "Privacy policy and data processing information",
   "nav.anfrage.description": "Contact us for a quote",
   "hero.cta": "Contact us",
+  "hero.eyebrow": "Pfeil's",
+  "hero.scrollLabel": "Scroll to the next section",
   "hero.subtitle":
     "Pfeil's Cocktail Catering – mixed with heart, for you and your guests.",
   "hero.title": "Your Cocktail Catering Service",

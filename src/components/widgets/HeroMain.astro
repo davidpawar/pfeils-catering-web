@@ -1,10 +1,10 @@
 ---
-/*
- * Hero section for homepage with background image, headline and CTA.
- * Uses i18n for translated content and paths.
+/**
+ * HeroMain: Full-viewport homepage hero.
+ * Background comes from imageProvider; copy from i18n (`hero.*`).
+ * Do not reuse on service subpages — those use HeroSubpage.
  */
 import { Image } from "astro:assets";
-import { ChevronDown } from "@lucide/astro";
 import { getImageAlt } from "../../utils/imageUtils";
 import { imageProvider } from "../../provider/imageProvider";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
@@ -15,70 +15,133 @@ const heroImageAsset = imageProvider.hero.headerBackground;
 const heroImage = imageProvider.hero.headerBackground.src as import("astro").ImageMetadata;
 ---
 
-<!--
-  ========== Hero Section ==========
-  Full-width, min-h-screen, background image with gradient overlay.
--->
+{/* HeroMain: full-bleed bar photo, centered title, scroll hint */}
 <section
   id="hero-main"
-  class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-dark-bg"
+  class="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark-bg"
 >
+  {/* LCP image: eager + high priority, not a CSS background */}
   <Image
     src={heroImage}
     alt={getImageAlt(heroImageAsset, lang)}
-    class="absolute inset-0 h-full w-full object-cover"
+    class="hero-bg-image absolute inset-0 h-full w-full object-cover object-center"
     loading="eager"
     fetchpriority="high"
     format="webp"
+    height={heroImage.height}
     quality={80}
     sizes="100vw"
+    width={heroImage.width}
     widths={[640, 960, 1280, 1600, 1920, 2400]}
   />
 
-  <!-- Gradient overlay for better text readability -->
+  {/* Overlays: keep the photo visible, text readable, edges darkened */}
+  <div class="absolute inset-0 bg-black/20"></div>
   <div
-    class="absolute inset-0 bg-gradient-to-r from-black/67 to-black/32 opacity-75"
+    class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/20 to-black/45"
+  >
+  </div>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgb(0_9_22_/_0.55)_100%)]"
   >
   </div>
 
-  <!-- Content container: title, subtitle, CTA -->
+  {/* Copy: eyebrow, title, subtitle — all from translations */}
   <div
-    class="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-16 md:px-12 md:py-24 lg:px-16 lg:py-32 min-[1920px]:max-w-8xl"
+    class="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-6 pt-28 pb-24 text-center md:px-12 md:pt-32 min-[1920px]:max-w-8xl"
   >
-    <!-- Title: main heading -->
-    <div class="max-w-4xl animate-fade-in mb-4 md:mb-6">
-      <h1
-        class="mb-0 font-anton text-4xl font-medium leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
-      >
-        <b>{t("hero.title")}</b>
-      </h1>
-    </div>
+    <p
+      class="hero-reveal mb-5 font-outfit text-xs font-medium uppercase tracking-[0.42em] text-white/70 md:mb-6 md:text-sm min-[1920px]:mb-8 min-[1920px]:text-base"
+    >
+      {t("hero.eyebrow")}
+    </p>
 
-    <!-- Subtitle: supporting text -->
-    <div class="animate-fade-in mb-8 md:mb-10">
-      <p
-        class="font-outfit text-base font-light leading-relaxed text-white md:text-lg lg:text-xl"
-      >
-        {t("hero.subtitle")}
-      </p>
-    </div>
+    <h1
+      class="hero-title hero-reveal hero-reveal-delay-1 mb-5 w-full text-balance font-anton font-medium leading-[1.05] text-white md:mb-6 min-[1920px]:mb-8"
+    >
+      {t("hero.title")}
+    </h1>
+
+    <p
+      class="hero-subtitle hero-reveal hero-reveal-delay-2 max-w-2xl text-pretty font-outfit font-light leading-relaxed text-white/80"
+    >
+      {t("hero.subtitle")}
+    </p>
   </div>
 
-  <!--
-    Scroll indicator: mouse icon with animated wheel.
-    Click scrolls smoothly to the next section.
-  -->
+  {/* Scroll hint: jumps to the next <section> (see script below) */}
   <button
     type="button"
-    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex cursor-pointer flex-col items-center bg-transparent border-none p-0 text-white transition-opacity hover:opacity-80"
-    aria-label="Zum nächsten Abschnitt scrollen"
+    class="hero-reveal hero-reveal-delay-3 absolute bottom-8 left-1/2 z-10 -translate-x-1/2 cursor-pointer border-none bg-transparent p-0 text-white/50 transition-opacity hover:text-white/80"
+    aria-label={t("hero.scrollLabel")}
     data-scroll-to-next
   >
-    <ChevronDown class="h-10 w-10 text-white animate-mouse-scroll" size={40} stroke-width="2" aria-hidden="true" />
+    <span class="hero-scroll-chevron block text-2xl leading-none" aria-hidden="true">
+      ⌄
+    </span>
   </button>
 </section>
 
-<style is:global>
+<style>
+  /* Title: 56px on phones, fluid in between, 128px cap on large screens.
+     Keep this in CSS — stacked Tailwind text-* utilities override each other. */
+  .hero-title {
+    font-size: clamp(3.5rem, 5.5vw + 0.75rem, 128px);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 0.85rem + 0.8vw, 1.5rem);
+  }
+
+  /* Entrance: blur + rise. Delays stagger eyebrow → title → subtitle → chevron. */
+  .hero-reveal {
+    animation: heroReveal 1.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-reveal-delay-1 {
+    animation-delay: 0.18s;
+  }
+
+  .hero-reveal-delay-2 {
+    animation-delay: 0.38s;
+  }
+
+  .hero-reveal-delay-3 {
+    animation-delay: 0.75s;
+  }
+
+  .hero-bg-image {
+    animation: heroKenBurns 28s ease-out forwards;
+  }
+
+  .hero-scroll-chevron {
+    animation: mouseScroll 2.8s ease-in-out infinite;
+  }
+
+  @keyframes heroReveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes heroKenBurns {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.05);
+    }
+  }
+
   @keyframes mouseScroll {
     0%,
     100% {
@@ -88,51 +151,39 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
 
     50% {
       transform: translateY(6px);
-      opacity: 0.5;
+      opacity: 0.4;
     }
   }
 
-  .animate-mouse-scroll {
-    animation: mouseScroll 2s ease-in-out infinite;
+  @media (prefers-reduced-motion: reduce) {
+    .hero-reveal,
+    .hero-bg-image,
+    .hero-scroll-chevron {
+      animation: none;
+    }
   }
 </style>
 
 <script is:inline>
   /*
-   * Scroll-to-next-section: When the user clicks the mouse indicator,
-   * we smoothly scroll to the next <section> on the page.
-   *
-   * is:inline = Astro leaves this script as-is (runs in page context, not bundled).
-   * DOMContentLoaded = Wait until the HTML is fully loaded before we attach listeners.
+   * Scroll to the next section when the chevron (or any [data-scroll-to-next]) is clicked.
+   * is:inline = runs in the page, not bundled by Astro.
    */
   document.addEventListener("DOMContentLoaded", () => {
-    const scrollButton = document.querySelector("[data-scroll-to-next]");
-    if (!scrollButton) return;
+    document.querySelectorAll("[data-scroll-to-next]").forEach((scrollButton) => {
+      scrollButton.addEventListener("click", () => {
+        const hero = document.getElementById("hero-main");
+        if (!hero) return;
 
-    scrollButton.addEventListener("click", () => {
-      /* 1. Find our hero section by its id */
-      const hero = document.getElementById("hero-main");
-      if (!hero) return;
+        let next = hero.nextElementSibling;
+        while (next && next.tagName !== "SECTION") {
+          next = next.nextElementSibling;
+        }
 
-      /*
-       * 2. Find the next <section> sibling.
-       * nextElementSibling gives us the next element (skips text nodes).
-       * We loop because the next sibling might be a <div> or other element –
-       * we want the next actual <section> (e.g. ImageText, ImageNavigation).
-       */
-      let next = hero.nextElementSibling;
-      while (next && next.tagName !== "SECTION") {
-        next = next.nextElementSibling;
-      }
-
-      /*
-       * 3. Scroll the found section into view.
-       * behavior: "smooth" = animated scroll instead of instant jump.
-       * block: "start" = align the top of the section with the top of the viewport.
-       */
-      if (next) {
-        next.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+        if (next) {
+          next.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
     });
   });
 </script>

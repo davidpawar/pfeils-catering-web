@@ -10,6 +10,7 @@ import bratwurstGrill from "../assets/images/catering/bratwurst-grill.jpg";
 import bmwKaltenbach from "../assets/images/logos/bmw-kaltenbach.png";
 import coffeeTruck from "../assets/images/catering/coffee-truck.jpg";
 import cocktailService from "../assets/images/catering/cocktail-service.jpg";
+import cocktailFruechte from "../assets/images/cocktail/cocktail-fruechte.jpg";
 import cocktailsAroundWorld from "../assets/images/blog/cocktails-around-world.jpg";
 import crepes from "../assets/images/catering/crepes.jpg";
 import eisbecherDiverse from "../assets/images/catering/eisbecher-diverse.jpg";
@@ -18,6 +19,7 @@ import flammkuchen from "../assets/images/catering/flammkuchen.jpg";
 import bunteCocktails from "../assets/images/blog/bunte-cocktails.jpg";
 import elektrisola from "../assets/images/logos/elektrisola.png";
 import firmenfeier from "../assets/images/events/firmenfeier/firmenfeier.jpg";
+import firmenfeierBeachBestuhlung from "../assets/images/events/firmenfeier/firmenfeier-beach-bestuhlung.jpg";
 import firmenfeierCocktailPreparation from "../assets/images/events/firmenfeier/firmenfeier-cocktail-preparation.jpg";
 import firmenfeierCocktailShake1 from "../assets/images/events/firmenfeier/firmenfeier-cocktail-shake-1.jpg";
 import firmenfeierFullSetup from "../assets/images/events/firmenfeier/firmenfeier-full-setup.jpg";
@@ -31,7 +33,13 @@ import koelnDomBruecke from "../assets/images/hero/koeln-dom-bruecke.jpg";
 import messeHero from "../assets/images/hero/messe-hero.jpg";
 import mobileCocktailbarHero from "../assets/images/hero/mobile-cocktailbar-hero.jpg";
 import mitarbeiterin from "../assets/images/catering/mitarbeiterin.jpg";
-import hochzeit from "../assets/images/events/hochzeit/hochzeit.jpg";
+import hochzeit from "../assets/images/events/hochzeit/hochzeit-cocktailbar-2.jpg";
+import hochzeitCocktail from "../assets/images/events/hochzeit/hochzeit-cocktail.jpg";
+import hochzeitCocktailbar from "../assets/images/events/hochzeit/hochzeit-cocktailbar.jpg";
+import hochzeitCocktailReihe from "../assets/images/events/hochzeit/hochzeit-cocktail-reihe.jpg";
+import hochzeitCocktailReiheQuer from "../assets/images/events/hochzeit/hochzeit-cocktail-reihe-quer.jpg";
+import hochzeitDekoration from "../assets/images/events/hochzeit/hochzeit-dekoration.jpg";
+import hochzeitEiswagen from "../assets/images/events/hochzeit/hochzeit-eiswagen.jpg";
 import logo from "../assets/images/logo/logo-alt-weiss.png";
 import messe from "../assets/images/events/messe/messe.jpg";
 import messeCocktailFreshMint from "../assets/images/events/messe/cocktail-fresh-mint.jpg";
@@ -156,6 +164,11 @@ export const imageProvider: ImageProvider = {
       altEn: "Colourful cocktails elegantly arranged on a bar",
       src: bunteCocktails,
     },
+    cocktailFruechte: {
+      alt: "Geschnittene Orangen, Limetten und Zitronen für den Cocktail-Service",
+      altEn: "Sliced oranges, limes and lemons for cocktail service",
+      src: cocktailFruechte,
+    },
     cocktailsAroundWorld: {
       alt: "Drei Cocktails inspiriert von verschiedenen Laendern",
       altEn: "Three cocktails inspired by different countries",
@@ -182,6 +195,11 @@ export const imageProvider: ImageProvider = {
       alt: "Cocktail-Bar bei einer Firmenfeier mit Gästen",
       altEn: "Cocktail bar at a corporate celebration with guests",
       src: firmenfeier,
+    },
+    firmenfeierBeachBestuhlung: {
+      alt: "Cocktailwagen von Pfeil's Catering bei einem Sommerfest mit Bestuhlung",
+      altEn: "Pfeil's Catering cocktail trailer at a summer festival with seating",
+      src: firmenfeierBeachBestuhlung,
     },
     firmenfeierCocktailPreparation: {
       alt: "Zwei Barkeeperinnen bereiten Cocktails bei einer Firmenfeier vor, Cocktail-Becher im Vordergrund",
@@ -221,9 +239,41 @@ export const imageProvider: ImageProvider = {
       src: firmenfeierTrailerCrowd,
     },
     hochzeit: {
-      alt: "Hochzeitsfeier mit stilvoller Cocktail-Bar",
-      altEn: "Wedding celebration with elegant cocktail bar",
+      alt: "Cocktailbar von Pfeil's Catering mit dekorierten Stehtischen auf einer Hochzeit",
+      altEn:
+        "Pfeil's Catering cocktail bar with decorated standing tables at a wedding",
       src: hochzeit,
+    },
+    hochzeitCocktail: {
+      alt: "Cocktail auf einem mit Blumen dekorierten Hochzeitstisch",
+      altEn: "Cocktail on a wedding table decorated with flowers",
+      src: hochzeitCocktail,
+    },
+    hochzeitCocktailbar: {
+      alt: "Hochzeitslocation mit langen dekorierten Tafeln und Cocktailbar von Pfeil's Catering in der Ecke",
+      altEn:
+        "Wedding venue with long decorated tables and Pfeil's Catering cocktail bar in the corner",
+      src: hochzeitCocktailbar,
+    },
+    hochzeitCocktailReihe: {
+      alt: "Vier farbenfrohe Cocktails in einer Reihe auf einer Hochzeit",
+      altEn: "Four colourful cocktails in a row at a wedding",
+      src: hochzeitCocktailReihe,
+    },
+    hochzeitCocktailReiheQuer: {
+      alt: "Vier farbenfrohe Cocktails in einer Reihe auf einer Hochzeit, Querformat",
+      altEn: "Four colourful cocktails in a row at a wedding, landscape format",
+      src: hochzeitCocktailReiheQuer,
+    },
+    hochzeitDekoration: {
+      alt: "Lange dekorierte Tafeln auf einer privaten Hochzeitsfeier",
+      altEn: "Long decorated tables at a private wedding celebration",
+      src: hochzeitDekoration,
+    },
+    hochzeitEiswagen: {
+      alt: "Mobiler Eiswagen von Eis-Café Pfeil auf einer Hochzeit",
+      altEn: "Mobile ice cream cart by Eis-Café Pfeil at a wedding",
+      src: hochzeitEiswagen,
     },
     messe: {
       alt: "Mobile Cocktail-Bar auf einer Messe oder Großveranstaltung",
