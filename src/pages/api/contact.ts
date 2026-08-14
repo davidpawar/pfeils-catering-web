@@ -108,7 +108,7 @@ function buildDetailRow(label: string, value: string): string {
 }
 
 /**
- * Builds the HTML body for the internal email to info@pfeils-catering.de.
+ * Builds the HTML body for the internal inquiry email.
  * Contains all form data in the shared layout.
  */
 function buildEmailHtml(data: {
@@ -183,7 +183,7 @@ const createJSONResponse = (body: object, status = 200) =>
 
 /**
  * POST handler for the contact form.
- * Sends 1) an email to info@pfeils-catering.de and 2) a confirmation email to the customer.
+ * Sends 1) an internal inquiry email and 2) a confirmation email to the customer.
  */
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -225,7 +225,16 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // 1. Email to info@pfeils-catering.de
+    const contactTo = env.CONTACT_TO_EMAIL;
+    if (!contactTo) {
+      console.error("CONTACT_TO_EMAIL is not configured");
+      return createJSONResponse(
+        { message: "E-Mail-Versand ist derzeit nicht konfiguriert." },
+        500,
+      );
+    }
+
+    // 1. Internal inquiry email (recipient from wrangler CONTACT_TO_EMAIL)
     const res = await fetch("https://api.resend.com/emails", {
       body: JSON.stringify({
         from: "Pfeils Catering <kontakt@notification.pfeils-catering.de>",
@@ -241,7 +250,7 @@ export const POST: APIRoute = async ({ request }) => {
         }),
         reply_to: email,
         subject: `Kontaktanfrage von ${name}`,
-        to: ["info@pfeils-catering.de"],
+        to: [contactTo],
       }),
       headers: {
         "Content-Type": "application/json",

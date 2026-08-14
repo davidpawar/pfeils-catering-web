@@ -14,9 +14,15 @@
   // Secrets are NOT stored here. They are managed encrypted in the Cloudflare
   // dashboard (Settings > Variables and secrets) or via `wrangler secret put`,
   // per environment. Currently configured secrets: RESEND_API_KEY.
+  "vars": {
+    "CONTACT_TO_EMAIL": "david.horn.pawar@gmail.com"
+  },
   "env": {
     "dev": {
       "name": "dev-pfeils-catering-web",
+      "vars": {
+        "CONTACT_TO_EMAIL": "david.horn.pawar@gmail.com"
+      },
       // Secret: RESEND_API_KEY (set in dashboard / `wrangler secret put RESEND_API_KEY --env dev`)
       "routes": [
         {
@@ -27,6 +33,9 @@
     },
     "prod": {
       "name": "pfeils-catering-web",
+      "vars": {
+        "CONTACT_TO_EMAIL": "info@pfeils-catering.de"
+      },
       // Secret: RESEND_API_KEY (set in dashboard / `wrangler secret put RESEND_API_KEY --env prod`)
       "routes": [
         {

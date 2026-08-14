@@ -8,6 +8,7 @@ declare global {
 
 declare namespace Cloudflare {
   interface Env {
+    CONTACT_TO_EMAIL?: string;
     RESEND_API_KEY?: string;
   }
 }
