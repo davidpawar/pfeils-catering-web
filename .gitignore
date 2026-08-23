@@ -203,3 +203,6 @@ dist
 
 ### Lighthouse ###
 .lighthouse/
+
+### Graphify ###
+graphify-out/
