@@ -34,7 +34,7 @@
     "astro": "astro",
     "build": "astro build",
     "cf-typegen": "wrangler types",
-    "check": "node ./test/content-check.mjs && astro build && node ./test/site-check.mjs && tsc && wrangler deploy --dry-run",
+    "check": "node ./test/content-check.mjs && astro build && node ./test/site-check.mjs && node ./test/contact-check.mjs && tsc && wrangler deploy --dry-run",
     "deploy:dev": "CLOUDFLARE_ENV=dev astro build && wrangler deploy --env dev",
     "deploy:prod": "CLOUDFLARE_ENV=prod astro build && wrangler deploy --env prod",
     "dev": "astro dev --host",

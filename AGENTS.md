@@ -159,10 +159,8 @@ window.trackEvent({
 
 ## Checks
 
-The check scripts live in `test/`. `npm run check` runs them in this order: `content-check.mjs`, the production build, `site-check.mjs`, `tsc`, and a Wrangler dry-run.
+Scripts live in `test/`. `npm run check` runs `content-check.mjs`, the production build, `site-check.mjs`, `contact-check.mjs`, `tsc`, and a Wrangler dry-run.
 
-`content-check.mjs` reads source files. It covers translation keys, meta length, the routing files in `src/routing/` against the files under `src/views`, blog filename pairs, `alt`/`altEn`, and widget themes.
+`content-check.mjs` reads source: translation keys, meta length, routes against views, blog pairs, alt text, widget themes. `site-check.mjs` reads `dist/client`: sitemap, rendered pages, and `robots.txt` (production allows crawling, `localhost` and `dev.pfeils-catering.de` do not). `contact-check.mjs` starts `astro preview` and posts to `/api/contact`, including one complete form. Inquiry and confirmation both go to `CONTACT_TO_EMAIL`.
 
-`site-check.mjs` reads the build in `dist/client` and calls the `robots.txt` route. The sitemap must list exactly the German and English pages: home, every marketing route, the blog archive, posts, and extra archive pages once a language has more than six posts. Each of those pages must have rendered HTML with a title, the matching canonical URL, `hreflang` for `de`, `en`, and `x-default`, and a footer. `robots.txt` allows crawling on the production host and points at the sitemap. It disallows everything on `localhost` and `dev.pfeils-catering.de`.
-
-`npm run lighthouse:local` audits `localhost:4321`. `npm run lighthouse:prod` writes reports to `.lighthouse/`. Both run `test/lighthouse-all.js`. That script starts one headless Chrome in the background and reuses it for every page. Launching Chrome per URL brings a new window to the front on macOS. Local SEO scores stay low because `robots.txt.ts` blocks indexing on localhost.
+`npm run lighthouse:local` audits `localhost:4321`. `npm run lighthouse:prod` writes reports to `.lighthouse/`. Both run `test/lighthouse-all.js`, which keeps one headless Chrome in the background. Local SEO stays low because `robots.txt.ts` blocks `localhost`.

@@ -177,7 +177,7 @@ flowchart TB
 ```bash
 npm install
 npm run dev          # Seite lokal ansehen: http://localhost:4321
-npm run check        # Prüfung nach Änderungen: Inhalte, Sitemap, robots, ob die Seiten rendern
+npm run check        # Prüfung nach Änderungen: Inhalte, Sitemap, robots, Kontaktformular, ob die Seiten rendern
 npm run deploy:dev   # Test-Veröffentlichung
 npm run deploy:prod  # Live-Veröffentlichung
 ```
