@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-// Alphabetical order
+// imports stay alphabetical so a new asset has one obvious place.
 import aperolSpritz from "../assets/images/cocktails/aperol-spritz.jpg";
 import bartenderCocktailShaker from "../assets/images/blog/bartender-cocktail-shaker.jpg";
 import barkeeperShow from "../assets/images/blog/barkeeper-show.jpg";
@@ -63,13 +63,22 @@ import weihnachtsmarkt from "../assets/images/catering/weihnachtsmarkt.jpg";
 export type ImageAsset = {
   alt: string;
   altEn?: string;
-  /** When true, the image may be referenced as `heroImageKey` in blog frontmatter. */
+
+  /**
+   * When true, the image may be referenced as `heroImageKey` in blog frontmatter.
+   */
   blogHero?: boolean;
   src: ImageMetadata | string;
 };
 
+/**
+ * One folder of assets, keyed by the short name views refer to.
+ */
 export type ImageCategory = Record<string, ImageAsset>;
 
+/**
+ * The catalog shape: one category per folder under `src/assets/images/`.
+ */
 export type ImageProvider = {
   catering: ImageCategory;
   cocktails: ImageCategory;
@@ -81,6 +90,13 @@ export type ImageProvider = {
   team: ImageCategory;
 };
 
+/**
+ * Every reusable image with its localized alt text.
+ *
+ * Views and blog posts reference an entry (`imageProvider.events.hochzeit`)
+ * instead of a file path, so the alt text travels with the picture. Read it
+ * with `getImageAlt(asset, lang)`.
+ */
 export const imageProvider: ImageProvider = {
   catering: {
     bambusbar: {
@@ -93,16 +109,16 @@ export const imageProvider: ImageProvider = {
       altEn: "Bamboo bar by Pfeil's Catering at an evening event",
       src: bambusbarAbend,
     },
+    barkeeperShow: {
+      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
+      altEn: "Bartender preparing cocktails at the bar",
+      src: barkeeperShow,
+    },
     bartenderCocktailShaker: {
       alt: "Barkeeper mit Cocktail-Shaker bei einer Showeinlage",
       altEn: "Bartender with cocktail shaker during a show performance",
       blogHero: true,
       src: bartenderCocktailShaker,
-    },
-    barkeeperShow: {
-      alt: "Barkeeper bei der Zubereitung von Cocktails an der Bar",
-      altEn: "Bartender preparing cocktails at the bar",
-      src: barkeeperShow,
     },
     bratwurstGrill: {
       alt: "Bratwurst-Grill-Catering – frisch gegrillte Würste vor Ort",
@@ -142,15 +158,15 @@ export const imageProvider: ImageProvider = {
       altEn: "Team member of Pfeil's Catering at cocktail service",
       src: mitarbeiterin,
     },
-    weihnachtsmarkt: {
-      alt: "Mobiler Weihnachtsmarkt bei einer Firmenfeier",
-      altEn: "Mobile Christmas market at a corporate event",
-      src: weihnachtsmarkt,
-    },
     salatCatering: {
       alt: "Catering für Essen – Salate und Speisen von Pfeil's Catering",
       altEn: "Food catering – salads and dishes by Pfeil's Catering",
       src: salatCatering,
+    },
+    weihnachtsmarkt: {
+      alt: "Mobiler Weihnachtsmarkt bei einer Firmenfeier",
+      altEn: "Mobile Christmas market at a corporate event",
+      src: weihnachtsmarkt,
     },
   },
   cocktails: {
@@ -179,15 +195,15 @@ export const imageProvider: ImageProvider = {
       altEn: "Strawberry Mojito – freshness meets fruit",
       src: erdbeerMojito,
     },
-    sexOnTheBeach: {
-      alt: "Sex on the Beach – farbenfroher Party-Drink",
-      altEn: "Sex on the Beach – colourful party drink",
-      src: sexOnTheBeach,
-    },
     ipanema: {
       alt: "Ipanema – alkoholfreier Cocktail-Klassiker",
       altEn: "Ipanema – alcohol-free cocktail classic",
       src: ipanema,
+    },
+    sexOnTheBeach: {
+      alt: "Sex on the Beach – farbenfroher Party-Drink",
+      altEn: "Sex on the Beach – colourful party drink",
+      src: sexOnTheBeach,
     },
   },
   events: {
@@ -220,17 +236,17 @@ export const imageProvider: ImageProvider = {
       blogHero: true,
       src: firmenfeierFullSetup,
     },
-    firmenfeierMenu: {
-      alt: "Cocktailkarte auf einem Sommerfest – Bambusbar und Gäste im Hintergrund",
-      altEn:
-        "Cocktail menu at a summer party – bamboo bar and guests in the background",
-      src: firmenfeierMenu,
-    },
     firmenfeierMediumCrowd: {
       alt: "Sommerfest mit mobilen Catering-Hängern und zu rund 75 % belegten Sitzgarnituren",
       altEn:
         "Summer party with mobile catering trailers and seating areas roughly 75% full",
       src: firmenfeierMediumCrowd,
+    },
+    firmenfeierMenu: {
+      alt: "Cocktailkarte auf einem Sommerfest – Bambusbar und Gäste im Hintergrund",
+      altEn:
+        "Cocktail menu at a summer party – bamboo bar and guests in the background",
+      src: firmenfeierMenu,
     },
     firmenfeierTrailerCrowd: {
       alt: "Zwei mobile Cocktail-Anhänger bei einer Firmenfeier, im Vordergrund eine verschwommene Gästeschar",

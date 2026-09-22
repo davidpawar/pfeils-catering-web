@@ -5,14 +5,17 @@ import { Quote } from "@lucide/astro";
  * Single testimonial entry.
  */
 interface TestimonialItem {
+
   /**
    * Job title or role of the person (e.g. "Geschäftsführer").
    */
   jobTitle: string;
+
   /**
    * Full name of the person.
    */
   name: string;
+
   /**
    * The testimonial quote text.
    */
@@ -20,26 +23,31 @@ interface TestimonialItem {
 }
 
 interface Props {
+
   /**
    * Optional badge text above the section title.
    */
   badge?: string;
+
   /**
    * Optional description paragraph under the section title.
    */
   description?: string;
+
   /**
    * List of testimonial items to display.
    */
   testimonials: TestimonialItem[];
-  /**
-   * Section heading.
-   */
-  title: string;
+
   /**
    * Color theme: light (white) or dark background.
    */
   theme?: "light" | "dark";
+
+  /**
+   * Section heading.
+   */
+  title: string;
 }
 
 const {
@@ -65,6 +73,7 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
 {
   hasTestimonials && (
     <>
+
       {/* Testimonials: Section with customer quotes in card grid */}
       <section
         class:list={[
@@ -73,6 +82,7 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
         ]}
       >
         <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl">
+
           {/* Section header: badge, title, description */}
           {(badge || title || description) && (
             <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
@@ -122,6 +132,7 @@ const quoteClass = isDark ? "text-primary-light/60" : "text-primary/60";
                     cardBgClass,
                   ]}
                 >
+
                   {/* Quote icon */}
                   <div
                     class:list={[

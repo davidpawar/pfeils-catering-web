@@ -5,10 +5,21 @@ import { toBlogPostListItem } from "../../../utils/blogImages";
 
 const POSTS_PER_PAGE = 6;
 
+/**
+ * Newest post first, the order the archive shows.
+ */
 const allPosts = (await getCollection("blogEn")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+/**
+ * At least one page, even when there is no post yet.
+ */
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
+
+/**
+ * The first page of posts, mapped to what the list widget expects.
+ */
 const posts = allPosts
   .slice(0, POSTS_PER_PAGE)
   .map((p) => toBlogPostListItem(p, "en"));

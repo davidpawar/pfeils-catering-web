@@ -4,6 +4,12 @@ import BlogPost from "../../../layouts/BlogPost.astro";
 import { render } from "astro:content";
 import { getLangFromUrl } from "../../../i18n/utils";
 
+/**
+ * One route per EN article, from the blogEn collection.
+ *
+ * The collection id carries the language folder, so "en/foo" becomes the
+ * slug "foo".
+ */
 export async function getStaticPaths() {
   const posts = await getCollection("blogEn");
   return posts.map((post) => ({

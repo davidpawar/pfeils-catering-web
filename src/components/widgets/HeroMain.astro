@@ -1,4 +1,5 @@
 ---
+
 /**
  * HeroMain: Full-viewport homepage hero.
  * Background comes from imageProvider; copy from i18n (`hero.*`).
@@ -15,12 +16,17 @@ const heroImageAsset = imageProvider.hero.headerBackground;
 const heroImage = imageProvider.hero.headerBackground.src as import("astro").ImageMetadata;
 ---
 
-{/* HeroMain: full-bleed bar photo, centered title, scroll hint */}
+{/*
+  HeroMain: full-bleed bar photo, centered title, scroll hint
+*/}
 <section
   id="hero-main"
   class="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark-bg"
 >
-  {/* LCP image: eager + high priority, not a CSS background */}
+
+  {/*
+    LCP image: eager + high priority, not a CSS background
+  */}
   <Image
     src={heroImage}
     alt={getImageAlt(heroImageAsset, lang)}
@@ -35,7 +41,9 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
     widths={[640, 960, 1280, 1600, 1920, 2400]}
   />
 
-  {/* Overlays: keep the photo visible, text readable, edges darkened */}
+  {/*
+    Overlays: keep the photo visible, text readable, edges darkened
+  */}
   <div class="absolute inset-0 bg-black/20"></div>
   <div
     class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/20 to-black/45"
@@ -46,7 +54,9 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
   >
   </div>
 
-  {/* Copy: eyebrow, title, subtitle — all from translations */}
+  {/*
+    Copy: eyebrow, title, subtitle — all from translations
+  */}
   <div
     class="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-6 pt-28 pb-24 text-center md:px-12 md:pt-32 min-[1920px]:max-w-8xl"
   >
@@ -69,7 +79,9 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
     </p>
   </div>
 
-  {/* Scroll hint: jumps to the next <section> (see script below) */}
+  {/*
+    Scroll hint: jumps to the next <section> (see script below)
+  */}
   <button
     type="button"
     class="hero-reveal hero-reveal-delay-3 absolute bottom-8 left-1/2 z-10 -translate-x-1/2 cursor-pointer border-none bg-transparent p-0 text-white/50 transition-opacity hover:text-white/80"
@@ -83,6 +95,7 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
 </section>
 
 <style>
+
   /* Title: 56px on phones, fluid in between, 128px cap on large screens.
      Keep this in CSS — stacked Tailwind text-* utilities override each other. */
   .hero-title {
@@ -93,7 +106,9 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
     font-size: clamp(1.125rem, 0.85rem + 0.8vw, 1.5rem);
   }
 
-  /* Entrance: blur + rise. Delays stagger eyebrow → title → subtitle → chevron. */
+  /*
+   * Entrance: blur + rise. Delays stagger eyebrow → title → subtitle → chevron.
+   */
   .hero-reveal {
     animation: heroReveal 1.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
@@ -165,6 +180,7 @@ const heroImage = imageProvider.hero.headerBackground.src as import("astro").Ima
 </style>
 
 <script is:inline>
+
   /*
    * Scroll to the next section when the chevron (or any [data-scroll-to-next]) is clicked.
    * is:inline = runs in the page, not bundled by Astro.

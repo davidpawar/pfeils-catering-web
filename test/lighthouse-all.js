@@ -1,11 +1,15 @@
+import { spawn, spawnSync } from "node:child_process";
+import { rmSync } from "node:fs";
 import {
   mkdir,
+  mkdtemp,
   readdir,
   readFile,
   unlink,
   writeFile,
 } from "node:fs/promises";
-import { spawn } from "node:child_process";
+import net from "node:net";
+import os from "node:os";
 import path from "node:path";
 
 /**
@@ -85,7 +89,7 @@ function parseArgs(argv) {
  */
 function printHelp() {
   console.log(`Usage:
-  node scripts/lighthouse-all.js [options]
+  node test/lighthouse-all.js [options]
 
 Options:
   --sitemap <url>          Sitemap index URL to discover pages from
@@ -93,7 +97,7 @@ Options:
   --preset <name>          Lighthouse preset, e.g. desktop
   --only-categories <csv>  Categories to audit
   --output-dir <dir>       Directory for JSON reports
-  --chrome-flags <flags>   Chrome flags passed to Lighthouse
+  --chrome-flags <flags>   Extra flags for the one background Chrome
   --skip-audits <csv>      Audits to skip to keep reports smaller
   --help                   Show this help
 `);
@@ -144,7 +148,7 @@ async function collectUrlsFromSitemap(sitemapUrl, seen = new Set()) {
     return nestedResults.flat();
   }
 
-  // Ignore nested XML links if they somehow appear inside a normal sitemap.
+  // drop nested XML links that slipped into a normal sitemap.
   return locs.filter((loc) => !loc.endsWith(".xml"));
 }
 
@@ -310,9 +314,144 @@ async function runCommand(command, args) {
 }
 
 /**
- * Runs Lighthouse for one URL and stores a JSON report on disk.
+ * Picks a free localhost port for Chrome's debugging protocol.
+ *
+ * Chrome has to be told the port before it starts. Binding to port 0 lets
+ * the OS choose one, then we release it so Chrome can take it.
+ *
+ * @returns {Promise<number>}
  */
-async function runLighthouse(url, options) {
+function freePort() {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.listen(0, "127.0.0.1", () => {
+      const address = server.address();
+      const port = typeof address === "object" && address ? address.port : 0;
+      server.close(() => resolve(port));
+    });
+    server.on("error", reject);
+  });
+}
+
+/**
+ * Waits until Chrome answers on its debugging port.
+ *
+ * `open` returns before Chrome is ready. Polling the version endpoint is
+ * how we know the shared browser can take audits.
+ *
+ * @param {number} port
+ */
+async function waitForDebugger(port) {
+  const deadline = Date.now() + 20000;
+
+  while (Date.now() < deadline) {
+    try {
+      const response = await fetch(`http://127.0.0.1:${port}/json/version`);
+      if (response.ok) return;
+    } catch {
+      // chrome is still starting.
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 200));
+  }
+
+  throw new Error("Headless Chrome did not open a debugging port.");
+}
+
+/**
+ * Starts one headless Chrome and keeps it for the whole run.
+ *
+ * The Lighthouse CLI otherwise starts and quits Chrome for every URL. On
+ * macOS that brings a new window to the front each time. One process,
+ * launched hidden, stays in the background and every audit reuses it.
+ *
+ * @param {string} extraFlags - Space-separated flags from `--chrome-flags`.
+ * @returns {Promise<{ port: number, stopped: boolean, userDataDir: string }>}
+ */
+async function startBackgroundChrome(extraFlags) {
+  const port = await freePort();
+  const userDataDir = await mkdtemp(path.join(os.tmpdir(), "pfeils-lighthouse-"));
+  const flags = [
+    ...new Set([
+      "--disable-gpu",
+      "--headless=new",
+      "--hide-scrollbars",
+      "--mute-audio",
+      "--no-default-browser-check",
+      "--no-first-run",
+      `--remote-debugging-port=${port}`,
+      `--user-data-dir=${userDataDir}`,
+      "--window-position=-2400,-2400",
+      ...extraFlags.split(/\s+/).filter((flag) => flag.startsWith("--")),
+    ]),
+  ];
+
+  if (process.platform === "darwin") {
+    const opened = spawn(
+      "open",
+      ["-n", "-g", "-j", "-a", "Google Chrome", "--args", ...flags],
+      { stdio: "ignore" },
+    );
+    const code = await new Promise((resolve) => opened.on("close", resolve));
+    if (code !== 0) {
+      stopBackgroundChrome({ port, stopped: false, userDataDir });
+      throw new Error("Could not start Google Chrome in the background.");
+    }
+  } else {
+    spawn(process.env.CHROME_PATH || "google-chrome", flags, { stdio: "ignore" });
+  }
+
+  try {
+    await waitForDebugger(port);
+  } catch (error) {
+    stopBackgroundChrome({ port, stopped: false, userDataDir });
+    throw error;
+  }
+
+  return { port, stopped: false, userDataDir };
+}
+
+/**
+ * Stops the shared Chrome and deletes its temporary profile.
+ *
+ * Safe to call twice. A signal handler and the normal finish path both use
+ * it, and the second call must not kill an unrelated process.
+ *
+ * @param {{ port: number, stopped: boolean, userDataDir: string } | undefined} chrome
+ */
+function stopBackgroundChrome(chrome) {
+  if (!chrome || chrome.stopped) return;
+
+  chrome.stopped = true;
+  const processes = spawnSync("ps", ["-axww", "-o", "pid=,command="], { encoding: "utf8" });
+
+  for (const line of String(processes.stdout ?? "").split("\n")) {
+    if (!line.includes(chrome.userDataDir)) continue;
+
+    const pid = Number(line.trim().split(/\s+/)[0]);
+    if (!pid) continue;
+
+    try {
+      process.kill(pid, "SIGKILL");
+    } catch {
+      // already gone.
+    }
+  }
+
+  rmSync(chrome.userDataDir, { force: true, recursive: true });
+}
+
+/**
+ * Runs Lighthouse for one URL and stores a JSON report on disk.
+ *
+ * `--port` attaches to the shared background Chrome. Without it, Lighthouse
+ * would start its own Chrome for this URL and bring that window forward.
+ *
+ * @param {string} url
+ * @param {ReturnType<typeof parseArgs>} options
+ * @param {number} port - Debugging port of the shared Chrome.
+ */
+async function runLighthouse(url, options, port) {
   const reportPath = path.join(
     options.outputDir,
     `${sanitizeFilename(url)}.report.json`,
@@ -326,16 +465,18 @@ async function runLighthouse(url, options) {
     options.onlyCategories,
     "--output",
     "json",
-    // Lighthouse 13.4+ writes to the exact --output-path given (it no longer
-    // appends ".report.json"), so pass the full report path here.
+    // since Lighthouse 13.4 the path is used verbatim, so pass the full
+    // report path; the tool no longer appends ".report.json".
     "--output-path",
     reportPath,
+    "--port",
+    String(port),
     "--chrome-flags",
     options.chromeFlags,
     "--quiet",
   ];
 
-  // Skip screenshot-heavy audits so the generated JSON stays focused.
+  // skip screenshot-heavy audits, so the JSON stays small.
   if (options.skipAudits) {
     args.push(`--skip-audits=${options.skipAudits}`);
   }
@@ -349,7 +490,7 @@ async function runLighthouse(url, options) {
  * 1. Read options
  * 2. Discover URLs from the sitemap
  * 3. Optionally rewrite them to another origin
- * 4. Audit each page one by one
+ * 4. Start one background Chrome and audit every page with it
  */
 async function main() {
   const options = parseArgs(process.argv.slice(2));
@@ -369,9 +510,24 @@ async function main() {
 
   console.log(`Found ${auditUrls.length} URLs.`);
 
-  for (const [index, url] of auditUrls.entries()) {
-    console.log(`\n[${index + 1}/${auditUrls.length}] Auditing ${url}`);
-    await runLighthouse(url, options);
+  const chrome = await startBackgroundChrome(options.chromeFlags);
+  const stop = () => stopBackgroundChrome(chrome);
+  process.on("SIGINT", () => {
+    stop();
+    process.exit(130);
+  });
+  process.on("SIGTERM", () => {
+    stop();
+    process.exit(143);
+  });
+
+  try {
+    for (const [index, url] of auditUrls.entries()) {
+      console.log(`\n[${index + 1}/${auditUrls.length}] Auditing ${url}`);
+      await runLighthouse(url, options, chrome.port);
+    }
+  } finally {
+    stop();
   }
 
   console.log(`\nFinished. JSON reports written to ${options.outputDir}`);

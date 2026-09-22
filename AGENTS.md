@@ -1,114 +1,107 @@
 # [AGENTS.md](http://AGENTS.md)
 
-## Purpose
+Astro marketing site for Pfeil's Catering. German is canonical; English mirrors it. Update this file when you change a reusable pattern.
 
-This project is an Astro marketing site for `Pfeil's Catering` with German as the canonical language and English as the translated secondary language.
+Pages are `BaseHead` + `Navigation` + widgets + `Footer`. Blog uses the blog layouts. Copy lives in the translation files, not hardcoded in views. Run `npm run check` after content or route changes.
 
-This file is the working guide for AI agents and content teams. Its job is to help future AI:
+## Code style
 
-- add or update page content in the right files
-- use the existing components instead of inventing new structures
-- register and reuse images correctly
-- keep German and English content in sync
-- ensure pages and components are responsive across devices
+Block comments on functions, methods, classes, and variable definitions. Say what it is for, mostly why, short enough for a junior.
 
-Use the existing patterns first. Prefer consistency over creativity.
+A block comment is at least three lines. Never put it on one line. Leave a blank line before it, so it does not sit directly under the previous statement.
 
-When you change project patterns, components, or page structures, update this file in the same pass.
+```ts
+/**
+ * What it is for.
+ */
+```
 
-## Project Mental Model
+Inline comments start with a lowercase letter and end with a period.
 
-- Normal pages are assembled from:
-  `BaseHead` + `Navigation` + content widgets + `Footer`
-- Blog pages use layouts instead of manual page assembly.
-- German is the source of truth for copy, slugs, and structure.
-- English mirrors the German content and route structure.
+Sort properties and class fields alphabetically by name. That covers interface and type fields, class fields, and keys in configuration objects such as `pagePaths`, `views`, and `imageProvider`. Leave arrays and translation files in their existing order: those follow the page, not the alphabet.
 
-## Translation Workflow
+```ts
+/**
+ * German path to English path, slashes included.
+ *
+ * Nested routes stay readable because the key is the real path.
+ */
+const routes = { "einsatzgebiete/koeln": "service-areas/cologne" };
 
-### Where translations live
+// keep inner slashes so nested keys match.
+const pathName = path.replace(/^\/|\/$/g, "");
+```
 
-- UI and page copy lives in:
-  - `src/i18n/translations/de.ts`
-  - `src/i18n/translations/en.ts`
-- Locale config and translated slugs live in:
-  - `src/i18n/translations.ts`
-- Runtime helpers for language detection and translated links live in:
-  - `src/i18n/utils.ts`
+## How to add a content page
 
-### How translations work
+One composition per route, in `src/views/`. The file path is the German URL: `src/views/einsatzgebiete/koeln.astro` is `/einsatzgebiete/koeln/`. `src/pages/[...slug].astro` renders that file for both languages. Do not add `src/pages/en/...` for a marketing page.
 
-- `de` is the default language.
-- German URLs have no `/de/` prefix.
-- English URLs use `/en/...`.
-- Top-level translated slugs are defined in `src/i18n/translations.ts` under `routes.en`.
-- A new localized page usually needs two actual page files:
-  - German in `src/pages/...`
-  - English in `src/pages/en/...`
-- `routes.en` maps slugs, but it does not create page files for you.
+Routing lives in `src/routing/`, in two files:
 
-Examples:
+- `routes.ts`: `pagePaths` maps the German path to the English one (`"einsatzgebiete/koeln": "service-areas/cologne"`). This file imports nothing.
+- `views.ts`: `views` maps the same German path to the view component. `satisfies Record<keyof typeof pagePaths, unknown>` makes TypeScript demand an entry for every path.
 
-- `/firmenfeier/` -> `/en/corporate/`
-- `/hochzeitsfeier/` -> `/en/wedding/`
-- `/anfrage/` -> `/en/contact/`
+1. Copy the closest view. Keep the German path as the file path.
+2. Add German keys in `src/i18n/translations/de.ts`, then the same keys in `en.ts`. Dotted names, as in `firmenfeier.textList.item1.title`.
+3. Register new images in `imageProvider` (see "How to add an asset").
+4. Add the path in `routes.ts` and the view in `views.ts`. Both keys are the German path. Forgetting the second one fails `tsc`.
+5. Link with `useTranslatedPath()`, passing the German path (`translatePath("/anfrage/")`).
+6. Run `npm run check`.
 
-### How to add or change text
+`src/pages/index.astro` mounts `homeView` for `/`, because a rest route cannot match it. English home is the same view at `/en/`, built by the router. `homeView` is separate from `views` because it has no slug to translate.
 
-When you update UI or page copy:
+`blog` is not a view. It lives in `sharedPaths`: the path is identical in both languages and only gets the `/en/` prefix. Articles are MDX with their own page files.
 
-1. Add or update the German key in `src/i18n/translations/de.ts`.
-2. Add or update the matching English key in `src/i18n/translations/en.ts`.
-3. Reuse the same dotted key naming pattern already used in the project.
+Keep `routes.ts` free of imports. The views import the i18n helpers, and the helpers read `routes.ts`. Importing a view there would close that loop and break the build during prerendering.
 
-Good examples:
+Match an existing sequence. Do not invent a new page shape.
 
-- `firmenfeier.textList.item1.title`
-- `hochzeitsfeier.gallery.title`
-- `hero.anfrage.title`
-- `blog.meta.description`
+- Home (`src/views/home.astro`): `HeroMain`, `ImageText`, `ImageNavigation`, `ItemList`, `Testimonials`, `FAQ`. `HeroMain` is home only.
+- Service (`src/views/hochzeitsfeier.astro`, `src/views/mobile-cocktailbar.astro`): `HeroSubpage`, `ImageText`, `ItemList`, `ImageGalleryMasonry`, optional `TextBlock`, `Testimonials`, `CallToAction`.
+- City (`src/views/einsatzgebiete/koeln.astro`): same widgets as the other city views, with original copy. Do not swap only the place name. Vary landmarks, venues, FAQs, titles, and process wording.
+- Contact (`src/views/anfrage.astro`): `HeroSubpage` + `ContactForm`.
+- Legal (`src/views/impressum.astro`, `src/views/datenschutz.astro`): `HeroSubpage` (title only) + `Imprint` or `PrivacyPolicy`.
 
-### Important translation rules
+## Translations
 
-- German content is canonical. Start there first.
-- Always add keys to both locale files.
-- Do not rely on fallback behavior as a workflow.
-- `useTranslations()` falls back to German if an English key is missing. That is a safety net, not the desired final state.
-- Only use HTML inside translation values when the receiving component explicitly expects HTML.
+- `src/i18n/translations/de.ts` and `en.ts`: UI and page copy. Every key in both files. Start with German.
+- `src/i18n/translations.ts`: locales, and it re-exports `routes` from `src/routing/routes.ts`.
+- `src/i18n/utils.ts`: `getLangFromUrl`, `useTranslations`, `useTranslatedPath`, `getRouteFromUrl`. `getRouteFromUrl` must resolve nested paths so the language switch and `hreflang` point at the same page.
+- German URLs have no `/de/` prefix. English uses `/en/...`.
+- `useTranslations()` falls back to German when an English key is missing. That is a safety net, not the workflow.
+- HTML inside a translation value only when the component expects HTML (`descriptionHtml` and similar). No HTML in plain-text props.
+- No hardcoded visible copy in views.
 
-### Blog content is separate
+## How to add a blog post
 
-Blog posts are not maintained in the translation dictionaries.
+Posts are MDX, not translation keys and not views. Same filename in both languages. Routes stay `src/pages/blog/` and `src/pages/en/blog/`. Layouts `BlogIndexLayout` and `BlogPost` render them. Do not build a blog page out of marketing widgets.
 
-They live here:
+1. Create `src/content/blog/de/<slug>.mdx` and `src/content/blog/en/<slug>.mdx`.
+2. Fill frontmatter per `src/content.config.ts`: `title`, `description`, `pubDate`, optional `lang`, optional `heroImageKey`, optional `faq`.
+3. For a hero, register the image with `blogHero: true` (see "How to add an asset"), then set `heroImageKey` to that flat key (`firmenfeierFullSetup`). The content schema rejects unknown keys.
+4. Inline images use `BlogImage` with `imageProvider` and `getImageAlt()`. Detail heroes are Astro `<Image>`, eager and high priority, not a CSS background.
+5. If the post has an FAQ, follow the FAQ rules below.
+6. Run `npm run check`.
 
-- `src/content/blog/de/*.mdx`
-- `src/content/blog/en/*.mdx`
+## How to add an asset
 
-Their schema is defined in:
+If the user attaches an image in the chat, save that file into the matching folder below. They do not need to name a path. `alt` and `altEn` come from their own description of what is in the picture, not from guessing the photo. If they did not describe it, ask before registering the image.
 
-- `src/content.config.ts`
+1. Put the file in `src/assets/images/` by category: `blog`, `catering`, `cocktails`, `events/<type>`, `hero`, `logo`, `logos`, `service-areas`, `team`.
+2. Import it in `src/provider/imageProvider.ts` and add it to the matching category with `src`, German `alt`, and English `altEn`.
+3. Use it as `imageProvider.<category>.<key>`. Widgets take that `ImageAsset`, not a string path. Localized alt text goes through `getImageAlt()` in `src/utils/imageUtils.ts`.
+4. A blog hero also needs `blogHero: true`. The flat key is what `heroImageKey` refers to. Lookup is `src/utils/blogImages.ts`.
+5. Run `npm run check`.
 
-Important notes:
+A missing `altEn` shows the German alt on English pages. Use `<Image>` with `sizes` and `widths`. Do not over-compress sources. Do not use a CSS background for a content image. Subpage heroes use `HeroSubpage` with `image={imageProvider...}`.
 
-- German and English blog posts are separate MDX files.
-- German and English versions of the same blog post should use the same filename/slug in their respective folders.
-- Blog frontmatter includes fields like `title`, `description`, `pubDate`, optional `heroImageKey`, and optional `lang`.
-- Blog list and article pages are rendered through layouts, not hand-built widget pages.
+## Blog rules
 
-### Blog FAQ and JSON-LD
+Do not put the `FAQ` widget in MDX. It is a full-width page section and breaks the article grid in `BlogPost.astro`.
 
-Do not use the `FAQ` widget (`src/components/widgets/FAQ.astro`) inside blog MDX. It is a full-width page section (own background, `max-w-7xl` container, page-level padding and typography) and breaks the article reading layout and the `.blog-content` grid in `src/layouts/BlogPost.astro`.
+Write a Markdown `## FAQ` with `### Question` and an answer paragraph. FAQs are informational, third person: no "wir"/"we", no "unser Team"/"our team", no product pitch. A light generic hint is fine ("a mobile catering service usually brings glassware, ice and tables"). Mention Pfeil's only in the conclusion, not in the FAQ.
 
-Instead, for blog posts:
-
-- Blog FAQs must be informational content, never advertising. Write neutral, third-person answers (avoid "wir"/"we", "unser Team"/"our team", product pitches and CTAs). Only light, generic hints are allowed (e.g. "a mobile catering service usually brings glassware, ice and tables"). Save any direct mention of Pfeil's Catering for the conclusion, not the FAQ.
-- Write the visible FAQ as normal Markdown in the MDX body (e.g. a `## FAQ` heading with `### Question` plus an answer paragraph).
-- To emit `FAQPage` JSON-LD, add an optional `faq` array to the post frontmatter. `src/layouts/BlogPost.astro` renders the structured data automatically when `faq` is present.
-- Keep the `faq` frontmatter in sync with the visible Markdown FAQ, and use plain text (no Markdown like `**bold**`) in `faq` so the structured data stays clean.
-- Keep `faq` in sync between the German and English versions of the same post.
-
-Example frontmatter:
+For `FAQPage` JSON-LD, add a `faq` array to frontmatter. `BlogPost.astro` emits it. Plain text only (no `**bold**`). Keep it identical to the visible FAQ, in both languages.
 
 ```yaml
 faq:
@@ -116,134 +109,45 @@ faq:
     answer: "It depends on headcount: for up to ~100 guests, 8–12 weeks is usually enough."
 ```
 
-## Image Workflow
+## Widgets
 
-### Where reusable images live
+Files are under `src/components/widgets/` unless noted. Pass `theme="light" | "grey" | "dark"` where the widget has a theme. `light` is white, `grey` is slate-100, `dark` is `bg-dark-bg`.
 
-Most reusable site images live under:
+| Widget                  | File                                | Use                                                       |
+| ----------------------- | ----------------------------------- | --------------------------------------------------------- |
+| `HeroMain`              | `widgets/HeroMain.astro`            | Homepage hero only. Dark                                  |
+| `HeroSubpage`           | `widgets/HeroSubpage.astro`         | Subpage hero, optional `image`. Dark                      |
+| `ImageText`             | `widgets/ImageText.astro`           | One image, one message, optional CTA                      |
+| `ItemList`              | `widgets/ItemList.astro`            | Cards: benefits, references, modules                      |
+| `ImageNavigation`       | `widgets/ImageNavigation.astro`     | Three visual links. Grey                                  |
+| `TextBlock`             | `widgets/TextBlock.astro`           | A few paragraphs, no image                                |
+| `ImageGalleryMasonry`   | `widgets/ImageGalleryMasonry.astro` | Photo proof. Grey                                         |
+| `Testimonials`          | `widgets/Testimonials.astro`        | Quotes                                                    |
+| `FAQ`                   | `widgets/FAQ.astro`                 | Marketing-page questions and FAQ schema                   |
+| `CallToAction`          | `widgets/CallToAction.astro`        | Closing booking push                                      |
+| `ContactForm`           | `widgets/ContactForm.astro`         | Contact page only. Posts to `/api/contact`                |
+| `Button`                | `ui/Button.astro`                   | CTA-styled link                                           |
+| `Imprint`               | `base/Imprint.astro`                | Imprint page only                                         |
+| `PrivacyPolicy`         | `base/PrivacyPolicy.astro`          | Privacy page only                                         |
+| `BlogPostList`          | `widgets/BlogPostList.astro`        | Blog archive inside the blog layouts                      |
+| `BaseHead`              | `base/BaseHead.astro`               | Metadata, canonical, `hreflang` (`de`, `en`, `x-default`) |
+| `Navigation` / `Footer` | `base/`                             | Every standard page                                       |
 
-- `src/assets/images/blog`
-- `src/assets/images/catering`
-- `src/assets/images/cocktails`
-- `src/assets/images/events` (subfolders per event type, e.g. `firmenfeier/`, `hochzeit/`)
-- `src/assets/images/hero`
-- `src/assets/images/logo`
-- `src/assets/images/logos`
-- `src/assets/images/service-areas`
-- `src/assets/images/team`
+Never place two sections with the same background in a row. The footer is dark, so the last widget is `light` or `grey`.
 
-### Where images are registered
+Layouts stay fluid on mobile, tablet, and desktop. No fixed widths that cause horizontal overflow.
 
-Reusable images are centrally imported and registered in:
+## SEO
 
-- `src/provider/imageProvider.ts`
+Titles (`*.meta.title`): 50–60 characters, ending with `| Pfeil's Catering`. Descriptions (`*.meta.description`): 120–158 characters. Both languages.
 
-Each image entry should have:
+## Tracking
 
-- `src`
-- `alt` for German
-- optional `altEn` for English
-- optional `blogHero: true` when the image may be used as a blog post hero via `heroImageKey`
+`window.trackEvent` is set up in `BaseHead`. Events go to `/api/hello-pfeil` (not `/api/analytics`), which forwards them to Plausible. Types live in `src/types/tracking.ts` and `src/env.d.ts`.
 
-Use `getImageAlt()` from `src/utils/imageUtils.ts` to render localized alt text.
+Tracking starts after the first mousemove, touchmove, or keydown. Earlier events are queued. Guard every call with `typeof window.trackEvent === "function"`.
 
-Blog hero lookup and list mapping live in `src/utils/blogImages.ts`.
-
-### How to add a new reusable image
-
-1. Put the file into the correct folder in `src/assets/images/...`.
-2. Import it in `src/provider/imageProvider.ts`.
-3. Add an entry to the correct category in `imageProvider`.
-4. Provide a good German `alt`.
-5. Provide an English `altEn`.
-6. Use the registered image via `imageProvider.<category>.<key>`.
-
-Example:
-
-- `imageProvider.events.firmenfeier`
-- `imageProvider.catering.bambusbar`
-- `imageProvider.hero.headerBackground`
-
-### Important image rules
-
-- Prefer `imageProvider` over raw ad hoc image paths.
-- Do not scatter duplicate alt text across pages.
-- If `altEn` is missing, English pages will show the German alt text.
-- Most widgets expect an `ImageAsset` object from `imageProvider`, not a random string path.
-- Use `<Image>` with `sizes` and `widths`; do not over-compress sources for performance.
-
-### Blog hero images
-
-Blog post heroes reuse registered `imageProvider` images — no separate `public/blog` path.
-
-- Set `heroImageKey` in blog frontmatter to the flat key name, e.g. `"firmenfeierFullSetup"`.
-- The referenced image must have `blogHero: true` in `imageProvider`.
-- Validation runs at build time via `src/utils/blogImages.ts` and `src/content.config.ts`.
-- Blog detail heroes are rendered through Astro `<Image>` with responsive widths and eager/high-priority loading; do not replace them with CSS background images.
-- Inline images in MDX use `BlogImage` from `src/components/blog/BlogImage.astro` together with `imageProvider` + `getImageAlt()`. `BlogImage` provides the shared WebP quality, responsive widths/sizes, and lazy loading defaults.
-
-So:
-
-- use `imageProvider` for all reusable site images, including blog heroes and inline MDX images
-- use `<BlogImage>` instead of importing `<Image>` directly in blog MDX
-- subpage heroes: `HeroSubpage` with optional `image={imageProvider...}` (no raw URL strings)
-
-## Tracking Workflow
-
-### Where tracking lives
-
-- The global `window.trackEvent` helper is set up in `src/components/base/BaseHead.astro`.
-- Events are sent to the server-side proxy at `/api/hello-pfeil`, which forwards them to Plausible.
-- Shared types and the `Window` augmentation live in `src/types/tracking.ts` and `src/env.d.ts`.
-
-### How to track events
-
-Call `window.trackEvent` with an event object. Tracking only becomes active after the first human interaction (mousemove, touchmove, or keydown). Events fired before that are queued and sent once tracking is active.
-
-```javascript
-if (typeof window.trackEvent === "function") {
-  window.trackEvent({
-    eventAction: "CONTACT_FORM_STARTED",
-    eventCategory: "CONTACT_FORM",
-    eventName: "OPTIONAL_ELEMENT_ID",
-    props: { form_id: "contact-form" },
-  });
-}
-```
-
-Always guard with `typeof window.trackEvent === "function"` so components work on blocked hosts (e.g. localhost) where tracking is disabled.
-
-### The three-layer model
-
-Use UPPERCASE_SNAKE_CASE for all event values.
-
-| Layer             | Meaning                               | Example                                   |
-| ----------------- | ------------------------------------- | ----------------------------------------- |
-| **eventAction**   | What happened                         | `CONTACT_FORM_STARTED`, `FAQ_ITEM_OPENED` |
-| **eventCategory** | Where it happened                     | `CONTACT_FORM`, `FAQ`, `PAGE`             |
-| **eventName**     | Which element was affected (optional) | `PRICING_QUESTION`, `DELIVERY_AREA`       |
-
-- `eventAction` and `eventCategory` are required.
-- `eventName` is optional. Use it when a specific element is involved (e.g. which FAQ item was opened).
-- `props` is optional. Use it for extra metadata like `form_id`, `lang`, or UTM data (UTM is added automatically from sessionStorage).
-
-### Examples
-
-**Contact form** (no `eventName`; the form itself is the context):
-
-```javascript
-window.trackEvent({
-  eventAction: "CONTACT_FORM_STARTED",
-  eventCategory: "CONTACT_FORM",
-});
-
-window.trackEvent({
-  eventAction: "CONTACT_FORM_SUBMITTED",
-  eventCategory: "CONTACT_FORM",
-});
-```
-
-**FAQ accordion** (with `eventName` for the opened item):
+`eventAction` and `eventCategory` are required. `eventName` is optional (which element). `props` is optional (`form_id`, `lang`). UTM from the landing URL is merged in automatically. Use `UPPERCASE_SNAKE_CASE`. The pageview event is the exception: `eventAction: "pageview"`, so Plausible can fill Entry/Exit pages. Reuse names from `ContactForm.astro` and `BaseHead.astro` before inventing new ones.
 
 ```javascript
 window.trackEvent({
@@ -253,481 +157,10 @@ window.trackEvent({
 });
 ```
 
-**Pageview** (handled automatically by BaseHead):
+## Checks
 
-```javascript
-// eventAction: "pageview", eventCategory: "PAGE"
-// Note: Plausible requires lowercase "pageview" for Entry/Exit pages to work.
-```
+Scripts live in `test/`. `npm run check` runs `content-check.mjs`, the production build, `site-check.mjs`, `contact-check.mjs`, `tsc`, and a Wrangler dry-run.
 
-### Important tracking rules
+`content-check.mjs` reads source: translation keys, meta length, routes against views, blog pairs, alt text, widget themes. `site-check.mjs` reads `dist/client`: sitemap, rendered pages, and `robots.txt` (production allows crawling, `localhost` and `dev.pfeils-catering.de` do not). `contact-check.mjs` starts `astro preview` and posts to `/api/contact`, including one complete form. Inquiry and confirmation both go to `CONTACT_TO_EMAIL`.
 
-- Use UPPERCASE_SNAKE_CASE for `eventAction`, `eventCategory`, and `eventName`. Exception: the pageview event must use `eventAction: "pageview"` (lowercase) so Plausible populates Entry/Exit pages.
-- Do not invent new event names without checking existing ones in `ContactForm.astro` and `BaseHead.astro`.
-- UTM parameters from the landing URL are captured and merged into every event automatically.
-- The API endpoint is `/api/hello-pfeil` (not `/api/analytics` or similar).
-
-## Component Catalog
-
-Choose components by content goal, not by implementation details. The point of this section is fast matching:
-
-- need the standard page shell and metadata: `BaseHead` + `Navigation` + `Footer`
-- need a button-styled CTA link: `Button`
-- need legal imprint content: `Imprint`
-- need a hero for the homepage: `HeroMain`
-- need a hero for a normal subpage: `HeroSubpage`
-- need image + story + optional CTA: `ImageText`
-- need cards or structured selling points: `ItemList`
-- need visual links to key pages: `ImageNavigation`
-- need longer editorial copy: `TextBlock`
-- need a final conversion push: `CallToAction`
-- need FAQs: `FAQ`
-- need trust and proof: `Testimonials`
-- need a contact page: `ContactForm`
-- need a blog archive or article: use the blog layouts
-
-### Base and UI components
-
-#### `BaseHead`
-
-File: `src/components/base/BaseHead.astro`
-
-Use for:
-
-- page metadata and SEO base setup
-- canonical and localized `hreflang` links (`de`, `en`, and `x-default`)
-- the optimized default social sharing image when a layout does not provide one
-
-Use this when:
-
-- creating any new normal page or layout
-- blog and nested routes must remain resolvable through `getRouteFromUrl()` so their language alternates point to the equivalent page, not a locale homepage
-
-#### `Navigation`
-
-File: `src/components/base/Navigation.astro`
-
-Use for:
-
-- the global page header and language switch entry point
-
-Use this when:
-
-- building any standard page
-
-#### `Footer`
-
-File: `src/components/base/Footer.astro`
-
-Use for:
-
-- the global page footer
-
-Use this when:
-
-- finishing any standard page
-
-#### `Button`
-
-File: `src/components/ui/Button.astro`
-
-Use for:
-
-- CTA links that should look like buttons
-
-Use this when:
-
-- you need a consistent CTA inside a section or layout
-
-#### `Imprint`
-
-File: `src/components/base/Imprint.astro`
-
-Use for:
-
-- legal imprint content
-
-Use this when:
-
-- working on the imprint/legal page only
-
-### Widget components
-
-#### `HeroMain`
-
-File: `src/components/widgets/HeroMain.astro`
-
-Use for:
-
-- the homepage hero
-
-Use this when:
-
-- editing the landing page only
-
-Do not:
-
-- reuse it for service subpages
-
-#### `HeroSubpage`
-
-File: `src/components/widgets/HeroSubpage.astro`
-
-Use for:
-
-- compact subpage hero with title and optional `image` from `imageProvider`
-
-Use this when:
-
-- creating a service page, contact page, or legal intro section
-
-#### `ImageText`
-
-File: `src/components/widgets/ImageText.astro`
-
-Use for:
-
-- image + copy storytelling blocks
-- offer explanations
-- benefit sections
-- conversion sections with CTA
-
-Use this when:
-
-- you need the main marketing section type used across home and service pages
-- you have one clear section with one image and one message
-- you want to explain an offer, benefit, or booking reason
-
-#### `ItemList`
-
-File: `src/components/widgets/ItemList.astro`
-
-Use for:
-
-- structured card grids
-- selling points
-- reference lists
-- service modules
-
-Use this when:
-
-- you have a list of benefits, references, or offerings
-- you want repeated items with a consistent visual rhythm
-
-#### `ImageNavigation`
-
-File: `src/components/widgets/ImageNavigation.astro`
-
-Use for:
-
-- a 3-card visual navigation block
-
-Use this when:
-
-- the homepage should link users into 3 key service areas
-- content should tease options rather than explain them in depth
-
-#### `TextBlock`
-
-File: `src/components/widgets/TextBlock.astro`
-
-Use for:
-
-- longer editorial text sections without an image
-
-Use this when:
-
-- you need 2-4 paragraphs of richer text and formatting
-- a page needs more explanation without becoming another image section
-
-#### `CallToAction`
-
-File: `src/components/widgets/CallToAction.astro`
-
-Use for:
-
-- a focused end-of-page CTA block
-
-Use this when:
-
-- ending a service page with one clear action
-- you want a simple booking/contact push without extra complexity
-
-#### `FAQ`
-
-File: `src/components/widgets/FAQ.astro`
-
-Use for:
-
-- question/answer sections
-- objection handling
-- SEO FAQ schema
-
-Use this when:
-
-- content can naturally be written as common questions and answers
-- you want to reduce friction before inquiry
-
-#### `Testimonials`
-
-File: `src/components/widgets/Testimonials.astro`
-
-Use for:
-
-- social proof sections
-
-Use this when:
-
-- a page needs trust-building quotes after service details
-- you have customer quotes, event feedback, or proof of quality
-
-#### `ContactForm`
-
-File: `src/components/widgets/ContactForm.astro`
-
-Use for:
-
-- inquiry/contact page body
-
-Use this when:
-
-- building the contact/request page
-
-Important:
-
-- this is a special-purpose widget, not a generic content block
-- it posts to `/api/contact`
-
-#### `BlogPostList`
-
-File: `src/components/widgets/BlogPostList.astro`
-
-Use for:
-
-- blog overview pages
-- paginated blog archives
-
-Use this when:
-
-- rendering blog index or paginated list pages
-- you already have a list of blog entries and only need the archive UI
-
-#### `ImageGalleryMasonry`
-
-File: `src/components/widgets/ImageGalleryMasonry.astro`
-
-Use for:
-
-- gallery/proof sections with light supporting copy
-
-Use this when:
-
-- showcasing event or catering imagery with minimal text
-- you want visual proof rather than long explanation
-
-### Layouts
-
-#### `BlogIndexLayout`
-
-File: `src/layouts/BlogIndexLayout.astro`
-
-Use for:
-
-- blog list pages
-- pagination pages
-
-Use this when:
-
-- building or changing blog archive pages
-- an AI should create a blog overview, not a normal marketing page
-
-#### `BlogPost`
-
-File: `src/layouts/BlogPost.astro`
-
-Use for:
-
-- individual blog article pages
-
-Use this when:
-
-- rendering one blog article from MDX content
-- an AI should turn article content into a proper blog detail page
-
-## Widget Color Alternation
-
-Widgets use three themes: `light` (white), `grey` (slate-100), and `dark` (dark-bg).
-
-**Rule:** Never place two sections with the same background color back-to-back. Always alternate: light → grey or dark, grey → light or dark, dark → light or grey.
-
-**Footer rule:** The last section before the footer must not use the same color as the footer. The footer is dark (`bg-dark-bg`), so the final widget on the page must be `light` or `grey`, never `dark`.
-
-When assembling pages, check the sequence of `theme` props and ensure no two adjacent sections share the same theme.
-
-## Responsive Design
-
-**Rule:** All pages and components must be responsive. They must work correctly on mobile, tablet, and desktop viewports.
-
-- Use fluid layouts, flexible images, and appropriate breakpoints.
-- Test new or modified layouts at different screen widths.
-- Do not introduce fixed widths that cause horizontal overflow on small screens.
-- Existing widgets and layouts are built to be responsive; follow their patterns when adding content.
-
-## SEO Metadata
-
-**Page title (meta title):**
-
-- Must end with `| Pfeil's Catering`.
-- Length: 50–60 characters (including the brand suffix).
-- Keys: `*.meta.title` in `src/i18n/translations/de.ts` and `en.ts`.
-
-**Meta description:**
-
-- Length: 120–158 characters.
-- Keys: `*.meta.description` in `src/i18n/translations/de.ts` and `en.ts`.
-
-### Einsatzgebiete / service area pages (SEO)
-
-**Rule:** Location pages under `einsatzgebiete/...` and `en/service-areas/...` must **not** be near-duplicates of each other. Do not reuse the same paragraphs with only the place name swapped. Vary **angle** (local landmarks, typical venues, occasion mix), **FAQ questions and answers**, **section titles**, and **process wording** so each page has clear, distinct value for readers and search engines. Reuse the same **widget sequence** as existing city pages for consistency, but write **original copy** per location.
-
-## Common Page Patterns
-
-### Homepage pattern
-
-Reference:
-
-- `src/pages/index.astro`
-- `src/pages/en/index.astro`
-
-Typical structure:
-
-1. `BaseHead`
-2. `Navigation`
-3. `HeroMain`
-4. several `ImageText` sections
-5. `ImageNavigation`
-6. `ItemList`
-7. `Testimonials`
-8. `FAQ`
-9. `Footer`
-
-Use this when:
-
-- creating or updating the main landing experience
-
-### Service page pattern
-
-Reference:
-
-- `src/pages/hochzeitsfeier.astro`
-- `src/pages/en/corporate.astro`
-- `src/pages/mobile-cocktailbar.astro`
-
-Typical structure:
-
-1. `BaseHead`
-2. `Navigation`
-3. `HeroSubpage`
-4. `ImageText`
-5. `ItemList`
-6. `ImageGalleryMasonry`
-7. optional extra `ImageText` or `TextBlock`
-8. `Testimonials`
-9. `CallToAction`
-10. `Footer`
-
-Use this when:
-
-- creating or extending a service/offer page
-
-### Contact page pattern
-
-Reference:
-
-- `src/pages/anfrage.astro`
-- `src/pages/en/contact.astro`
-
-Typical structure:
-
-1. `BaseHead`
-2. `Navigation`
-3. `HeroSubpage`
-4. `ContactForm`
-5. `Footer`
-
-Legal pages (`/impressum/`, `/datenschutz/`): same shell with `HeroSubpage` (title only) + `Imprint` or `PrivacyPolicy`.
-
-### Blog pattern
-
-Reference:
-
-- `src/pages/blog/[...slug].astro`
-- `src/pages/en/blog/[...slug].astro`
-- `src/layouts/BlogPost.astro`
-- `src/layouts/BlogIndexLayout.astro`
-
-Rules:
-
-- blog articles come from MDX
-- blog detail pages use `BlogPost`
-- blog overview pages use `BlogIndexLayout`
-- do not manually rebuild blog pages out of generic marketing widgets unless the site architecture is intentionally changed
-
-## Rules For Future AI Content Work
-
-### Do
-
-- every German page must have an English variant – both page files and `routes.en` entry
-- page titles must end with `| Pfeil's Catering` and be 50–60 characters; meta descriptions 120–158 characters
-- ensure all pages and components are responsive – work on mobile, tablet, and desktop
-- ensure the LanguagePicker shows the correct link for every localized page – `getRouteFromUrl` must resolve nested paths (e.g. `einsatzgebiete/koeln`) and `routes.en` must contain the mapping
-- alternate widget themes (light, grey, dark) – never two same-colored sections in a row; last section before footer must not be dark
-- keep German and English in sync
-- use UPPERCASE_SNAKE_CASE for tracking event values (`eventAction`, `eventCategory`, `eventName`)
-- reuse existing component patterns
-- use `imageProvider` for reusable site imagery
-- write meaningful `alt` and `altEn` text
-- keep new content structurally consistent with similar existing pages
-- use translated links via `useTranslatedPath()`
-- update `routes.en` in `src/i18n/translations.ts` when adding a new localized top-level page
-- create both the German page file and the English page file when adding a new localized page
-- update `AGENTS.md` when you change reusable patterns
-
-### Do not
-
-- create layouts that break or overflow on small screens
-- place two sections with the same theme (light, grey, dark) consecutively
-- add new copy only in English
-- hardcode visible text in pages when it belongs in translations
-- use raw image paths when a provider image should exist
-- put HTML into plain-text props
-- invent a brand-new page structure without checking similar pages first
-- bypass blog layouts for normal blog work
-
-## Recommended AI Workflow
-
-When adding a new service page:
-
-1. Start from the most similar existing page.
-2. Add German translation keys first.
-3. Add matching English translation keys.
-4. Register any reusable new images in `imageProvider`.
-5. Assemble the page using the existing widget pattern.
-6. Make sure all internal links use translated paths.
-7. Verify that English alt text exists for every new reusable image.
-
-When adding a new blog post:
-
-1. Create the German MDX file in `src/content/blog/de/`.
-2. Create the English MDX file in `src/content/blog/en/`.
-3. Keep the same filename/slug in both folders for the same article.
-4. For the hero: register the image in `imageProvider` with `blogHero: true`, then set `heroImageKey` in frontmatter.
-5. Fill frontmatter according to `src/content.config.ts`.
-6. Let the existing blog layouts render the content.
-
-## Lighthouse
-
-- `npm run lighthouse:local` — sitemap audit on `localhost:4321` (after dev/preview)
-- `npm run lighthouse:prod` — production audit; JSON reports in `.lighthouse/`
-
-Local SEO may score low: `robots.txt.ts` blocks indexing on localhost/dev by design.
+`npm run lighthouse:local` audits `localhost:4321`. `npm run lighthouse:prod` writes reports to `.lighthouse/`. Both run `test/lighthouse-all.js`, which keeps one headless Chrome in the background. Local SEO stays low because `robots.txt.ts` blocks `localhost`.

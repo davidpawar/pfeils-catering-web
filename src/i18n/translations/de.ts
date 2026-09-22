@@ -1,3 +1,9 @@
+/**
+ * German copy, the canonical source for every key.
+ *
+ * Keys are dotted and grouped by page, as in `firmenfeier.textList.item1.title`.
+ * Every key here needs the same key in `en.ts`; `npm run check` enforces that.
+ */
 export const de = {
   "nav.anfrage": "Jetzt anfragen",
   "nav.blog": "Blog",
@@ -33,10 +39,10 @@ export const de = {
   "hero.title": "Dein Cocktail-Catering Service",
   "home.meta.description":
     "Professionelles Cocktail-Catering für Firmenfeiern, Hochzeiten & Events. Mobile Bar, erfahrene Barkeeper, Region Oberberg & Köln. Jetzt anfragen!",
-  "home.meta.title": "Pfeil's Cocktail Catering | Mobile Cocktailbar",
+  "home.meta.title": "Cocktailbar für Feiern und Events | Pfeil's Catering",
   "anfrage.meta.description":
     "Kontaktieren Sie uns für Ihr Cocktail-Catering. Unverbindliche Anfrage für Firmenfeier, Hochzeit oder Event. Schnelle Rückmeldung.",
-  "anfrage.meta.title": "Jetzt anfragen | Pfeil's Cocktail Catering",
+  "anfrage.meta.title": "Jetzt unverbindlich Catering anfragen | Pfeil's Catering",
   "hero.anfrage.description":
     "Füllen Sie das Kontaktformular aus – wir melden uns zeitnah bei Ihnen.",
   "hero.anfrage.subtitle": "Kontakt",
@@ -91,8 +97,8 @@ export const de = {
   "blog.description":
     "Tipps, Rezepte und Einblicke rund um Cocktail-Catering, Events und Genuss.",
   "blog.meta.description":
-    "Tipps, Rezepte und Einblicke rund um Cocktail-Catering, Firmenfeiern und Events. Von Pfeil's Catering Waldbröl.",
-  "blog.meta.title": "Blog | Tipps & Rezepte | Pfeil's Cocktail Catering",
+    "Tipps, Rezepte und Einblicke rund um Cocktail-Catering, Firmenfeiern und Events im Oberbergischen. Von Pfeil's Catering.",
+  "blog.meta.title": "Tipps, Rezepte und Cocktail-Ideen | Pfeil's Catering",
   "blog.page": "Seite",
   "blog.paginationNext": "Weiter",
   "blog.paginationPrev": "Zurück",
@@ -101,7 +107,7 @@ export const de = {
   "hero.blog.title": "Blog – Tipps, Rezepte und Catering-News",
   "datenschutz.meta.description":
     "Kurze Datenschutzerklärung von Pfeil's Cocktail Catering zu Hosting, Analyse, Kontaktformular und Ihren Rechten nach DSGVO.",
-  "datenschutz.meta.title": "Datenschutzerklärung | Pfeil's Cocktail Catering",
+  "datenschutz.meta.title": "Datenschutz und Datenverarbeitung | Pfeil's Catering",
   "datenschutz.title": "Datenschutzerklärung",
   "datenschutz.controller": "Verantwortlicher",
   "datenschutz.processing.title": "Welche Daten wir verarbeiten",
@@ -145,7 +151,7 @@ export const de = {
   "firmenfeier.meta.description":
     "Exklusives Cocktail-Catering für Ihre Firmenfeier. Mobile Bar, Barkeeper-Show, Signature Drinks. Region Köln, Bonn, Düsseldorf. Unverbindlich anfragen.",
   "firmenfeier.meta.title":
-    "Cocktail-Catering Firmenfeier | Pfeil's Catering",
+    "Cocktail-Catering für die Firmenfeier | Pfeil's Catering",
   "firmenfeier.testimonials.badge": "Kundenstimmen",
   "firmenfeier.testimonials.description":
     "Was unsere Kunden über unsere Firmenfeiern sagen.",
@@ -236,7 +242,7 @@ export const de = {
   "hochzeitsfeier.meta.description":
     "Persönliches Cocktail-Catering für Ihre Hochzeitsfeier. Bar-Charme, erstklassige Drinks, Rundum-Service. Oberberg, Köln, Bonn. Jetzt planen.",
   "hochzeitsfeier.meta.title":
-    "Cocktail-Catering Hochzeit | Pfeil's Catering",
+    "Cocktail-Catering für die Hochzeit | Pfeil's Catering",
   "hochzeitsfeier.testimonials.badge": "Kundenstimmen",
   "hochzeitsfeier.testimonials.description":
     "Was unsere Kunden über unser Cocktail-Catering bei Hochzeiten sagen.",
@@ -283,7 +289,7 @@ export const de = {
   "hochzeitsfeier.textList.title": "Ihre Hochzeitsfeier",
   "impressum.meta.description":
     "Impressum von Pfeil's Cocktail Catering: Anbieterkennzeichnung, Kontakt, USt-IdNr., Verantwortlicher nach MStV und VSBG-Hinweis in Waldbröl.",
-  "impressum.meta.title": "Impressum | Pfeil's Cocktail Catering",
+  "impressum.meta.title": "Impressum und Anbieterkennzeichnung | Pfeil's Catering",
   "impressum.title": "Impressum",
   "impressum.businessName": "Pfeil's Cocktail Catering",
   "impressum.owner": "Inhaber: Thomas Pfeil",
@@ -320,7 +326,7 @@ export const de = {
   "individuell.meta.description":
     "Maßgeschneidertes Catering: Eis, Bratwurst-Grill, Crepes, Coffee Truck, Flammkuchen. Für Firmenfeiern & Events. Waldbröl, Oberberg.",
   "individuell.meta.title":
-    "Individuelles Catering | Eis, Grill, Crepes | Pfeil's Catering",
+    "Eis, Grill und Crepes zum Event | Pfeil's Catering",
   "individuell.service.bratwurst.bullets":
     "Grillstation vor Ort, Auswahl an klassischen und besonderen Wurstsorten, Vegetarische Alternativen auf Anfrage, Individuelle Menüabstimmung, Schneller Auf- und Abbau, Auf Wunsch mit Geschirr und Besteck",
   "individuell.service.bratwurst.description":
@@ -385,7 +391,7 @@ export const de = {
   "messe.gallery.title": "Cocktail Catering auf Messen",
   "messe.meta.description":
     "Messe Cocktail Catering für Messen, Ausstellungen & Business-Events. Mobile Cocktailbar, erfahrene Barkeeper. Köln, Düsseldorf, NRW.",
-  "messe.meta.title": "Messe Cocktail Catering | Catering für Messen & Events | Pfeil's Catering",
+  "messe.meta.title": "Cocktail-Catering für Messen und Events | Pfeil's Catering",
   "messe.testimonials.badge": "Kundenstimmen",
   "messe.testimonials.description":
     "Was unsere Kunden über unser Cocktail-Catering auf Messen sagen.",
@@ -545,7 +551,7 @@ export const de = {
   "mobileCocktailbar.textList.item6.title": "Hohe Qualität und frische Zutaten",
   "mobileCocktailbar.textList.title": "Ihre nächste Firmenfeier",
   "mobileCocktailbarKoln.meta.title":
-    "Mobile Cocktailbar Köln | Pfeil's Catering",
+    "Mobile Cocktailbar für Köln und Region | Pfeil's Catering",
   "mobileCocktailbarKoln.meta.description":
     "Mobile Cocktailbar für Events in Köln. Firmenfeiern am Rheinauhafen, Hochzeiten mit Dom-Blick, Karneval-Events. Professionelles Cocktail-Catering in Köln.",
   "mobileCocktailbarKoln.hero.title": "Mobile Cocktailbar Köln – Cocktails wo Sie feiern",
@@ -615,7 +621,7 @@ export const de = {
   "footer.copyright": "Alle Rechte vorbehalten.",
   "footer.quickLinks": "Schnellzugriff",
   "mobileCocktailbarGummersbach.meta.title":
-    "Mobile Cocktailbar Gummersbach | Pfeil's Catering",
+    "Mobile Cocktailbar in Gummersbach | Pfeil's Catering",
   "mobileCocktailbarGummersbach.meta.description":
     "Mobile Cocktailbar für Events in Gummersbach und Oberberg. Firmenfeiern, Hochzeiten, Jubiläen. Kurze Wege aus Waldbröl – Ihr Cocktail-Catering vor Ort.",
   "mobileCocktailbarGummersbach.hero.title": "Mobile Cocktailbar Gummersbach – direkt aus der Nachbarschaft",
@@ -675,7 +681,7 @@ export const de = {
     "Es lohnt sich ab etwa 50 Gästen. Darunter wird der Aufwand im Verhältnis zu groß. Ab 50 Personen rechnet sich die mobile Cocktailbar – ob Firmenjubiläum, Hochzeit oder Teamevent in Gummersbach und Oberberg.",
   "mobileCocktailbarGummersbach.cta.ctaTitle": "Sprechen Sie uns gerne an!",
   "mobileCocktailbarNuembrecht.meta.title":
-    "Mobile Cocktailbar Nümbrecht | Pfeil's Catering",
+    "Mobile Cocktailbar in Nümbrecht | Pfeil's Catering",
   "mobileCocktailbarNuembrecht.meta.description":
     "Cocktail-Catering für Nümbrecht & Naturpark Bergisches Land: mobile Bar für Gartenfeste, Schlosskulisse und Firmenfeiern – kurze Anfahrt aus Waldbröl.",
   "mobileCocktailbarNuembrecht.hero.title":
@@ -762,4 +768,118 @@ export const de = {
   "footer.cityPages.nuembrecht": "Nümbrecht",
   "footer.tagline":
     "Mit Herz gemixt, für dich und deine Gäste. Professionelles Cocktail-Catering für unvergessliche Events seit 2008.",
+  "home.who.badge": "Wer wir sind",
+  "home.who.description":
+    "Cocktail-Stationen bringen Menschen zusammen! Ob Mitarbeiter, Kunden oder Geschäftspartner – ein gut gemachter Cocktail ist der perfekte Eisbrecher. Man kommt ins Gespräch, probiert neue Geschmackskombinationen und interagiert spielerisch mit Kollegen. Ein professionelles Cocktail-Catering sorgt für genau die richtige Balance aus Business und Genuss.",
+  "home.who.leftStatLabel": "15+ Jahre der Expertise",
+  "home.who.leftStatPrefix": "seit",
+  "home.who.rightStatLabel": "Zufriedene Kunden",
+  "home.who.title":
+    "Ein Team aus Experten mit einer Leidenschaft für Cocktails und gutem Service.",
+  "home.nav.more": "weitere Details →",
+  "home.nav.badge": "Unser Service",
+  "home.nav.description":
+    "Von der Firmenfeier bis zur Hochzeit – wir bringen die Bar zu Ihnen und sorgen für unvergessliche Momente.",
+  "home.nav.title": "Stilvolle Cocktails für jedes Event",
+  "home.nav.card1.title": "Firmenfeier",
+  "home.nav.card1.text":
+    "Professioneller Cocktail-Service für geschäftliche Events. Perfekt für Teambuilding, Jubiläen und Kundenevents.",
+  "home.nav.card2.title": "Hochzeitsfeier",
+  "home.nav.card2.text":
+    "Exklusive Cocktails für den schönsten Tag. Individuell abgestimmt auf eure Wünsche.",
+  "home.nav.card3.title": "Messe & Events",
+  "home.nav.card3.text":
+    "Mobile Bar für Messen und Großveranstaltungen. Hohe Kapazität, professioneller Service.",
+  "home.why.badge": "Warum sie uns buchen sollten",
+  "home.why.check1": "Jahrzehntelange Erfahrung",
+  "home.why.check2": "100% Zuverlässigkeit",
+  "home.why.check3": "Expertise im Bereich Cocktails",
+  "home.why.check4": "Exzellenter Service",
+  "home.why.check5": "Starke Flexibilität",
+  "home.why.check6": "Frische Zutaten",
+  "home.why.description":
+    "Unser Cocktail-Catering steht für zuverlässige Planung, professionelle Umsetzung und gleichbleibend hohe Qualität. Erfahrene Barkeeper sorgen für einen reibungslosen Ablauf und hochwertige Getränke. So schaffen wir einen stilvollen Rahmen für Ihr Firmenevent – effizient und serviceorientiert.",
+  "home.why.title":
+    "Vom klassischen Cocktail bis zum kreativen Signature-Drink",
+  "home.references.badge": "Referenzen",
+  "home.references.title": "Ein Auszug unserer Referenzen",
+  "home.references.description":
+    "Vom regionalen Mittelstand bis zum Global Player – wir bringen die Bar dorthin, wo gefeiert wird.",
+  "home.references.volksbank.title": "Volksbank Oberberg",
+  "home.references.volksbank.description":
+    "Genossenschaftsbank für die Region – mit Mitgliedschaft, Mitbestimmung und Mitverdienen.",
+  "home.references.sparkasse.title": "Sparkasse KölnBonn",
+  "home.references.sparkasse.description":
+    "Kreissparkasse Köln vor Ort im Oberbergischen Kreis – persönliche Beratung und beste Regionalbank in NRW.",
+  "home.references.bmw.title": "BMW Kaltenbach Waldbröl",
+  "home.references.bmw.description":
+    "BMW Vertragshändler und MINI Service – Teil der Kaltenbach-Gruppe im Oberbergischen.",
+  "home.references.schwalbe.title": "Schwalbe",
+  "home.references.schwalbe.description":
+    "Führender Hersteller von Fahrrad- und Rollstuhlreifen – Reifen, die dich an dein Ziel bringen.",
+  "home.references.oni.title": "ONI",
+  "home.references.oni.description":
+    "Energiesparende Systemlösungen für Industrie und Kühltechnik – über 6.000 Kunden in 70 Ländern.",
+  "home.references.elektrisola.title": "Elektrisola",
+  "home.references.elektrisola.description":
+    "Weltweit führender Hersteller von Lackdraht und Feindraht – 10 Werke in 7 Ländern.",
+  "home.bar.badge": "Mobile Cocktailbar",
+  "home.bar.check1": "Flexibler Einsatzort",
+  "home.bar.check2": "Perfekt inszeniert",
+  "home.bar.check3": "Individuell abgestimmt",
+  "home.bar.check4": "Rundum-Sorglos-Paket",
+  "home.bar.check5": "Zuverlässiger Barservice",
+  "home.bar.check6": "Liebe zum Detail",
+  "home.bar.description":
+    "Mobile Cocktailbar mit Stil – die flexible Lösung für Ihr Event. Wir bringen exzellente Cocktails und Atmosphäre direkt zu Ihnen, ob Hochzeit, Firmenfeier oder Festival. Hochwertige Ausstattung, erfahrenes Team und Drinks von Klassikern bis zur individuellen Kreation.",
+  "home.bar.title": "Unsere mobile Cocktailbar",
+  "home.booking.badge": "Buchung",
+  "home.booking.button": "Jetzt anfragen",
+  "home.booking.title":
+    "Ganz einfach buchen – wir freuen uns, dass wir bereits unzählige Kunden bedienen durften.",
+  "home.testimonials.badge": "Kundenstimmen",
+  "home.testimonials.description": "Was unsere Kunden über uns sagen.",
+  "home.testimonials.title": "Stimmen unserer Kunden",
+  "home.testimonials.item1.name": "Robert S.",
+  "home.testimonials.item1.jobTitle": "Geschäftsführer",
+  "home.testimonials.item1.text":
+    "Das Team hat sich perfekt auf unser Corporate Event eingestellt. Professionell, freundlich und mit einem feinen Gespür für die Atmosphäre. Gerne wieder!",
+  "home.testimonials.item2.name": "Alina N.",
+  "home.testimonials.item2.jobTitle": "Hochzeitsplanerin",
+  "home.testimonials.item2.text":
+    "So viel Liebe zum Detail und so ein tolles Team! Ihr wart ein unvergesslicher Teil unserer Hochzeit.",
+  "home.testimonials.item3.name": "Corinna L.",
+  "home.testimonials.item3.jobTitle": "Eventmanagerin",
+  "home.testimonials.item3.text":
+    "Unsere Jahresfeier war dank des Cocktail-Services ein voller Erfolg. Die Drinks waren nicht nur geschmacklich ein Highlight, sondern auch optisch ein echter Hingucker.",
+  "home.testimonials.item4.name": "Sebastian G.",
+  "home.testimonials.item4.jobTitle": "Veranstalter",
+  "home.testimonials.item4.text":
+    "Die Cocktailbar war ein echter Publikumsmagnet auf unserem Messestand. Viele Besucher blieben länger – genau das, was wir wollten.",
+  "home.testimonials.item5.name": "Gianluca Z.",
+  "home.testimonials.item5.jobTitle": "Privatperson",
+  "home.testimonials.item5.text":
+    "Ein rundum gelungener Auftritt bei unserem Sommerfest. Von der Planung bis zum letzten Drink – alles lief reibungslos und auf höchstem Niveau.",
+  "home.faq.badge": "FAQ",
+  "home.faq.description": "Häufig gestellte Fragen zu unserem Cocktail-Catering.",
+  "home.faq.title": "Fragen & Antworten",
+  "home.faq.q1": "Was ist im Cocktail-Catering enthalten?",
+  "home.faq.a1":
+    "Unser Service beinhaltet professionelle Barkeeper, eine mobile Bar (wenn benötigt), sämtliche Zutaten für die Cocktails, Gläser, Eis, Deko sowie natürlich eine individuelle Cocktailkarte – abgestimmt auf Ihren Geschmack und das Event.",
+  "home.faq.q2": "Wie viel Vorlaufzeit benötigt eine Buchung?",
+  "home.faq.a2":
+    "Idealerweise buchen Sie unseren Service mindestens 2–4 Wochen im Voraus. Kurzfristige Anfragen sind je nach Verfügbarkeit aber auch möglich – einfach anfragen!",
+  "home.faq.q3": "Wie läuft die Preisgestaltung ab?",
+  "home.faq.a3":
+    "Unsere Preise richten sich nach der Gästeanzahl, der Dauer des Events, dem gewünschten Leistungsumfang und der Auswahl der Cocktails. Gerne erstellen wir Ihnen ein maßgeschneidertes, unverbindliches Angebot.",
+  "home.faq.q4": "Können wir eigene Cocktails oder Wünsche einbringen?",
+  "home.faq.a4":
+    "Natürlich! Wir freuen uns, wenn Sie eigene Ideen oder Lieblingsdrinks mitbringen. Unsere Barkeeper erstellen gerne individuelle Kreationen passend zu Ihrem Event.",
+  "home.faq.q5": "In welchen Regionen bietet ihr euren Service an?",
+  "home.faq.a5":
+    "Unser Cocktail-Catering ist regional und auf Wunsch auch deutschlandweit verfügbar. Je nach Entfernung können Anfahrtskosten anfallen – diese besprechen wir transparent im Angebot.",
+  "home.faq.q6":
+    "Gibt es eine maximale Anzahl an Gästen, die ihr bedienen könnt?",
+  "home.faq.a6":
+    "Grundsätzlich nicht – wir sind für kleine Feiern ebenso wie für Großveranstaltungen mit mehreren hundert Gästen ausgestattet. Bei größeren Events stellen wir ein entsprechend großes Team sowie mehrere Barstationen bereit, damit ein reibungsloser Ablauf garantiert ist. Teilen Sie uns einfach Ihre Gästezahl mit, und wir planen alles entsprechend!",
 } as const;

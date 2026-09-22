@@ -1,4 +1,5 @@
 ---
+
 /**
  * HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text.
  */
@@ -9,11 +10,13 @@ import { getImageAlt } from "../../utils/imageUtils";
 import { getLangFromUrl } from "../../i18n/utils";
 
 interface Props {
+
   /**
    * Optional hero image from imageProvider. Rendered as <img> (not CSS background)
    * so LCP is discoverable and fetchpriority applies.
    */
   image?: ImageAsset;
+
   /**
    * Main heading.
    */
@@ -31,7 +34,9 @@ const heroWidth = heroMetadata?.width ?? 1920;
 const heroHeight = heroMetadata?.height ?? 1080;
 ---
 
-{/* HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text */}
+{/*
+  HeroSubpage: Compact hero for subpages – like HeroMain but smaller height & text
+*/}
 <section
   class="relative flex min-h-[45vh] flex-col justify-center overflow-hidden bg-dark-bg md:min-h-[55vh]"
 >
@@ -59,12 +64,17 @@ const heroHeight = heroMetadata?.height ?? 1080;
     )
   }
 
-  {/* Content container */}
+  {/*
+    Content container
+  */}
   <div
     class="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-center px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 min-[1920px]:max-w-8xl"
   >
     <div class="max-w-3xl">
-      {/* Title: main heading – smaller than HeroMain */}
+
+      {/*
+        Title: main heading – smaller than HeroMain
+      */}
       <h1
         class="font-anton text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl xl:text-5xl"
       >

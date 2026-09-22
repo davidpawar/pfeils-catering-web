@@ -20,54 +20,67 @@ interface BlogPostItem {
 }
 
 interface Props {
+
   /**
    * Optional badge text above the section title.
    */
   badge?: string;
+
   /**
    * Current page number (1-based).
    */
   currentPage: number;
+
   /**
    * Optional description paragraph under the section title.
    */
   description?: string;
-  /**
-   * Function to translate post URLs (e.g. translatePath(`/blog/${slug}/`)).
-   */
-  getPostHref: (slug: string) => string;
+
   /**
    * Function to get pagination URLs (e.g. page 1 = /blog/, page 2 = /blog/page/2/).
    */
   getPageHref: (page: number) => string;
+
+  /**
+   * Function to translate post URLs (e.g. translatePath(`/blog/${slug}/`)).
+   */
+  getPostHref: (slug: string) => string;
+
   /**
    * Locale for date formatting (e.g. "de-DE" or "en-GB").
    */
   locale: string;
+
   /**
    * Label for "Next" button.
    */
   paginationNextText: string;
+
   /**
    * Label for "Previous" button.
    */
   paginationPrevText: string;
+
   /**
    * List of blog posts to display.
    */
   posts: BlogPostItem[];
+
   /**
    * Label for the "read more" button.
    */
   readMoreText: string;
+
   /**
    * Color theme: light (white), dark, or grey.
    */
   theme?: "light" | "dark" | "grey";
+
   /**
    * Optional section heading.
    */
   title?: string;
+
   /**
    * Total number of pages.
    */
@@ -78,8 +91,8 @@ const {
   badge,
   currentPage,
   description,
-  getPostHref,
   getPageHref,
+  getPostHref,
   locale,
   paginationNextText,
   paginationPrevText,
@@ -96,7 +109,9 @@ const postsWithImages = posts.map((post) => ({
   heroImage: post.heroImage ?? imageProvider.hero.headerBackground,
 }));
 
-/** Page numbers to show (all pages if ≤7, otherwise first + range + last) */
+/**
+ * Page numbers to show: every page up to seven, otherwise the first, a window, and the last.
+ */
 function getPageNumbers(): (number | "ellipsis")[] {
   if (totalPages <= 7) {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -146,6 +161,7 @@ function formatDate(date: Date, locale: string): string {
   <div
     class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl"
   >
+
     {/* Section header: badge, title, description (all optional) */}
     {
       (badge || title || description) && (
@@ -182,6 +198,7 @@ function formatDate(date: Date, locale: string): string {
     }
 
     {
+
       /* Blog post cards: 2-column grid, vertical cards (image top, content below) */
     }
     <ul

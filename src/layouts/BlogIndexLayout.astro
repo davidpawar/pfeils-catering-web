@@ -1,4 +1,5 @@
 ---
+
 /**
  * BlogIndexLayout: Shared layout for blog index pages (page 1 and paginated pages).
  * Receives posts, currentPage, totalPages and renders the full page with Hero, BlogPostList and Footer.
@@ -21,26 +22,32 @@ import {
  * Single blog post entry for the list.
  */
 export interface BlogPostItem {
+
   /**
    * Description of the blog post.
    */
   description: string;
+
   /**
    * Hero image of the blog post.
    */
   heroImage?: ImageAsset;
+
   /**
    * ID of the blog post.
    */
   id: string;
+
   /**
    * Publication date of the blog post.
    */
   pubDate: Date;
+
   /**
    * Slug of the blog post.
    */
   slug: string;
+
   /**
    * Title of the blog post.
    */
@@ -48,18 +55,22 @@ export interface BlogPostItem {
 }
 
 interface Props {
+
   /**
    * Current page number (1-based).
    */
   currentPage: number;
+
   /**
    * Optional language override. Defaults to URL-derived language.
    */
   lang?: keyof typeof ui;
+
   /**
    * List of blog posts to display.
    */
   posts: BlogPostItem[];
+
   /**
    * Total number of pagination pages.
    */
@@ -68,7 +79,9 @@ interface Props {
 
 const { currentPage, lang: langProp, posts, totalPages } = Astro.props;
 
-/* Derive language and translation helpers */
+/*
+ * Derive language and translation helpers
+ */
 const lang: keyof typeof ui = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
@@ -87,12 +100,18 @@ const translatePath = useTranslatedPath(lang);
     <div class="relative">
       <Navigation />
       <main>
-        {/* Hero: blog section header with background image */}
+
+        {/*
+          Hero: blog section header with background image
+        */}
         <HeroSubpage
           title={t("hero.blog.title")}
           image={imageProvider.hero.headerBackground}
         />
-        {/* BlogPostList: post cards with pagination */}
+
+        {/*
+          BlogPostList: post cards with pagination
+        */}
         <BlogPostList
           badge={t("blog.badge")}
           currentPage={currentPage}
