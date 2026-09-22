@@ -47,6 +47,13 @@ const socialImage = await getImage({
   quality: 85,
 });
 
+/**
+ * Formats a date in the reader's language, for example "5. Januar 2026".
+ *
+ * @param date - Publication date from the post frontmatter.
+ * @param locale - BCP 47 locale, for example "de-DE".
+ * @returns The formatted date.
+ */
 function formatDate(date: Date, locale: string): string {
   return new Intl.DateTimeFormat(locale, {
     day: "numeric",
@@ -55,7 +62,11 @@ function formatDate(date: Date, locale: string): string {
   }).format(date);
 }
 
-/* FAQPage JSON-LD: emitted from frontmatter `faq` (keep in sync with the visible MDX FAQ). */
+/**
+ * FAQPage JSON-LD, built from the frontmatter `faq` array.
+ *
+ * Keep it identical to the FAQ written in the MDX body.
+ */
 const faqSchema =
   faq && faq.length > 0
     ? {
@@ -91,6 +102,7 @@ const faqSchema =
       )
     }
     <style is:global>
+
       /*
         MDX <Image /> renders as direct <img> siblings under .blog-content (not inside <p>).
         Mobile: one column. md+: text blocks full width; consecutive images form a 2-column row.
@@ -116,7 +128,9 @@ const faqSchema =
         object-fit: cover;
       }
 
-      /* Responsive row: 1 col → 2×2 → 4 in one row (e.g. cocktail gallery in MDX). */
+      /*
+       * Responsive row: 1 col → 2×2 → 4 in one row (e.g. cocktail gallery in MDX).
+       */
       .blog-content > .blog-image-row {
         grid-column: 1 / -1;
         display: grid;
@@ -234,7 +248,9 @@ const faqSchema =
         }
       }
 
-      /* Legacy: multiple <img> inside one <p> */
+      /*
+       * Legacy: multiple <img> inside one <p>
+       */
       .blog-content > p:has(> img) {
         display: grid;
         grid-column: 1 / -1;
@@ -262,7 +278,10 @@ const faqSchema =
     <div class="relative">
       <Navigation />
       <main>
-        {/* Hero image is rendered as <img> so the browser discovers the LCP resource immediately. */}
+
+        {/*
+          Hero image is rendered as <img> so the browser discovers the LCP resource immediately.
+        */}
         <section
           class="relative flex min-h-[45vh] flex-col justify-center overflow-hidden bg-dark-bg md:min-h-[30vh]"
         >
@@ -285,13 +304,18 @@ const faqSchema =
           </div>
         </section>
 
-        {/* Article content */}
+        {/*
+          Article content
+        */}
         <article class="bg-white">
           <div
             class="mx-auto max-w-6xl px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 min-[1920px]:max-w-7xl"
           >
             <div class="w-full">
-              {/* Meta: Zurück-Link, Titel, Autor, Datum */}
+
+              {/*
+                Meta: Zurück-Link, Titel, Autor, Datum
+              */}
               <header class="border-b border-slate-300 pb-8">
                 <Button
                   href={translatePath("/blog/")}
@@ -317,7 +341,9 @@ const faqSchema =
                 </div>
               </header>
 
-              {/* Artikelinhalt */}
+              {/*
+                Artikelinhalt
+              */}
               <div
                 class="blog-content pt-8 font-outfit text-base leading-relaxed text-dark/85 md:text-lg [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-primary-light [&_h2]:font-anton [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:text-dark [&_h3]:font-anton [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-dark [&_p]:mb-4 [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_pre]:mb-4 [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-slate-100 [&_pre]:p-4 [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_p_img]:my-4 [&_p_img]:rounded-xl [&_p_img]:shadow-lg [&_p_img]:object-cover"
               >

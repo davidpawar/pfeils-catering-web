@@ -1,0 +1,27 @@
+---
+import { pagePaths } from "../routing/routes";
+import { homeView, views } from "../routing/views";
+
+/**
+ * Renders every marketing route for both languages.
+ *
+ * One view serves two URLs: `/hochzeitsfeier/` and `/en/wedding/` are the same
+ * file. The German homepage is `src/pages/index.astro`, because a rest route
+ * cannot match "/". Blog articles have their own page files.
+ */
+export function getStaticPaths() {
+  const paths = [{ params: { slug: "en" }, props: { view: homeView } }];
+
+  for (const [dePath, enPath] of Object.entries(pagePaths)) {
+    const view = views[dePath as keyof typeof views];
+    paths.push({ params: { slug: dePath }, props: { view } });
+    paths.push({ params: { slug: `en/${enPath}` }, props: { view } });
+  }
+
+  return paths;
+}
+
+const Page = Astro.props.view as typeof homeView;
+---
+
+<Page />

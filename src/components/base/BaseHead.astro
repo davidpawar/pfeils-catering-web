@@ -9,10 +9,10 @@ import {
 } from "../../i18n/utils";
 
 interface Props {
-  title: string;
   description: string;
   image?: string;
   lang?: string;
+  title: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -29,10 +29,10 @@ const englishURL = new URL(
 );
 
 const {
-  title,
   description,
   image,
   lang,
+  title,
 } = Astro.props;
 
 const defaultSocialImage = await getImage({
@@ -156,7 +156,7 @@ const socialImage = image ?? defaultSocialImage.src;
       try {
         window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(params));
       } catch {
-        // Ignore storage errors so tracking still works in restricted environments.
+        // ignore storage errors, so tracking still works where sessionStorage is blocked.
       }
     }
 
@@ -170,7 +170,7 @@ const socialImage = image ?? defaultSocialImage.src;
       const searchParams = new URLSearchParams(window.location.search);
       const currentUtmParams = {};
 
-      // Only copy the campaign parameters we explicitly want to forward.
+      // copy only the campaign parameters we want to forward.
       for (const paramName of UTM_PARAM_NAMES) {
         const value = searchParams.get(paramName);
         if (value) {
@@ -179,7 +179,7 @@ const socialImage = image ?? defaultSocialImage.src;
       }
 
       if (Object.keys(currentUtmParams).length > 0) {
-        // Fresh URL params win over older stored values from the same session.
+        // fresh URL params win over older values from the same session.
         const mergedUtmParams = {
           ...readStoredUtmParams(),
           ...currentUtmParams,
@@ -230,10 +230,10 @@ const socialImage = image ?? defaultSocialImage.src;
         body: JSON.stringify({
           domain: plausibleDomain,
           lang: currentLang,
-          // Plausible uses the top-level `name` field as the primary event label.
+          // the top-level name field is what Plausible shows as the event label.
           name: event.eventAction,
-          // Merge the stored UTM values into every event so Plausible keeps the
-          // original campaign attribution for later interactions in the session.
+          // stored UTM goes into every event, so later interactions keep the
+          // original campaign attribution.
           props: {
             eventAction: event.eventAction,
             eventCategory: event.eventCategory,
@@ -242,7 +242,7 @@ const socialImage = image ?? defaultSocialImage.src;
             ...event.props,
           },
           referrer: document.referrer || undefined,
-          // Plausible extracts UTM from the URL only. Append stored UTM when missing.
+          // append stored UTM, because Plausible reads campaign data from the URL only.
           url: buildTrackingUrl(),
         }),
       });
@@ -277,8 +277,8 @@ const socialImage = image ?? defaultSocialImage.src;
 
       if (!hasSentPageview) {
         hasSentPageview = true;
-        // Plausible expects "pageview" (lowercase) as the event name – only then are
-        // Entry Pages and Exit Pages populated. Other names are treated as custom events.
+        // the name has to be lowercase "pageview" for Plausible to fill Entry
+        // and Exit pages; every other name counts as a custom event.
         sendAnalyticsEvent({
           eventAction: "pageview",
           eventCategory: "PAGE",
@@ -306,7 +306,7 @@ const socialImage = image ?? defaultSocialImage.src;
         return;
 
       if (!hasActivatedTracking) {
-        // Queue events until we are sure there was actual human interaction.
+        // queue events until a human interaction confirms this is no bot.
         queuedEvents.push(event);
         return;
       }
@@ -314,7 +314,7 @@ const socialImage = image ?? defaultSocialImage.src;
       sendAnalyticsEvent(event).catch(() => undefined);
     };
 
-    // Tracking only becomes active after a lightweight interaction signal.
+    // tracking starts on the first interaction signal, whichever comes first.
     window.addEventListener("mousemove", handleHumanInteraction, {
       once: true,
       passive: true,

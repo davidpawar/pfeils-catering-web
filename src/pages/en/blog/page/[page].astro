@@ -3,6 +3,10 @@ import { getCollection } from "astro:content";
 import BlogIndexLayout from "../../../../layouts/BlogIndexLayout.astro";
 import { toBlogPostListItem } from "../../../../utils/blogImages";
 
+/**
+ * Builds /page/2 and up. Page one lives at the archive root, so it is
+ * skipped here.
+ */
 export async function getStaticPaths() {
   const postsPerPage = 6;
   const allPosts = await getCollection("blogEn");
@@ -12,16 +16,30 @@ export async function getStaticPaths() {
   }));
 }
 
+/**
+ * Posts per page. Keep in sync with the archive root.
+ */
 const POSTS_PER_PAGE = 6;
 
 const { page } = Astro.params;
 const pageNum = parseInt(page ?? "2", 10);
 
+/**
+ * Newest post first, the order the archive shows.
+ */
 const allPosts = (await getCollection("blogEn")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
+
+/**
+ * Clamped, so a hand-typed page number cannot leave the range.
+ */
 const currentPage = Math.min(Math.max(1, pageNum), totalPages);
+
+/**
+ * Index of the first post on this page.
+ */
 const start = (currentPage - 1) * POSTS_PER_PAGE;
 const posts = allPosts
   .slice(start, start + POSTS_PER_PAGE)

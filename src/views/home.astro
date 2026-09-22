@@ -1,0 +1,231 @@
+---
+import BaseHead from "../components/base/BaseHead.astro";
+import Footer from "../components/base/Footer.astro";
+import HeroMain from "../components/widgets/HeroMain.astro";
+import ImageNavigation from "../components/widgets/ImageNavigation.astro";
+import ImageText from "../components/widgets/ImageText.astro";
+import ItemList from "../components/widgets/ItemList.astro";
+import FAQ from "../components/widgets/FAQ.astro";
+import Testimonials from "../components/widgets/Testimonials.astro";
+import Navigation from "../components/base/Navigation.astro";
+import { imageProvider } from "../provider/imageProvider";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead
+      title={t("home.meta.title")}
+      description={t("home.meta.description")}
+      lang={lang}
+    />
+  </head>
+  <body>
+    <div class="relative">
+      <Navigation />
+      <main>
+        <HeroMain />
+        <ImageText
+          badgeText={t("home.who.badge")}
+          description={t("home.who.description")}
+          image={imageProvider.team.team3Experts}
+          leftStatLabel={t("home.who.leftStatLabel")}
+          leftStatPrefix={t("home.who.leftStatPrefix")}
+          leftStatValue="2008"
+          rightStatLabel={t("home.who.rightStatLabel")}
+          rightStatValue="100+"
+          title={t("home.who.title")}
+        />
+        <ImageNavigation
+          moreDetailsText={t("home.nav.more")}
+          sectionBadge={t("home.nav.badge")}
+          sectionDescription={t("home.nav.description")}
+          sectionTitle={t("home.nav.title")}
+          cards={[
+            {
+              href: translatePath("/firmenfeier/"),
+              image: imageProvider.events.firmenfeierFullSetup,
+              text: t("home.nav.card1.text"),
+              title: t("home.nav.card1.title"),
+            },
+            {
+              href: translatePath("/hochzeitsfeier/"),
+              image: imageProvider.events.hochzeit,
+              text: t("home.nav.card2.text"),
+              title: t("home.nav.card2.title"),
+            },
+            {
+              href: translatePath("/messe-catering/"),
+              image: imageProvider.events.messe,
+              text: t("home.nav.card3.text"),
+              title: t("home.nav.card3.title"),
+            },
+          ]}
+        />
+        <ImageText
+          badgeText={t("home.why.badge")}
+          checkItems={[
+            t("home.why.check1"),
+            t("home.why.check2"),
+            t("home.why.check3"),
+            t("home.why.check4"),
+            t("home.why.check5"),
+            t("home.why.check6"),
+          ]}
+          description={t("home.why.description")}
+          image={imageProvider.catering.cocktailService}
+          imagePosition="right"
+          title={t("home.why.title")}
+          theme="dark"
+        />
+        <ItemList
+          badge={t("home.references.badge")}
+          title={t("home.references.title")}
+          description={t("home.references.description")}
+          items={[
+            {
+              href: "https://www.vb-oberberg.de/startseite.html",
+              image: imageProvider.partners.volksbank,
+              title: t("home.references.volksbank.title"),
+              description: t("home.references.volksbank.description"),
+            },
+            {
+              href: "https://www.ksk-koeln.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort/oberbergischen-kreis.html",
+              image: imageProvider.partners.sparkasse,
+              title: t("home.references.sparkasse.title"),
+              description: t("home.references.sparkasse.description"),
+            },
+            {
+              href: "https://kaltenbach-gruppe.de/bmw/waldbroel",
+              image: imageProvider.partners.bmwKaltenbach,
+              title: t("home.references.bmw.title"),
+              description: t("home.references.bmw.description"),
+            },
+            {
+              href: "https://www.schwalbe.com/",
+              image: imageProvider.partners.schwalbe,
+              title: t("home.references.schwalbe.title"),
+              description: t("home.references.schwalbe.description"),
+            },
+            {
+              href: "https://www.oni.de/",
+              image: imageProvider.partners.oni,
+              title: t("home.references.oni.title"),
+              description: t("home.references.oni.description"),
+            },
+            {
+              href: "https://www.elektrisola.com/de",
+              image: imageProvider.partners.elektrisola,
+              title: t("home.references.elektrisola.title"),
+              description: t("home.references.elektrisola.description"),
+            },
+          ]}
+          columns={3}
+        />
+
+        <ImageText
+          badgeText={t("home.bar.badge")}
+          checkItems={[
+            t("home.bar.check1"),
+            t("home.bar.check2"),
+            t("home.bar.check3"),
+            t("home.bar.check4"),
+            t("home.bar.check5"),
+            t("home.bar.check6"),
+          ]}
+          description={t("home.bar.description")}
+          image={imageProvider.catering.bambusbar}
+          imagePosition="right"
+          link={translatePath("/mobile-cocktailbar/")}
+          title={t("home.bar.title")}
+          theme="dark"
+        />
+
+        <ImageText
+          badgeText={t("home.booking.badge")}
+          buttonText={t("home.booking.button")}
+          image={imageProvider.catering.bambusbarAbend}
+          link={translatePath("/anfrage/")}
+          theme="grey"
+          title={t("home.booking.title")}
+        />
+
+        <Testimonials
+          badge={t("home.testimonials.badge")}
+          description={t("home.testimonials.description")}
+          title={t("home.testimonials.title")}
+          testimonials={[
+            {
+              name: t("home.testimonials.item1.name"),
+              jobTitle: t("home.testimonials.item1.jobTitle"),
+              text: t("home.testimonials.item1.text"),
+            },
+            {
+              name: t("home.testimonials.item2.name"),
+              jobTitle: t("home.testimonials.item2.jobTitle"),
+              text: t("home.testimonials.item2.text"),
+            },
+            {
+              name: t("home.testimonials.item3.name"),
+              jobTitle: t("home.testimonials.item3.jobTitle"),
+              text: t("home.testimonials.item3.text"),
+            },
+            {
+              name: t("home.testimonials.item4.name"),
+              jobTitle: t("home.testimonials.item4.jobTitle"),
+              text: t("home.testimonials.item4.text"),
+            },
+            {
+              name: t("home.testimonials.item5.name"),
+              jobTitle: t("home.testimonials.item5.jobTitle"),
+              text: t("home.testimonials.item5.text"),
+            },
+          ]}
+        />
+
+        <FAQ
+          badge={t("home.faq.badge")}
+          description={t("home.faq.description")}
+          title={t("home.faq.title")}
+          items={[
+            {
+              question: t("home.faq.q1"),
+              answer: t("home.faq.a1"),
+            },
+            {
+              question: t("home.faq.q2"),
+              answer: t("home.faq.a2"),
+            },
+            {
+              question: t("home.faq.q3"),
+              answer: t("home.faq.a3"),
+            },
+            {
+              question: t("home.faq.q4"),
+              answer: t("home.faq.a4"),
+            },
+            {
+              question: t("home.faq.q5"),
+              answer: t("home.faq.a5"),
+            },
+            {
+              question: t("home.faq.q6"),
+              answer: t("home.faq.a6"),
+            },
+          ]}
+          theme="grey"
+        />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

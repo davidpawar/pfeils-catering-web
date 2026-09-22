@@ -5,37 +5,44 @@ import { CircleQuestionMark } from "@lucide/astro";
  * Single FAQ item.
  */
 interface FAQItem {
-  /**
-   * The question text.
-   */
-  question: string;
+
   /**
    * The answer/response text.
    */
   answer: string;
+
+  /**
+   * The question text.
+   */
+  question: string;
 }
 
 interface Props {
+
   /**
    * Optional badge text above the section title.
    */
   badge?: string;
+
   /**
    * Optional description paragraph under the section title.
    */
   description?: string;
+
   /**
    * List of FAQ items (question/answer pairs).
    */
   items: FAQItem[];
-  /**
-   * Section heading.
-   */
-  title: string;
+
   /**
    * Color theme: light (white), dark, or grey (bg-slate-100).
    */
   theme?: "light" | "dark" | "grey";
+
+  /**
+   * Section heading.
+   */
+  title: string;
 }
 
 const { badge, description, items, theme = "light", title } = Astro.props;
@@ -82,11 +89,14 @@ const titleClass = isDark ? "text-white" : "text-dark";
 {
   hasItems && (
     <>
+
       {/* FAQ: Section with question/answer cards */}
       <section class:list={["relative overflow-hidden", sectionBgClass]}>
+
         {/* JSON-LD FAQPage schema for SEO */}
         <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
         <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl">
+
           {/* Section header: badge, title, description (optional) */}
           {(badge || title || description) && (
             <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
@@ -131,6 +141,7 @@ const titleClass = isDark ? "text-white" : "text-dark";
                   i === 2 && "delay-200",
                 ]}
               >
+
                 {/* Question mark icon (circle) */}
                 <div class:list={["mb-4 flex h-10 w-10 shrink-0 items-center justify-center", questionMarkClass]}>
                   <CircleQuestionMark size={40} stroke-width={1.5} aria-hidden="true" />

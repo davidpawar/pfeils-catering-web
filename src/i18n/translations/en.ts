@@ -1,3 +1,9 @@
+/**
+ * English copy, mirroring the keys in `de.ts`.
+ *
+ * A missing key falls back to German at runtime. That is a safety net, not
+ * the workflow: `npm run check` fails when a key is missing here.
+ */
 export const en = {
   "nav.anfrage": "Contact",
   "nav.blog": "Blog",
@@ -32,10 +38,10 @@ export const en = {
   "hero.title": "Your Cocktail Catering Service",
   "home.meta.description":
     "Professional cocktail catering for corporate events, weddings & festivals. Mobile bar, experienced bartenders, Oberberg & Cologne region. Request a quote!",
-  "home.meta.title": "Pfeil's Cocktail Catering | Mobile Cocktailbar",
+  "home.meta.title": "Cocktail Bar for Parties and Events | Pfeil's Catering",
   "anfrage.meta.description":
-    "Contact us for your cocktail catering. Non-binding enquiry for corporate event, wedding or festival. Quick response.",
-  "anfrage.meta.title": "Contact Us | Pfeil's Cocktail Catering",
+    "Contact us for your cocktail catering. Non-binding enquiry for a corporate event, wedding or festival. We reply quickly.",
+  "anfrage.meta.title": "Request Your Catering Quote Now | Pfeil's Catering",
   "hero.anfrage.description":
     "Fill out the contact form – we will get back to you soon.",
   "hero.anfrage.subtitle": "Contact",
@@ -90,8 +96,8 @@ export const en = {
   "blog.description":
     "Tips, recipes and insights on cocktail catering, events and enjoyment.",
   "blog.meta.description":
-    "Tips, recipes and insights on cocktail catering, corporate events and festivals. By Pfeil's Catering Waldbröl.",
-  "blog.meta.title": "Blog | Tips & Recipes | Pfeil's Cocktail Catering",
+    "Tips, recipes and insights on cocktail catering, corporate events and festivals in the Oberberg region. By Pfeil's Catering.",
+  "blog.meta.title": "Tips, Recipes and Cocktail Ideas | Pfeil's Catering",
   "blog.page": "Page",
   "blog.paginationNext": "Next",
   "blog.paginationPrev": "Previous",
@@ -100,7 +106,7 @@ export const en = {
   "hero.blog.title": "Blog – Tips, Recipes and Catering News",
   "datenschutz.meta.description":
     "Short privacy policy of Pfeil's Cocktail Catering on hosting, analytics, contact form processing and your rights under GDPR.",
-  "datenschutz.meta.title": "Privacy Policy | Pfeil's Cocktail Catering",
+  "datenschutz.meta.title": "Privacy Policy and Data Processing | Pfeil's Catering",
   "datenschutz.title": "Privacy Policy",
   "datenschutz.controller": "Controller",
   "datenschutz.processing.title": "What data we process",
@@ -233,7 +239,7 @@ export const en = {
   "hochzeitsfeier.meta.description":
     "Personal cocktail catering for your wedding. Bar charm, premium drinks, full-service. Oberberg, Cologne, Bonn. Plan your wedding bar.",
   "hochzeitsfeier.meta.title":
-    "Cocktail Catering Wedding | Pfeil's Catering",
+    "Cocktail Catering for Your Wedding | Pfeil's Catering",
   "hochzeitsfeier.testimonials.badge": "Customer Voices",
   "hochzeitsfeier.testimonials.description":
     "What our customers say about our cocktail catering at weddings.",
@@ -280,7 +286,7 @@ export const en = {
   "hochzeitsfeier.textList.title": "Your wedding celebration",
   "impressum.meta.description":
     "Imprint with provider details, contact information, VAT ID and mandatory legal information for Pfeil's Cocktail Catering in Waldbröl.",
-  "impressum.meta.title": "Imprint | Pfeil's Cocktail Catering",
+  "impressum.meta.title": "Imprint and Legal Provider Details | Pfeil's Catering",
   "impressum.title": "Imprint",
   "impressum.businessName": "Pfeil's Cocktail Catering",
   "impressum.owner": "Owner: Thomas Pfeil",
@@ -317,7 +323,7 @@ export const en = {
   "individuell.meta.description":
     "Tailored catering: ice cream, sausage grill, crepes, coffee truck, flammkuchen. For corporate events & festivals. Waldbröl, Oberberg.",
   "individuell.meta.title":
-    "Individual Catering | Ice Cream, Grill, Crepes | Pfeil's Catering",
+    "Ice Cream, Grill and Crepes On Site | Pfeil's Catering",
   "individuell.service.bratwurst.bullets":
     "Grill station on site, Selection of classic and special sausages, Vegetarian alternatives on request, Individual menu coordination, Quick setup and dismantling, Optional with tableware",
   "individuell.service.bratwurst.description":
@@ -381,7 +387,7 @@ export const en = {
   "messe.gallery.title": "Cocktail catering at trade fairs",
   "messe.meta.description":
     "Exhibition cocktail catering for trade fairs, exhibitions & business events. Mobile cocktail bar, experienced bartenders. Cologne, Düsseldorf, NRW.",
-  "messe.meta.title": "Exhibition Cocktail Catering | Trade Fair Catering | Pfeil's Catering",
+  "messe.meta.title": "Cocktail Catering for Trade Fairs | Pfeil's Catering",
   "messe.testimonials.badge": "Customer voices",
   "messe.testimonials.description":
     "What our customers say about our cocktail catering at trade fairs.",
@@ -539,9 +545,9 @@ export const en = {
     "High quality and fresh ingredients",
   "mobileCocktailbar.textList.title": "Your next corporate event",
   "mobileCocktailbarKoln.meta.title":
-    "Mobile Cocktail Bar Cologne | Pfeil's Catering",
+    "Mobile Cocktail Bar for Cologne | Pfeil's Catering",
   "mobileCocktailbarKoln.meta.description":
-    "Mobile cocktail bar for events in Cologne. Corporate parties at Rheinauhafen, weddings with cathedral view, carnival events. Professional cocktail catering in Cologne.",
+    "Mobile cocktail bar for events in Cologne: corporate parties at Rheinauhafen, weddings with a cathedral view, carnival events.",
   "mobileCocktailbarKoln.hero.title": "Mobile Cocktail Bar Cologne – Cocktails where you celebrate",
   "mobileCocktailbarKoln.intro.badge": "Cologne & Region",
   "mobileCocktailbarKoln.intro.title": "Your mobile bar for events in and around Cologne",
@@ -611,7 +617,7 @@ export const en = {
   "mobileCocktailbarGummersbach.meta.title":
     "Mobile Cocktail Bar Gummersbach | Pfeil's Catering",
   "mobileCocktailbarGummersbach.meta.description":
-    "Mobile cocktail bar for events in Gummersbach and Oberberg. Corporate parties, weddings, anniversaries. Short distance from Waldbröl – your cocktail catering on site.",
+    "Mobile cocktail bar for events in Gummersbach and Oberberg. Corporate parties, weddings and anniversaries, a short trip from Waldbröl.",
   "mobileCocktailbarGummersbach.hero.title": "Mobile Cocktail Bar Gummersbach – right from the neighbourhood",
   "mobileCocktailbarGummersbach.intro.badge": "Oberberg & Gummersbach",
   "mobileCocktailbarGummersbach.intro.title": "Your mobile bar for events in Gummersbach and surroundings",
@@ -756,4 +762,116 @@ export const en = {
   "footer.cityPages.nuembrecht": "Nümbrecht",
   "footer.tagline":
     "Mixed with heart, for you and your guests. Professional cocktail catering for unforgettable events since 2008.",
+  "home.who.badge": "Who we are",
+  "home.who.description":
+    "Cocktail stations bring people together! Whether employees, customers or business partners – a well-made cocktail is the perfect icebreaker. You get talking, try new flavor combinations and interact playfully with colleagues. Professional cocktail catering creates exactly the right balance of business and enjoyment.",
+  "home.who.leftStatLabel": "15+ years of expertise",
+  "home.who.leftStatPrefix": "since",
+  "home.who.rightStatLabel": "Satisfied customers",
+  "home.who.title":
+    "A team of experts with a passion for cocktails and great service.",
+  "home.nav.more": "more details →",
+  "home.nav.badge": "Our Service",
+  "home.nav.description":
+    "From corporate events to weddings – we bring the bar to you and create unforgettable moments.",
+  "home.nav.title": "Stylish cocktails for every event",
+  "home.nav.card1.title": "Corporate Events",
+  "home.nav.card1.text":
+    "Professional cocktail service for business events. Perfect for team building, anniversaries and customer events.",
+  "home.nav.card2.title": "Wedding",
+  "home.nav.card2.text":
+    "Exclusive cocktails for the most beautiful day. Individually tailored to your wishes.",
+  "home.nav.card3.title": "Exhibition & Events",
+  "home.nav.card3.text":
+    "Mobile bar for trade fairs and large events. High capacity, professional service.",
+  "home.why.badge": "Why book us",
+  "home.why.check1": "Decades of experience",
+  "home.why.check2": "100% reliability",
+  "home.why.check3": "Cocktail expertise",
+  "home.why.check4": "Excellent service",
+  "home.why.check5": "Strong flexibility",
+  "home.why.check6": "Fresh ingredients",
+  "home.why.description":
+    "Our cocktail catering stands for reliable planning, professional implementation and consistently high quality. Experienced bartenders ensure smooth operations and premium drinks. We create an elegant framework for your corporate event – efficient and service-oriented.",
+  "home.why.title": "From classic cocktails to creative signature drinks",
+  "home.references.badge": "References",
+  "home.references.title": "A selection of our references",
+  "home.references.description":
+    "From regional SMEs to global players – we bring the bar where it's celebrated.",
+  "home.references.volksbank.title": "Volksbank Oberberg",
+  "home.references.volksbank.description":
+    "Cooperative bank for the region – membership, co-determination and shared success.",
+  "home.references.sparkasse.title": "Sparkasse KölnBonn",
+  "home.references.sparkasse.description":
+    "Kreissparkasse Köln in the Oberberg district – personal advice and top regional bank in NRW.",
+  "home.references.bmw.title": "BMW Kaltenbach Waldbröl",
+  "home.references.bmw.description":
+    "BMW dealer and MINI service – part of the Kaltenbach Group in the Oberberg region.",
+  "home.references.schwalbe.title": "Schwalbe",
+  "home.references.schwalbe.description":
+    "Leading manufacturer of bicycle and wheelchair tires – tires that get you where you want to go.",
+  "home.references.oni.title": "ONI",
+  "home.references.oni.description":
+    "Energy-efficient systems for industry and cooling technology – over 6,000 customers in 70 countries.",
+  "home.references.elektrisola.title": "Elektrisola",
+  "home.references.elektrisola.description":
+    "World-leading manufacturer of enamelled wire and fine wire – 10 plants in 7 countries.",
+  "home.bar.badge": "Mobile Cocktail Bar",
+  "home.bar.check1": "Flexible location",
+  "home.bar.check2": "Perfectly staged",
+  "home.bar.check3": "Individually tailored",
+  "home.bar.check4": "All-inclusive package",
+  "home.bar.check5": "Reliable bar service",
+  "home.bar.check6": "Attention to detail",
+  "home.bar.description":
+    "Mobile cocktail bar with style – the flexible solution for your event. We bring excellent cocktails and atmosphere directly to you, whether wedding, corporate celebration or festival. Quality equipment, experienced team and drinks from classics to individual creations.",
+  "home.bar.title": "Our mobile cocktail bar",
+  "home.booking.badge": "Booking",
+  "home.booking.button": "Request now",
+  "home.booking.title":
+    "Book with ease – we are delighted to have already served countless customers.",
+  "home.testimonials.badge": "Testimonials",
+  "home.testimonials.description": "What our customers say about us.",
+  "home.testimonials.title": "Voices of our customers",
+  "home.testimonials.item1.name": "Robert S.",
+  "home.testimonials.item1.jobTitle": "Managing Director",
+  "home.testimonials.item1.text":
+    "The team adapted perfectly to our corporate event. Professional, friendly and with a fine sense for the atmosphere. We'll be happy to book again!",
+  "home.testimonials.item2.name": "Alina N.",
+  "home.testimonials.item2.jobTitle": "Wedding Planner",
+  "home.testimonials.item2.text":
+    "So much attention to detail and such a great team! You were an unforgettable part of our wedding.",
+  "home.testimonials.item3.name": "Corinna L.",
+  "home.testimonials.item3.jobTitle": "Event Manager",
+  "home.testimonials.item3.text":
+    "Our annual celebration was a complete success thanks to the cocktail service. The drinks were not only a highlight in taste, but also a real eye-catcher.",
+  "home.testimonials.item4.name": "Sebastian G.",
+  "home.testimonials.item4.jobTitle": "Event Organizer",
+  "home.testimonials.item4.text":
+    "The cocktail bar was a real crowd-puller at our trade fair stand. Many visitors stayed longer – exactly what we wanted.",
+  "home.testimonials.item5.name": "Gianluca Z.",
+  "home.testimonials.item5.jobTitle": "Private Customer",
+  "home.testimonials.item5.text":
+    "An all-round successful performance at our summer party. From planning to the last drink – everything ran smoothly and at the highest level.",
+  "home.faq.badge": "FAQ",
+  "home.faq.description": "Frequently asked questions about our cocktail catering.",
+  "home.faq.title": "Questions & Answers",
+  "home.faq.q1": "What is included in the cocktail catering?",
+  "home.faq.a1":
+    "Our service includes professional bartenders, a mobile bar (if required), all cocktail ingredients, glasses, ice, decoration and of course an individual cocktail menu – tailored to your taste and the event.",
+  "home.faq.q2": "How much lead time is needed for a booking?",
+  "home.faq.a2":
+    "Ideally, book our service at least 2–4 weeks in advance. Short-term requests are also possible depending on availability – just ask!",
+  "home.faq.q3": "How does pricing work?",
+  "home.faq.a3":
+    "Our prices depend on the number of guests, the duration of the event, the desired scope of services and the selection of cocktails. We will be happy to create a tailored, non-binding quote for you.",
+  "home.faq.q4": "Can we bring our own cocktails or requests?",
+  "home.faq.a4":
+    "Of course! We are happy when you bring your own ideas or favorite drinks. Our bartenders will gladly create individual creations to match your event.",
+  "home.faq.q5": "In which regions do you offer your service?",
+  "home.faq.a5":
+    "Our cocktail catering is available regionally and, on request, throughout Germany. Depending on the distance, travel costs may apply – we discuss these transparently in our quote.",
+  "home.faq.q6": "Is there a maximum number of guests you can serve?",
+  "home.faq.a6":
+    "Basically no – we are equipped for small celebrations as well as for large events with several hundred guests. For larger events, we provide a correspondingly large team and several bar stations to ensure smooth operations. Just let us know your guest count, and we will plan everything accordingly!",
 } as const;

@@ -10,13 +10,17 @@ const lang = getLangFromUrl(Astro.url);
 const logoImageClass =
   "block h-full w-auto max-w-32 object-contain object-left opacity-90 transition-opacity duration-300 group-hover:opacity-100";
 
-/** Partner logos may be SVG (e.g. Schwalbe). Astro's <Image> routes through /_image. */
+/**
+ * Partner logos may be SVG (e.g. Schwalbe). Astro's <Image> routes through /_image.
+ */
 function isSvgAsset(src: ImageMetadata | string): boolean {
   if (typeof src === "string") return /\.svg(\?|$)/i.test(src);
   return src.format === "svg";
 }
 
-/** SVG imports expose width/height on ImageMetadata; string URLs need a fallback. */
+/**
+ * SVG imports expose width/height on ImageMetadata; string URLs need a fallback.
+ */
 function getSvgDimensions(src: ImageMetadata | string) {
   if (typeof src === "object") {
     return { width: src.width, height: src.height };
@@ -28,18 +32,22 @@ function getSvgDimensions(src: ImageMetadata | string) {
  * Single item in the list. Supports text-only or logo+link variants.
  */
 interface ItemListItem {
+
   /**
    * Item description text.
    */
   description: string;
+
   /**
    * Optional URL (when set, renders as link instead of static card).
    */
   href?: string;
+
   /**
    * Optional logo image (when set, renders logo above title).
    */
   image?: ImageAsset;
+
   /**
    * Item title/heading.
    */
@@ -47,26 +55,32 @@ interface ItemListItem {
 }
 
 interface Props {
+
   /**
    * Optional badge text above the section title.
    */
   badge?: string;
+
   /**
    * Number of columns: 1, 2, or 3. Default: 2.
    */
   columns?: 1 | 2 | 3;
+
   /**
    * Optional description paragraph under the section title.
    */
   description?: string;
+
   /**
    * List of items to display.
    */
   items: ItemListItem[];
+
   /**
    * Color theme: light (white), dark, or grey.
    */
   theme?: "light" | "dark" | "grey";
+
   /**
    * Optional section heading.
    */
@@ -111,9 +125,15 @@ const gridColsClass =
 {
   hasItems && (
     <section class:list={["relative overflow-hidden", sectionBgClass]}>
-      {/* ItemList: optional header + grid of items (text cards or logo+link cards) */}
+
+      {/*
+        ItemList: optional header + grid of items (text cards or logo+link cards)
+      */}
       <div class="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-16 lg:py-24 min-[1920px]:max-w-8xl">
-        {/* Section header: badge, title, description (all optional) */}
+
+        {/*
+          Section header: badge, title, description (all optional)
+        */}
         {(badge || title || description) && (
           <div class="fade-in-section mb-8 max-w-4xl md:mb-12">
             {badge && (
@@ -146,18 +166,23 @@ const gridColsClass =
           </div>
         )}
 
-        {/* Items grid: cards with title + description (link or static) */}
+        {/*
+          Items grid: cards with title + description (link or static)
+        */}
 
         <div class:list={["fade-in-section delay-200 grid gap-6 md:gap-6", gridColsClass]}>
           {items.map((item) => {
             const isLink = !!item.href;
             const hasImage = !!item.image;
 
-            /* Card content: optional logo, title, description */
+            /*
+             * Card content: optional logo, title, description
+             */
             const cardContent = (
               <>
                 {hasImage && (
                   <div class="mb-4 flex h-16 items-center md:h-20">
+
                     {/*
                       SVG: plain <img> — Cloudflare imageService "compile" rejects f=svg
                       (400 Unsupported format). Raster logos keep using <Image> for WebP.

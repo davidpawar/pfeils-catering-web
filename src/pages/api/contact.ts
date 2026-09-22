@@ -1,9 +1,12 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 
+/**
+ * Rendered per request: the form posts here at runtime.
+ */
 export const prerender = false;
 
-// Maps form values for "Where did you hear about us?" to readable labels.
+// turns the select value into the label that appears in the email.
 const SOURCE_LABELS: Record<string, string> = {
   empfehlung: "Empfehlung",
   google: "Google",
@@ -12,7 +15,7 @@ const SOURCE_LABELS: Record<string, string> = {
   sonstiges: "Sonstiges",
 };
 
-// Shared CSS styles for both email templates (internal + confirmation).
+// inline styles shared by the internal and the confirmation email.
 const EMAIL_LAYOUT = {
   card: "background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(0,0,0,0.08),0 2px 4px -2px rgba(0,0,0,0.06)",
   container: "max-width:560px;margin:0 auto;padding:32px 16px",
@@ -188,6 +191,10 @@ const createJSONResponse = (body: object, status = 200) =>
 export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
+
+    /**
+     * Submitted fields. Only name, email and message are required below.
+     */
     const date = (formData.get("date") as string | null)?.trim() || undefined;
     const email = (formData.get("email") as string | null)?.trim();
     const guests =
@@ -234,7 +241,7 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // 1. Internal inquiry email (recipient from wrangler CONTACT_TO_EMAIL)
+    // first the internal inquiry, sent to CONTACT_TO_EMAIL.
     const res = await fetch("https://api.resend.com/emails", {
       body: JSON.stringify({
         from: "Pfeils Catering <kontakt@notification.pfeils-catering.de>",
@@ -271,7 +278,8 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // 2. Confirmation email to customer (errors are only logged, not returned to client)
+    // then the confirmation to the customer, whose failure is only logged,
+    // because the inquiry itself already went out.
     const confirmationRes = await fetch("https://api.resend.com/emails", {
       body: JSON.stringify({
         from: "Pfeils Catering <kontakt@notification.pfeils-catering.de>",
